@@ -10,12 +10,14 @@ using namespace Rcpp;
 RcppExport SEXP _rcpp_module_boot_stan_fit4binomial_1par_mod();
 RcppExport SEXP _rcpp_module_boot_stan_fit4binomial_2par_mod();
 RcppExport SEXP _rcpp_module_boot_stan_fit4normal_mod();
+RcppExport SEXP _rcpp_module_boot_stan_fit4ordered_multinomial_mod();
 RcppExport SEXP _rcpp_module_boot_stan_fit4poisson_mod();
 
 static const R_CallMethodDef CallEntries[] = {
     {"_rcpp_module_boot_stan_fit4binomial_1par_mod", (DL_FUNC) &_rcpp_module_boot_stan_fit4binomial_1par_mod, 0},
     {"_rcpp_module_boot_stan_fit4binomial_2par_mod", (DL_FUNC) &_rcpp_module_boot_stan_fit4binomial_2par_mod, 0},
     {"_rcpp_module_boot_stan_fit4normal_mod", (DL_FUNC) &_rcpp_module_boot_stan_fit4normal_mod, 0},
+    {"_rcpp_module_boot_stan_fit4ordered_multinomial_mod", (DL_FUNC) &_rcpp_module_boot_stan_fit4ordered_multinomial_mod, 0},
     {"_rcpp_module_boot_stan_fit4poisson_mod", (DL_FUNC) &_rcpp_module_boot_stan_fit4poisson_mod, 0},
     {NULL, NULL, 0}
 };

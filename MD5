@@ -1,6 +1,6 @@
-6e5ab03e0fd012291da6c5ce48e7ebe5 *DESCRIPTION
+961301d034fa1c3ad23b8b09bab23271 *DESCRIPTION
 0dc3115a74bda1099eba9b1b41f7b580 *NAMESPACE
-284106adcb100141da7ab17275235fee *NEWS.md
+6643017ae2002bc0f22d7cfb13cb91cd *NEWS.md
 25e7162975d1a27e4ead9e809d1b23c9 *R/adapt_delta.R
 19a18d442ab5f0ebc966818209cf6482 *R/data.R
 50c143223b78af171e4aeecdf16c440d *R/default.R
@@ -8,7 +8,7 @@ be1df32e8ea708377f89c9df1691ba1f *R/doc-examples.R
 5e4d3959d762a75d76bed6b3e1055468 *R/integration.R
 3f27e4af38d24eb570404eca766ca038 *R/mcmc_array-class.R
 4fa3ad36736c65f65cc6b1f7baa01115 *R/multinma-package.R
-d36f9c65b6b3a05999cedf67fc8eee97 *R/nma.R
+2a97249d0ecce2350e2c9d567f5bc321 *R/nma.R
 e5d4f918c84869da11dda15f6eb77b0d *R/nma_data-class.R
 6d3fd8e3f1c6a2b1e9209fb6ea9975c9 *R/nma_data.R
 9f62dc3af9e4bfa66bc6cacdf221283e *R/nma_dic-class.R
@@ -26,8 +26,8 @@ f0058af1c8130fd3817df9ec5a00f37a *R/s3_register.R
 9e5e7b2be3e61439fe1671ca2e4846ea *R/stanmodels.R
 e9886ef4b349a04ca0c94b546dba60cf *R/theme_multinma.R
 9affec94bccb66abbc5091bf9bd7a016 *R/zzz.R
-511ccc8b74e7269ddbe9fab7d7b0e1b6 *README.md
-00c99cb4f107d0cdd6309a2f0f13613e *build/partial.rdb
+5ffa4aa9de7bc4f0afb4e3b91fa4c300 *README.md
+df408a9614cb0fa2b2198229a9b3849c *build/partial.rdb
 8a04c1c4a622f1dffd02d5350b0b3389 *build/vignette.rds
 1cc60bdd8610449d30184e0bb374bf46 *configure
 363506993327ae3b7de4216fa3a1aa2b *configure.win

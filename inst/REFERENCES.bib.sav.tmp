@@ -366,29 +366,4 @@
 }
 
 @Article{Reich2015,
-  author    = {K. Reich and U. Mrowietz and M. A. Radtke and D. Thaci and S. J. Rustenbach and C. Spehr and M. Augustin},
-  journal   = {Archives of Dermatological Research},
-  title     = {Drug safety of systemic treatments for psoriasis: results from The German Psoriasis Registry {PsoBest}},
-  year      = {2015},
-  month     = sep,
-  number    = {10},
-  pages     = {875--883},
-  volume    = {307},
-  doi       = {10.1007/s00403-015-1593-8},
-  publisher = {Springer Science and Business Media {LLC}},
-}
-
-@Article{Thaci2019,
-  author    = {D. Tha{\c{c}}i and A. Körber and R. Kiedrowski and T. Bachhuber and N. Melzer and T. Kasparek and E. Duetting and G. Kraehn-Senftleben and U. Amon and M. Augustin},
-  journal   = {Journal of the European Academy of Dermatology and Venereology},
-  title     = {Secukinumab is effective in treatment of moderate-to-severe plaque psoriasis: real-life effectiveness and safety from the {PROSPECT} study},
-  year      = {2019},
-  month     = oct,
-  number    = {2},
-  pages     = {310--318},
-  volume    = {34},
-  doi       = {10.1111/jdv.15962},
-  publisher = {Wiley},
-}
-
-@Comment{jabref-meta: databaseType:bibtex;}
+  author    = {K. Reich and U. Mrowietz an

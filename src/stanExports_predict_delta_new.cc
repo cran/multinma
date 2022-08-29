@@ -7,7 +7,7 @@ using namespace Rcpp ;
 RCPP_MODULE(stan_fit4predict_delta_new_mod) {
 
 
-    class_<rstan::stan_fit<stan_model, boost::random::ecuyer1988> >("model_predict_delta_new")
+    class_<rstan::stan_fit<stan_model, boost::random::ecuyer1988> >("rstantools_model_predict_delta_new")
 
     .constructor<SEXP,SEXP,SEXP>()
 

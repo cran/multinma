@@ -55,17 +55,17 @@ stan::io::program_reader prog_reader__() {
     reader.add_event(209, 34, "restart", "model_ordered_multinomial");
     reader.add_event(223, 48, "include", "/include/transformed_parameters_common.stan");
     reader.add_event(223, 0, "start", "/include/transformed_parameters_common.stan");
-    reader.add_event(333, 110, "end", "/include/transformed_parameters_common.stan");
-    reader.add_event(333, 49, "restart", "model_ordered_multinomial");
-    reader.add_event(532, 248, "include", "/include/model_common.stan");
-    reader.add_event(532, 0, "start", "/include/model_common.stan");
-    reader.add_event(573, 41, "end", "/include/model_common.stan");
-    reader.add_event(573, 249, "restart", "model_ordered_multinomial");
-    reader.add_event(601, 277, "include", "/include/generated_quantities_common.stan");
-    reader.add_event(601, 0, "start", "/include/generated_quantities_common.stan");
-    reader.add_event(659, 58, "end", "/include/generated_quantities_common.stan");
-    reader.add_event(659, 278, "restart", "model_ordered_multinomial");
-    reader.add_event(694, 311, "end", "model_ordered_multinomial");
+    reader.add_event(345, 122, "end", "/include/transformed_parameters_common.stan");
+    reader.add_event(345, 49, "restart", "model_ordered_multinomial");
+    reader.add_event(544, 248, "include", "/include/model_common.stan");
+    reader.add_event(544, 0, "start", "/include/model_common.stan");
+    reader.add_event(585, 41, "end", "/include/model_common.stan");
+    reader.add_event(585, 249, "restart", "model_ordered_multinomial");
+    reader.add_event(613, 277, "include", "/include/generated_quantities_common.stan");
+    reader.add_event(613, 0, "start", "/include/generated_quantities_common.stan");
+    reader.add_event(671, 58, "end", "/include/generated_quantities_common.stan");
+    reader.add_event(671, 278, "restart", "model_ordered_multinomial");
+    reader.add_event(706, 311, "end", "model_ordered_multinomial");
     return reader;
 }
 template <typename T0__, typename T2__, typename T3__, typename T4__, typename T_lp__, typename T_lp_accum__>
@@ -1242,7 +1242,6 @@ public:
             Eigen::Matrix<local_scalar_t__, Eigen::Dynamic, 1> mu(totns);
             stan::math::initialize(mu, DUMMY_VAR__);
             stan::math::fill(mu, DUMMY_VAR__);
-            stan::math::assign(mu,stan::model::rvalue(allbeta, stan::model::cons_list(stan::model::index_min_max(1, totns), stan::model::nil_index_list()), "allbeta"));
             current_statement_begin__ = 244;
             validate_non_negative_index("d", "(nt - 1)", (nt - 1));
             Eigen::Matrix<local_scalar_t__, Eigen::Dynamic, 1> d((nt - 1));
@@ -1259,7 +1258,6 @@ public:
             Eigen::Matrix<local_scalar_t__, Eigen::Dynamic, 1> beta((((nX - totns) - (nt - 1)) - nodesplit));
             stan::math::initialize(beta, DUMMY_VAR__);
             stan::math::fill(beta, DUMMY_VAR__);
-            stan::math::assign(beta,stan::model::rvalue(allbeta, stan::model::cons_list(stan::model::index_min(((totns + nt) + nodesplit)), stan::model::nil_index_list()), "allbeta"));
             current_statement_begin__ = 253;
             validate_non_negative_index("eta_agd_contrast_ii", "(logical_gt(nint, 1) ? (nint * ni_agd_contrast) : 0 )", (logical_gt(nint, 1) ? (nint * ni_agd_contrast) : 0 ));
             Eigen::Matrix<local_scalar_t__, Eigen::Dynamic, 1> eta_agd_contrast_ii((logical_gt(nint, 1) ? (nint * ni_agd_contrast) : 0 ));
@@ -1272,35 +1270,45 @@ public:
             stan::math::fill(eta_agd_contrast_bar, DUMMY_VAR__);
             // transformed parameters block statements
             current_statement_begin__ = 258;
-            if (as_bool(nodesplit)) {
+            if (as_bool(totns)) {
                 current_statement_begin__ = 259;
+                stan::math::assign(mu, stan::model::rvalue(allbeta, stan::model::cons_list(stan::model::index_min_max(1, totns), stan::model::nil_index_list()), "allbeta"));
+            }
+            current_statement_begin__ = 264;
+            if (as_bool((((nX - totns) - (nt - 1)) - nodesplit))) {
+                current_statement_begin__ = 265;
+                stan::math::assign(beta, stan::model::rvalue(allbeta, stan::model::cons_list(stan::model::index_min(((totns + nt) + nodesplit)), stan::model::nil_index_list()), "allbeta"));
+            }
+            current_statement_begin__ = 270;
+            if (as_bool(nodesplit)) {
+                current_statement_begin__ = 271;
                 stan::model::assign(omega, 
                             stan::model::cons_list(stan::model::index_uni(1), stan::model::nil_index_list()), 
                             get_base1(allbeta, (totns + nt), "allbeta", 1), 
                             "assigning variable omega");
             }
-            current_statement_begin__ = 267;
+            current_statement_begin__ = 279;
             if (as_bool(ni_ipd)) {
-                current_statement_begin__ = 268;
+                current_statement_begin__ = 280;
                 if (as_bool(RE)) {
                     {
-                    current_statement_begin__ = 270;
+                    current_statement_begin__ = 282;
                     validate_non_negative_index("eta_ipd_noRE", "ni_ipd", ni_ipd);
                     Eigen::Matrix<local_scalar_t__, Eigen::Dynamic, 1> eta_ipd_noRE(ni_ipd);
                     stan::math::initialize(eta_ipd_noRE, DUMMY_VAR__);
                     stan::math::fill(eta_ipd_noRE, DUMMY_VAR__);
                     stan::math::assign(eta_ipd_noRE,(has_offset ? stan::math::promote_scalar<local_scalar_t__>(add(multiply(X_ipd, beta_tilde), offset_ipd)) : stan::math::promote_scalar<local_scalar_t__>(multiply(X_ipd, beta_tilde)) ));
-                    current_statement_begin__ = 274;
+                    current_statement_begin__ = 286;
                     for (int i = 1; i <= ni_ipd; ++i) {
-                        current_statement_begin__ = 275;
+                        current_statement_begin__ = 287;
                         if (as_bool(get_base1(which_RE, get_base1(ipd_arm, i, "ipd_arm", 1), "which_RE", 1))) {
-                            current_statement_begin__ = 276;
+                            current_statement_begin__ = 288;
                             stan::model::assign(eta_ipd, 
                                         stan::model::cons_list(stan::model::index_uni(i), stan::model::nil_index_list()), 
                                         (get_base1(eta_ipd_noRE, i, "eta_ipd_noRE", 1) + get_base1(f_delta, get_base1(which_RE, get_base1(ipd_arm, i, "ipd_arm", 1), "which_RE", 1), "f_delta", 1)), 
                                         "assigning variable eta_ipd");
                         } else {
-                            current_statement_begin__ = 278;
+                            current_statement_begin__ = 290;
                             stan::model::assign(eta_ipd, 
                                         stan::model::cons_list(stan::model::index_uni(i), stan::model::nil_index_list()), 
                                         get_base1(eta_ipd_noRE, i, "eta_ipd_noRE", 1), 
@@ -1309,40 +1317,40 @@ public:
                     }
                     }
                 } else {
-                    current_statement_begin__ = 282;
+                    current_statement_begin__ = 294;
                     stan::math::assign(eta_ipd, (has_offset ? stan::math::promote_scalar<local_scalar_t__>(add(multiply(X_ipd, beta_tilde), offset_ipd)) : stan::math::promote_scalar<local_scalar_t__>(multiply(X_ipd, beta_tilde)) ));
                 }
             }
-            current_statement_begin__ = 289;
+            current_statement_begin__ = 301;
             if (as_bool(ni_agd_contrast)) {
-                current_statement_begin__ = 290;
+                current_statement_begin__ = 302;
                 if (as_bool(logical_gt(nint, 1))) {
-                    current_statement_begin__ = 291;
+                    current_statement_begin__ = 303;
                     if (as_bool(RE)) {
                         {
-                        current_statement_begin__ = 292;
+                        current_statement_begin__ = 304;
                         validate_non_negative_index("eta_agd_contrast_noRE", "(nint * ni_agd_contrast)", (nint * ni_agd_contrast));
                         Eigen::Matrix<local_scalar_t__, Eigen::Dynamic, 1> eta_agd_contrast_noRE((nint * ni_agd_contrast));
                         stan::math::initialize(eta_agd_contrast_noRE, DUMMY_VAR__);
                         stan::math::fill(eta_agd_contrast_noRE, DUMMY_VAR__);
                         stan::math::assign(eta_agd_contrast_noRE,(has_offset ? stan::math::promote_scalar<local_scalar_t__>(add(multiply(X_agd_contrast, beta_tilde), offset_agd_contrast)) : stan::math::promote_scalar<local_scalar_t__>(multiply(X_agd_contrast, beta_tilde)) ));
-                        current_statement_begin__ = 296;
+                        current_statement_begin__ = 308;
                         for (int i = 1; i <= ni_agd_contrast; ++i) {
-                            current_statement_begin__ = 297;
+                            current_statement_begin__ = 309;
                             if (as_bool(get_base1(which_RE, ((narm_ipd + ni_agd_arm) + i), "which_RE", 1))) {
-                                current_statement_begin__ = 298;
+                                current_statement_begin__ = 310;
                                 stan::model::assign(eta_agd_contrast_ii, 
                                             stan::model::cons_list(stan::model::index_min_max((1 + ((i - 1) * nint)), (i * nint)), stan::model::nil_index_list()), 
                                             add(stan::model::rvalue(eta_agd_contrast_noRE, stan::model::cons_list(stan::model::index_min_max((1 + ((i - 1) * nint)), (i * nint)), stan::model::nil_index_list()), "eta_agd_contrast_noRE"), get_base1(f_delta, get_base1(which_RE, ((narm_ipd + ni_agd_arm) + i), "which_RE", 1), "f_delta", 1)), 
                                             "assigning variable eta_agd_contrast_ii");
                             } else {
-                                current_statement_begin__ = 301;
+                                current_statement_begin__ = 313;
                                 stan::model::assign(eta_agd_contrast_ii, 
                                             stan::model::cons_list(stan::model::index_min_max((1 + ((i - 1) * nint)), (i * nint)), stan::model::nil_index_list()), 
                                             stan::model::rvalue(eta_agd_contrast_noRE, stan::model::cons_list(stan::model::index_min_max((1 + ((i - 1) * nint)), (i * nint)), stan::model::nil_index_list()), "eta_agd_contrast_noRE"), 
                                             "assigning variable eta_agd_contrast_ii");
                             }
-                            current_statement_begin__ = 304;
+                            current_statement_begin__ = 316;
                             stan::model::assign(eta_agd_contrast_bar, 
                                         stan::model::cons_list(stan::model::index_uni(i), stan::model::nil_index_list()), 
                                         mean(stan::model::rvalue(eta_agd_contrast_ii, stan::model::cons_list(stan::model::index_min_max((1 + ((i - 1) * nint)), (i * nint)), stan::model::nil_index_list()), "eta_agd_contrast_ii")), 
@@ -1350,11 +1358,11 @@ public:
                         }
                         }
                     } else {
-                        current_statement_begin__ = 307;
+                        current_statement_begin__ = 319;
                         stan::math::assign(eta_agd_contrast_ii, (has_offset ? stan::math::promote_scalar<local_scalar_t__>(add(multiply(X_agd_contrast, beta_tilde), offset_agd_contrast)) : stan::math::promote_scalar<local_scalar_t__>(multiply(X_agd_contrast, beta_tilde)) ));
-                        current_statement_begin__ = 311;
+                        current_statement_begin__ = 323;
                         for (int i = 1; i <= ni_agd_contrast; ++i) {
-                            current_statement_begin__ = 312;
+                            current_statement_begin__ = 324;
                             stan::model::assign(eta_agd_contrast_bar, 
                                         stan::model::cons_list(stan::model::index_uni(i), stan::model::nil_index_list()), 
                                         mean(stan::model::rvalue(eta_agd_contrast_ii, stan::model::cons_list(stan::model::index_min_max((1 + ((i - 1) * nint)), (i * nint)), stan::model::nil_index_list()), "eta_agd_contrast_ii")), 
@@ -1362,26 +1370,26 @@ public:
                         }
                     }
                 } else {
-                    current_statement_begin__ = 316;
+                    current_statement_begin__ = 328;
                     if (as_bool(RE)) {
                         {
-                        current_statement_begin__ = 317;
+                        current_statement_begin__ = 329;
                         validate_non_negative_index("eta_agd_contrast_noRE", "(nint * ni_agd_contrast)", (nint * ni_agd_contrast));
                         Eigen::Matrix<local_scalar_t__, Eigen::Dynamic, 1> eta_agd_contrast_noRE((nint * ni_agd_contrast));
                         stan::math::initialize(eta_agd_contrast_noRE, DUMMY_VAR__);
                         stan::math::fill(eta_agd_contrast_noRE, DUMMY_VAR__);
                         stan::math::assign(eta_agd_contrast_noRE,(has_offset ? stan::math::promote_scalar<local_scalar_t__>(add(multiply(X_agd_contrast, beta_tilde), offset_agd_contrast)) : stan::math::promote_scalar<local_scalar_t__>(multiply(X_agd_contrast, beta_tilde)) ));
-                        current_statement_begin__ = 321;
+                        current_statement_begin__ = 333;
                         for (int i = 1; i <= ni_agd_contrast; ++i) {
-                            current_statement_begin__ = 322;
+                            current_statement_begin__ = 334;
                             if (as_bool(get_base1(which_RE, ((narm_ipd + ni_agd_arm) + i), "which_RE", 1))) {
-                                current_statement_begin__ = 323;
+                                current_statement_begin__ = 335;
                                 stan::model::assign(eta_agd_contrast_bar, 
                                             stan::model::cons_list(stan::model::index_uni(i), stan::model::nil_index_list()), 
                                             (get_base1(eta_agd_contrast_noRE, i, "eta_agd_contrast_noRE", 1) + get_base1(f_delta, get_base1(which_RE, ((narm_ipd + ni_agd_arm) + i), "which_RE", 1), "f_delta", 1)), 
                                             "assigning variable eta_agd_contrast_bar");
                             } else {
-                                current_statement_begin__ = 325;
+                                current_statement_begin__ = 337;
                                 stan::model::assign(eta_agd_contrast_bar, 
                                             stan::model::cons_list(stan::model::index_uni(i), stan::model::nil_index_list()), 
                                             get_base1(eta_agd_contrast_noRE, i, "eta_agd_contrast_noRE", 1), 
@@ -1390,127 +1398,130 @@ public:
                         }
                         }
                     } else {
-                        current_statement_begin__ = 328;
+                        current_statement_begin__ = 340;
                         stan::math::assign(eta_agd_contrast_bar, (has_offset ? stan::math::promote_scalar<local_scalar_t__>(add(multiply(X_agd_contrast, beta_tilde), offset_agd_contrast)) : stan::math::promote_scalar<local_scalar_t__>(multiply(X_agd_contrast, beta_tilde)) ));
                     }
                 }
             }
-            current_statement_begin__ = 335;
+            current_statement_begin__ = 347;
             stan::model::assign(cc, 
                         stan::model::cons_list(stan::model::index_uni(1), stan::model::nil_index_list()), 
                         0, 
                         "assigning variable cc");
-            current_statement_begin__ = 336;
-            stan::model::assign(cc, 
-                        stan::model::cons_list(stan::model::index_min(2), stan::model::nil_index_list()), 
-                        f_cc, 
-                        "assigning variable cc");
-            current_statement_begin__ = 339;
+            current_statement_begin__ = 348;
+            if (as_bool(logical_gt(ncat, 2))) {
+                current_statement_begin__ = 348;
+                stan::model::assign(cc, 
+                            stan::model::cons_list(stan::model::index_min(2), stan::model::nil_index_list()), 
+                            f_cc, 
+                            "assigning variable cc");
+            }
+            current_statement_begin__ = 351;
             stan::math::assign(theta_ipd, theta_ipd0);
-            current_statement_begin__ = 340;
+            current_statement_begin__ = 352;
             stan::math::assign(theta_agd_arm_bar, theta_agd_arm_bar0);
-            current_statement_begin__ = 344;
+            current_statement_begin__ = 356;
             for (int i = 1; i <= ni_ipd; ++i) {
                 {
-                current_statement_begin__ = 345;
+                current_statement_begin__ = 357;
                 validate_non_negative_index("q_temp", "(get_base1(ipd_ncat, i, \"ipd_ncat\", 1) - 1)", (get_base1(ipd_ncat, i, "ipd_ncat", 1) - 1));
                 Eigen::Matrix<local_scalar_t__, Eigen::Dynamic, 1> q_temp((get_base1(ipd_ncat, i, "ipd_ncat", 1) - 1));
                 stan::math::initialize(q_temp, DUMMY_VAR__);
                 stan::math::fill(q_temp, DUMMY_VAR__);
-                current_statement_begin__ = 348;
+                current_statement_begin__ = 360;
                 if (as_bool(logical_eq(link, 1))) {
-                    current_statement_begin__ = 349;
+                    current_statement_begin__ = 361;
                     stan::model::assign(q_temp, 
                                 stan::model::cons_list(stan::model::index_uni(1), stan::model::nil_index_list()), 
                                 inv_logit((get_base1(eta_ipd, i, "eta_ipd", 1) - get_base1(cc, 1, "cc", 1))), 
                                 "assigning variable q_temp");
                 } else if (as_bool(logical_eq(link, 2))) {
-                    current_statement_begin__ = 351;
+                    current_statement_begin__ = 363;
                     stan::model::assign(q_temp, 
                                 stan::model::cons_list(stan::model::index_uni(1), stan::model::nil_index_list()), 
                                 Phi((get_base1(eta_ipd, i, "eta_ipd", 1) - get_base1(cc, 1, "cc", 1))), 
                                 "assigning variable q_temp");
                 } else if (as_bool(logical_eq(link, 3))) {
-                    current_statement_begin__ = 353;
+                    current_statement_begin__ = 365;
                     stan::model::assign(q_temp, 
                                 stan::model::cons_list(stan::model::index_uni(1), stan::model::nil_index_list()), 
                                 inv_cloglog((get_base1(eta_ipd, i, "eta_ipd", 1) - get_base1(cc, 1, "cc", 1))), 
                                 "assigning variable q_temp");
                 }
-                current_statement_begin__ = 355;
+                current_statement_begin__ = 367;
                 stan::model::assign(theta_ipd, 
                             stan::model::cons_list(stan::model::index_uni(i), stan::model::cons_list(stan::model::index_uni(1), stan::model::nil_index_list())), 
                             (1 - get_base1(q_temp, 1, "q_temp", 1)), 
                             "assigning variable theta_ipd");
-                current_statement_begin__ = 358;
+                current_statement_begin__ = 370;
                 for (int k = 2; k <= (get_base1(ipd_ncat, i, "ipd_ncat", 1) - 1); ++k) {
-                    current_statement_begin__ = 359;
+                    current_statement_begin__ = 371;
                     if (as_bool(logical_eq(link, 1))) {
-                        current_statement_begin__ = 360;
+                        current_statement_begin__ = 372;
                         stan::model::assign(q_temp, 
                                     stan::model::cons_list(stan::model::index_uni(k), stan::model::nil_index_list()), 
                                     inv_logit((get_base1(eta_ipd, i, "eta_ipd", 1) - get_base1(cc, get_base1(get_base1(ipd_cat, i, "ipd_cat", 1), k, "ipd_cat", 2), "cc", 1))), 
                                     "assigning variable q_temp");
                     } else if (as_bool(logical_eq(link, 2))) {
-                        current_statement_begin__ = 362;
+                        current_statement_begin__ = 374;
                         stan::model::assign(q_temp, 
                                     stan::model::cons_list(stan::model::index_uni(k), stan::model::nil_index_list()), 
                                     Phi((get_base1(eta_ipd, i, "eta_ipd", 1) - get_base1(cc, get_base1(get_base1(ipd_cat, i, "ipd_cat", 1), k, "ipd_cat", 2), "cc", 1))), 
                                     "assigning variable q_temp");
                     } else if (as_bool(logical_eq(link, 3))) {
-                        current_statement_begin__ = 364;
+                        current_statement_begin__ = 376;
                         stan::model::assign(q_temp, 
                                     stan::model::cons_list(stan::model::index_uni(k), stan::model::nil_index_list()), 
                                     inv_cloglog((get_base1(eta_ipd, i, "eta_ipd", 1) - get_base1(cc, get_base1(get_base1(ipd_cat, i, "ipd_cat", 1), k, "ipd_cat", 2), "cc", 1))), 
                                     "assigning variable q_temp");
                     }
-                    current_statement_begin__ = 367;
+                    current_statement_begin__ = 379;
                     stan::model::assign(theta_ipd, 
                                 stan::model::cons_list(stan::model::index_uni(i), stan::model::cons_list(stan::model::index_uni(get_base1(get_base1(ipd_cat, i, "ipd_cat", 1), k, "ipd_cat", 2)), stan::model::nil_index_list())), 
                                 (get_base1(q_temp, (k - 1), "q_temp", 1) - get_base1(q_temp, k, "q_temp", 1)), 
                                 "assigning variable theta_ipd");
                 }
-                current_statement_begin__ = 371;
+                current_statement_begin__ = 383;
                 stan::model::assign(theta_ipd, 
                             stan::model::cons_list(stan::model::index_uni(i), stan::model::cons_list(stan::model::index_uni(get_base1(get_base1(ipd_cat, i, "ipd_cat", 1), get_base1(ipd_ncat, i, "ipd_ncat", 1), "ipd_cat", 2)), stan::model::nil_index_list())), 
                             get_base1(q_temp, (get_base1(ipd_ncat, i, "ipd_ncat", 1) - 1), "q_temp", 1), 
                             "assigning variable theta_ipd");
                 }
             }
-            current_statement_begin__ = 375;
+            current_statement_begin__ = 387;
             if (as_bool(ni_agd_arm)) {
                 {
-                current_statement_begin__ = 376;
+                current_statement_begin__ = 388;
                 validate_non_negative_index("eta_agd_arm_noRE", "(nint * ni_agd_arm)", (nint * ni_agd_arm));
                 Eigen::Matrix<local_scalar_t__, Eigen::Dynamic, 1> eta_agd_arm_noRE((nint * ni_agd_arm));
                 stan::math::initialize(eta_agd_arm_noRE, DUMMY_VAR__);
                 stan::math::fill(eta_agd_arm_noRE, DUMMY_VAR__);
                 stan::math::assign(eta_agd_arm_noRE,(has_offset ? stan::math::promote_scalar<local_scalar_t__>(add(multiply(X_agd_arm, beta_tilde), offset_agd_arm)) : stan::math::promote_scalar<local_scalar_t__>(multiply(X_agd_arm, beta_tilde)) ));
-                current_statement_begin__ = 380;
+                current_statement_begin__ = 392;
                 if (as_bool(logical_gt(nint, 1))) {
-                    current_statement_begin__ = 382;
+                    current_statement_begin__ = 394;
                     if (as_bool(RE)) {
                         {
-                        current_statement_begin__ = 384;
+                        current_statement_begin__ = 396;
                         validate_non_negative_index("eta_agd_arm_RE", "nint", nint);
                         Eigen::Matrix<local_scalar_t__, Eigen::Dynamic, 1> eta_agd_arm_RE(nint);
                         stan::math::initialize(eta_agd_arm_RE, DUMMY_VAR__);
                         stan::math::fill(eta_agd_arm_RE, DUMMY_VAR__);
-                        current_statement_begin__ = 386;
+                        current_statement_begin__ = 398;
                         if (as_bool(logical_eq(link, 1))) {
-                            current_statement_begin__ = 387;
+                            current_statement_begin__ = 399;
                             for (int i = 1; i <= ni_agd_arm; ++i) {
-                                current_statement_begin__ = 388;
+                                current_statement_begin__ = 400;
                                 if (as_bool(get_base1(which_RE, (narm_ipd + i), "which_RE", 1))) {
-                                    current_statement_begin__ = 389;
+                                    current_statement_begin__ = 401;
                                     stan::math::assign(eta_agd_arm_RE, add(stan::model::rvalue(eta_agd_arm_noRE, stan::model::cons_list(stan::model::index_min_max((1 + ((i - 1) * nint)), (i * nint)), stan::model::nil_index_list()), "eta_agd_arm_noRE"), get_base1(f_delta, get_base1(which_RE, (narm_ipd + i), "which_RE", 1), "f_delta", 1)));
                                 } else {
-                                    current_statement_begin__ = 391;
+                                    current_statement_begin__ = 403;
                                     stan::math::assign(eta_agd_arm_RE, stan::model::rvalue(eta_agd_arm_noRE, stan::model::cons_list(stan::model::index_min_max((1 + ((i - 1) * nint)), (i * nint)), stan::model::nil_index_list()), "eta_agd_arm_noRE"));
                                 }
-                                current_statement_begin__ = 393;
+                                current_statement_begin__ = 405;
                                 for (int k = 1; k <= (get_base1(agd_arm_ncat, i, "agd_arm_ncat", 1) - 1); ++k) {
-                                    current_statement_begin__ = 394;
+                                    current_statement_begin__ = 406;
                                     stan::model::assign(theta_agd_arm_ii, 
                                                 stan::model::cons_list(stan::model::index_min_max((1 + ((i - 1) * nint)), (i * nint)), stan::model::cons_list(stan::model::index_uni(get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2)), stan::model::nil_index_list())), 
                                                 inv_logit(subtract(eta_agd_arm_RE, get_base1(cc, get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2), "cc", 1))), 
@@ -1518,19 +1529,19 @@ public:
                                 }
                             }
                         } else if (as_bool(logical_eq(link, 2))) {
-                            current_statement_begin__ = 398;
+                            current_statement_begin__ = 410;
                             for (int i = 1; i <= ni_agd_arm; ++i) {
-                                current_statement_begin__ = 399;
+                                current_statement_begin__ = 411;
                                 if (as_bool(get_base1(which_RE, (narm_ipd + i), "which_RE", 1))) {
-                                    current_statement_begin__ = 400;
+                                    current_statement_begin__ = 412;
                                     stan::math::assign(eta_agd_arm_RE, add(stan::model::rvalue(eta_agd_arm_noRE, stan::model::cons_list(stan::model::index_min_max((1 + ((i - 1) * nint)), (i * nint)), stan::model::nil_index_list()), "eta_agd_arm_noRE"), get_base1(f_delta, get_base1(which_RE, (narm_ipd + i), "which_RE", 1), "f_delta", 1)));
                                 } else {
-                                    current_statement_begin__ = 402;
+                                    current_statement_begin__ = 414;
                                     stan::math::assign(eta_agd_arm_RE, stan::model::rvalue(eta_agd_arm_noRE, stan::model::cons_list(stan::model::index_min_max((1 + ((i - 1) * nint)), (i * nint)), stan::model::nil_index_list()), "eta_agd_arm_noRE"));
                                 }
-                                current_statement_begin__ = 404;
+                                current_statement_begin__ = 416;
                                 for (int k = 1; k <= (get_base1(agd_arm_ncat, i, "agd_arm_ncat", 1) - 1); ++k) {
-                                    current_statement_begin__ = 405;
+                                    current_statement_begin__ = 417;
                                     stan::model::assign(theta_agd_arm_ii, 
                                                 stan::model::cons_list(stan::model::index_min_max((1 + ((i - 1) * nint)), (i * nint)), stan::model::cons_list(stan::model::index_uni(get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2)), stan::model::nil_index_list())), 
                                                 Phi(subtract(eta_agd_arm_RE, get_base1(cc, get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2), "cc", 1))), 
@@ -1538,19 +1549,19 @@ public:
                                 }
                             }
                         } else if (as_bool(logical_eq(link, 3))) {
-                            current_statement_begin__ = 409;
+                            current_statement_begin__ = 421;
                             for (int i = 1; i <= ni_agd_arm; ++i) {
-                                current_statement_begin__ = 410;
+                                current_statement_begin__ = 422;
                                 if (as_bool(get_base1(which_RE, (narm_ipd + i), "which_RE", 1))) {
-                                    current_statement_begin__ = 411;
+                                    current_statement_begin__ = 423;
                                     stan::math::assign(eta_agd_arm_RE, add(stan::model::rvalue(eta_agd_arm_noRE, stan::model::cons_list(stan::model::index_min_max((1 + ((i - 1) * nint)), (i * nint)), stan::model::nil_index_list()), "eta_agd_arm_noRE"), get_base1(f_delta, get_base1(which_RE, (narm_ipd + i), "which_RE", 1), "f_delta", 1)));
                                 } else {
-                                    current_statement_begin__ = 413;
+                                    current_statement_begin__ = 425;
                                     stan::math::assign(eta_agd_arm_RE, stan::model::rvalue(eta_agd_arm_noRE, stan::model::cons_list(stan::model::index_min_max((1 + ((i - 1) * nint)), (i * nint)), stan::model::nil_index_list()), "eta_agd_arm_noRE"));
                                 }
-                                current_statement_begin__ = 415;
+                                current_statement_begin__ = 427;
                                 for (int k = 1; k <= (get_base1(agd_arm_ncat, i, "agd_arm_ncat", 1) - 1); ++k) {
-                                    current_statement_begin__ = 416;
+                                    current_statement_begin__ = 428;
                                     stan::model::assign(theta_agd_arm_ii, 
                                                 stan::model::cons_list(stan::model::index_min_max((1 + ((i - 1) * nint)), (i * nint)), stan::model::cons_list(stan::model::index_uni(get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2)), stan::model::nil_index_list())), 
                                                 inv_cloglog(subtract(eta_agd_arm_RE, get_base1(cc, get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2), "cc", 1))), 
@@ -1560,13 +1571,13 @@ public:
                         }
                         }
                     } else {
-                        current_statement_begin__ = 423;
+                        current_statement_begin__ = 435;
                         if (as_bool(logical_eq(link, 1))) {
-                            current_statement_begin__ = 424;
+                            current_statement_begin__ = 436;
                             for (int i = 1; i <= ni_agd_arm; ++i) {
-                                current_statement_begin__ = 425;
+                                current_statement_begin__ = 437;
                                 for (int k = 1; k <= (get_base1(agd_arm_ncat, i, "agd_arm_ncat", 1) - 1); ++k) {
-                                    current_statement_begin__ = 426;
+                                    current_statement_begin__ = 438;
                                     stan::model::assign(theta_agd_arm_ii, 
                                                 stan::model::cons_list(stan::model::index_min_max((1 + ((i - 1) * nint)), (i * nint)), stan::model::cons_list(stan::model::index_uni(get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2)), stan::model::nil_index_list())), 
                                                 inv_logit(subtract(stan::model::rvalue(eta_agd_arm_noRE, stan::model::cons_list(stan::model::index_min_max((1 + ((i - 1) * nint)), (i * nint)), stan::model::nil_index_list()), "eta_agd_arm_noRE"), get_base1(cc, get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2), "cc", 1))), 
@@ -1574,11 +1585,11 @@ public:
                                 }
                             }
                         } else if (as_bool(logical_eq(link, 2))) {
-                            current_statement_begin__ = 430;
+                            current_statement_begin__ = 442;
                             for (int i = 1; i <= ni_agd_arm; ++i) {
-                                current_statement_begin__ = 431;
+                                current_statement_begin__ = 443;
                                 for (int k = 1; k <= (get_base1(agd_arm_ncat, i, "agd_arm_ncat", 1) - 1); ++k) {
-                                    current_statement_begin__ = 432;
+                                    current_statement_begin__ = 444;
                                     stan::model::assign(theta_agd_arm_ii, 
                                                 stan::model::cons_list(stan::model::index_min_max((1 + ((i - 1) * nint)), (i * nint)), stan::model::cons_list(stan::model::index_uni(get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2)), stan::model::nil_index_list())), 
                                                 Phi(subtract(stan::model::rvalue(eta_agd_arm_noRE, stan::model::cons_list(stan::model::index_min_max((1 + ((i - 1) * nint)), (i * nint)), stan::model::nil_index_list()), "eta_agd_arm_noRE"), get_base1(cc, get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2), "cc", 1))), 
@@ -1586,11 +1597,11 @@ public:
                                 }
                             }
                         } else if (as_bool(logical_eq(link, 3))) {
-                            current_statement_begin__ = 436;
+                            current_statement_begin__ = 448;
                             for (int i = 1; i <= ni_agd_arm; ++i) {
-                                current_statement_begin__ = 437;
+                                current_statement_begin__ = 449;
                                 for (int k = 1; k <= (get_base1(agd_arm_ncat, i, "agd_arm_ncat", 1) - 1); ++k) {
-                                    current_statement_begin__ = 438;
+                                    current_statement_begin__ = 450;
                                     stan::model::assign(theta_agd_arm_ii, 
                                                 stan::model::cons_list(stan::model::index_min_max((1 + ((i - 1) * nint)), (i * nint)), stan::model::cons_list(stan::model::index_uni(get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2)), stan::model::nil_index_list())), 
                                                 inv_cloglog(subtract(stan::model::rvalue(eta_agd_arm_noRE, stan::model::cons_list(stan::model::index_min_max((1 + ((i - 1) * nint)), (i * nint)), stan::model::nil_index_list()), "eta_agd_arm_noRE"), get_base1(cc, get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2), "cc", 1))), 
@@ -1599,11 +1610,11 @@ public:
                             }
                         }
                     }
-                    current_statement_begin__ = 445;
+                    current_statement_begin__ = 457;
                     for (int i = 1; i <= ni_agd_arm; ++i) {
-                        current_statement_begin__ = 446;
+                        current_statement_begin__ = 458;
                         for (int k = 1; k <= (get_base1(agd_arm_ncat, i, "agd_arm_ncat", 1) - 1); ++k) {
-                            current_statement_begin__ = 447;
+                            current_statement_begin__ = 459;
                             stan::model::assign(q_agd_arm_bar, 
                                         stan::model::cons_list(stan::model::index_uni(i), stan::model::cons_list(stan::model::index_uni(get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2)), stan::model::nil_index_list())), 
                                         mean(stan::model::rvalue(theta_agd_arm_ii, stan::model::cons_list(stan::model::index_min_max((1 + ((i - 1) * nint)), (i * nint)), stan::model::cons_list(stan::model::index_uni(get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2)), stan::model::nil_index_list())), "theta_agd_arm_ii")), 
@@ -1611,29 +1622,29 @@ public:
                         }
                     }
                 } else {
-                    current_statement_begin__ = 453;
+                    current_statement_begin__ = 465;
                     if (as_bool(RE)) {
                         {
-                        current_statement_begin__ = 455;
+                        current_statement_begin__ = 467;
                         local_scalar_t__ eta_agd_arm_RE(DUMMY_VAR__);
                         (void) eta_agd_arm_RE;  // dummy to suppress unused var warning
                         stan::math::initialize(eta_agd_arm_RE, DUMMY_VAR__);
                         stan::math::fill(eta_agd_arm_RE, DUMMY_VAR__);
-                        current_statement_begin__ = 457;
+                        current_statement_begin__ = 469;
                         if (as_bool(logical_eq(link, 1))) {
-                            current_statement_begin__ = 458;
+                            current_statement_begin__ = 470;
                             for (int i = 1; i <= ni_agd_arm; ++i) {
-                                current_statement_begin__ = 459;
+                                current_statement_begin__ = 471;
                                 if (as_bool(get_base1(which_RE, (narm_ipd + i), "which_RE", 1))) {
-                                    current_statement_begin__ = 460;
+                                    current_statement_begin__ = 472;
                                     stan::math::assign(eta_agd_arm_RE, (get_base1(eta_agd_arm_noRE, i, "eta_agd_arm_noRE", 1) + get_base1(f_delta, get_base1(which_RE, (narm_ipd + i), "which_RE", 1), "f_delta", 1)));
                                 } else {
-                                    current_statement_begin__ = 462;
+                                    current_statement_begin__ = 474;
                                     stan::math::assign(eta_agd_arm_RE, get_base1(eta_agd_arm_noRE, i, "eta_agd_arm_noRE", 1));
                                 }
-                                current_statement_begin__ = 464;
+                                current_statement_begin__ = 476;
                                 for (int k = 1; k <= (get_base1(agd_arm_ncat, i, "agd_arm_ncat", 1) - 1); ++k) {
-                                    current_statement_begin__ = 465;
+                                    current_statement_begin__ = 477;
                                     stan::model::assign(q_agd_arm_bar, 
                                                 stan::model::cons_list(stan::model::index_uni(i), stan::model::cons_list(stan::model::index_uni(get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2)), stan::model::nil_index_list())), 
                                                 inv_logit((eta_agd_arm_RE - get_base1(cc, get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2), "cc", 1))), 
@@ -1641,19 +1652,19 @@ public:
                                 }
                             }
                         } else if (as_bool(logical_eq(link, 2))) {
-                            current_statement_begin__ = 469;
+                            current_statement_begin__ = 481;
                             for (int i = 1; i <= ni_agd_arm; ++i) {
-                                current_statement_begin__ = 470;
+                                current_statement_begin__ = 482;
                                 if (as_bool(get_base1(which_RE, (narm_ipd + i), "which_RE", 1))) {
-                                    current_statement_begin__ = 471;
+                                    current_statement_begin__ = 483;
                                     stan::math::assign(eta_agd_arm_RE, (get_base1(eta_agd_arm_noRE, i, "eta_agd_arm_noRE", 1) + get_base1(f_delta, get_base1(which_RE, (narm_ipd + i), "which_RE", 1), "f_delta", 1)));
                                 } else {
-                                    current_statement_begin__ = 473;
+                                    current_statement_begin__ = 485;
                                     stan::math::assign(eta_agd_arm_RE, get_base1(eta_agd_arm_noRE, i, "eta_agd_arm_noRE", 1));
                                 }
-                                current_statement_begin__ = 475;
+                                current_statement_begin__ = 487;
                                 for (int k = 1; k <= (get_base1(agd_arm_ncat, i, "agd_arm_ncat", 1) - 1); ++k) {
-                                    current_statement_begin__ = 476;
+                                    current_statement_begin__ = 488;
                                     stan::model::assign(q_agd_arm_bar, 
                                                 stan::model::cons_list(stan::model::index_uni(i), stan::model::cons_list(stan::model::index_uni(get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2)), stan::model::nil_index_list())), 
                                                 Phi((eta_agd_arm_RE - get_base1(cc, get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2), "cc", 1))), 
@@ -1661,19 +1672,19 @@ public:
                                 }
                             }
                         } else if (as_bool(logical_eq(link, 3))) {
-                            current_statement_begin__ = 480;
+                            current_statement_begin__ = 492;
                             for (int i = 1; i <= ni_agd_arm; ++i) {
-                                current_statement_begin__ = 481;
+                                current_statement_begin__ = 493;
                                 if (as_bool(get_base1(which_RE, (narm_ipd + i), "which_RE", 1))) {
-                                    current_statement_begin__ = 482;
+                                    current_statement_begin__ = 494;
                                     stan::math::assign(eta_agd_arm_RE, (get_base1(eta_agd_arm_noRE, i, "eta_agd_arm_noRE", 1) + get_base1(f_delta, get_base1(which_RE, (narm_ipd + i), "which_RE", 1), "f_delta", 1)));
                                 } else {
-                                    current_statement_begin__ = 484;
+                                    current_statement_begin__ = 496;
                                     stan::math::assign(eta_agd_arm_RE, get_base1(eta_agd_arm_noRE, i, "eta_agd_arm_noRE", 1));
                                 }
-                                current_statement_begin__ = 486;
+                                current_statement_begin__ = 498;
                                 for (int k = 1; k <= (get_base1(agd_arm_ncat, i, "agd_arm_ncat", 1) - 1); ++k) {
-                                    current_statement_begin__ = 487;
+                                    current_statement_begin__ = 499;
                                     stan::model::assign(q_agd_arm_bar, 
                                                 stan::model::cons_list(stan::model::index_uni(i), stan::model::cons_list(stan::model::index_uni(get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2)), stan::model::nil_index_list())), 
                                                 inv_cloglog((eta_agd_arm_RE - get_base1(cc, get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2), "cc", 1))), 
@@ -1683,13 +1694,13 @@ public:
                         }
                         }
                     } else {
-                        current_statement_begin__ = 494;
+                        current_statement_begin__ = 506;
                         if (as_bool(logical_eq(link, 1))) {
-                            current_statement_begin__ = 495;
+                            current_statement_begin__ = 507;
                             for (int i = 1; i <= ni_agd_arm; ++i) {
-                                current_statement_begin__ = 496;
+                                current_statement_begin__ = 508;
                                 for (int k = 1; k <= (get_base1(agd_arm_ncat, i, "agd_arm_ncat", 1) - 1); ++k) {
-                                    current_statement_begin__ = 497;
+                                    current_statement_begin__ = 509;
                                     stan::model::assign(q_agd_arm_bar, 
                                                 stan::model::cons_list(stan::model::index_uni(i), stan::model::cons_list(stan::model::index_uni(get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2)), stan::model::nil_index_list())), 
                                                 inv_logit((get_base1(eta_agd_arm_noRE, i, "eta_agd_arm_noRE", 1) - get_base1(cc, get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2), "cc", 1))), 
@@ -1697,11 +1708,11 @@ public:
                                 }
                             }
                         } else if (as_bool(logical_eq(link, 2))) {
-                            current_statement_begin__ = 501;
+                            current_statement_begin__ = 513;
                             for (int i = 1; i <= ni_agd_arm; ++i) {
-                                current_statement_begin__ = 502;
+                                current_statement_begin__ = 514;
                                 for (int k = 1; k <= (get_base1(agd_arm_ncat, i, "agd_arm_ncat", 1) - 1); ++k) {
-                                    current_statement_begin__ = 503;
+                                    current_statement_begin__ = 515;
                                     stan::model::assign(q_agd_arm_bar, 
                                                 stan::model::cons_list(stan::model::index_uni(i), stan::model::cons_list(stan::model::index_uni(get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2)), stan::model::nil_index_list())), 
                                                 Phi((get_base1(eta_agd_arm_noRE, i, "eta_agd_arm_noRE", 1) - get_base1(cc, get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2), "cc", 1))), 
@@ -1709,11 +1720,11 @@ public:
                                 }
                             }
                         } else if (as_bool(logical_eq(link, 3))) {
-                            current_statement_begin__ = 507;
+                            current_statement_begin__ = 519;
                             for (int i = 1; i <= ni_agd_arm; ++i) {
-                                current_statement_begin__ = 508;
+                                current_statement_begin__ = 520;
                                 for (int k = 1; k <= (get_base1(agd_arm_ncat, i, "agd_arm_ncat", 1) - 1); ++k) {
-                                    current_statement_begin__ = 509;
+                                    current_statement_begin__ = 521;
                                     stan::model::assign(q_agd_arm_bar, 
                                                 stan::model::cons_list(stan::model::index_uni(i), stan::model::cons_list(stan::model::index_uni(get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2)), stan::model::nil_index_list())), 
                                                 inv_cloglog((get_base1(eta_agd_arm_noRE, i, "eta_agd_arm_noRE", 1) - get_base1(cc, get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2), "cc", 1))), 
@@ -1723,22 +1734,22 @@ public:
                         }
                     }
                 }
-                current_statement_begin__ = 518;
+                current_statement_begin__ = 530;
                 for (int i = 1; i <= ni_agd_arm; ++i) {
-                    current_statement_begin__ = 520;
+                    current_statement_begin__ = 532;
                     stan::model::assign(theta_agd_arm_bar, 
                                 stan::model::cons_list(stan::model::index_uni(i), stan::model::cons_list(stan::model::index_uni(1), stan::model::nil_index_list())), 
                                 (1 - get_base1(get_base1(q_agd_arm_bar, i, "q_agd_arm_bar", 1), 1, "q_agd_arm_bar", 2)), 
                                 "assigning variable theta_agd_arm_bar");
-                    current_statement_begin__ = 523;
+                    current_statement_begin__ = 535;
                     for (int k = 2; k <= (get_base1(agd_arm_ncat, i, "agd_arm_ncat", 1) - 1); ++k) {
-                        current_statement_begin__ = 524;
+                        current_statement_begin__ = 536;
                         stan::model::assign(theta_agd_arm_bar, 
                                     stan::model::cons_list(stan::model::index_uni(i), stan::model::cons_list(stan::model::index_uni(get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2)), stan::model::nil_index_list())), 
                                     (get_base1(get_base1(q_agd_arm_bar, i, "q_agd_arm_bar", 1), get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), (k - 1), "agd_arm_cat", 2), "q_agd_arm_bar", 2) - get_base1(get_base1(q_agd_arm_bar, i, "q_agd_arm_bar", 1), get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2), "q_agd_arm_bar", 2)), 
                                     "assigning variable theta_agd_arm_bar");
                     }
-                    current_statement_begin__ = 527;
+                    current_statement_begin__ = 539;
                     stan::model::assign(theta_agd_arm_bar, 
                                 stan::model::cons_list(stan::model::index_uni(i), stan::model::cons_list(stan::model::index_uni(get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), get_base1(agd_arm_ncat, i, "agd_arm_ncat", 1), "agd_arm_cat", 2)), stan::model::nil_index_list())), 
                                 get_base1(get_base1(q_agd_arm_bar, i, "q_agd_arm_bar", 1), get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), (get_base1(agd_arm_ncat, i, "agd_arm_ncat", 1) - 1), "agd_arm_cat", 2), "q_agd_arm_bar", 2), 
@@ -1888,84 +1899,84 @@ public:
                 }
             }
             // model body
-            current_statement_begin__ = 537;
+            current_statement_begin__ = 549;
             prior_select_lp(mu, prior_intercept_dist, prior_intercept_location, prior_intercept_scale, prior_intercept_df, lp__, lp_accum__, pstream__);
-            current_statement_begin__ = 539;
+            current_statement_begin__ = 551;
             prior_select_lp(d, prior_trt_dist, prior_trt_location, prior_trt_scale, prior_trt_df, lp__, lp_accum__, pstream__);
-            current_statement_begin__ = 541;
+            current_statement_begin__ = 553;
             prior_select_lp(beta, prior_reg_dist, prior_reg_location, prior_reg_scale, prior_reg_df, lp__, lp_accum__, pstream__);
-            current_statement_begin__ = 544;
+            current_statement_begin__ = 556;
             prior_select_lp(omega, prior_trt_dist, prior_trt_location, prior_trt_scale, prior_trt_df, lp__, lp_accum__, pstream__);
-            current_statement_begin__ = 547;
+            current_statement_begin__ = 559;
             if (as_bool(RE)) {
-                current_statement_begin__ = 548;
+                current_statement_begin__ = 560;
                 if (as_bool(logical_eq(prior_het_type, 1))) {
-                    current_statement_begin__ = 549;
+                    current_statement_begin__ = 561;
                     prior_select_lp(tau, prior_het_dist, prior_het_location, prior_het_scale, prior_het_df, lp__, lp_accum__, pstream__);
                 } else {
                     {
-                    current_statement_begin__ = 553;
+                    current_statement_begin__ = 565;
                     validate_non_negative_index("tau_t", "(RE ? 1 : 0 )", (RE ? 1 : 0 ));
                     Eigen::Matrix<local_scalar_t__, Eigen::Dynamic, 1> tau_t((RE ? 1 : 0 ));
                     stan::math::initialize(tau_t, DUMMY_VAR__);
                     stan::math::fill(tau_t, DUMMY_VAR__);
-                    current_statement_begin__ = 555;
+                    current_statement_begin__ = 567;
                     if (as_bool(logical_eq(prior_het_type, 2))) {
-                        current_statement_begin__ = 556;
+                        current_statement_begin__ = 568;
                         stan::model::assign(tau_t, 
                                     stan::model::cons_list(stan::model::index_uni(1), stan::model::nil_index_list()), 
                                     pow(get_base1(tau, 1, "tau", 1), 2), 
                                     "assigning variable tau_t");
-                        current_statement_begin__ = 557;
+                        current_statement_begin__ = 569;
                         lp_accum__.add(stan::math::log(tau));
                     } else if (as_bool(logical_eq(prior_het_type, 3))) {
-                        current_statement_begin__ = 560;
+                        current_statement_begin__ = 572;
                         stan::model::assign(tau_t, 
                                     stan::model::cons_list(stan::model::index_uni(1), stan::model::nil_index_list()), 
                                     pow(get_base1(tau, 1, "tau", 1), -(2)), 
                                     "assigning variable tau_t");
-                        current_statement_begin__ = 561;
+                        current_statement_begin__ = 573;
                         lp_accum__.add(multiply(-(3), stan::math::log(tau)));
                     }
-                    current_statement_begin__ = 563;
+                    current_statement_begin__ = 575;
                     prior_select_lp(tau_t, prior_het_dist, prior_het_location, prior_het_scale, prior_het_df, lp__, lp_accum__, pstream__);
                     }
                 }
             }
-            current_statement_begin__ = 568;
+            current_statement_begin__ = 580;
             lp_accum__.add(std_normal_log<propto__>(u_delta));
-            current_statement_begin__ = 571;
+            current_statement_begin__ = 583;
             if (as_bool(ni_agd_contrast)) {
-                current_statement_begin__ = 572;
+                current_statement_begin__ = 584;
                 lp_accum__.add(multi_normal_log<propto__>(agd_contrast_y, eta_agd_contrast_bar, agd_contrast_Sigma));
             }
-            current_statement_begin__ = 576;
+            current_statement_begin__ = 588;
             for (int i = 1; i <= ni_ipd; ++i) {
-                current_statement_begin__ = 577;
+                current_statement_begin__ = 589;
                 lp_accum__.add(categorical_log<propto__>(get_base1(ipd_r, i, "ipd_r", 1), get_base1(theta_ipd, i, "theta_ipd", 1)));
             }
-            current_statement_begin__ = 581;
+            current_statement_begin__ = 593;
             for (int i = 1; i <= ni_agd_arm; ++i) {
-                current_statement_begin__ = 582;
+                current_statement_begin__ = 594;
                 lp_accum__.add(multinomial_log<propto__>(get_base1(agd_arm_r, i, "agd_arm_r", 1), get_base1(theta_agd_arm_bar, i, "theta_agd_arm_bar", 1)));
             }
-            current_statement_begin__ = 589;
+            current_statement_begin__ = 601;
             if (as_bool(logical_gt(prior_aux_dist, 0))) {
                 {
-                current_statement_begin__ = 590;
+                current_statement_begin__ = 602;
                 validate_non_negative_index("diff_cc", "(ncat - 2)", (ncat - 2));
                 Eigen::Matrix<local_scalar_t__, Eigen::Dynamic, 1> diff_cc((ncat - 2));
                 stan::math::initialize(diff_cc, DUMMY_VAR__);
                 stan::math::fill(diff_cc, DUMMY_VAR__);
-                current_statement_begin__ = 591;
+                current_statement_begin__ = 603;
                 for (int k = 1; k <= (ncat - 2); ++k) {
-                    current_statement_begin__ = 592;
+                    current_statement_begin__ = 604;
                     stan::model::assign(diff_cc, 
                                 stan::model::cons_list(stan::model::index_uni(k), stan::model::nil_index_list()), 
                                 (get_base1(cc, (k + 1), "cc", 1) - get_base1(cc, k, "cc", 1)), 
                                 "assigning variable diff_cc");
                 }
-                current_statement_begin__ = 593;
+                current_statement_begin__ = 605;
                 prior_select_lp(diff_cc, prior_aux_dist, prior_aux_location, prior_aux_scale, prior_aux_df, lp__, lp_accum__, pstream__);
                 }
             }
@@ -2198,7 +2209,6 @@ public:
             Eigen::Matrix<double, Eigen::Dynamic, 1> mu(totns);
             stan::math::initialize(mu, DUMMY_VAR__);
             stan::math::fill(mu, DUMMY_VAR__);
-            stan::math::assign(mu,stan::model::rvalue(allbeta, stan::model::cons_list(stan::model::index_min_max(1, totns), stan::model::nil_index_list()), "allbeta"));
             current_statement_begin__ = 244;
             validate_non_negative_index("d", "(nt - 1)", (nt - 1));
             Eigen::Matrix<double, Eigen::Dynamic, 1> d((nt - 1));
@@ -2215,7 +2225,6 @@ public:
             Eigen::Matrix<double, Eigen::Dynamic, 1> beta((((nX - totns) - (nt - 1)) - nodesplit));
             stan::math::initialize(beta, DUMMY_VAR__);
             stan::math::fill(beta, DUMMY_VAR__);
-            stan::math::assign(beta,stan::model::rvalue(allbeta, stan::model::cons_list(stan::model::index_min(((totns + nt) + nodesplit)), stan::model::nil_index_list()), "allbeta"));
             current_statement_begin__ = 253;
             validate_non_negative_index("eta_agd_contrast_ii", "(logical_gt(nint, 1) ? (nint * ni_agd_contrast) : 0 )", (logical_gt(nint, 1) ? (nint * ni_agd_contrast) : 0 ));
             Eigen::Matrix<double, Eigen::Dynamic, 1> eta_agd_contrast_ii((logical_gt(nint, 1) ? (nint * ni_agd_contrast) : 0 ));
@@ -2228,35 +2237,45 @@ public:
             stan::math::fill(eta_agd_contrast_bar, DUMMY_VAR__);
             // do transformed parameters statements
             current_statement_begin__ = 258;
-            if (as_bool(nodesplit)) {
+            if (as_bool(totns)) {
                 current_statement_begin__ = 259;
+                stan::math::assign(mu, stan::model::rvalue(allbeta, stan::model::cons_list(stan::model::index_min_max(1, totns), stan::model::nil_index_list()), "allbeta"));
+            }
+            current_statement_begin__ = 264;
+            if (as_bool((((nX - totns) - (nt - 1)) - nodesplit))) {
+                current_statement_begin__ = 265;
+                stan::math::assign(beta, stan::model::rvalue(allbeta, stan::model::cons_list(stan::model::index_min(((totns + nt) + nodesplit)), stan::model::nil_index_list()), "allbeta"));
+            }
+            current_statement_begin__ = 270;
+            if (as_bool(nodesplit)) {
+                current_statement_begin__ = 271;
                 stan::model::assign(omega, 
                             stan::model::cons_list(stan::model::index_uni(1), stan::model::nil_index_list()), 
                             get_base1(allbeta, (totns + nt), "allbeta", 1), 
                             "assigning variable omega");
             }
-            current_statement_begin__ = 267;
+            current_statement_begin__ = 279;
             if (as_bool(ni_ipd)) {
-                current_statement_begin__ = 268;
+                current_statement_begin__ = 280;
                 if (as_bool(RE)) {
                     {
-                    current_statement_begin__ = 270;
+                    current_statement_begin__ = 282;
                     validate_non_negative_index("eta_ipd_noRE", "ni_ipd", ni_ipd);
                     Eigen::Matrix<local_scalar_t__, Eigen::Dynamic, 1> eta_ipd_noRE(ni_ipd);
                     stan::math::initialize(eta_ipd_noRE, DUMMY_VAR__);
                     stan::math::fill(eta_ipd_noRE, DUMMY_VAR__);
                     stan::math::assign(eta_ipd_noRE,(has_offset ? stan::math::promote_scalar<local_scalar_t__>(add(multiply(X_ipd, beta_tilde), offset_ipd)) : stan::math::promote_scalar<local_scalar_t__>(multiply(X_ipd, beta_tilde)) ));
-                    current_statement_begin__ = 274;
+                    current_statement_begin__ = 286;
                     for (int i = 1; i <= ni_ipd; ++i) {
-                        current_statement_begin__ = 275;
+                        current_statement_begin__ = 287;
                         if (as_bool(get_base1(which_RE, get_base1(ipd_arm, i, "ipd_arm", 1), "which_RE", 1))) {
-                            current_statement_begin__ = 276;
+                            current_statement_begin__ = 288;
                             stan::model::assign(eta_ipd, 
                                         stan::model::cons_list(stan::model::index_uni(i), stan::model::nil_index_list()), 
                                         (get_base1(eta_ipd_noRE, i, "eta_ipd_noRE", 1) + get_base1(f_delta, get_base1(which_RE, get_base1(ipd_arm, i, "ipd_arm", 1), "which_RE", 1), "f_delta", 1)), 
                                         "assigning variable eta_ipd");
                         } else {
-                            current_statement_begin__ = 278;
+                            current_statement_begin__ = 290;
                             stan::model::assign(eta_ipd, 
                                         stan::model::cons_list(stan::model::index_uni(i), stan::model::nil_index_list()), 
                                         get_base1(eta_ipd_noRE, i, "eta_ipd_noRE", 1), 
@@ -2265,40 +2284,40 @@ public:
                     }
                     }
                 } else {
-                    current_statement_begin__ = 282;
+                    current_statement_begin__ = 294;
                     stan::math::assign(eta_ipd, (has_offset ? stan::math::promote_scalar<local_scalar_t__>(add(multiply(X_ipd, beta_tilde), offset_ipd)) : stan::math::promote_scalar<local_scalar_t__>(multiply(X_ipd, beta_tilde)) ));
                 }
             }
-            current_statement_begin__ = 289;
+            current_statement_begin__ = 301;
             if (as_bool(ni_agd_contrast)) {
-                current_statement_begin__ = 290;
+                current_statement_begin__ = 302;
                 if (as_bool(logical_gt(nint, 1))) {
-                    current_statement_begin__ = 291;
+                    current_statement_begin__ = 303;
                     if (as_bool(RE)) {
                         {
-                        current_statement_begin__ = 292;
+                        current_statement_begin__ = 304;
                         validate_non_negative_index("eta_agd_contrast_noRE", "(nint * ni_agd_contrast)", (nint * ni_agd_contrast));
                         Eigen::Matrix<local_scalar_t__, Eigen::Dynamic, 1> eta_agd_contrast_noRE((nint * ni_agd_contrast));
                         stan::math::initialize(eta_agd_contrast_noRE, DUMMY_VAR__);
                         stan::math::fill(eta_agd_contrast_noRE, DUMMY_VAR__);
                         stan::math::assign(eta_agd_contrast_noRE,(has_offset ? stan::math::promote_scalar<local_scalar_t__>(add(multiply(X_agd_contrast, beta_tilde), offset_agd_contrast)) : stan::math::promote_scalar<local_scalar_t__>(multiply(X_agd_contrast, beta_tilde)) ));
-                        current_statement_begin__ = 296;
+                        current_statement_begin__ = 308;
                         for (int i = 1; i <= ni_agd_contrast; ++i) {
-                            current_statement_begin__ = 297;
+                            current_statement_begin__ = 309;
                             if (as_bool(get_base1(which_RE, ((narm_ipd + ni_agd_arm) + i), "which_RE", 1))) {
-                                current_statement_begin__ = 298;
+                                current_statement_begin__ = 310;
                                 stan::model::assign(eta_agd_contrast_ii, 
                                             stan::model::cons_list(stan::model::index_min_max((1 + ((i - 1) * nint)), (i * nint)), stan::model::nil_index_list()), 
                                             add(stan::model::rvalue(eta_agd_contrast_noRE, stan::model::cons_list(stan::model::index_min_max((1 + ((i - 1) * nint)), (i * nint)), stan::model::nil_index_list()), "eta_agd_contrast_noRE"), get_base1(f_delta, get_base1(which_RE, ((narm_ipd + ni_agd_arm) + i), "which_RE", 1), "f_delta", 1)), 
                                             "assigning variable eta_agd_contrast_ii");
                             } else {
-                                current_statement_begin__ = 301;
+                                current_statement_begin__ = 313;
                                 stan::model::assign(eta_agd_contrast_ii, 
                                             stan::model::cons_list(stan::model::index_min_max((1 + ((i - 1) * nint)), (i * nint)), stan::model::nil_index_list()), 
                                             stan::model::rvalue(eta_agd_contrast_noRE, stan::model::cons_list(stan::model::index_min_max((1 + ((i - 1) * nint)), (i * nint)), stan::model::nil_index_list()), "eta_agd_contrast_noRE"), 
                                             "assigning variable eta_agd_contrast_ii");
                             }
-                            current_statement_begin__ = 304;
+                            current_statement_begin__ = 316;
                             stan::model::assign(eta_agd_contrast_bar, 
                                         stan::model::cons_list(stan::model::index_uni(i), stan::model::nil_index_list()), 
                                         mean(stan::model::rvalue(eta_agd_contrast_ii, stan::model::cons_list(stan::model::index_min_max((1 + ((i - 1) * nint)), (i * nint)), stan::model::nil_index_list()), "eta_agd_contrast_ii")), 
@@ -2306,11 +2325,11 @@ public:
                         }
                         }
                     } else {
-                        current_statement_begin__ = 307;
+                        current_statement_begin__ = 319;
                         stan::math::assign(eta_agd_contrast_ii, (has_offset ? stan::math::promote_scalar<local_scalar_t__>(add(multiply(X_agd_contrast, beta_tilde), offset_agd_contrast)) : stan::math::promote_scalar<local_scalar_t__>(multiply(X_agd_contrast, beta_tilde)) ));
-                        current_statement_begin__ = 311;
+                        current_statement_begin__ = 323;
                         for (int i = 1; i <= ni_agd_contrast; ++i) {
-                            current_statement_begin__ = 312;
+                            current_statement_begin__ = 324;
                             stan::model::assign(eta_agd_contrast_bar, 
                                         stan::model::cons_list(stan::model::index_uni(i), stan::model::nil_index_list()), 
                                         mean(stan::model::rvalue(eta_agd_contrast_ii, stan::model::cons_list(stan::model::index_min_max((1 + ((i - 1) * nint)), (i * nint)), stan::model::nil_index_list()), "eta_agd_contrast_ii")), 
@@ -2318,26 +2337,26 @@ public:
                         }
                     }
                 } else {
-                    current_statement_begin__ = 316;
+                    current_statement_begin__ = 328;
                     if (as_bool(RE)) {
                         {
-                        current_statement_begin__ = 317;
+                        current_statement_begin__ = 329;
                         validate_non_negative_index("eta_agd_contrast_noRE", "(nint * ni_agd_contrast)", (nint * ni_agd_contrast));
                         Eigen::Matrix<local_scalar_t__, Eigen::Dynamic, 1> eta_agd_contrast_noRE((nint * ni_agd_contrast));
                         stan::math::initialize(eta_agd_contrast_noRE, DUMMY_VAR__);
                         stan::math::fill(eta_agd_contrast_noRE, DUMMY_VAR__);
                         stan::math::assign(eta_agd_contrast_noRE,(has_offset ? stan::math::promote_scalar<local_scalar_t__>(add(multiply(X_agd_contrast, beta_tilde), offset_agd_contrast)) : stan::math::promote_scalar<local_scalar_t__>(multiply(X_agd_contrast, beta_tilde)) ));
-                        current_statement_begin__ = 321;
+                        current_statement_begin__ = 333;
                         for (int i = 1; i <= ni_agd_contrast; ++i) {
-                            current_statement_begin__ = 322;
+                            current_statement_begin__ = 334;
                             if (as_bool(get_base1(which_RE, ((narm_ipd + ni_agd_arm) + i), "which_RE", 1))) {
-                                current_statement_begin__ = 323;
+                                current_statement_begin__ = 335;
                                 stan::model::assign(eta_agd_contrast_bar, 
                                             stan::model::cons_list(stan::model::index_uni(i), stan::model::nil_index_list()), 
                                             (get_base1(eta_agd_contrast_noRE, i, "eta_agd_contrast_noRE", 1) + get_base1(f_delta, get_base1(which_RE, ((narm_ipd + ni_agd_arm) + i), "which_RE", 1), "f_delta", 1)), 
                                             "assigning variable eta_agd_contrast_bar");
                             } else {
-                                current_statement_begin__ = 325;
+                                current_statement_begin__ = 337;
                                 stan::model::assign(eta_agd_contrast_bar, 
                                             stan::model::cons_list(stan::model::index_uni(i), stan::model::nil_index_list()), 
                                             get_base1(eta_agd_contrast_noRE, i, "eta_agd_contrast_noRE", 1), 
@@ -2346,127 +2365,130 @@ public:
                         }
                         }
                     } else {
-                        current_statement_begin__ = 328;
+                        current_statement_begin__ = 340;
                         stan::math::assign(eta_agd_contrast_bar, (has_offset ? stan::math::promote_scalar<local_scalar_t__>(add(multiply(X_agd_contrast, beta_tilde), offset_agd_contrast)) : stan::math::promote_scalar<local_scalar_t__>(multiply(X_agd_contrast, beta_tilde)) ));
                     }
                 }
             }
-            current_statement_begin__ = 335;
+            current_statement_begin__ = 347;
             stan::model::assign(cc, 
                         stan::model::cons_list(stan::model::index_uni(1), stan::model::nil_index_list()), 
                         0, 
                         "assigning variable cc");
-            current_statement_begin__ = 336;
-            stan::model::assign(cc, 
-                        stan::model::cons_list(stan::model::index_min(2), stan::model::nil_index_list()), 
-                        f_cc, 
-                        "assigning variable cc");
-            current_statement_begin__ = 339;
+            current_statement_begin__ = 348;
+            if (as_bool(logical_gt(ncat, 2))) {
+                current_statement_begin__ = 348;
+                stan::model::assign(cc, 
+                            stan::model::cons_list(stan::model::index_min(2), stan::model::nil_index_list()), 
+                            f_cc, 
+                            "assigning variable cc");
+            }
+            current_statement_begin__ = 351;
             stan::math::assign(theta_ipd, theta_ipd0);
-            current_statement_begin__ = 340;
+            current_statement_begin__ = 352;
             stan::math::assign(theta_agd_arm_bar, theta_agd_arm_bar0);
-            current_statement_begin__ = 344;
+            current_statement_begin__ = 356;
             for (int i = 1; i <= ni_ipd; ++i) {
                 {
-                current_statement_begin__ = 345;
+                current_statement_begin__ = 357;
                 validate_non_negative_index("q_temp", "(get_base1(ipd_ncat, i, \"ipd_ncat\", 1) - 1)", (get_base1(ipd_ncat, i, "ipd_ncat", 1) - 1));
                 Eigen::Matrix<local_scalar_t__, Eigen::Dynamic, 1> q_temp((get_base1(ipd_ncat, i, "ipd_ncat", 1) - 1));
                 stan::math::initialize(q_temp, DUMMY_VAR__);
                 stan::math::fill(q_temp, DUMMY_VAR__);
-                current_statement_begin__ = 348;
+                current_statement_begin__ = 360;
                 if (as_bool(logical_eq(link, 1))) {
-                    current_statement_begin__ = 349;
+                    current_statement_begin__ = 361;
                     stan::model::assign(q_temp, 
                                 stan::model::cons_list(stan::model::index_uni(1), stan::model::nil_index_list()), 
                                 inv_logit((get_base1(eta_ipd, i, "eta_ipd", 1) - get_base1(cc, 1, "cc", 1))), 
                                 "assigning variable q_temp");
                 } else if (as_bool(logical_eq(link, 2))) {
-                    current_statement_begin__ = 351;
+                    current_statement_begin__ = 363;
                     stan::model::assign(q_temp, 
                                 stan::model::cons_list(stan::model::index_uni(1), stan::model::nil_index_list()), 
                                 Phi((get_base1(eta_ipd, i, "eta_ipd", 1) - get_base1(cc, 1, "cc", 1))), 
                                 "assigning variable q_temp");
                 } else if (as_bool(logical_eq(link, 3))) {
-                    current_statement_begin__ = 353;
+                    current_statement_begin__ = 365;
                     stan::model::assign(q_temp, 
                                 stan::model::cons_list(stan::model::index_uni(1), stan::model::nil_index_list()), 
                                 inv_cloglog((get_base1(eta_ipd, i, "eta_ipd", 1) - get_base1(cc, 1, "cc", 1))), 
                                 "assigning variable q_temp");
                 }
-                current_statement_begin__ = 355;
+                current_statement_begin__ = 367;
                 stan::model::assign(theta_ipd, 
                             stan::model::cons_list(stan::model::index_uni(i), stan::model::cons_list(stan::model::index_uni(1), stan::model::nil_index_list())), 
                             (1 - get_base1(q_temp, 1, "q_temp", 1)), 
                             "assigning variable theta_ipd");
-                current_statement_begin__ = 358;
+                current_statement_begin__ = 370;
                 for (int k = 2; k <= (get_base1(ipd_ncat, i, "ipd_ncat", 1) - 1); ++k) {
-                    current_statement_begin__ = 359;
+                    current_statement_begin__ = 371;
                     if (as_bool(logical_eq(link, 1))) {
-                        current_statement_begin__ = 360;
+                        current_statement_begin__ = 372;
                         stan::model::assign(q_temp, 
                                     stan::model::cons_list(stan::model::index_uni(k), stan::model::nil_index_list()), 
                                     inv_logit((get_base1(eta_ipd, i, "eta_ipd", 1) - get_base1(cc, get_base1(get_base1(ipd_cat, i, "ipd_cat", 1), k, "ipd_cat", 2), "cc", 1))), 
                                     "assigning variable q_temp");
                     } else if (as_bool(logical_eq(link, 2))) {
-                        current_statement_begin__ = 362;
+                        current_statement_begin__ = 374;
                         stan::model::assign(q_temp, 
                                     stan::model::cons_list(stan::model::index_uni(k), stan::model::nil_index_list()), 
                                     Phi((get_base1(eta_ipd, i, "eta_ipd", 1) - get_base1(cc, get_base1(get_base1(ipd_cat, i, "ipd_cat", 1), k, "ipd_cat", 2), "cc", 1))), 
                                     "assigning variable q_temp");
                     } else if (as_bool(logical_eq(link, 3))) {
-                        current_statement_begin__ = 364;
+                        current_statement_begin__ = 376;
                         stan::model::assign(q_temp, 
                                     stan::model::cons_list(stan::model::index_uni(k), stan::model::nil_index_list()), 
                                     inv_cloglog((get_base1(eta_ipd, i, "eta_ipd", 1) - get_base1(cc, get_base1(get_base1(ipd_cat, i, "ipd_cat", 1), k, "ipd_cat", 2), "cc", 1))), 
                                     "assigning variable q_temp");
                     }
-                    current_statement_begin__ = 367;
+                    current_statement_begin__ = 379;
                     stan::model::assign(theta_ipd, 
                                 stan::model::cons_list(stan::model::index_uni(i), stan::model::cons_list(stan::model::index_uni(get_base1(get_base1(ipd_cat, i, "ipd_cat", 1), k, "ipd_cat", 2)), stan::model::nil_index_list())), 
                                 (get_base1(q_temp, (k - 1), "q_temp", 1) - get_base1(q_temp, k, "q_temp", 1)), 
                                 "assigning variable theta_ipd");
                 }
-                current_statement_begin__ = 371;
+                current_statement_begin__ = 383;
                 stan::model::assign(theta_ipd, 
                             stan::model::cons_list(stan::model::index_uni(i), stan::model::cons_list(stan::model::index_uni(get_base1(get_base1(ipd_cat, i, "ipd_cat", 1), get_base1(ipd_ncat, i, "ipd_ncat", 1), "ipd_cat", 2)), stan::model::nil_index_list())), 
                             get_base1(q_temp, (get_base1(ipd_ncat, i, "ipd_ncat", 1) - 1), "q_temp", 1), 
                             "assigning variable theta_ipd");
                 }
             }
-            current_statement_begin__ = 375;
+            current_statement_begin__ = 387;
             if (as_bool(ni_agd_arm)) {
                 {
-                current_statement_begin__ = 376;
+                current_statement_begin__ = 388;
                 validate_non_negative_index("eta_agd_arm_noRE", "(nint * ni_agd_arm)", (nint * ni_agd_arm));
                 Eigen::Matrix<local_scalar_t__, Eigen::Dynamic, 1> eta_agd_arm_noRE((nint * ni_agd_arm));
                 stan::math::initialize(eta_agd_arm_noRE, DUMMY_VAR__);
                 stan::math::fill(eta_agd_arm_noRE, DUMMY_VAR__);
                 stan::math::assign(eta_agd_arm_noRE,(has_offset ? stan::math::promote_scalar<local_scalar_t__>(add(multiply(X_agd_arm, beta_tilde), offset_agd_arm)) : stan::math::promote_scalar<local_scalar_t__>(multiply(X_agd_arm, beta_tilde)) ));
-                current_statement_begin__ = 380;
+                current_statement_begin__ = 392;
                 if (as_bool(logical_gt(nint, 1))) {
-                    current_statement_begin__ = 382;
+                    current_statement_begin__ = 394;
                     if (as_bool(RE)) {
                         {
-                        current_statement_begin__ = 384;
+                        current_statement_begin__ = 396;
                         validate_non_negative_index("eta_agd_arm_RE", "nint", nint);
                         Eigen::Matrix<local_scalar_t__, Eigen::Dynamic, 1> eta_agd_arm_RE(nint);
                         stan::math::initialize(eta_agd_arm_RE, DUMMY_VAR__);
                         stan::math::fill(eta_agd_arm_RE, DUMMY_VAR__);
-                        current_statement_begin__ = 386;
+                        current_statement_begin__ = 398;
                         if (as_bool(logical_eq(link, 1))) {
-                            current_statement_begin__ = 387;
+                            current_statement_begin__ = 399;
                             for (int i = 1; i <= ni_agd_arm; ++i) {
-                                current_statement_begin__ = 388;
+                                current_statement_begin__ = 400;
                                 if (as_bool(get_base1(which_RE, (narm_ipd + i), "which_RE", 1))) {
-                                    current_statement_begin__ = 389;
+                                    current_statement_begin__ = 401;
                                     stan::math::assign(eta_agd_arm_RE, add(stan::model::rvalue(eta_agd_arm_noRE, stan::model::cons_list(stan::model::index_min_max((1 + ((i - 1) * nint)), (i * nint)), stan::model::nil_index_list()), "eta_agd_arm_noRE"), get_base1(f_delta, get_base1(which_RE, (narm_ipd + i), "which_RE", 1), "f_delta", 1)));
                                 } else {
-                                    current_statement_begin__ = 391;
+                                    current_statement_begin__ = 403;
                                     stan::math::assign(eta_agd_arm_RE, stan::model::rvalue(eta_agd_arm_noRE, stan::model::cons_list(stan::model::index_min_max((1 + ((i - 1) * nint)), (i * nint)), stan::model::nil_index_list()), "eta_agd_arm_noRE"));
                                 }
-                                current_statement_begin__ = 393;
+                                current_statement_begin__ = 405;
                                 for (int k = 1; k <= (get_base1(agd_arm_ncat, i, "agd_arm_ncat", 1) - 1); ++k) {
-                                    current_statement_begin__ = 394;
+                                    current_statement_begin__ = 406;
                                     stan::model::assign(theta_agd_arm_ii, 
                                                 stan::model::cons_list(stan::model::index_min_max((1 + ((i - 1) * nint)), (i * nint)), stan::model::cons_list(stan::model::index_uni(get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2)), stan::model::nil_index_list())), 
                                                 inv_logit(subtract(eta_agd_arm_RE, get_base1(cc, get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2), "cc", 1))), 
@@ -2474,19 +2496,19 @@ public:
                                 }
                             }
                         } else if (as_bool(logical_eq(link, 2))) {
-                            current_statement_begin__ = 398;
+                            current_statement_begin__ = 410;
                             for (int i = 1; i <= ni_agd_arm; ++i) {
-                                current_statement_begin__ = 399;
+                                current_statement_begin__ = 411;
                                 if (as_bool(get_base1(which_RE, (narm_ipd + i), "which_RE", 1))) {
-                                    current_statement_begin__ = 400;
+                                    current_statement_begin__ = 412;
                                     stan::math::assign(eta_agd_arm_RE, add(stan::model::rvalue(eta_agd_arm_noRE, stan::model::cons_list(stan::model::index_min_max((1 + ((i - 1) * nint)), (i * nint)), stan::model::nil_index_list()), "eta_agd_arm_noRE"), get_base1(f_delta, get_base1(which_RE, (narm_ipd + i), "which_RE", 1), "f_delta", 1)));
                                 } else {
-                                    current_statement_begin__ = 402;
+                                    current_statement_begin__ = 414;
                                     stan::math::assign(eta_agd_arm_RE, stan::model::rvalue(eta_agd_arm_noRE, stan::model::cons_list(stan::model::index_min_max((1 + ((i - 1) * nint)), (i * nint)), stan::model::nil_index_list()), "eta_agd_arm_noRE"));
                                 }
-                                current_statement_begin__ = 404;
+                                current_statement_begin__ = 416;
                                 for (int k = 1; k <= (get_base1(agd_arm_ncat, i, "agd_arm_ncat", 1) - 1); ++k) {
-                                    current_statement_begin__ = 405;
+                                    current_statement_begin__ = 417;
                                     stan::model::assign(theta_agd_arm_ii, 
                                                 stan::model::cons_list(stan::model::index_min_max((1 + ((i - 1) * nint)), (i * nint)), stan::model::cons_list(stan::model::index_uni(get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2)), stan::model::nil_index_list())), 
                                                 Phi(subtract(eta_agd_arm_RE, get_base1(cc, get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2), "cc", 1))), 
@@ -2494,19 +2516,19 @@ public:
                                 }
                             }
                         } else if (as_bool(logical_eq(link, 3))) {
-                            current_statement_begin__ = 409;
+                            current_statement_begin__ = 421;
                             for (int i = 1; i <= ni_agd_arm; ++i) {
-                                current_statement_begin__ = 410;
+                                current_statement_begin__ = 422;
                                 if (as_bool(get_base1(which_RE, (narm_ipd + i), "which_RE", 1))) {
-                                    current_statement_begin__ = 411;
+                                    current_statement_begin__ = 423;
                                     stan::math::assign(eta_agd_arm_RE, add(stan::model::rvalue(eta_agd_arm_noRE, stan::model::cons_list(stan::model::index_min_max((1 + ((i - 1) * nint)), (i * nint)), stan::model::nil_index_list()), "eta_agd_arm_noRE"), get_base1(f_delta, get_base1(which_RE, (narm_ipd + i), "which_RE", 1), "f_delta", 1)));
                                 } else {
-                                    current_statement_begin__ = 413;
+                                    current_statement_begin__ = 425;
                                     stan::math::assign(eta_agd_arm_RE, stan::model::rvalue(eta_agd_arm_noRE, stan::model::cons_list(stan::model::index_min_max((1 + ((i - 1) * nint)), (i * nint)), stan::model::nil_index_list()), "eta_agd_arm_noRE"));
                                 }
-                                current_statement_begin__ = 415;
+                                current_statement_begin__ = 427;
                                 for (int k = 1; k <= (get_base1(agd_arm_ncat, i, "agd_arm_ncat", 1) - 1); ++k) {
-                                    current_statement_begin__ = 416;
+                                    current_statement_begin__ = 428;
                                     stan::model::assign(theta_agd_arm_ii, 
                                                 stan::model::cons_list(stan::model::index_min_max((1 + ((i - 1) * nint)), (i * nint)), stan::model::cons_list(stan::model::index_uni(get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2)), stan::model::nil_index_list())), 
                                                 inv_cloglog(subtract(eta_agd_arm_RE, get_base1(cc, get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2), "cc", 1))), 
@@ -2516,13 +2538,13 @@ public:
                         }
                         }
                     } else {
-                        current_statement_begin__ = 423;
+                        current_statement_begin__ = 435;
                         if (as_bool(logical_eq(link, 1))) {
-                            current_statement_begin__ = 424;
+                            current_statement_begin__ = 436;
                             for (int i = 1; i <= ni_agd_arm; ++i) {
-                                current_statement_begin__ = 425;
+                                current_statement_begin__ = 437;
                                 for (int k = 1; k <= (get_base1(agd_arm_ncat, i, "agd_arm_ncat", 1) - 1); ++k) {
-                                    current_statement_begin__ = 426;
+                                    current_statement_begin__ = 438;
                                     stan::model::assign(theta_agd_arm_ii, 
                                                 stan::model::cons_list(stan::model::index_min_max((1 + ((i - 1) * nint)), (i * nint)), stan::model::cons_list(stan::model::index_uni(get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2)), stan::model::nil_index_list())), 
                                                 inv_logit(subtract(stan::model::rvalue(eta_agd_arm_noRE, stan::model::cons_list(stan::model::index_min_max((1 + ((i - 1) * nint)), (i * nint)), stan::model::nil_index_list()), "eta_agd_arm_noRE"), get_base1(cc, get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2), "cc", 1))), 
@@ -2530,11 +2552,11 @@ public:
                                 }
                             }
                         } else if (as_bool(logical_eq(link, 2))) {
-                            current_statement_begin__ = 430;
+                            current_statement_begin__ = 442;
                             for (int i = 1; i <= ni_agd_arm; ++i) {
-                                current_statement_begin__ = 431;
+                                current_statement_begin__ = 443;
                                 for (int k = 1; k <= (get_base1(agd_arm_ncat, i, "agd_arm_ncat", 1) - 1); ++k) {
-                                    current_statement_begin__ = 432;
+                                    current_statement_begin__ = 444;
                                     stan::model::assign(theta_agd_arm_ii, 
                                                 stan::model::cons_list(stan::model::index_min_max((1 + ((i - 1) * nint)), (i * nint)), stan::model::cons_list(stan::model::index_uni(get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2)), stan::model::nil_index_list())), 
                                                 Phi(subtract(stan::model::rvalue(eta_agd_arm_noRE, stan::model::cons_list(stan::model::index_min_max((1 + ((i - 1) * nint)), (i * nint)), stan::model::nil_index_list()), "eta_agd_arm_noRE"), get_base1(cc, get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2), "cc", 1))), 
@@ -2542,11 +2564,11 @@ public:
                                 }
                             }
                         } else if (as_bool(logical_eq(link, 3))) {
-                            current_statement_begin__ = 436;
+                            current_statement_begin__ = 448;
                             for (int i = 1; i <= ni_agd_arm; ++i) {
-                                current_statement_begin__ = 437;
+                                current_statement_begin__ = 449;
                                 for (int k = 1; k <= (get_base1(agd_arm_ncat, i, "agd_arm_ncat", 1) - 1); ++k) {
-                                    current_statement_begin__ = 438;
+                                    current_statement_begin__ = 450;
                                     stan::model::assign(theta_agd_arm_ii, 
                                                 stan::model::cons_list(stan::model::index_min_max((1 + ((i - 1) * nint)), (i * nint)), stan::model::cons_list(stan::model::index_uni(get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2)), stan::model::nil_index_list())), 
                                                 inv_cloglog(subtract(stan::model::rvalue(eta_agd_arm_noRE, stan::model::cons_list(stan::model::index_min_max((1 + ((i - 1) * nint)), (i * nint)), stan::model::nil_index_list()), "eta_agd_arm_noRE"), get_base1(cc, get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2), "cc", 1))), 
@@ -2555,11 +2577,11 @@ public:
                             }
                         }
                     }
-                    current_statement_begin__ = 445;
+                    current_statement_begin__ = 457;
                     for (int i = 1; i <= ni_agd_arm; ++i) {
-                        current_statement_begin__ = 446;
+                        current_statement_begin__ = 458;
                         for (int k = 1; k <= (get_base1(agd_arm_ncat, i, "agd_arm_ncat", 1) - 1); ++k) {
-                            current_statement_begin__ = 447;
+                            current_statement_begin__ = 459;
                             stan::model::assign(q_agd_arm_bar, 
                                         stan::model::cons_list(stan::model::index_uni(i), stan::model::cons_list(stan::model::index_uni(get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2)), stan::model::nil_index_list())), 
                                         mean(stan::model::rvalue(theta_agd_arm_ii, stan::model::cons_list(stan::model::index_min_max((1 + ((i - 1) * nint)), (i * nint)), stan::model::cons_list(stan::model::index_uni(get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2)), stan::model::nil_index_list())), "theta_agd_arm_ii")), 
@@ -2567,29 +2589,29 @@ public:
                         }
                     }
                 } else {
-                    current_statement_begin__ = 453;
+                    current_statement_begin__ = 465;
                     if (as_bool(RE)) {
                         {
-                        current_statement_begin__ = 455;
+                        current_statement_begin__ = 467;
                         local_scalar_t__ eta_agd_arm_RE(DUMMY_VAR__);
                         (void) eta_agd_arm_RE;  // dummy to suppress unused var warning
                         stan::math::initialize(eta_agd_arm_RE, DUMMY_VAR__);
                         stan::math::fill(eta_agd_arm_RE, DUMMY_VAR__);
-                        current_statement_begin__ = 457;
+                        current_statement_begin__ = 469;
                         if (as_bool(logical_eq(link, 1))) {
-                            current_statement_begin__ = 458;
+                            current_statement_begin__ = 470;
                             for (int i = 1; i <= ni_agd_arm; ++i) {
-                                current_statement_begin__ = 459;
+                                current_statement_begin__ = 471;
                                 if (as_bool(get_base1(which_RE, (narm_ipd + i), "which_RE", 1))) {
-                                    current_statement_begin__ = 460;
+                                    current_statement_begin__ = 472;
                                     stan::math::assign(eta_agd_arm_RE, (get_base1(eta_agd_arm_noRE, i, "eta_agd_arm_noRE", 1) + get_base1(f_delta, get_base1(which_RE, (narm_ipd + i), "which_RE", 1), "f_delta", 1)));
                                 } else {
-                                    current_statement_begin__ = 462;
+                                    current_statement_begin__ = 474;
                                     stan::math::assign(eta_agd_arm_RE, get_base1(eta_agd_arm_noRE, i, "eta_agd_arm_noRE", 1));
                                 }
-                                current_statement_begin__ = 464;
+                                current_statement_begin__ = 476;
                                 for (int k = 1; k <= (get_base1(agd_arm_ncat, i, "agd_arm_ncat", 1) - 1); ++k) {
-                                    current_statement_begin__ = 465;
+                                    current_statement_begin__ = 477;
                                     stan::model::assign(q_agd_arm_bar, 
                                                 stan::model::cons_list(stan::model::index_uni(i), stan::model::cons_list(stan::model::index_uni(get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2)), stan::model::nil_index_list())), 
                                                 inv_logit((eta_agd_arm_RE - get_base1(cc, get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2), "cc", 1))), 
@@ -2597,19 +2619,19 @@ public:
                                 }
                             }
                         } else if (as_bool(logical_eq(link, 2))) {
-                            current_statement_begin__ = 469;
+                            current_statement_begin__ = 481;
                             for (int i = 1; i <= ni_agd_arm; ++i) {
-                                current_statement_begin__ = 470;
+                                current_statement_begin__ = 482;
                                 if (as_bool(get_base1(which_RE, (narm_ipd + i), "which_RE", 1))) {
-                                    current_statement_begin__ = 471;
+                                    current_statement_begin__ = 483;
                                     stan::math::assign(eta_agd_arm_RE, (get_base1(eta_agd_arm_noRE, i, "eta_agd_arm_noRE", 1) + get_base1(f_delta, get_base1(which_RE, (narm_ipd + i), "which_RE", 1), "f_delta", 1)));
                                 } else {
-                                    current_statement_begin__ = 473;
+                                    current_statement_begin__ = 485;
                                     stan::math::assign(eta_agd_arm_RE, get_base1(eta_agd_arm_noRE, i, "eta_agd_arm_noRE", 1));
                                 }
-                                current_statement_begin__ = 475;
+                                current_statement_begin__ = 487;
                                 for (int k = 1; k <= (get_base1(agd_arm_ncat, i, "agd_arm_ncat", 1) - 1); ++k) {
-                                    current_statement_begin__ = 476;
+                                    current_statement_begin__ = 488;
                                     stan::model::assign(q_agd_arm_bar, 
                                                 stan::model::cons_list(stan::model::index_uni(i), stan::model::cons_list(stan::model::index_uni(get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2)), stan::model::nil_index_list())), 
                                                 Phi((eta_agd_arm_RE - get_base1(cc, get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2), "cc", 1))), 
@@ -2617,19 +2639,19 @@ public:
                                 }
                             }
                         } else if (as_bool(logical_eq(link, 3))) {
-                            current_statement_begin__ = 480;
+                            current_statement_begin__ = 492;
                             for (int i = 1; i <= ni_agd_arm; ++i) {
-                                current_statement_begin__ = 481;
+                                current_statement_begin__ = 493;
                                 if (as_bool(get_base1(which_RE, (narm_ipd + i), "which_RE", 1))) {
-                                    current_statement_begin__ = 482;
+                                    current_statement_begin__ = 494;
                                     stan::math::assign(eta_agd_arm_RE, (get_base1(eta_agd_arm_noRE, i, "eta_agd_arm_noRE", 1) + get_base1(f_delta, get_base1(which_RE, (narm_ipd + i), "which_RE", 1), "f_delta", 1)));
                                 } else {
-                                    current_statement_begin__ = 484;
+                                    current_statement_begin__ = 496;
                                     stan::math::assign(eta_agd_arm_RE, get_base1(eta_agd_arm_noRE, i, "eta_agd_arm_noRE", 1));
                                 }
-                                current_statement_begin__ = 486;
+                                current_statement_begin__ = 498;
                                 for (int k = 1; k <= (get_base1(agd_arm_ncat, i, "agd_arm_ncat", 1) - 1); ++k) {
-                                    current_statement_begin__ = 487;
+                                    current_statement_begin__ = 499;
                                     stan::model::assign(q_agd_arm_bar, 
                                                 stan::model::cons_list(stan::model::index_uni(i), stan::model::cons_list(stan::model::index_uni(get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2)), stan::model::nil_index_list())), 
                                                 inv_cloglog((eta_agd_arm_RE - get_base1(cc, get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2), "cc", 1))), 
@@ -2639,13 +2661,13 @@ public:
                         }
                         }
                     } else {
-                        current_statement_begin__ = 494;
+                        current_statement_begin__ = 506;
                         if (as_bool(logical_eq(link, 1))) {
-                            current_statement_begin__ = 495;
+                            current_statement_begin__ = 507;
                             for (int i = 1; i <= ni_agd_arm; ++i) {
-                                current_statement_begin__ = 496;
+                                current_statement_begin__ = 508;
                                 for (int k = 1; k <= (get_base1(agd_arm_ncat, i, "agd_arm_ncat", 1) - 1); ++k) {
-                                    current_statement_begin__ = 497;
+                                    current_statement_begin__ = 509;
                                     stan::model::assign(q_agd_arm_bar, 
                                                 stan::model::cons_list(stan::model::index_uni(i), stan::model::cons_list(stan::model::index_uni(get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2)), stan::model::nil_index_list())), 
                                                 inv_logit((get_base1(eta_agd_arm_noRE, i, "eta_agd_arm_noRE", 1) - get_base1(cc, get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2), "cc", 1))), 
@@ -2653,11 +2675,11 @@ public:
                                 }
                             }
                         } else if (as_bool(logical_eq(link, 2))) {
-                            current_statement_begin__ = 501;
+                            current_statement_begin__ = 513;
                             for (int i = 1; i <= ni_agd_arm; ++i) {
-                                current_statement_begin__ = 502;
+                                current_statement_begin__ = 514;
                                 for (int k = 1; k <= (get_base1(agd_arm_ncat, i, "agd_arm_ncat", 1) - 1); ++k) {
-                                    current_statement_begin__ = 503;
+                                    current_statement_begin__ = 515;
                                     stan::model::assign(q_agd_arm_bar, 
                                                 stan::model::cons_list(stan::model::index_uni(i), stan::model::cons_list(stan::model::index_uni(get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2)), stan::model::nil_index_list())), 
                                                 Phi((get_base1(eta_agd_arm_noRE, i, "eta_agd_arm_noRE", 1) - get_base1(cc, get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2), "cc", 1))), 
@@ -2665,11 +2687,11 @@ public:
                                 }
                             }
                         } else if (as_bool(logical_eq(link, 3))) {
-                            current_statement_begin__ = 507;
+                            current_statement_begin__ = 519;
                             for (int i = 1; i <= ni_agd_arm; ++i) {
-                                current_statement_begin__ = 508;
+                                current_statement_begin__ = 520;
                                 for (int k = 1; k <= (get_base1(agd_arm_ncat, i, "agd_arm_ncat", 1) - 1); ++k) {
-                                    current_statement_begin__ = 509;
+                                    current_statement_begin__ = 521;
                                     stan::model::assign(q_agd_arm_bar, 
                                                 stan::model::cons_list(stan::model::index_uni(i), stan::model::cons_list(stan::model::index_uni(get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2)), stan::model::nil_index_list())), 
                                                 inv_cloglog((get_base1(eta_agd_arm_noRE, i, "eta_agd_arm_noRE", 1) - get_base1(cc, get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2), "cc", 1))), 
@@ -2679,22 +2701,22 @@ public:
                         }
                     }
                 }
-                current_statement_begin__ = 518;
+                current_statement_begin__ = 530;
                 for (int i = 1; i <= ni_agd_arm; ++i) {
-                    current_statement_begin__ = 520;
+                    current_statement_begin__ = 532;
                     stan::model::assign(theta_agd_arm_bar, 
                                 stan::model::cons_list(stan::model::index_uni(i), stan::model::cons_list(stan::model::index_uni(1), stan::model::nil_index_list())), 
                                 (1 - get_base1(get_base1(q_agd_arm_bar, i, "q_agd_arm_bar", 1), 1, "q_agd_arm_bar", 2)), 
                                 "assigning variable theta_agd_arm_bar");
-                    current_statement_begin__ = 523;
+                    current_statement_begin__ = 535;
                     for (int k = 2; k <= (get_base1(agd_arm_ncat, i, "agd_arm_ncat", 1) - 1); ++k) {
-                        current_statement_begin__ = 524;
+                        current_statement_begin__ = 536;
                         stan::model::assign(theta_agd_arm_bar, 
                                     stan::model::cons_list(stan::model::index_uni(i), stan::model::cons_list(stan::model::index_uni(get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2)), stan::model::nil_index_list())), 
                                     (get_base1(get_base1(q_agd_arm_bar, i, "q_agd_arm_bar", 1), get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), (k - 1), "agd_arm_cat", 2), "q_agd_arm_bar", 2) - get_base1(get_base1(q_agd_arm_bar, i, "q_agd_arm_bar", 1), get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2), "q_agd_arm_bar", 2)), 
                                     "assigning variable theta_agd_arm_bar");
                     }
-                    current_statement_begin__ = 527;
+                    current_statement_begin__ = 539;
                     stan::model::assign(theta_agd_arm_bar, 
                                 stan::model::cons_list(stan::model::index_uni(i), stan::model::cons_list(stan::model::index_uni(get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), get_base1(agd_arm_ncat, i, "agd_arm_ncat", 1), "agd_arm_cat", 2)), stan::model::nil_index_list())), 
                                 get_base1(get_base1(q_agd_arm_bar, i, "q_agd_arm_bar", 1), get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), (get_base1(agd_arm_ncat, i, "agd_arm_ncat", 1) - 1), "agd_arm_cat", 2), "q_agd_arm_bar", 2), 
@@ -2779,195 +2801,195 @@ public:
             }
             if (!include_gqs__) return;
             // declare and define generated quantities
-            current_statement_begin__ = 598;
+            current_statement_begin__ = 610;
             validate_non_negative_index("fitted_ipd", "ncat", ncat);
             validate_non_negative_index("fitted_ipd", "ni_ipd", ni_ipd);
             std::vector<Eigen::Matrix<double, Eigen::Dynamic, 1> > fitted_ipd(ni_ipd, Eigen::Matrix<double, Eigen::Dynamic, 1>(ncat));
             stan::math::initialize(fitted_ipd, DUMMY_VAR__);
             stan::math::fill(fitted_ipd, DUMMY_VAR__);
-            current_statement_begin__ = 599;
+            current_statement_begin__ = 611;
             validate_non_negative_index("fitted_agd_arm", "ncat", ncat);
             validate_non_negative_index("fitted_agd_arm", "ni_agd_arm", ni_agd_arm);
             std::vector<Eigen::Matrix<double, Eigen::Dynamic, 1> > fitted_agd_arm(ni_agd_arm, Eigen::Matrix<double, Eigen::Dynamic, 1>(ncat));
             stan::math::initialize(fitted_agd_arm, DUMMY_VAR__);
             stan::math::fill(fitted_agd_arm, DUMMY_VAR__);
-            current_statement_begin__ = 600;
+            current_statement_begin__ = 612;
             validate_non_negative_index("theta_bar_cum_agd_arm", "(ni_agd_arm * n_int_thin)", (ni_agd_arm * n_int_thin));
             validate_non_negative_index("theta_bar_cum_agd_arm", "ncat", ncat);
             Eigen::Matrix<double, Eigen::Dynamic, Eigen::Dynamic> theta_bar_cum_agd_arm((ni_agd_arm * n_int_thin), ncat);
             stan::math::initialize(theta_bar_cum_agd_arm, DUMMY_VAR__);
             stan::math::fill(theta_bar_cum_agd_arm, DUMMY_VAR__);
             stan::math::assign(theta_bar_cum_agd_arm,rep_matrix(0, (ni_agd_arm * n_int_thin), ncat));
-            current_statement_begin__ = 605;
+            current_statement_begin__ = 617;
             validate_non_negative_index("log_lik", "((ni_ipd + ni_agd_arm) + ns_agd_contrast)", ((ni_ipd + ni_agd_arm) + ns_agd_contrast));
             Eigen::Matrix<double, Eigen::Dynamic, 1> log_lik(((ni_ipd + ni_agd_arm) + ns_agd_contrast));
             stan::math::initialize(log_lik, DUMMY_VAR__);
             stan::math::fill(log_lik, DUMMY_VAR__);
-            current_statement_begin__ = 606;
+            current_statement_begin__ = 618;
             validate_non_negative_index("resdev", "((ni_ipd + ni_agd_arm) + ns_agd_contrast)", ((ni_ipd + ni_agd_arm) + ns_agd_contrast));
             Eigen::Matrix<double, Eigen::Dynamic, 1> resdev(((ni_ipd + ni_agd_arm) + ns_agd_contrast));
             stan::math::initialize(resdev, DUMMY_VAR__);
             stan::math::fill(resdev, DUMMY_VAR__);
-            current_statement_begin__ = 607;
+            current_statement_begin__ = 619;
             validate_non_negative_index("fitted_agd_contrast", "ni_agd_contrast", ni_agd_contrast);
             Eigen::Matrix<double, Eigen::Dynamic, 1> fitted_agd_contrast(ni_agd_contrast);
             stan::math::initialize(fitted_agd_contrast, DUMMY_VAR__);
             stan::math::fill(fitted_agd_contrast, DUMMY_VAR__);
-            current_statement_begin__ = 610;
+            current_statement_begin__ = 622;
             validate_non_negative_index("theta_bar_cum_agd_contrast", "(ni_agd_contrast * n_int_thin)", (ni_agd_contrast * n_int_thin));
             Eigen::Matrix<double, Eigen::Dynamic, 1> theta_bar_cum_agd_contrast((ni_agd_contrast * n_int_thin));
             stan::math::initialize(theta_bar_cum_agd_contrast, DUMMY_VAR__);
             stan::math::fill(theta_bar_cum_agd_contrast, DUMMY_VAR__);
-            current_statement_begin__ = 614;
+            current_statement_begin__ = 626;
             validate_non_negative_index("delta", "n_delta", n_delta);
             Eigen::Matrix<double, Eigen::Dynamic, 1> delta(n_delta);
             stan::math::initialize(delta, DUMMY_VAR__);
             stan::math::fill(delta, DUMMY_VAR__);
             // generated quantities statements
-            current_statement_begin__ = 616;
+            current_statement_begin__ = 628;
             if (as_bool(RE)) {
                 {
-                current_statement_begin__ = 617;
+                current_statement_begin__ = 629;
                 int s(0);
                 (void) s;  // dummy to suppress unused var warning
                 stan::math::fill(s, std::numeric_limits<int>::min());
                 stan::math::assign(s,1);
-                current_statement_begin__ = 618;
+                current_statement_begin__ = 630;
                 for (int i = 1; i <= (narm_ipd + ni_agd_arm); ++i) {
-                    current_statement_begin__ = 619;
+                    current_statement_begin__ = 631;
                     if (as_bool(get_base1(which_RE, i, "which_RE", 1))) {
-                        current_statement_begin__ = 620;
+                        current_statement_begin__ = 632;
                         stan::model::assign(delta, 
                                     stan::model::cons_list(stan::model::index_uni(s), stan::model::nil_index_list()), 
                                     ((logical_gt(get_base1(trt, i, "trt", 1), 1) ? stan::math::promote_scalar<local_scalar_t__>(get_base1(d, (get_base1(trt, i, "trt", 1) - 1), "d", 1)) : stan::math::promote_scalar<local_scalar_t__>(0) ) + (get_base1(which_RE, i, "which_RE", 1) ? stan::math::promote_scalar<local_scalar_t__>(get_base1(f_delta, get_base1(which_RE, i, "which_RE", 1), "f_delta", 1)) : stan::math::promote_scalar<local_scalar_t__>(0) )), 
                                     "assigning variable delta");
-                        current_statement_begin__ = 621;
+                        current_statement_begin__ = 633;
                         stan::math::assign(s, (s + 1));
                     }
                 }
-                current_statement_begin__ = 624;
+                current_statement_begin__ = 636;
                 for (int i = 1; i <= ni_agd_contrast; ++i) {
-                    current_statement_begin__ = 625;
+                    current_statement_begin__ = 637;
                     if (as_bool(get_base1(which_RE, ((narm_ipd + ni_agd_arm) + i), "which_RE", 1))) {
-                        current_statement_begin__ = 626;
+                        current_statement_begin__ = 638;
                         stan::model::assign(delta, 
                                     stan::model::cons_list(stan::model::index_uni(s), stan::model::nil_index_list()), 
                                     ((logical_gt(get_base1(trt, ((narm_ipd + ni_agd_arm) + i), "trt", 1), 1) ? stan::math::promote_scalar<local_scalar_t__>(get_base1(d, (get_base1(trt, ((narm_ipd + ni_agd_arm) + i), "trt", 1) - 1), "d", 1)) : stan::math::promote_scalar<local_scalar_t__>(0) ) + (get_base1(which_RE, ((narm_ipd + ni_agd_arm) + i), "which_RE", 1) ? stan::math::promote_scalar<local_scalar_t__>(get_base1(f_delta, get_base1(which_RE, ((narm_ipd + ni_agd_arm) + i), "which_RE", 1), "f_delta", 1)) : stan::math::promote_scalar<local_scalar_t__>(0) )), 
                                     "assigning variable delta");
-                        current_statement_begin__ = 629;
+                        current_statement_begin__ = 641;
                         if (as_bool(logical_gt(get_base1(agd_contrast_trt_b, i, "agd_contrast_trt_b", 1), 1))) {
-                            current_statement_begin__ = 630;
+                            current_statement_begin__ = 642;
                             stan::model::assign(delta, 
                                         stan::model::cons_list(stan::model::index_uni(s), stan::model::nil_index_list()), 
                                         (stan::model::rvalue(delta, stan::model::cons_list(stan::model::index_uni(s), stan::model::nil_index_list()), "delta") - get_base1(d, (get_base1(agd_contrast_trt_b, i, "agd_contrast_trt_b", 1) - 1), "d", 1)), 
                                         "assigning variable delta");
                         }
-                        current_statement_begin__ = 632;
+                        current_statement_begin__ = 644;
                         stan::math::assign(s, (s + 1));
                     }
                 }
                 }
             }
-            current_statement_begin__ = 638;
+            current_statement_begin__ = 650;
             for (int i = 1; i <= ni_agd_contrast; ++i) {
-                current_statement_begin__ = 639;
+                current_statement_begin__ = 651;
                 for (int j = 1; j <= n_int_thin; ++j) {
-                    current_statement_begin__ = 640;
+                    current_statement_begin__ = 652;
                     stan::model::assign(theta_bar_cum_agd_contrast, 
                                 stan::model::cons_list(stan::model::index_uni((((i - 1) * n_int_thin) + j)), stan::model::nil_index_list()), 
                                 mean(stan::model::rvalue(eta_agd_contrast_ii, stan::model::cons_list(stan::model::index_min_max((1 + ((i - 1) * nint)), (((i - 1) * nint) + (j * int_thin))), stan::model::nil_index_list()), "eta_agd_contrast_ii")), 
                                 "assigning variable theta_bar_cum_agd_contrast");
                 }
             }
-            current_statement_begin__ = 644;
+            current_statement_begin__ = 656;
             stan::math::assign(fitted_agd_contrast, eta_agd_contrast_bar);
             {
-            current_statement_begin__ = 648;
+            current_statement_begin__ = 660;
             int a(0);
             (void) a;  // dummy to suppress unused var warning
             stan::math::fill(a, std::numeric_limits<int>::min());
             stan::math::assign(a,0);
-            current_statement_begin__ = 649;
+            current_statement_begin__ = 661;
             int nc(0);
             (void) nc;  // dummy to suppress unused var warning
             stan::math::fill(nc, std::numeric_limits<int>::min());
-            current_statement_begin__ = 650;
+            current_statement_begin__ = 662;
             for (int s = 1; s <= ns_agd_contrast; ++s) {
-                current_statement_begin__ = 651;
+                current_statement_begin__ = 663;
                 stan::math::assign(nc, get_base1(nc_agd_contrast, s, "nc_agd_contrast", 1));
-                current_statement_begin__ = 652;
+                current_statement_begin__ = 664;
                 stan::model::assign(log_lik, 
                             stan::model::cons_list(stan::model::index_uni(((ni_ipd + ni_agd_arm) + s)), stan::model::nil_index_list()), 
                             multi_normal_log(stan::model::rvalue(agd_contrast_y, stan::model::cons_list(stan::model::index_min_max((a + 1), (a + nc)), stan::model::nil_index_list()), "agd_contrast_y"), stan::model::rvalue(eta_agd_contrast_bar, stan::model::cons_list(stan::model::index_min_max((a + 1), (a + nc)), stan::model::nil_index_list()), "eta_agd_contrast_bar"), stan::model::rvalue(agd_contrast_Sigma, stan::model::cons_list(stan::model::index_min_max((a + 1), (a + nc)), stan::model::cons_list(stan::model::index_min_max((a + 1), (a + nc)), stan::model::nil_index_list())), "agd_contrast_Sigma")), 
                             "assigning variable log_lik");
-                current_statement_begin__ = 654;
+                current_statement_begin__ = 666;
                 stan::model::assign(resdev, 
                             stan::model::cons_list(stan::model::index_uni(((ni_ipd + ni_agd_arm) + s)), stan::model::nil_index_list()), 
                             quad_form(stan::model::rvalue(inv_Sigma, stan::model::cons_list(stan::model::index_min_max((a + 1), (a + nc)), stan::model::cons_list(stan::model::index_min_max((a + 1), (a + nc)), stan::model::nil_index_list())), "inv_Sigma"), subtract(stan::model::rvalue(agd_contrast_y, stan::model::cons_list(stan::model::index_min_max((a + 1), (a + nc)), stan::model::nil_index_list()), "agd_contrast_y"), stan::model::rvalue(eta_agd_contrast_bar, stan::model::cons_list(stan::model::index_min_max((a + 1), (a + nc)), stan::model::nil_index_list()), "eta_agd_contrast_bar"))), 
                             "assigning variable resdev");
-                current_statement_begin__ = 656;
+                current_statement_begin__ = 668;
                 stan::math::assign(a, (a + nc));
             }
             }
-            current_statement_begin__ = 662;
+            current_statement_begin__ = 674;
             for (int i = 1; i <= ni_ipd; ++i) {
-                current_statement_begin__ = 663;
+                current_statement_begin__ = 675;
                 stan::model::assign(log_lik, 
                             stan::model::cons_list(stan::model::index_uni(i), stan::model::nil_index_list()), 
                             categorical_log(get_base1(ipd_r, i, "ipd_r", 1), get_base1(theta_ipd, i, "theta_ipd", 1)), 
                             "assigning variable log_lik");
-                current_statement_begin__ = 664;
+                current_statement_begin__ = 676;
                 stan::model::assign(resdev, 
                             stan::model::cons_list(stan::model::index_uni(i), stan::model::nil_index_list()), 
                             (-(2) * get_base1(log_lik, i, "log_lik", 1)), 
                             "assigning variable resdev");
-                current_statement_begin__ = 665;
+                current_statement_begin__ = 677;
                 stan::model::assign(fitted_ipd, 
                             stan::model::cons_list(stan::model::index_uni(i), stan::model::nil_index_list()), 
                             get_base1(theta_ipd, i, "theta_ipd", 1), 
                             "assigning variable fitted_ipd");
             }
             {
-            current_statement_begin__ = 670;
+            current_statement_begin__ = 682;
             validate_non_negative_index("dv", "ncat", ncat);
             validate_non_negative_index("dv", "ni_agd_arm", ni_agd_arm);
             std::vector<Eigen::Matrix<local_scalar_t__, Eigen::Dynamic, 1>  > dv(ni_agd_arm, Eigen::Matrix<local_scalar_t__, Eigen::Dynamic, 1>(ncat));
             stan::math::initialize(dv, DUMMY_VAR__);
             stan::math::fill(dv, DUMMY_VAR__);
-            current_statement_begin__ = 671;
+            current_statement_begin__ = 683;
             for (int i = 1; i <= ni_agd_arm; ++i) {
-                current_statement_begin__ = 672;
+                current_statement_begin__ = 684;
                 stan::model::assign(log_lik, 
                             stan::model::cons_list(stan::model::index_uni((ni_ipd + i)), stan::model::nil_index_list()), 
                             multinomial_log(get_base1(agd_arm_r, i, "agd_arm_r", 1), get_base1(theta_agd_arm_bar, i, "theta_agd_arm_bar", 1)), 
                             "assigning variable log_lik");
-                current_statement_begin__ = 673;
+                current_statement_begin__ = 685;
                 stan::model::assign(fitted_agd_arm, 
                             stan::model::cons_list(stan::model::index_uni(i), stan::model::nil_index_list()), 
                             multiply(get_base1(agd_arm_n, i, "agd_arm_n", 1), get_base1(theta_agd_arm_bar, i, "theta_agd_arm_bar", 1)), 
                             "assigning variable fitted_agd_arm");
-                current_statement_begin__ = 675;
+                current_statement_begin__ = 687;
                 for (int k = 1; k <= get_base1(agd_arm_ncat, i, "agd_arm_ncat", 1); ++k) {
-                    current_statement_begin__ = 677;
+                    current_statement_begin__ = 689;
                     stan::model::assign(dv, 
                                 stan::model::cons_list(stan::model::index_uni(i), stan::model::cons_list(stan::model::index_uni(k), stan::model::nil_index_list())), 
                                 (logical_eq(get_base1(get_base1(agd_arm_r, i, "agd_arm_r", 1), get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2), "agd_arm_r", 2), 0) ? stan::math::promote_scalar<double>(0) : stan::math::promote_scalar<double>(multiply_log(get_base1(get_base1(agd_arm_r, i, "agd_arm_r", 1), get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2), "agd_arm_r", 2), (get_base1(get_base1(agd_arm_r, i, "agd_arm_r", 1), get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2), "agd_arm_r", 2) / get_base1(get_base1(fitted_agd_arm, i, "fitted_agd_arm", 1), get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2), "fitted_agd_arm", 2)))) ), 
                                 "assigning variable dv");
                 }
-                current_statement_begin__ = 679;
+                current_statement_begin__ = 691;
                 stan::model::assign(resdev, 
                             stan::model::cons_list(stan::model::index_uni((ni_ipd + i)), stan::model::nil_index_list()), 
                             (2 * sum(stan::model::rvalue(dv, stan::model::cons_list(stan::model::index_uni(i), stan::model::cons_list(stan::model::index_min_max(1, get_base1(agd_arm_ncat, i, "agd_arm_ncat", 1)), stan::model::nil_index_list())), "dv"))), 
                             "assigning variable resdev");
             }
             }
-            current_statement_begin__ = 684;
+            current_statement_begin__ = 696;
             for (int i = 1; i <= ni_agd_arm; ++i) {
-                current_statement_begin__ = 685;
+                current_statement_begin__ = 697;
                 for (int k = 1; k <= (ncat - 1); ++k) {
-                    current_statement_begin__ = 686;
+                    current_statement_begin__ = 698;
                     for (int j = 1; j <= n_int_thin; ++j) {
-                        current_statement_begin__ = 687;
+                        current_statement_begin__ = 699;
                         stan::model::assign(theta_bar_cum_agd_arm, 
                                     stan::model::cons_list(stan::model::index_uni((((i - 1) * n_int_thin) + j)), stan::model::cons_list(stan::model::index_uni(get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2)), stan::model::nil_index_list())), 
                                     mean(stan::model::rvalue(theta_agd_arm_ii, stan::model::cons_list(stan::model::index_min_max((1 + ((i - 1) * nint)), (((i - 1) * nint) + (j * int_thin))), stan::model::cons_list(stan::model::index_uni(get_base1(get_base1(agd_arm_cat, i, "agd_arm_cat", 1), k, "agd_arm_cat", 2)), stan::model::nil_index_list())), "theta_agd_arm_ii")), 
@@ -2976,7 +2998,7 @@ public:
                 }
             }
             // validate, write generated quantities
-            current_statement_begin__ = 598;
+            current_statement_begin__ = 610;
             size_t fitted_ipd_j_1_max__ = ncat;
             size_t fitted_ipd_k_0_max__ = ni_ipd;
             for (size_t j_1__ = 0; j_1__ < fitted_ipd_j_1_max__; ++j_1__) {
@@ -2984,7 +3006,7 @@ public:
                     vars__.push_back(fitted_ipd[k_0__](j_1__));
                 }
             }
-            current_statement_begin__ = 599;
+            current_statement_begin__ = 611;
             size_t fitted_agd_arm_j_1_max__ = ncat;
             size_t fitted_agd_arm_k_0_max__ = ni_agd_arm;
             for (size_t j_1__ = 0; j_1__ < fitted_agd_arm_j_1_max__; ++j_1__) {
@@ -2992,7 +3014,7 @@ public:
                     vars__.push_back(fitted_agd_arm[k_0__](j_1__));
                 }
             }
-            current_statement_begin__ = 600;
+            current_statement_begin__ = 612;
             size_t theta_bar_cum_agd_arm_j_2_max__ = ncat;
             size_t theta_bar_cum_agd_arm_j_1_max__ = (ni_agd_arm * n_int_thin);
             for (size_t j_2__ = 0; j_2__ < theta_bar_cum_agd_arm_j_2_max__; ++j_2__) {
@@ -3000,27 +3022,27 @@ public:
                     vars__.push_back(theta_bar_cum_agd_arm(j_1__, j_2__));
                 }
             }
-            current_statement_begin__ = 605;
+            current_statement_begin__ = 617;
             size_t log_lik_j_1_max__ = ((ni_ipd + ni_agd_arm) + ns_agd_contrast);
             for (size_t j_1__ = 0; j_1__ < log_lik_j_1_max__; ++j_1__) {
                 vars__.push_back(log_lik(j_1__));
             }
-            current_statement_begin__ = 606;
+            current_statement_begin__ = 618;
             size_t resdev_j_1_max__ = ((ni_ipd + ni_agd_arm) + ns_agd_contrast);
             for (size_t j_1__ = 0; j_1__ < resdev_j_1_max__; ++j_1__) {
                 vars__.push_back(resdev(j_1__));
             }
-            current_statement_begin__ = 607;
+            current_statement_begin__ = 619;
             size_t fitted_agd_contrast_j_1_max__ = ni_agd_contrast;
             for (size_t j_1__ = 0; j_1__ < fitted_agd_contrast_j_1_max__; ++j_1__) {
                 vars__.push_back(fitted_agd_contrast(j_1__));
             }
-            current_statement_begin__ = 610;
+            current_statement_begin__ = 622;
             size_t theta_bar_cum_agd_contrast_j_1_max__ = (ni_agd_contrast * n_int_thin);
             for (size_t j_1__ = 0; j_1__ < theta_bar_cum_agd_contrast_j_1_max__; ++j_1__) {
                 vars__.push_back(theta_bar_cum_agd_contrast(j_1__));
             }
-            current_statement_begin__ = 614;
+            current_statement_begin__ = 626;
             size_t delta_j_1_max__ = n_delta;
             for (size_t j_1__ = 0; j_1__ < delta_j_1_max__; ++j_1__) {
                 vars__.push_back(delta(j_1__));

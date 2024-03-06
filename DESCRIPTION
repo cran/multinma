@@ -1,6 +1,6 @@
 Package: multinma
 Title: Bayesian Network Meta-Analysis of Individual and Aggregate Data
-Version: 0.6.0
+Version: 0.6.1
 Authors@R: 
     person(given = c("David", "M."),
            family = "Phillippo",
@@ -37,8 +37,8 @@ URL: https://dmphillippo.github.io/multinma/,
 BugReports: https://github.com/dmphillippo/multinma/issues
 VignetteBuilder: knitr, R.rsp
 NeedsCompilation: yes
-Packaged: 2024-01-24 12:29:44 UTC; dp14189
+Packaged: 2024-03-05 12:56:33 UTC; dp14189
 Author: David M. Phillippo [aut, cre] (<https://orcid.org/0000-0003-2672-7841>)
 Maintainer: David M. Phillippo <david.phillippo@bristol.ac.uk>
 Repository: CRAN
-Date/Publication: 2024-01-24 13:30:05 UTC
+Date/Publication: 2024-03-06 01:00:05 UTC

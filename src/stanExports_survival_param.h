@@ -27,567 +27,670 @@ namespace model_survival_param_namespace {
 using stan::model::model_base_crtp;
 using namespace stan::math;
 stan::math::profile_map profiles__;
-static constexpr std::array<const char*, 1105> locations_array__ =
+static constexpr std::array<const char*, 1245> locations_array__ =
   {" (found before start of program)",
-  " (in 'string', line 719, column 0 to column 22)",
-  " (in 'string', line 722, column 0 to column 24)",
-  " (in 'string', line 723, column 0 to column 34)",
-  " (in 'string', line 726, column 2 to column 29)",
-  " (in 'string', line 728, column 2 to column 39)",
-  " (in 'string', line 730, column 2 to column 58)",
-  " (in 'string', line 734, column 2 to column 27)",
-  " (in 'string', line 735, column 2 to column 35)",
-  " (in 'string', line 740, column 0 to column 23)",
-  " (in 'string', line 745, column 0 to line 750, column 14)",
-  " (in 'string', line 753, column 0 to column 58)",
-  " (in 'string', line 755, column 0 to column 17)",
-  " (in 'string', line 757, column 0 to column 56)",
-  " (in 'string', line 759, column 0 to column 24)",
-  " (in 'string', line 761, column 0 to column 47)",
-  " (in 'string', line 766, column 0 to column 70)",
-  " (in 'string', line 767, column 0 to column 45)",
-  " (in 'string', line 1078, column 2 to column 79)",
-  " (in 'string', line 1079, column 2 to column 38)",
-  " (in 'string', line 1080, column 2 to column 38)",
-  " (in 'string', line 1081, column 2 to column 34)",
-  " (in 'string', line 1083, column 2 to column 59)",
-  " (in 'string', line 1088, column 0 to column 54)",
-  " (in 'string', line 1089, column 0 to column 53)",
-  " (in 'string', line 1090, column 0 to column 44)",
-  " (in 'string', line 1093, column 2 to column 66)",
-  " (in 'string', line 1097, column 0 to column 22)",
-  " (in 'string', line 772, column 2 to column 24)",
-  " (in 'string', line 771, column 11 to line 773, column 1)",
-  " (in 'string', line 771, column 0 to line 773, column 1)",
-  " (in 'string', line 778, column 2 to column 44)",
-  " (in 'string', line 777, column 39 to line 779, column 1)",
-  " (in 'string', line 777, column 0 to line 779, column 1)",
-  " (in 'string', line 784, column 2 to column 33)",
-  " (in 'string', line 783, column 15 to line 785, column 1)",
-  " (in 'string', line 783, column 0 to line 785, column 1)",
-  " (in 'string', line 807, column 2 to line 809, column 23)",
-  " (in 'string', line 806, column 7 to line 810, column 1)",
-  " (in 'string', line 795, column 11 to column 17)",
-  " (in 'string', line 795, column 4 to line 797, column 25)",
-  " (in 'string', line 803, column 8 to column 37)",
-  " (in 'string', line 801, column 8 to column 69)",
-  " (in 'string', line 800, column 6 to line 803, column 37)",
-  " (in 'string', line 799, column 24 to line 804, column 5)",
-  " (in 'string', line 799, column 4 to line 804, column 5)",
-  " (in 'string', line 794, column 2 to line 805, column 3)",
-  " (in 'string', line 793, column 8 to line 806, column 1)",
-  " (in 'string', line 793, column 0 to line 810, column 1)",
-  " (in 'string', line 792, column 12 to line 811, column 1)",
-  " (in 'string', line 792, column 0 to line 811, column 1)",
-  " (in 'string', line 854, column 4 to line 856, column 34)",
-  " (in 'string', line 853, column 9 to line 857, column 3)",
-  " (in 'string', line 843, column 11 to column 33)",
-  " (in 'string', line 843, column 4 to line 845, column 34)",
-  " (in 'string', line 851, column 6 to column 57)",
-  " (in 'string', line 849, column 8 to column 108)",
-  " (in 'string', line 848, column 6 to line 851, column 57)",
-  " (in 'string', line 847, column 33 to line 852, column 5)",
-  " (in 'string', line 847, column 4 to line 852, column 5)",
-  " (in 'string', line 842, column 10 to line 853, column 3)",
-  " (in 'string', line 842, column 2 to line 857, column 3)",
-  " (in 'string', line 841, column 7 to line 858, column 1)",
-  " (in 'string', line 816, column 9 to column 35)",
-  " (in 'string', line 816, column 2 to line 818, column 32)",
-  " (in 'string', line 834, column 6 to column 123)",
-  " (in 'string', line 833, column 38 to line 835, column 5)",
-  " (in 'string', line 833, column 9 to line 835, column 5)",
-  " (in 'string', line 832, column 26 to column 70)",
-  " (in 'string', line 832, column 4 to line 835, column 5)",
-  " (in 'string', line 838, column 6 to column 85)",
-  " (in 'string', line 837, column 33 to line 839, column 5)",
-  " (in 'string', line 837, column 4 to line 839, column 5)",
-  " (in 'string', line 831, column 9 to line 840, column 3)",
-  " (in 'string', line 826, column 8 to line 827, column 78)",
-  " (in 'string', line 823, column 8 to line 824, column 127)",
-  " (in 'string', line 822, column 6 to line 827, column 78)",
-  " (in 'string', line 829, column 6 to column 85)",
-  " (in 'string', line 821, column 33 to line 830, column 5)",
-  " (in 'string', line 821, column 4 to line 830, column 5)",
-  " (in 'string', line 820, column 10 to line 831, column 3)",
-  " (in 'string', line 820, column 2 to line 840, column 3)",
-  " (in 'string', line 815, column 18 to line 841, column 1)",
-  " (in 'string', line 815, column 0 to line 858, column 1)",
-  " (in 'string', line 814, column 21 to line 859, column 1)",
-  " (in 'string', line 814, column 0 to line 859, column 1)",
-  " (in 'string', line 879, column 8 to column 37)",
-  " (in 'string', line 881, column 16 to column 18)",
-  " (in 'string', line 881, column 10 to column 55)",
-  " (in 'string', line 882, column 10 to column 20)",
-  " (in 'string', line 883, column 10 to column 21)",
-  " (in 'string', line 884, column 21 to column 38)",
-  " (in 'string', line 884, column 10 to column 47)",
-  " (in 'string', line 885, column 22 to column 65)",
-  " (in 'string', line 885, column 10 to column 65)",
-  " (in 'string', line 891, column 24 to column 38)",
-  " (in 'string', line 891, column 12 to column 38)",
-  " (in 'string', line 892, column 26 to column 42)",
-  " (in 'string', line 892, column 12 to column 42)",
-  " (in 'string', line 889, column 17 to line 893, column 11)",
-  " (in 'string', line 887, column 24 to column 66)",
-  " (in 'string', line 887, column 12 to column 66)",
-  " (in 'string', line 888, column 26 to column 70)",
-  " (in 'string', line 888, column 12 to column 70)",
-  " (in 'string', line 886, column 22 to line 889, column 11)",
-  " (in 'string', line 886, column 10 to line 893, column 11)",
-  " (in 'string', line 894, column 10 to line 901, column 41)",
-  " (in 'string', line 880, column 16 to line 902, column 9)",
-  " (in 'string', line 880, column 8 to line 902, column 9)",
-  " (in 'string', line 878, column 31 to line 903, column 7)",
-  " (in 'string', line 878, column 6 to line 903, column 7)",
-  " (in 'string', line 877, column 11 to line 904, column 5)",
-  " (in 'string', line 863, column 13 to column 19)",
-  " (in 'string', line 863, column 6 to column 26)",
-  " (in 'string', line 864, column 13 to column 19)",
-  " (in 'string', line 864, column 6 to column 27)",
-  " (in 'string', line 865, column 13 to column 32)",
-  " (in 'string', line 865, column 34 to column 51)",
-  " (in 'string', line 865, column 6 to column 60)",
-  " (in 'string', line 866, column 18 to column 53)",
-  " (in 'string', line 866, column 6 to column 53)",
-  " (in 'string', line 867, column 18 to column 55)",
-  " (in 'string', line 867, column 6 to column 55)",
-  " (in 'string', line 868, column 20 to column 59)",
-  " (in 'string', line 868, column 6 to column 59)",
-  " (in 'string', line 869, column 6 to line 876, column 32)",
-  " (in 'string', line 862, column 32 to line 877, column 5)",
-  " (in 'string', line 862, column 4 to line 904, column 5)",
-  " (in 'string', line 861, column 14 to line 905, column 3)",
-  " (in 'string', line 861, column 2 to line 905, column 3)",
-  " (in 'string', line 908, column 11 to column 32)",
-  " (in 'string', line 908, column 4 to line 910, column 37)",
-  " (in 'string', line 972, column 13 to column 23)",
-  " (in 'string', line 972, column 6 to column 56)",
-  " (in 'string', line 974, column 69 to column 122)",
-  " (in 'string', line 974, column 38 to column 122)",
-  " (in 'string', line 974, column 14 to column 122)",
-  " (in 'string', line 974, column 6 to column 122)",
-  " (in 'string', line 992, column 10 to column 43)",
-  " (in 'string', line 994, column 18 to column 20)",
-  " (in 'string', line 994, column 12 to column 61)",
-  " (in 'string', line 995, column 12 to column 22)",
-  " (in 'string', line 996, column 12 to column 23)",
-  " (in 'string', line 997, column 23 to column 40)",
-  " (in 'string', line 997, column 12 to column 49)",
-  " (in 'string', line 998, column 24 to column 71)",
-  " (in 'string', line 998, column 12 to column 71)",
-  " (in 'string', line 1004, column 26 to column 40)",
-  " (in 'string', line 1004, column 14 to column 40)",
-  " (in 'string', line 1005, column 28 to column 44)",
-  " (in 'string', line 1005, column 14 to column 44)",
-  " (in 'string', line 1002, column 19 to line 1006, column 13)",
-  " (in 'string', line 1000, column 26 to column 72)",
-  " (in 'string', line 1000, column 14 to column 72)",
-  " (in 'string', line 1001, column 28 to column 76)",
-  " (in 'string', line 1001, column 14 to column 76)",
-  " (in 'string', line 999, column 24 to line 1002, column 13)",
-  " (in 'string', line 999, column 12 to line 1006, column 13)",
-  " (in 'string', line 1007, column 12 to line 1014, column 47)",
-  " (in 'string', line 993, column 18 to line 1015, column 11)",
-  " (in 'string', line 993, column 10 to line 1015, column 11)",
-  " (in 'string', line 991, column 33 to line 1016, column 9)",
-  " (in 'string', line 991, column 8 to line 1016, column 9)",
-  " (in 'string', line 990, column 13 to line 1017, column 7)",
-  " (in 'string', line 976, column 15 to column 25)",
-  " (in 'string', line 976, column 8 to column 32)",
-  " (in 'string', line 977, column 15 to column 25)",
-  " (in 'string', line 977, column 8 to column 33)",
-  " (in 'string', line 978, column 15 to column 25)",
-  " (in 'string', line 978, column 27 to column 44)",
-  " (in 'string', line 978, column 8 to column 53)",
-  " (in 'string', line 979, column 20 to column 59)",
-  " (in 'string', line 979, column 8 to column 59)",
-  " (in 'string', line 980, column 20 to column 61)",
-  " (in 'string', line 980, column 8 to column 61)",
-  " (in 'string', line 981, column 22 to column 65)",
-  " (in 'string', line 981, column 8 to column 65)",
-  " (in 'string', line 982, column 8 to line 989, column 38)",
-  " (in 'string', line 975, column 34 to line 990, column 7)",
-  " (in 'string', line 975, column 6 to line 1017, column 7)",
-  " (in 'string', line 971, column 11 to line 1018, column 5)",
-  " (in 'string', line 938, column 10 to column 43)",
-  " (in 'string', line 940, column 18 to column 20)",
-  " (in 'string', line 940, column 12 to column 61)",
-  " (in 'string', line 941, column 12 to column 22)",
-  " (in 'string', line 942, column 12 to column 23)",
-  " (in 'string', line 943, column 23 to column 40)",
-  " (in 'string', line 943, column 12 to column 49)",
-  " (in 'string', line 944, column 24 to column 71)",
-  " (in 'string', line 944, column 12 to column 71)",
-  " (in 'string', line 950, column 14 to column 41)",
-  " (in 'string', line 951, column 14 to column 45)",
-  " (in 'string', line 948, column 19 to line 952, column 13)",
-  " (in 'string', line 946, column 14 to column 73)",
-  " (in 'string', line 947, column 14 to column 77)",
-  " (in 'string', line 945, column 24 to line 948, column 13)",
-  " (in 'string', line 945, column 12 to line 952, column 13)",
-  " (in 'string', line 954, column 21 to column 25)",
-  " (in 'string', line 954, column 14 to column 42)",
-  " (in 'string', line 955, column 21 to column 25)",
-  " (in 'string', line 955, column 14 to column 36)",
-  " (in 'string', line 956, column 14 to column 102)",
-  " (in 'string', line 957, column 55 to column 112)",
-  " (in 'string', line 957, column 14 to column 112)",
-  " (in 'string', line 958, column 14 to line 965, column 41)",
-  " (in 'string', line 966, column 14 to column 71)",
-  " (in 'string', line 953, column 28 to line 967, column 13)",
-  " (in 'string', line 953, column 12 to line 967, column 13)",
-  " (in 'string', line 939, column 18 to line 968, column 11)",
-  " (in 'string', line 939, column 10 to line 968, column 11)",
-  " (in 'string', line 937, column 33 to line 969, column 9)",
-  " (in 'string', line 937, column 8 to line 969, column 9)",
-  " (in 'string', line 936, column 13 to line 970, column 7)",
-  " (in 'string', line 914, column 17 to column 21)",
-  " (in 'string', line 914, column 10 to column 38)",
-  " (in 'string', line 915, column 17 to column 21)",
-  " (in 'string', line 915, column 10 to column 32)",
-  " (in 'string', line 916, column 17 to column 21)",
-  " (in 'string', line 916, column 10 to column 28)",
-  " (in 'string', line 917, column 17 to column 21)",
-  " (in 'string', line 917, column 10 to column 29)",
-  " (in 'string', line 918, column 17 to column 34)",
-  " (in 'string', line 918, column 36 to column 53)",
-  " (in 'string', line 918, column 10 to column 62)",
-  " (in 'string', line 919, column 22 to column 109)",
-  " (in 'string', line 919, column 10 to column 109)",
-  " (in 'string', line 920, column 22 to column 109)",
-  " (in 'string', line 920, column 10 to column 109)",
-  " (in 'string', line 921, column 24 to column 113)",
-  " (in 'string', line 921, column 10 to column 113)",
-  " (in 'string', line 922, column 10 to column 90)",
-  " (in 'string', line 924, column 47 to column 100)",
-  " (in 'string', line 924, column 10 to column 100)",
-  " (in 'string', line 926, column 10 to line 933, column 38)",
-  " (in 'string', line 934, column 10 to column 63)",
-  " (in 'string', line 913, column 32 to line 935, column 9)",
-  " (in 'string', line 913, column 8 to line 935, column 9)",
-  " (in 'string', line 912, column 34 to line 936, column 7)",
-  " (in 'string', line 912, column 6 to line 970, column 7)",
-  " (in 'string', line 911, column 22 to line 971, column 5)",
-  " (in 'string', line 911, column 4 to line 1018, column 5)",
-  " (in 'string', line 907, column 18 to line 1019, column 3)",
-  " (in 'string', line 907, column 2 to line 1019, column 3)",
-  " (in 'string', line 1100, column 2 to column 12)",
-  " (in 'string', line 1103, column 6 to column 93)",
-  " (in 'string', line 1104, column 6 to column 13)",
-  " (in 'string', line 1102, column 21 to line 1105, column 5)",
-  " (in 'string', line 1102, column 4 to line 1105, column 5)",
-  " (in 'string', line 1101, column 41 to line 1106, column 3)",
-  " (in 'string', line 1101, column 2 to line 1106, column 3)",
-  " (in 'string', line 1109, column 6 to line 1110, column 101)",
-  " (in 'string', line 1113, column 8 to column 49)",
-  " (in 'string', line 1112, column 6 to line 1113, column 49)",
-  " (in 'string', line 1115, column 6 to column 13)",
-  " (in 'string', line 1108, column 47 to line 1116, column 5)",
-  " (in 'string', line 1108, column 4 to line 1116, column 5)",
-  " (in 'string', line 1107, column 31 to line 1117, column 3)",
-  " (in 'string', line 1107, column 2 to line 1117, column 3)",
-  " (in 'string', line 1099, column 8 to line 1118, column 1)",
-  " (in 'string', line 1099, column 0 to line 1118, column 1)",
-  " (in 'string', line 1123, column 4 to column 125)",
-  " (in 'string', line 1122, column 26 to line 1124, column 3)",
-  " (in 'string', line 1122, column 2 to line 1124, column 3)",
-  " (in 'string', line 1121, column 29 to line 1125, column 1)",
-  " (in 'string', line 1121, column 0 to line 1125, column 1)",
-  " (in 'string', line 1127, column 0 to column 43)",
-  " (in 'string', line 1131, column 2 to column 12)",
-  " (in 'string', line 1132, column 2 to column 9)",
-  " (in 'string', line 1134, column 4 to column 28)",
-  " (in 'string', line 1135, column 4 to line 1136, column 102)",
-  " (in 'string', line 1137, column 4 to line 1138, column 123)",
-  " (in 'string', line 1139, column 4 to column 12)",
-  " (in 'string', line 1133, column 31 to line 1140, column 3)",
-  " (in 'string', line 1133, column 2 to line 1140, column 3)",
-  " (in 'string', line 1130, column 0 to line 1141, column 1)",
-  " (in 'string', line 1144, column 14 to column 44)",
-  " (in 'string', line 1144, column 2 to column 44)",
-  " (in 'string', line 1145, column 18 to column 78)",
-  " (in 'string', line 1145, column 2 to column 78)",
-  " (in 'string', line 1148, column 27 to column 99)",
-  " (in 'string', line 1148, column 2 to column 99)",
-  " (in 'string', line 1151, column 56 to column 68)",
-  " (in 'string', line 1151, column 2 to column 68)",
-  " (in 'string', line 1152, column 17 to column 29)",
-  " (in 'string', line 1152, column 2 to column 29)",
-  " (in 'string', line 1154, column 4 to column 16)",
-  " (in 'string', line 1155, column 4 to column 13)",
-  " (in 'string', line 1153, column 17 to line 1156, column 3)",
-  " (in 'string', line 1153, column 2 to line 1156, column 3)",
-  " (in 'string', line 1158, column 19 to column 48)",
-  " (in 'string', line 1158, column 2 to column 48)",
-  " (in 'string', line 1027, column 0 to column 111)",
-  " (in 'string', line 1029, column 0 to column 86)",
-  " (in 'string', line 1031, column 0 to column 89)",
-  " (in 'string', line 1034, column 0 to column 90)",
-  " (in 'string', line 1043, column 11 to column 21)",
-  " (in 'string', line 1043, column 4 to column 29)",
-  " (in 'string', line 1050, column 6 to column 27)",
-  " (in 'string', line 1051, column 6 to column 28)",
-  " (in 'string', line 1049, column 34 to line 1052, column 5)",
-  " (in 'string', line 1049, column 9 to line 1052, column 5)",
-  " (in 'string', line 1046, column 6 to column 26)",
-  " (in 'string', line 1047, column 6 to column 25)",
-  " (in 'string', line 1045, column 29 to line 1048, column 5)",
-  " (in 'string', line 1045, column 4 to line 1052, column 5)",
-  " (in 'string', line 1053, column 4 to column 94)",
-  " (in 'string', line 1041, column 10 to line 1054, column 3)",
-  " (in 'string', line 1041, column 9 to line 1054, column 4)",
-  " (in 'string', line 1039, column 4 to column 92)",
-  " (in 'string', line 1038, column 27 to line 1041, column 3)",
-  " (in 'string', line 1038, column 2 to line 1054, column 4)",
-  " (in 'string', line 1037, column 8 to line 1055, column 1)",
-  " (in 'string', line 1037, column 0 to line 1055, column 1)",
-  " (in 'string', line 1058, column 0 to column 23)",
-  " (in 'string', line 1062, column 2 to column 74)",
-  " (in 'string', line 1061, column 21 to line 1063, column 1)",
-  " (in 'string', line 1061, column 0 to line 1063, column 1)",
-  " (in 'string', line 1065, column 14 to column 102)",
-  " (in 'string', line 1065, column 2 to column 102)",
-  " (in 'string', line 1066, column 16 to column 109)",
-  " (in 'string', line 1066, column 2 to column 109)",
-  " (in 'string', line 1068, column 24 to column 137)",
-  " (in 'string', line 1068, column 2 to column 137)",
-  " (in 'string', line 1069, column 26 to column 139)",
-  " (in 'string', line 1069, column 2 to column 139)",
-  " (in 'string', line 1071, column 2 to column 22)",
-  " (in 'string', line 1073, column 2 to column 26)",
-  " (in 'string', line 489, column 0 to column 20)",
-  " (in 'string', line 490, column 0 to column 24)",
-  " (in 'string', line 491, column 0 to column 29)",
-  " (in 'string', line 493, column 0 to column 20)",
-  " (in 'string', line 494, column 0 to column 24)",
-  " (in 'string', line 495, column 0 to column 29)",
-  " (in 'string', line 498, column 0 to column 22)",
-  " (in 'string', line 499, column 6 to column 12)",
-  " (in 'string', line 499, column 0 to column 35)",
-  " (in 'string', line 500, column 6 to column 14)",
-  " (in 'string', line 500, column 0 to column 37)",
-  " (in 'string', line 501, column 0 to column 26)",
-  " (in 'string', line 502, column 6 to column 18)",
-  " (in 'string', line 502, column 0 to column 45)",
-  " (in 'string', line 503, column 6 to column 21)",
-  " (in 'string', line 503, column 0 to column 53)",
-  " (in 'string', line 504, column 6 to column 21)",
-  " (in 'string', line 504, column 0 to column 55)",
-  " (in 'string', line 511, column 0 to column 16)",
-  " (in 'string', line 512, column 0 to column 16)",
-  " (in 'string', line 515, column 0 to column 21)",
-  " (in 'string', line 516, column 0 to column 36)",
-  " (in 'string', line 517, column 6 to column 13)",
-  " (in 'string', line 517, column 0 to column 37)",
-  " (in 'string', line 518, column 0 to column 22)",
-  " (in 'string', line 519, column 0 to column 22)",
-  " (in 'string', line 521, column 0 to column 18)",
-  " (in 'string', line 524, column 7 to column 22)",
-  " (in 'string', line 524, column 0 to column 39)",
-  " (in 'string', line 525, column 11 to column 48)",
-  " (in 'string', line 525, column 0 to column 69)",
-  " (in 'string', line 528, column 0 to column 25)",
-  " (in 'string', line 529, column 7 to column 57)",
-  " (in 'string', line 529, column 59 to column 61)",
-  " (in 'string', line 529, column 0 to column 65)",
-  " (in 'string', line 530, column 7 to column 18)",
-  " (in 'string', line 530, column 20 to column 31)",
-  " (in 'string', line 530, column 0 to column 39)",
-  " (in 'string', line 533, column 0 to column 33)",
-  " (in 'string', line 534, column 7 to column 74)",
-  " (in 'string', line 534, column 0 to column 84)",
-  " (in 'string', line 537, column 0 to column 25)",
-  " (in 'string', line 538, column 6 to column 56)",
-  " (in 'string', line 538, column 0 to column 80)",
-  " (in 'string', line 539, column 12 to column 34)",
-  " (in 'string', line 539, column 0 to column 43)",
-  " (in 'string', line 542, column 0 to column 32)",
-  " (in 'string', line 545, column 0 to column 42)",
-  " (in 'string', line 546, column 0 to column 30)",
-  " (in 'string', line 547, column 0 to column 36)",
-  " (in 'string', line 548, column 0 to column 33)",
-  " (in 'string', line 550, column 0 to column 36)",
-  " (in 'string', line 551, column 0 to column 24)",
-  " (in 'string', line 552, column 0 to column 30)",
-  " (in 'string', line 553, column 0 to column 27)",
-  " (in 'string', line 555, column 0 to column 36)",
-  " (in 'string', line 556, column 0 to column 36)",
-  " (in 'string', line 557, column 0 to column 24)",
-  " (in 'string', line 558, column 0 to column 30)",
-  " (in 'string', line 559, column 0 to column 27)",
-  " (in 'string', line 561, column 0 to column 36)",
-  " (in 'string', line 562, column 0 to column 24)",
-  " (in 'string', line 563, column 0 to column 30)",
-  " (in 'string', line 564, column 0 to column 27)",
-  " (in 'string', line 566, column 2 to column 38)",
-  " (in 'string', line 567, column 2 to column 26)",
-  " (in 'string', line 568, column 2 to column 32)",
-  " (in 'string', line 569, column 2 to column 29)",
-  " (in 'string', line 571, column 2 to column 39)",
-  " (in 'string', line 572, column 2 to column 27)",
-  " (in 'string', line 573, column 2 to column 33)",
-  " (in 'string', line 574, column 2 to column 30)",
-  " (in 'string', line 576, column 2 to column 20)",
-  " (in 'string', line 588, column 8 to column 18)",
-  " (in 'string', line 588, column 2 to column 45)",
-  " (in 'string', line 590, column 9 to column 15)",
-  " (in 'string', line 590, column 2 to column 26)",
-  " (in 'string', line 591, column 9 to column 15)",
-  " (in 'string', line 591, column 2 to column 32)",
-  " (in 'string', line 592, column 9 to column 15)",
-  " (in 'string', line 592, column 2 to column 32)",
-  " (in 'string', line 593, column 8 to column 14)",
-  " (in 'string', line 593, column 2 to column 49)",
-  " (in 'string', line 594, column 9 to column 19)",
-  " (in 'string', line 594, column 2 to column 34)",
-  " (in 'string', line 595, column 9 to column 19)",
-  " (in 'string', line 595, column 2 to column 40)",
-  " (in 'string', line 596, column 9 to column 19)",
-  " (in 'string', line 596, column 2 to column 40)",
-  " (in 'string', line 597, column 8 to column 18)",
-  " (in 'string', line 597, column 2 to column 57)",
-  " (in 'string', line 599, column 2 to column 32)",
-  " (in 'string', line 601, column 8 to column 54)",
-  " (in 'string', line 601, column 2 to column 76)",
-  " (in 'string', line 602, column 8 to column 54)",
-  " (in 'string', line 602, column 2 to column 79)",
-  " (in 'string', line 604, column 2 to column 22)",
-  " (in 'string', line 605, column 9 to column 55)",
-  " (in 'string', line 605, column 57 to column 63)",
-  " (in 'string', line 605, column 2 to column 71)",
-  " (in 'string', line 606, column 2 to column 36)",
-  " (in 'string', line 608, column 2 to column 42)",
-  " (in 'string', line 609, column 2 to column 39)",
-  " (in 'string', line 610, column 2 to column 36)",
-  " (in 'string', line 611, column 2 to column 33)",
-  " (in 'string', line 615, column 2 to column 66)",
-  " (in 'string', line 617, column 2 to column 53)",
-  " (in 'string', line 619, column 2 to column 39)",
-  " (in 'string', line 620, column 2 to column 48)",
-  " (in 'string', line 622, column 8 to column 18)",
-  " (in 'string', line 622, column 2 to column 37)",
-  " (in 'string', line 624, column 8 to column 14)",
-  " (in 'string', line 624, column 2 to column 59)",
-  " (in 'string', line 625, column 8 to column 43)",
-  " (in 'string', line 625, column 2 to column 143)",
-  " (in 'string', line 626, column 8 to column 14)",
-  " (in 'string', line 626, column 2 to column 65)",
-  " (in 'string', line 627, column 8 to column 43)",
-  " (in 'string', line 627, column 2 to column 149)",
-  " (in 'string', line 629, column 8 to column 50)",
-  " (in 'string', line 629, column 2 to column 147)",
-  " (in 'string', line 630, column 8 to column 50)",
-  " (in 'string', line 630, column 52 to column 104)",
-  " (in 'string', line 630, column 2 to column 127)",
-  " (in 'string', line 631, column 8 to column 50)",
-  " (in 'string', line 631, column 2 to column 155)",
-  " (in 'string', line 632, column 8 to column 50)",
-  " (in 'string', line 632, column 52 to column 108)",
-  " (in 'string', line 632, column 2 to column 135)",
-  " (in 'string', line 634, column 12 to column 18)",
-  " (in 'string', line 634, column 2 to column 30)",
-  " (in 'string', line 635, column 9 to column 15)",
-  " (in 'string', line 635, column 17 to column 23)",
-  " (in 'string', line 635, column 2 to column 74)",
-  " (in 'string', line 636, column 9 to column 46)",
-  " (in 'string', line 636, column 48 to column 54)",
-  " (in 'string', line 636, column 2 to column 166)",
-  " (in 'string', line 642, column 0 to column 54)",
-  " (in 'string', line 646, column 0 to column 46)",
-  " (in 'string', line 648, column 7 to column 14)",
-  " (in 'string', line 648, column 0 to column 47)",
-  " (in 'string', line 650, column 0 to column 21)",
-  " (in 'string', line 651, column 21 to column 28)",
-  " (in 'string', line 651, column 0 to column 84)",
-  " (in 'string', line 653, column 0 to column 17)",
-  " (in 'string', line 654, column 0 to column 21)",
-  " (in 'string', line 655, column 0 to column 34)",
-  " (in 'string', line 656, column 0 to column 58)",
-  " (in 'string', line 657, column 7 to column 30)",
-  " (in 'string', line 657, column 0 to column 81)",
-  " (in 'string', line 658, column 6 to column 29)",
-  " (in 'string', line 658, column 0 to column 85)",
-  " (in 'string', line 659, column 6 to column 33)",
-  " (in 'string', line 659, column 0 to column 90)",
-  " (in 'string', line 665, column 0 to column 32)",
-  " (in 'string', line 671, column 6 to column 47)",
-  " (in 'string', line 671, column 0 to column 135)",
-  " (in 'string', line 674, column 10 to column 12)",
-  " (in 'string', line 674, column 0 to column 21)",
-  " (in 'string', line 675, column 7 to column 13)",
-  " (in 'string', line 675, column 15 to column 17)",
-  " (in 'string', line 675, column 0 to column 57)",
-  " (in 'string', line 676, column 7 to column 28)",
-  " (in 'string', line 676, column 30 to column 32)",
-  " (in 'string', line 676, column 0 to column 117)",
-  " (in 'string', line 677, column 7 to column 33)",
-  " (in 'string', line 677, column 35 to column 37)",
-  " (in 'string', line 677, column 0 to column 176)",
-  " (in 'string', line 680, column 0 to column 17)",
-  " (in 'string', line 681, column 7 to column 40)",
-  " (in 'string', line 681, column 0 to column 105)",
-  " (in 'string', line 682, column 7 to column 59)",
-  " (in 'string', line 682, column 0 to column 169)",
-  " (in 'string', line 683, column 7 to column 69)",
-  " (in 'string', line 683, column 0 to column 233)",
-  " (in 'string', line 686, column 0 to column 72)",
-  " (in 'string', line 689, column 7 to column 44)",
-  " (in 'string', line 689, column 46 to column 83)",
-  " (in 'string', line 689, column 0 to column 129)",
-  " (in 'string', line 693, column 6 to column 21)",
-  " (in 'string', line 693, column 0 to column 43)",
-  " (in 'string', line 695, column 2 to column 12)",
-  " (in 'string', line 696, column 2 to column 12)",
-  " (in 'string', line 703, column 6 to column 13)",
-  " (in 'string', line 702, column 11 to line 704, column 5)",
-  " (in 'string', line 699, column 6 to column 29)",
-  " (in 'string', line 700, column 6 to column 13)",
-  " (in 'string', line 701, column 6 to column 12)",
-  " (in 'string', line 698, column 41 to line 702, column 5)",
-  " (in 'string', line 698, column 4 to line 704, column 5)",
-  " (in 'string', line 697, column 37 to line 705, column 3)",
-  " (in 'string', line 697, column 2 to line 705, column 3)",
-  " (in 'string', line 707, column 2 to column 25)",
-  " (in 'string', line 694, column 21 to line 708, column 1)",
-  " (in 'string', line 694, column 0 to line 708, column 1)",
-  " (in 'string', line 709, column 26 to column 70)",
-  " (in 'string', line 709, column 2 to column 70)",
-  " (in 'string', line 711, column 29 to column 98)",
-  " (in 'string', line 711, column 4 to column 98)",
-  " (in 'string', line 712, column 33 to column 114)",
-  " (in 'string', line 712, column 4 to column 114)",
-  " (in 'string', line 710, column 55 to line 713, column 3)",
-  " (in 'string', line 710, column 30 to line 713, column 3)",
-  " (in 'string', line 710, column 2 to line 713, column 3)",
-  " (in 'string', line 719, column 7 to column 9)",
-  " (in 'string', line 722, column 7 to column 14)",
-  " (in 'string', line 723, column 18 to column 28)",
-  " (in 'string', line 726, column 18 to column 23)",
-  " (in 'string', line 728, column 18 to column 32)",
-  " (in 'string', line 730, column 9 to column 28)",
-  " (in 'string', line 730, column 30 to column 47)",
-  " (in 'string', line 734, column 9 to column 15)",
-  " (in 'string', line 735, column 9 to column 19)",
-  " (in 'string', line 740, column 7 to column 13)",
-  " (in 'string', line 745, column 7 to column 14)",
-  " (in 'string', line 753, column 7 to column 9)",
-  " (in 'string', line 755, column 7 to column 12)",
-  " (in 'string', line 757, column 7 to column 13)",
-  " (in 'string', line 759, column 7 to column 16)",
-  " (in 'string', line 761, column 7 to column 40)",
-  " (in 'string', line 766, column 7 to column 48)",
-  " (in 'string', line 767, column 7 to column 22)",
-  " (in 'string', line 1078, column 9 to column 71)",
-  " (in 'string', line 1079, column 9 to column 30)",
-  " (in 'string', line 1080, column 9 to column 30)",
-  " (in 'string', line 1081, column 9 to column 30)",
-  " (in 'string', line 1083, column 9 to column 31)",
-  " (in 'string', line 1083, column 34 to column 51)",
-  " (in 'string', line 1088, column 7 to column 44)",
-  " (in 'string', line 1089, column 7 to column 44)",
-  " (in 'string', line 1090, column 7 to column 22)",
-  " (in 'string', line 1093, column 9 to column 37)",
-  " (in 'string', line 1097, column 7 to column 14)",
+  " (in 'string', line 802, column 0 to column 22)",
+  " (in 'string', line 805, column 0 to column 24)",
+  " (in 'string', line 806, column 0 to column 34)",
+  " (in 'string', line 809, column 0 to column 53)",
+  " (in 'string', line 810, column 0 to column 63)",
+  " (in 'string', line 813, column 0 to column 49)",
+  " (in 'string', line 816, column 2 to column 29)",
+  " (in 'string', line 818, column 2 to column 39)",
+  " (in 'string', line 820, column 2 to column 58)",
+  " (in 'string', line 824, column 2 to column 27)",
+  " (in 'string', line 825, column 2 to column 35)",
+  " (in 'string', line 830, column 0 to column 23)",
+  " (in 'string', line 835, column 0 to line 840, column 14)",
+  " (in 'string', line 843, column 2 to column 60)",
+  " (in 'string', line 845, column 2 to column 19)",
+  " (in 'string', line 847, column 2 to column 58)",
+  " (in 'string', line 849, column 2 to column 26)",
+  " (in 'string', line 851, column 2 to column 49)",
+  " (in 'string', line 856, column 2 to column 72)",
+  " (in 'string', line 857, column 2 to column 47)",
+  " (in 'string', line 903, column 2 to column 55)",
+  " (in 'string', line 1238, column 2 to column 79)",
+  " (in 'string', line 1239, column 2 to column 38)",
+  " (in 'string', line 1240, column 2 to column 38)",
+  " (in 'string', line 1241, column 2 to column 34)",
+  " (in 'string', line 1243, column 2 to column 59)",
+  " (in 'string', line 1248, column 0 to column 54)",
+  " (in 'string', line 1249, column 0 to column 53)",
+  " (in 'string', line 1250, column 0 to column 44)",
+  " (in 'string', line 1253, column 2 to column 66)",
+  " (in 'string', line 1257, column 0 to column 22)",
+  " (in 'string', line 862, column 4 to column 26)",
+  " (in 'string', line 861, column 13 to line 863, column 3)",
+  " (in 'string', line 861, column 2 to line 863, column 3)",
+  " (in 'string', line 868, column 4 to column 46)",
+  " (in 'string', line 867, column 41 to line 869, column 3)",
+  " (in 'string', line 867, column 2 to line 869, column 3)",
+  " (in 'string', line 874, column 4 to column 35)",
+  " (in 'string', line 873, column 17 to line 875, column 3)",
+  " (in 'string', line 873, column 2 to line 875, column 3)",
+  " (in 'string', line 897, column 6 to line 899, column 25)",
+  " (in 'string', line 896, column 11 to line 900, column 5)",
+  " (in 'string', line 885, column 15 to column 21)",
+  " (in 'string', line 885, column 8 to line 887, column 27)",
+  " (in 'string', line 893, column 10 to column 39)",
+  " (in 'string', line 891, column 10 to column 71)",
+  " (in 'string', line 890, column 10 to line 893, column 39)",
+  " (in 'string', line 889, column 28 to line 894, column 9)",
+  " (in 'string', line 889, column 8 to line 894, column 9)",
+  " (in 'string', line 884, column 6 to line 895, column 7)",
+  " (in 'string', line 883, column 12 to line 896, column 5)",
+  " (in 'string', line 883, column 4 to line 900, column 5)",
+  " (in 'string', line 882, column 14 to line 901, column 3)",
+  " (in 'string', line 882, column 2 to line 901, column 3)",
+  " (in 'string', line 906, column 4 to column 125)",
+  " (in 'string', line 907, column 4 to column 115)",
+  " (in 'string', line 905, column 21 to line 908, column 3)",
+  " (in 'string', line 905, column 2 to line 908, column 3)",
+  " (in 'string', line 913, column 8 to column 68)",
+  " (in 'string', line 912, column 72 to line 914, column 7)",
+  " (in 'string', line 912, column 6 to line 914, column 7)",
+  " (in 'string', line 911, column 24 to line 915, column 5)",
+  " (in 'string', line 911, column 4 to line 915, column 5)",
+  " (in 'string', line 910, column 21 to line 916, column 3)",
+  " (in 'string', line 910, column 2 to line 916, column 3)",
+  " (in 'string', line 971, column 8 to line 973, column 36)",
+  " (in 'string', line 970, column 13 to line 974, column 7)",
+  " (in 'string', line 960, column 15 to column 37)",
+  " (in 'string', line 960, column 8 to line 962, column 36)",
+  " (in 'string', line 968, column 10 to column 61)",
+  " (in 'string', line 966, column 10 to column 110)",
+  " (in 'string', line 965, column 10 to line 968, column 61)",
+  " (in 'string', line 964, column 37 to line 969, column 9)",
+  " (in 'string', line 964, column 8 to line 969, column 9)",
+  " (in 'string', line 959, column 14 to line 970, column 7)",
+  " (in 'string', line 959, column 6 to line 974, column 7)",
+  " (in 'string', line 979, column 12 to column 85)",
+  " (in 'string', line 978, column 76 to line 980, column 11)",
+  " (in 'string', line 978, column 10 to line 980, column 11)",
+  " (in 'string', line 982, column 12 to column 87)",
+  " (in 'string', line 981, column 80 to line 983, column 11)",
+  " (in 'string', line 981, column 10 to line 983, column 11)",
+  " (in 'string', line 977, column 37 to line 984, column 9)",
+  " (in 'string', line 977, column 8 to line 984, column 9)",
+  " (in 'string', line 976, column 25 to line 985, column 7)",
+  " (in 'string', line 976, column 6 to line 985, column 7)",
+  " (in 'string', line 958, column 11 to line 986, column 5)",
+  " (in 'string', line 921, column 13 to column 39)",
+  " (in 'string', line 921, column 6 to line 923, column 34)",
+  " (in 'string', line 929, column 12 to column 129)",
+  " (in 'string', line 928, column 76 to line 930, column 11)",
+  " (in 'string', line 928, column 10 to line 930, column 11)",
+  " (in 'string', line 932, column 12 to column 131)",
+  " (in 'string', line 931, column 80 to line 933, column 11)",
+  " (in 'string', line 931, column 10 to line 933, column 11)",
+  " (in 'string', line 927, column 31 to line 934, column 9)",
+  " (in 'string', line 927, column 8 to line 934, column 9)",
+  " (in 'string', line 926, column 25 to line 935, column 7)",
+  " (in 'string', line 926, column 6 to line 935, column 7)",
+  " (in 'string', line 951, column 10 to column 127)",
+  " (in 'string', line 950, column 42 to line 952, column 9)",
+  " (in 'string', line 950, column 13 to line 952, column 9)",
+  " (in 'string', line 949, column 30 to column 74)",
+  " (in 'string', line 949, column 8 to line 952, column 9)",
+  " (in 'string', line 955, column 10 to column 89)",
+  " (in 'string', line 954, column 37 to line 956, column 9)",
+  " (in 'string', line 954, column 8 to line 956, column 9)",
+  " (in 'string', line 948, column 13 to line 957, column 7)",
+  " (in 'string', line 943, column 10 to line 944, column 78)",
+  " (in 'string', line 940, column 10 to line 941, column 127)",
+  " (in 'string', line 939, column 10 to line 944, column 78)",
+  " (in 'string', line 946, column 10 to column 89)",
+  " (in 'string', line 938, column 37 to line 947, column 9)",
+  " (in 'string', line 938, column 8 to line 947, column 9)",
+  " (in 'string', line 937, column 14 to line 948, column 7)",
+  " (in 'string', line 937, column 6 to line 957, column 7)",
+  " (in 'string', line 920, column 22 to line 958, column 5)",
+  " (in 'string', line 920, column 4 to line 986, column 5)",
+  " (in 'string', line 919, column 23 to line 987, column 3)",
+  " (in 'string', line 919, column 2 to line 987, column 3)",
+  " (in 'string', line 1007, column 8 to column 37)",
+  " (in 'string', line 1009, column 16 to column 18)",
+  " (in 'string', line 1009, column 10 to column 55)",
+  " (in 'string', line 1010, column 10 to column 20)",
+  " (in 'string', line 1011, column 10 to column 21)",
+  " (in 'string', line 1012, column 21 to column 38)",
+  " (in 'string', line 1012, column 10 to column 47)",
+  " (in 'string', line 1013, column 22 to column 65)",
+  " (in 'string', line 1013, column 10 to column 65)",
+  " (in 'string', line 1019, column 24 to column 38)",
+  " (in 'string', line 1019, column 12 to column 38)",
+  " (in 'string', line 1020, column 26 to column 42)",
+  " (in 'string', line 1020, column 12 to column 42)",
+  " (in 'string', line 1017, column 17 to line 1021, column 11)",
+  " (in 'string', line 1015, column 24 to column 66)",
+  " (in 'string', line 1015, column 12 to column 66)",
+  " (in 'string', line 1016, column 26 to column 70)",
+  " (in 'string', line 1016, column 12 to column 70)",
+  " (in 'string', line 1014, column 22 to line 1017, column 11)",
+  " (in 'string', line 1014, column 10 to line 1021, column 11)",
+  " (in 'string', line 1022, column 10 to line 1029, column 41)",
+  " (in 'string', line 1008, column 16 to line 1030, column 9)",
+  " (in 'string', line 1008, column 8 to line 1030, column 9)",
+  " (in 'string', line 1006, column 31 to line 1031, column 7)",
+  " (in 'string', line 1006, column 6 to line 1031, column 7)",
+  " (in 'string', line 1005, column 11 to line 1032, column 5)",
+  " (in 'string', line 991, column 13 to column 19)",
+  " (in 'string', line 991, column 6 to column 26)",
+  " (in 'string', line 992, column 13 to column 19)",
+  " (in 'string', line 992, column 6 to column 27)",
+  " (in 'string', line 993, column 13 to column 32)",
+  " (in 'string', line 993, column 34 to column 51)",
+  " (in 'string', line 993, column 6 to column 60)",
+  " (in 'string', line 994, column 18 to column 53)",
+  " (in 'string', line 994, column 6 to column 53)",
+  " (in 'string', line 995, column 18 to column 55)",
+  " (in 'string', line 995, column 6 to column 55)",
+  " (in 'string', line 996, column 20 to column 59)",
+  " (in 'string', line 996, column 6 to column 59)",
+  " (in 'string', line 997, column 6 to line 1004, column 32)",
+  " (in 'string', line 990, column 32 to line 1005, column 5)",
+  " (in 'string', line 990, column 4 to line 1032, column 5)",
+  " (in 'string', line 989, column 14 to line 1033, column 3)",
+  " (in 'string', line 989, column 2 to line 1033, column 3)",
+  " (in 'string', line 1036, column 11 to column 32)",
+  " (in 'string', line 1036, column 4 to line 1038, column 37)",
+  " (in 'string', line 1042, column 10 to column 117)",
+  " (in 'string', line 1041, column 64 to line 1043, column 9)",
+  " (in 'string', line 1041, column 8 to line 1043, column 9)",
+  " (in 'string', line 1040, column 30 to line 1044, column 7)",
+  " (in 'string', line 1040, column 6 to line 1044, column 7)",
+  " (in 'string', line 1039, column 23 to line 1045, column 5)",
+  " (in 'string', line 1039, column 4 to line 1045, column 5)",
+  " (in 'string', line 1107, column 13 to column 23)",
+  " (in 'string', line 1107, column 6 to column 56)",
+  " (in 'string', line 1109, column 69 to column 122)",
+  " (in 'string', line 1109, column 38 to column 122)",
+  " (in 'string', line 1109, column 14 to column 122)",
+  " (in 'string', line 1109, column 6 to column 122)",
+  " (in 'string', line 1127, column 10 to column 43)",
+  " (in 'string', line 1129, column 18 to column 20)",
+  " (in 'string', line 1129, column 12 to column 61)",
+  " (in 'string', line 1130, column 12 to column 22)",
+  " (in 'string', line 1131, column 12 to column 23)",
+  " (in 'string', line 1132, column 23 to column 40)",
+  " (in 'string', line 1132, column 12 to column 49)",
+  " (in 'string', line 1133, column 24 to column 71)",
+  " (in 'string', line 1133, column 12 to column 71)",
+  " (in 'string', line 1139, column 26 to column 40)",
+  " (in 'string', line 1139, column 14 to column 40)",
+  " (in 'string', line 1140, column 28 to column 44)",
+  " (in 'string', line 1140, column 14 to column 44)",
+  " (in 'string', line 1137, column 19 to line 1141, column 13)",
+  " (in 'string', line 1135, column 26 to column 72)",
+  " (in 'string', line 1135, column 14 to column 72)",
+  " (in 'string', line 1136, column 28 to column 76)",
+  " (in 'string', line 1136, column 14 to column 76)",
+  " (in 'string', line 1134, column 24 to line 1137, column 13)",
+  " (in 'string', line 1134, column 12 to line 1141, column 13)",
+  " (in 'string', line 1142, column 12 to line 1149, column 47)",
+  " (in 'string', line 1128, column 18 to line 1150, column 11)",
+  " (in 'string', line 1128, column 10 to line 1150, column 11)",
+  " (in 'string', line 1126, column 33 to line 1151, column 9)",
+  " (in 'string', line 1126, column 8 to line 1151, column 9)",
+  " (in 'string', line 1125, column 13 to line 1152, column 7)",
+  " (in 'string', line 1111, column 15 to column 25)",
+  " (in 'string', line 1111, column 8 to column 32)",
+  " (in 'string', line 1112, column 15 to column 25)",
+  " (in 'string', line 1112, column 8 to column 33)",
+  " (in 'string', line 1113, column 15 to column 25)",
+  " (in 'string', line 1113, column 27 to column 44)",
+  " (in 'string', line 1113, column 8 to column 53)",
+  " (in 'string', line 1114, column 20 to column 59)",
+  " (in 'string', line 1114, column 8 to column 59)",
+  " (in 'string', line 1115, column 20 to column 61)",
+  " (in 'string', line 1115, column 8 to column 61)",
+  " (in 'string', line 1116, column 22 to column 65)",
+  " (in 'string', line 1116, column 8 to column 65)",
+  " (in 'string', line 1117, column 8 to line 1124, column 38)",
+  " (in 'string', line 1110, column 34 to line 1125, column 7)",
+  " (in 'string', line 1110, column 6 to line 1152, column 7)",
+  " (in 'string', line 1106, column 11 to line 1153, column 5)",
+  " (in 'string', line 1073, column 10 to column 43)",
+  " (in 'string', line 1075, column 18 to column 20)",
+  " (in 'string', line 1075, column 12 to column 61)",
+  " (in 'string', line 1076, column 12 to column 22)",
+  " (in 'string', line 1077, column 12 to column 23)",
+  " (in 'string', line 1078, column 23 to column 40)",
+  " (in 'string', line 1078, column 12 to column 49)",
+  " (in 'string', line 1079, column 24 to column 71)",
+  " (in 'string', line 1079, column 12 to column 71)",
+  " (in 'string', line 1085, column 14 to column 41)",
+  " (in 'string', line 1086, column 14 to column 45)",
+  " (in 'string', line 1083, column 19 to line 1087, column 13)",
+  " (in 'string', line 1081, column 14 to column 73)",
+  " (in 'string', line 1082, column 14 to column 77)",
+  " (in 'string', line 1080, column 24 to line 1083, column 13)",
+  " (in 'string', line 1080, column 12 to line 1087, column 13)",
+  " (in 'string', line 1089, column 21 to column 25)",
+  " (in 'string', line 1089, column 14 to column 42)",
+  " (in 'string', line 1090, column 21 to column 25)",
+  " (in 'string', line 1090, column 14 to column 36)",
+  " (in 'string', line 1091, column 14 to column 102)",
+  " (in 'string', line 1092, column 55 to column 112)",
+  " (in 'string', line 1092, column 14 to column 112)",
+  " (in 'string', line 1093, column 14 to line 1100, column 41)",
+  " (in 'string', line 1101, column 14 to column 71)",
+  " (in 'string', line 1088, column 28 to line 1102, column 13)",
+  " (in 'string', line 1088, column 12 to line 1102, column 13)",
+  " (in 'string', line 1074, column 18 to line 1103, column 11)",
+  " (in 'string', line 1074, column 10 to line 1103, column 11)",
+  " (in 'string', line 1072, column 33 to line 1104, column 9)",
+  " (in 'string', line 1072, column 8 to line 1104, column 9)",
+  " (in 'string', line 1071, column 13 to line 1105, column 7)",
+  " (in 'string', line 1049, column 17 to column 21)",
+  " (in 'string', line 1049, column 10 to column 38)",
+  " (in 'string', line 1050, column 17 to column 21)",
+  " (in 'string', line 1050, column 10 to column 32)",
+  " (in 'string', line 1051, column 17 to column 21)",
+  " (in 'string', line 1051, column 10 to column 28)",
+  " (in 'string', line 1052, column 17 to column 21)",
+  " (in 'string', line 1052, column 10 to column 29)",
+  " (in 'string', line 1053, column 17 to column 34)",
+  " (in 'string', line 1053, column 36 to column 53)",
+  " (in 'string', line 1053, column 10 to column 62)",
+  " (in 'string', line 1054, column 22 to column 109)",
+  " (in 'string', line 1054, column 10 to column 109)",
+  " (in 'string', line 1055, column 22 to column 109)",
+  " (in 'string', line 1055, column 10 to column 109)",
+  " (in 'string', line 1056, column 24 to column 113)",
+  " (in 'string', line 1056, column 10 to column 113)",
+  " (in 'string', line 1057, column 10 to column 90)",
+  " (in 'string', line 1059, column 47 to column 100)",
+  " (in 'string', line 1059, column 10 to column 100)",
+  " (in 'string', line 1061, column 10 to line 1068, column 38)",
+  " (in 'string', line 1069, column 10 to column 63)",
+  " (in 'string', line 1048, column 32 to line 1070, column 9)",
+  " (in 'string', line 1048, column 8 to line 1070, column 9)",
+  " (in 'string', line 1047, column 34 to line 1071, column 7)",
+  " (in 'string', line 1047, column 6 to line 1105, column 7)",
+  " (in 'string', line 1046, column 22 to line 1106, column 5)",
+  " (in 'string', line 1046, column 4 to line 1153, column 5)",
+  " (in 'string', line 1035, column 18 to line 1154, column 3)",
+  " (in 'string', line 1035, column 2 to line 1154, column 3)",
+  " (in 'string', line 1260, column 2 to column 12)",
+  " (in 'string', line 1263, column 6 to column 93)",
+  " (in 'string', line 1264, column 6 to column 13)",
+  " (in 'string', line 1262, column 21 to line 1265, column 5)",
+  " (in 'string', line 1262, column 4 to line 1265, column 5)",
+  " (in 'string', line 1261, column 41 to line 1266, column 3)",
+  " (in 'string', line 1261, column 2 to line 1266, column 3)",
+  " (in 'string', line 1269, column 6 to line 1270, column 101)",
+  " (in 'string', line 1273, column 8 to column 49)",
+  " (in 'string', line 1272, column 6 to line 1273, column 49)",
+  " (in 'string', line 1275, column 6 to column 13)",
+  " (in 'string', line 1268, column 47 to line 1276, column 5)",
+  " (in 'string', line 1268, column 4 to line 1276, column 5)",
+  " (in 'string', line 1267, column 31 to line 1277, column 3)",
+  " (in 'string', line 1267, column 2 to line 1277, column 3)",
+  " (in 'string', line 1259, column 8 to line 1278, column 1)",
+  " (in 'string', line 1259, column 0 to line 1278, column 1)",
+  " (in 'string', line 1283, column 4 to column 125)",
+  " (in 'string', line 1282, column 26 to line 1284, column 3)",
+  " (in 'string', line 1282, column 2 to line 1284, column 3)",
+  " (in 'string', line 1281, column 29 to line 1285, column 1)",
+  " (in 'string', line 1281, column 0 to line 1285, column 1)",
+  " (in 'string', line 1287, column 0 to column 43)",
+  " (in 'string', line 1291, column 2 to column 12)",
+  " (in 'string', line 1292, column 2 to column 9)",
+  " (in 'string', line 1294, column 4 to column 28)",
+  " (in 'string', line 1295, column 4 to line 1296, column 102)",
+  " (in 'string', line 1297, column 4 to line 1298, column 123)",
+  " (in 'string', line 1299, column 4 to column 12)",
+  " (in 'string', line 1293, column 31 to line 1300, column 3)",
+  " (in 'string', line 1293, column 2 to line 1300, column 3)",
+  " (in 'string', line 1290, column 0 to line 1301, column 1)",
+  " (in 'string', line 1304, column 14 to column 44)",
+  " (in 'string', line 1304, column 2 to column 44)",
+  " (in 'string', line 1305, column 18 to column 78)",
+  " (in 'string', line 1305, column 2 to column 78)",
+  " (in 'string', line 1308, column 27 to column 99)",
+  " (in 'string', line 1308, column 2 to column 99)",
+  " (in 'string', line 1311, column 56 to column 68)",
+  " (in 'string', line 1311, column 2 to column 68)",
+  " (in 'string', line 1312, column 17 to column 29)",
+  " (in 'string', line 1312, column 2 to column 29)",
+  " (in 'string', line 1314, column 4 to column 16)",
+  " (in 'string', line 1315, column 4 to column 13)",
+  " (in 'string', line 1313, column 17 to line 1316, column 3)",
+  " (in 'string', line 1313, column 2 to line 1316, column 3)",
+  " (in 'string', line 1318, column 19 to column 48)",
+  " (in 'string', line 1318, column 2 to column 48)",
+  " (in 'string', line 1162, column 0 to column 111)",
+  " (in 'string', line 1168, column 4 to column 127)",
+  " (in 'string', line 1171, column 4 to column 117)",
+  " (in 'string', line 1166, column 9 to line 1172, column 1)",
+  " (in 'string', line 1165, column 4 to column 90)",
+  " (in 'string', line 1164, column 26 to line 1166, column 3)",
+  " (in 'string', line 1164, column 2 to line 1172, column 1)",
+  " (in 'string', line 1175, column 0 to column 89)",
+  " (in 'string', line 1178, column 0 to column 90)",
+  " (in 'string', line 1187, column 11 to column 21)",
+  " (in 'string', line 1187, column 4 to column 29)",
+  " (in 'string', line 1194, column 6 to column 27)",
+  " (in 'string', line 1195, column 6 to column 28)",
+  " (in 'string', line 1193, column 34 to line 1196, column 5)",
+  " (in 'string', line 1193, column 9 to line 1196, column 5)",
+  " (in 'string', line 1190, column 6 to column 26)",
+  " (in 'string', line 1191, column 6 to column 25)",
+  " (in 'string', line 1189, column 29 to line 1192, column 5)",
+  " (in 'string', line 1189, column 4 to line 1196, column 5)",
+  " (in 'string', line 1197, column 4 to column 94)",
+  " (in 'string', line 1185, column 10 to line 1198, column 3)",
+  " (in 'string', line 1185, column 9 to line 1198, column 4)",
+  " (in 'string', line 1183, column 4 to column 92)",
+  " (in 'string', line 1182, column 27 to line 1185, column 3)",
+  " (in 'string', line 1182, column 2 to line 1198, column 4)",
+  " (in 'string', line 1181, column 8 to line 1199, column 1)",
+  " (in 'string', line 1181, column 0 to line 1199, column 1)",
+  " (in 'string', line 1202, column 0 to column 23)",
+  " (in 'string', line 1206, column 2 to column 74)",
+  " (in 'string', line 1205, column 21 to line 1207, column 1)",
+  " (in 'string', line 1205, column 0 to line 1207, column 1)",
+  " (in 'string', line 1217, column 6 to column 42)",
+  " (in 'string', line 1215, column 11 to line 1218, column 5)",
+  " (in 'string', line 1214, column 6 to column 96)",
+  " (in 'string', line 1212, column 26 to line 1215, column 5)",
+  " (in 'string', line 1212, column 4 to line 1218, column 5)",
+  " (in 'string', line 1211, column 22 to line 1219, column 3)",
+  " (in 'string', line 1211, column 2 to line 1219, column 3)",
+  " (in 'string', line 1210, column 19 to line 1220, column 1)",
+  " (in 'string', line 1210, column 0 to line 1220, column 1)",
+  " (in 'string', line 1223, column 0 to column 23)",
+  " (in 'string', line 1225, column 14 to column 102)",
+  " (in 'string', line 1225, column 2 to column 102)",
+  " (in 'string', line 1226, column 16 to column 109)",
+  " (in 'string', line 1226, column 2 to column 109)",
+  " (in 'string', line 1228, column 24 to column 137)",
+  " (in 'string', line 1228, column 2 to column 137)",
+  " (in 'string', line 1229, column 26 to column 139)",
+  " (in 'string', line 1229, column 2 to column 139)",
+  " (in 'string', line 1231, column 2 to column 22)",
+  " (in 'string', line 1233, column 2 to column 26)",
+  " (in 'string', line 526, column 0 to column 20)",
+  " (in 'string', line 527, column 0 to column 24)",
+  " (in 'string', line 528, column 0 to column 29)",
+  " (in 'string', line 530, column 0 to column 20)",
+  " (in 'string', line 531, column 0 to column 24)",
+  " (in 'string', line 532, column 0 to column 29)",
+  " (in 'string', line 535, column 0 to column 22)",
+  " (in 'string', line 536, column 6 to column 12)",
+  " (in 'string', line 536, column 0 to column 35)",
+  " (in 'string', line 537, column 6 to column 14)",
+  " (in 'string', line 537, column 0 to column 37)",
+  " (in 'string', line 538, column 0 to column 26)",
+  " (in 'string', line 539, column 6 to column 18)",
+  " (in 'string', line 539, column 0 to column 45)",
+  " (in 'string', line 540, column 6 to column 21)",
+  " (in 'string', line 540, column 0 to column 53)",
+  " (in 'string', line 541, column 6 to column 21)",
+  " (in 'string', line 541, column 0 to column 55)",
+  " (in 'string', line 548, column 0 to column 16)",
+  " (in 'string', line 549, column 0 to column 16)",
+  " (in 'string', line 552, column 0 to column 21)",
+  " (in 'string', line 553, column 0 to column 36)",
+  " (in 'string', line 554, column 6 to column 13)",
+  " (in 'string', line 554, column 0 to column 37)",
+  " (in 'string', line 555, column 0 to column 22)",
+  " (in 'string', line 556, column 0 to column 22)",
+  " (in 'string', line 558, column 0 to column 18)",
+  " (in 'string', line 561, column 7 to column 22)",
+  " (in 'string', line 561, column 0 to column 39)",
+  " (in 'string', line 562, column 11 to column 48)",
+  " (in 'string', line 562, column 0 to column 69)",
+  " (in 'string', line 565, column 0 to column 25)",
+  " (in 'string', line 566, column 7 to column 57)",
+  " (in 'string', line 566, column 59 to column 61)",
+  " (in 'string', line 566, column 0 to column 65)",
+  " (in 'string', line 567, column 7 to column 18)",
+  " (in 'string', line 567, column 20 to column 31)",
+  " (in 'string', line 567, column 0 to column 39)",
+  " (in 'string', line 570, column 0 to column 33)",
+  " (in 'string', line 571, column 7 to column 74)",
+  " (in 'string', line 571, column 0 to column 84)",
+  " (in 'string', line 574, column 0 to column 25)",
+  " (in 'string', line 575, column 6 to column 56)",
+  " (in 'string', line 575, column 0 to column 80)",
+  " (in 'string', line 576, column 12 to column 34)",
+  " (in 'string', line 576, column 0 to column 43)",
+  " (in 'string', line 579, column 0 to column 32)",
+  " (in 'string', line 582, column 0 to column 42)",
+  " (in 'string', line 583, column 0 to column 30)",
+  " (in 'string', line 584, column 0 to column 36)",
+  " (in 'string', line 585, column 0 to column 33)",
+  " (in 'string', line 587, column 0 to column 36)",
+  " (in 'string', line 588, column 0 to column 24)",
+  " (in 'string', line 589, column 0 to column 30)",
+  " (in 'string', line 590, column 0 to column 27)",
+  " (in 'string', line 592, column 0 to column 36)",
+  " (in 'string', line 593, column 0 to column 36)",
+  " (in 'string', line 594, column 0 to column 24)",
+  " (in 'string', line 595, column 0 to column 30)",
+  " (in 'string', line 596, column 0 to column 27)",
+  " (in 'string', line 598, column 0 to column 36)",
+  " (in 'string', line 599, column 0 to column 24)",
+  " (in 'string', line 600, column 0 to column 30)",
+  " (in 'string', line 601, column 0 to column 27)",
+  " (in 'string', line 604, column 0 to column 36)",
+  " (in 'string', line 605, column 22 to column 46)",
+  " (in 'string', line 605, column 0 to column 48)",
+  " (in 'string', line 606, column 25 to column 49)",
+  " (in 'string', line 606, column 0 to column 51)",
+  " (in 'string', line 608, column 0 to column 43)",
+  " (in 'string', line 609, column 0 to column 31)",
+  " (in 'string', line 610, column 0 to column 37)",
+  " (in 'string', line 611, column 0 to column 34)",
+  " (in 'string', line 613, column 0 to column 41)",
+  " (in 'string', line 614, column 0 to column 29)",
+  " (in 'string', line 615, column 0 to column 35)",
+  " (in 'string', line 616, column 0 to column 32)",
+  " (in 'string', line 618, column 2 to column 38)",
+  " (in 'string', line 619, column 2 to column 26)",
+  " (in 'string', line 620, column 2 to column 32)",
+  " (in 'string', line 621, column 2 to column 29)",
+  " (in 'string', line 623, column 2 to column 39)",
+  " (in 'string', line 624, column 2 to column 27)",
+  " (in 'string', line 625, column 2 to column 33)",
+  " (in 'string', line 626, column 2 to column 30)",
+  " (in 'string', line 628, column 2 to column 20)",
+  " (in 'string', line 640, column 8 to column 18)",
+  " (in 'string', line 640, column 2 to column 45)",
+  " (in 'string', line 642, column 9 to column 15)",
+  " (in 'string', line 642, column 2 to column 26)",
+  " (in 'string', line 643, column 9 to column 15)",
+  " (in 'string', line 643, column 2 to column 32)",
+  " (in 'string', line 644, column 9 to column 15)",
+  " (in 'string', line 644, column 2 to column 32)",
+  " (in 'string', line 645, column 8 to column 14)",
+  " (in 'string', line 645, column 2 to column 49)",
+  " (in 'string', line 646, column 9 to column 19)",
+  " (in 'string', line 646, column 2 to column 34)",
+  " (in 'string', line 647, column 9 to column 19)",
+  " (in 'string', line 647, column 2 to column 40)",
+  " (in 'string', line 648, column 9 to column 19)",
+  " (in 'string', line 648, column 2 to column 40)",
+  " (in 'string', line 649, column 8 to column 18)",
+  " (in 'string', line 649, column 2 to column 57)",
+  " (in 'string', line 651, column 2 to column 32)",
+  " (in 'string', line 653, column 8 to column 54)",
+  " (in 'string', line 653, column 2 to column 76)",
+  " (in 'string', line 654, column 8 to column 54)",
+  " (in 'string', line 654, column 2 to column 79)",
+  " (in 'string', line 656, column 2 to column 22)",
+  " (in 'string', line 657, column 9 to column 55)",
+  " (in 'string', line 657, column 57 to column 63)",
+  " (in 'string', line 657, column 2 to column 71)",
+  " (in 'string', line 658, column 2 to column 36)",
+  " (in 'string', line 660, column 2 to column 42)",
+  " (in 'string', line 661, column 2 to column 39)",
+  " (in 'string', line 662, column 2 to column 36)",
+  " (in 'string', line 663, column 2 to column 33)",
+  " (in 'string', line 667, column 2 to column 66)",
+  " (in 'string', line 669, column 2 to column 53)",
+  " (in 'string', line 671, column 2 to column 39)",
+  " (in 'string', line 672, column 2 to column 48)",
+  " (in 'string', line 674, column 8 to column 18)",
+  " (in 'string', line 674, column 2 to column 37)",
+  " (in 'string', line 676, column 8 to column 14)",
+  " (in 'string', line 676, column 2 to column 59)",
+  " (in 'string', line 677, column 8 to column 43)",
+  " (in 'string', line 677, column 2 to column 143)",
+  " (in 'string', line 678, column 8 to column 14)",
+  " (in 'string', line 678, column 2 to column 65)",
+  " (in 'string', line 679, column 8 to column 43)",
+  " (in 'string', line 679, column 2 to column 149)",
+  " (in 'string', line 681, column 8 to column 50)",
+  " (in 'string', line 681, column 2 to column 147)",
+  " (in 'string', line 682, column 8 to column 50)",
+  " (in 'string', line 682, column 52 to column 104)",
+  " (in 'string', line 682, column 2 to column 127)",
+  " (in 'string', line 683, column 8 to column 50)",
+  " (in 'string', line 683, column 2 to column 155)",
+  " (in 'string', line 684, column 8 to column 50)",
+  " (in 'string', line 684, column 52 to column 108)",
+  " (in 'string', line 684, column 2 to column 135)",
+  " (in 'string', line 686, column 12 to column 18)",
+  " (in 'string', line 686, column 2 to column 30)",
+  " (in 'string', line 687, column 9 to column 15)",
+  " (in 'string', line 687, column 17 to column 23)",
+  " (in 'string', line 687, column 2 to column 74)",
+  " (in 'string', line 688, column 9 to column 46)",
+  " (in 'string', line 688, column 48 to column 54)",
+  " (in 'string', line 688, column 2 to column 166)",
+  " (in 'string', line 694, column 0 to column 54)",
+  " (in 'string', line 698, column 0 to column 46)",
+  " (in 'string', line 700, column 7 to column 14)",
+  " (in 'string', line 700, column 0 to column 47)",
+  " (in 'string', line 702, column 0 to column 21)",
+  " (in 'string', line 703, column 21 to column 28)",
+  " (in 'string', line 703, column 0 to column 84)",
+  " (in 'string', line 705, column 0 to column 17)",
+  " (in 'string', line 706, column 0 to column 21)",
+  " (in 'string', line 707, column 0 to column 34)",
+  " (in 'string', line 708, column 0 to column 58)",
+  " (in 'string', line 709, column 7 to column 30)",
+  " (in 'string', line 709, column 0 to column 81)",
+  " (in 'string', line 710, column 6 to column 29)",
+  " (in 'string', line 710, column 0 to column 85)",
+  " (in 'string', line 711, column 6 to column 33)",
+  " (in 'string', line 711, column 0 to column 90)",
+  " (in 'string', line 717, column 0 to column 32)",
+  " (in 'string', line 723, column 6 to column 47)",
+  " (in 'string', line 723, column 0 to column 135)",
+  " (in 'string', line 726, column 10 to column 12)",
+  " (in 'string', line 726, column 0 to column 21)",
+  " (in 'string', line 727, column 7 to column 13)",
+  " (in 'string', line 727, column 15 to column 17)",
+  " (in 'string', line 727, column 0 to column 57)",
+  " (in 'string', line 728, column 7 to column 28)",
+  " (in 'string', line 728, column 30 to column 32)",
+  " (in 'string', line 728, column 0 to column 117)",
+  " (in 'string', line 729, column 7 to column 33)",
+  " (in 'string', line 729, column 35 to column 37)",
+  " (in 'string', line 729, column 0 to column 176)",
+  " (in 'string', line 732, column 0 to column 17)",
+  " (in 'string', line 733, column 7 to column 40)",
+  " (in 'string', line 733, column 0 to column 105)",
+  " (in 'string', line 734, column 7 to column 59)",
+  " (in 'string', line 734, column 0 to column 169)",
+  " (in 'string', line 735, column 7 to column 69)",
+  " (in 'string', line 735, column 0 to column 233)",
+  " (in 'string', line 738, column 0 to column 72)",
+  " (in 'string', line 741, column 7 to column 44)",
+  " (in 'string', line 741, column 46 to column 83)",
+  " (in 'string', line 741, column 0 to column 129)",
+  " (in 'string', line 745, column 6 to column 21)",
+  " (in 'string', line 745, column 0 to column 43)",
+  " (in 'string', line 747, column 2 to column 12)",
+  " (in 'string', line 748, column 2 to column 12)",
+  " (in 'string', line 755, column 6 to column 13)",
+  " (in 'string', line 754, column 11 to line 756, column 5)",
+  " (in 'string', line 751, column 6 to column 29)",
+  " (in 'string', line 752, column 6 to column 13)",
+  " (in 'string', line 753, column 6 to column 12)",
+  " (in 'string', line 750, column 41 to line 754, column 5)",
+  " (in 'string', line 750, column 4 to line 756, column 5)",
+  " (in 'string', line 749, column 37 to line 757, column 3)",
+  " (in 'string', line 749, column 2 to line 757, column 3)",
+  " (in 'string', line 759, column 2 to column 25)",
+  " (in 'string', line 746, column 21 to line 760, column 1)",
+  " (in 'string', line 746, column 0 to line 760, column 1)",
+  " (in 'string', line 763, column 0 to column 57)",
+  " (in 'string', line 764, column 6 to column 30)",
+  " (in 'string', line 764, column 0 to column 57)",
+  " (in 'string', line 765, column 6 to column 33)",
+  " (in 'string', line 765, column 0 to column 63)",
+  " (in 'string', line 767, column 0 to column 63)",
+  " (in 'string', line 768, column 6 to column 18)",
+  " (in 'string', line 768, column 0 to column 63)",
+  " (in 'string', line 773, column 10 to column 45)",
+  " (in 'string', line 774, column 10 to column 16)",
+  " (in 'string', line 772, column 30 to line 775, column 9)",
+  " (in 'string', line 772, column 8 to line 775, column 9)",
+  " (in 'string', line 771, column 26 to line 776, column 7)",
+  " (in 'string', line 771, column 6 to line 776, column 7)",
+  " (in 'string', line 770, column 25 to line 777, column 5)",
+  " (in 'string', line 770, column 4 to line 777, column 5)",
+  " (in 'string', line 769, column 20 to line 778, column 3)",
+  " (in 'string', line 769, column 1 to line 778, column 3)",
+  " (in 'string', line 781, column 2 to column 16)",
+  " (in 'string', line 788, column 6 to column 25)",
+  " (in 'string', line 787, column 11 to line 789, column 5)",
+  " (in 'string', line 785, column 6 to column 29)",
+  " (in 'string', line 786, column 6 to column 17)",
+  " (in 'string', line 784, column 28 to line 787, column 5)",
+  " (in 'string', line 784, column 4 to line 789, column 5)",
+  " (in 'string', line 783, column 24 to line 790, column 3)",
+  " (in 'string', line 783, column 2 to line 790, column 3)",
+  " (in 'string', line 780, column 19 to line 791, column 1)",
+  " (in 'string', line 780, column 0 to line 791, column 1)",
+  " (in 'string', line 792, column 26 to column 70)",
+  " (in 'string', line 792, column 2 to column 70)",
+  " (in 'string', line 794, column 29 to column 98)",
+  " (in 'string', line 794, column 4 to column 98)",
+  " (in 'string', line 795, column 33 to column 114)",
+  " (in 'string', line 795, column 4 to column 114)",
+  " (in 'string', line 793, column 55 to line 796, column 3)",
+  " (in 'string', line 793, column 30 to line 796, column 3)",
+  " (in 'string', line 793, column 2 to line 796, column 3)",
+  " (in 'string', line 802, column 7 to column 9)",
+  " (in 'string', line 805, column 7 to column 14)",
+  " (in 'string', line 806, column 18 to column 28)",
+  " (in 'string', line 809, column 7 to column 40)",
+  " (in 'string', line 810, column 16 to column 52)",
+  " (in 'string', line 813, column 7 to column 39)",
+  " (in 'string', line 816, column 18 to column 23)",
+  " (in 'string', line 818, column 18 to column 32)",
+  " (in 'string', line 820, column 9 to column 28)",
+  " (in 'string', line 820, column 30 to column 47)",
+  " (in 'string', line 824, column 9 to column 15)",
+  " (in 'string', line 825, column 9 to column 19)",
+  " (in 'string', line 830, column 7 to column 13)",
+  " (in 'string', line 835, column 7 to column 14)",
+  " (in 'string', line 843, column 9 to column 11)",
+  " (in 'string', line 845, column 9 to column 14)",
+  " (in 'string', line 847, column 9 to column 15)",
+  " (in 'string', line 849, column 9 to column 18)",
+  " (in 'string', line 851, column 9 to column 42)",
+  " (in 'string', line 856, column 9 to column 50)",
+  " (in 'string', line 857, column 9 to column 24)",
+  " (in 'string', line 903, column 9 to column 45)",
+  " (in 'string', line 1238, column 9 to column 71)",
+  " (in 'string', line 1239, column 9 to column 30)",
+  " (in 'string', line 1240, column 9 to column 30)",
+  " (in 'string', line 1241, column 9 to column 30)",
+  " (in 'string', line 1243, column 9 to column 31)",
+  " (in 'string', line 1243, column 34 to column 51)",
+  " (in 'string', line 1248, column 7 to column 44)",
+  " (in 'string', line 1249, column 7 to column 44)",
+  " (in 'string', line 1250, column 7 to column 22)",
+  " (in 'string', line 1253, column 9 to column 37)",
+  " (in 'string', line 1257, column 7 to column 14)",
   " (in 'string', line 21, column 4 to column 42)",
   " (in 'string', line 20, column 9 to line 22, column 3)",
   " (in 'string', line 18, column 4 to column 44)",
@@ -613,526 +716,563 @@ static constexpr std::array<const char*, 1105> locations_array__ =
   " (in 'string', line 5, column 2 to line 22, column 3)",
   " (in 'string', line 23, column 2 to column 9)",
   " (in 'string', line 4, column 77 to line 24, column 1)",
-  " (in 'string', line 28, column 2 to column 18)",
-  " (in 'string', line 29, column 2 to column 18)",
-  " (in 'string', line 30, column 2 to column 12)",
-  " (in 'string', line 33, column 23 to column 30)",
-  " (in 'string', line 33, column 6 to column 30)",
-  " (in 'string', line 32, column 19 to line 34, column 5)",
-  " (in 'string', line 32, column 4 to line 34, column 5)",
-  " (in 'string', line 31, column 17 to line 35, column 3)",
-  " (in 'string', line 31, column 2 to line 35, column 3)",
-  " (in 'string', line 36, column 2 to column 11)",
-  " (in 'string', line 27, column 28 to line 37, column 1)",
-  " (in 'string', line 43, column 2 to column 26)",
-  " (in 'string', line 44, column 8 to column 9)",
-  " (in 'string', line 44, column 2 to column 17)",
-  " (in 'string', line 45, column 2 to column 12)",
-  " (in 'string', line 48, column 6 to column 15)",
-  " (in 'string', line 49, column 6 to column 13)",
-  " (in 'string', line 47, column 19 to line 50, column 5)",
-  " (in 'string', line 47, column 4 to line 50, column 5)",
-  " (in 'string', line 46, column 17 to line 51, column 3)",
-  " (in 'string', line 46, column 2 to line 51, column 3)",
-  " (in 'string', line 52, column 2 to column 20)",
-  " (in 'string', line 42, column 40 to line 53, column 1)",
-  " (in 'string', line 57, column 2 to column 12)",
-  " (in 'string', line 59, column 19 to column 26)",
-  " (in 'string', line 59, column 4 to column 26)",
-  " (in 'string', line 58, column 31 to line 60, column 3)",
-  " (in 'string', line 58, column 2 to line 60, column 3)",
-  " (in 'string', line 61, column 2 to column 11)",
-  " (in 'string', line 56, column 33 to line 62, column 1)",
-  " (in 'string', line 65, column 8 to column 14)",
-  " (in 'string', line 65, column 2 to column 45)",
-  " (in 'string', line 67, column 14 to column 27)",
-  " (in 'string', line 67, column 4 to column 27)",
-  " (in 'string', line 66, column 31 to line 68, column 3)",
-  " (in 'string', line 66, column 2 to line 68, column 3)",
-  " (in 'string', line 69, column 2 to column 11)",
-  " (in 'string', line 64, column 50 to line 70, column 1)",
-  " (in 'string', line 74, column 2 to column 26)",
-  " (in 'string', line 75, column 8 to column 9)",
-  " (in 'string', line 75, column 2 to column 17)",
-  " (in 'string', line 76, column 2 to column 12)",
-  " (in 'string', line 79, column 6 to column 15)",
-  " (in 'string', line 80, column 6 to column 13)",
-  " (in 'string', line 78, column 18 to line 81, column 5)",
-  " (in 'string', line 78, column 4 to line 81, column 5)",
-  " (in 'string', line 77, column 17 to line 82, column 3)",
-  " (in 'string', line 77, column 2 to line 82, column 3)",
-  " (in 'string', line 83, column 2 to column 20)",
-  " (in 'string', line 73, column 32 to line 84, column 1)",
-  " (in 'string', line 88, column 3 to column 25)",
-  " (in 'string', line 89, column 3 to column 38)",
-  " (in 'string', line 90, column 3 to column 91)",
-  " (in 'string', line 86, column 58 to line 91, column 3)",
-  " (in 'string', line 96, column 4 to column 28)",
-  " (in 'string', line 97, column 11 to column 12)",
-  " (in 'string', line 97, column 4 to column 18)",
-  " (in 'string', line 118, column 13 to column 14)",
-  " (in 'string', line 118, column 6 to column 36)",
-  " (in 'string', line 119, column 13 to column 14)",
-  " (in 'string', line 119, column 6 to column 60)",
-  " (in 'string', line 120, column 6 to column 36)",
-  " (in 'string', line 117, column 26 to line 121, column 5)",
-  " (in 'string', line 117, column 11 to line 121, column 5)",
-  " (in 'string', line 115, column 13 to column 14)",
-  " (in 'string', line 115, column 6 to column 33)",
-  " (in 'string', line 116, column 21 to column 66)",
-  " (in 'string', line 116, column 6 to column 66)",
-  " (in 'string', line 114, column 26 to line 117, column 5)",
-  " (in 'string', line 114, column 11 to line 121, column 5)",
-  " (in 'string', line 113, column 6 to column 44)",
-  " (in 'string', line 112, column 26 to line 114, column 5)",
-  " (in 'string', line 112, column 11 to line 121, column 5)",
-  " (in 'string', line 111, column 21 to column 69)",
-  " (in 'string', line 111, column 6 to column 69)",
-  " (in 'string', line 108, column 26 to line 112, column 5)",
-  " (in 'string', line 108, column 11 to line 121, column 5)",
-  " (in 'string', line 107, column 6 to column 45)",
-  " (in 'string', line 106, column 26 to line 108, column 5)",
-  " (in 'string', line 106, column 11 to line 121, column 5)",
-  " (in 'string', line 105, column 6 to column 28)",
-  " (in 'string', line 104, column 26 to line 106, column 5)",
-  " (in 'string', line 104, column 11 to line 121, column 5)",
-  " (in 'string', line 103, column 6 to column 46)",
-  " (in 'string', line 102, column 26 to line 104, column 5)",
-  " (in 'string', line 102, column 11 to line 121, column 5)",
-  " (in 'string', line 101, column 6 to column 37)",
-  " (in 'string', line 100, column 26 to line 102, column 5)",
-  " (in 'string', line 100, column 11 to line 121, column 5)",
-  " (in 'string', line 99, column 6 to column 27)",
-  " (in 'string', line 98, column 19 to line 100, column 5)",
-  " (in 'string', line 98, column 4 to line 121, column 5)",
-  " (in 'string', line 122, column 4 to column 15)",
-  " (in 'string', line 93, column 69 to line 123, column 3)",
-  " (in 'string', line 128, column 4 to column 28)",
-  " (in 'string', line 129, column 11 to column 12)",
-  " (in 'string', line 129, column 4 to column 18)",
-  " (in 'string', line 150, column 6 to column 31)",
-  " (in 'string', line 151, column 13 to column 14)",
-  " (in 'string', line 151, column 6 to column 57)",
-  " (in 'string', line 152, column 6 to column 36)",
-  " (in 'string', line 149, column 26 to line 153, column 5)",
-  " (in 'string', line 149, column 11 to line 153, column 5)",
-  " (in 'string', line 147, column 13 to column 14)",
-  " (in 'string', line 147, column 6 to column 33)",
-  " (in 'string', line 148, column 21 to column 63)",
-  " (in 'string', line 148, column 6 to column 63)",
-  " (in 'string', line 146, column 26 to line 149, column 5)",
-  " (in 'string', line 146, column 11 to line 153, column 5)",
-  " (in 'string', line 145, column 6 to column 44)",
-  " (in 'string', line 144, column 26 to line 146, column 5)",
-  " (in 'string', line 144, column 11 to line 153, column 5)",
-  " (in 'string', line 143, column 21 to column 66)",
-  " (in 'string', line 143, column 6 to column 66)",
-  " (in 'string', line 140, column 26 to line 144, column 5)",
-  " (in 'string', line 140, column 11 to line 153, column 5)",
-  " (in 'string', line 139, column 6 to column 44)",
-  " (in 'string', line 138, column 26 to line 140, column 5)",
-  " (in 'string', line 138, column 11 to line 153, column 5)",
-  " (in 'string', line 137, column 6 to column 28)",
-  " (in 'string', line 136, column 26 to line 138, column 5)",
-  " (in 'string', line 136, column 11 to line 153, column 5)",
-  " (in 'string', line 135, column 6 to column 44)",
-  " (in 'string', line 134, column 26 to line 136, column 5)",
-  " (in 'string', line 134, column 11 to line 153, column 5)",
-  " (in 'string', line 133, column 6 to column 37)",
-  " (in 'string', line 132, column 26 to line 134, column 5)",
-  " (in 'string', line 132, column 11 to line 153, column 5)",
-  " (in 'string', line 131, column 6 to column 27)",
-  " (in 'string', line 130, column 19 to line 132, column 5)",
-  " (in 'string', line 130, column 4 to line 153, column 5)",
-  " (in 'string', line 154, column 4 to column 15)",
-  " (in 'string', line 125, column 66 to line 155, column 3)",
-  " (in 'string', line 160, column 4 to column 30)",
-  " (in 'string', line 161, column 11 to column 12)",
-  " (in 'string', line 161, column 4 to column 18)",
-  " (in 'string', line 182, column 6 to column 31)",
-  " (in 'string', line 183, column 13 to column 14)",
-  " (in 'string', line 183, column 6 to column 57)",
-  " (in 'string', line 184, column 6 to column 36)",
-  " (in 'string', line 181, column 26 to line 185, column 5)",
-  " (in 'string', line 181, column 11 to line 185, column 5)",
-  " (in 'string', line 179, column 13 to column 14)",
-  " (in 'string', line 179, column 6 to column 33)",
-  " (in 'string', line 180, column 21 to column 60)",
-  " (in 'string', line 180, column 6 to column 60)",
-  " (in 'string', line 178, column 26 to line 181, column 5)",
-  " (in 'string', line 178, column 11 to line 185, column 5)",
-  " (in 'string', line 177, column 6 to column 44)",
-  " (in 'string', line 176, column 26 to line 178, column 5)",
-  " (in 'string', line 176, column 11 to line 185, column 5)",
-  " (in 'string', line 175, column 21 to column 63)",
-  " (in 'string', line 175, column 6 to column 63)",
-  " (in 'string', line 172, column 26 to line 176, column 5)",
-  " (in 'string', line 172, column 11 to line 185, column 5)",
-  " (in 'string', line 171, column 6 to column 43)",
-  " (in 'string', line 170, column 26 to line 172, column 5)",
-  " (in 'string', line 170, column 11 to line 185, column 5)",
-  " (in 'string', line 169, column 6 to column 27)",
-  " (in 'string', line 168, column 26 to line 170, column 5)",
-  " (in 'string', line 168, column 11 to line 185, column 5)",
-  " (in 'string', line 167, column 6 to column 43)",
-  " (in 'string', line 166, column 26 to line 168, column 5)",
-  " (in 'string', line 166, column 11 to line 185, column 5)",
-  " (in 'string', line 165, column 6 to column 36)",
-  " (in 'string', line 164, column 26 to line 166, column 5)",
-  " (in 'string', line 164, column 11 to line 185, column 5)",
-  " (in 'string', line 163, column 6 to column 26)",
-  " (in 'string', line 162, column 19 to line 164, column 5)",
-  " (in 'string', line 162, column 4 to line 185, column 5)",
-  " (in 'string', line 186, column 4 to column 15)",
-  " (in 'string', line 157, column 65 to line 187, column 3)",
-  " (in 'string', line 192, column 4 to column 30)",
-  " (in 'string', line 193, column 11 to column 12)",
-  " (in 'string', line 193, column 4 to column 18)",
-  " (in 'string', line 214, column 13 to column 14)",
-  " (in 'string', line 214, column 6 to column 36)",
-  " (in 'string', line 215, column 13 to column 14)",
-  " (in 'string', line 215, column 6 to column 60)",
-  " (in 'string', line 216, column 6 to column 36)",
-  " (in 'string', line 213, column 26 to line 217, column 5)",
-  " (in 'string', line 213, column 11 to line 217, column 5)",
-  " (in 'string', line 211, column 13 to column 14)",
-  " (in 'string', line 211, column 6 to column 33)",
+  " (in 'string', line 43, column 4 to column 42)",
+  " (in 'string', line 42, column 9 to line 44, column 3)",
+  " (in 'string', line 40, column 4 to column 44)",
+  " (in 'string', line 41, column 4 to column 22)",
+  " (in 'string', line 39, column 24 to line 42, column 3)",
+  " (in 'string', line 39, column 9 to line 44, column 3)",
+  " (in 'string', line 38, column 4 to column 35)",
+  " (in 'string', line 37, column 24 to line 39, column 3)",
+  " (in 'string', line 37, column 9 to line 44, column 3)",
+  " (in 'string', line 36, column 4 to column 29)",
+  " (in 'string', line 35, column 24 to line 37, column 3)",
+  " (in 'string', line 35, column 9 to line 44, column 3)",
+  " (in 'string', line 34, column 4 to column 39)",
+  " (in 'string', line 33, column 24 to line 35, column 3)",
+  " (in 'string', line 33, column 9 to line 44, column 3)",
+  " (in 'string', line 32, column 4 to column 32)",
+  " (in 'string', line 31, column 24 to line 33, column 3)",
+  " (in 'string', line 31, column 9 to line 44, column 3)",
+  " (in 'string', line 30, column 4 to column 32)",
+  " (in 'string', line 29, column 24 to line 31, column 3)",
+  " (in 'string', line 29, column 9 to line 44, column 3)",
+  " (in 'string', line 27, column 17 to line 29, column 3)",
+  " (in 'string', line 27, column 2 to line 44, column 3)",
+  " (in 'string', line 45, column 2 to column 9)",
+  " (in 'string', line 26, column 76 to line 46, column 1)",
+  " (in 'string', line 51, column 2 to column 18)",
+  " (in 'string', line 52, column 2 to column 18)",
+  " (in 'string', line 53, column 2 to column 12)",
+  " (in 'string', line 56, column 23 to column 30)",
+  " (in 'string', line 56, column 6 to column 30)",
+  " (in 'string', line 55, column 19 to line 57, column 5)",
+  " (in 'string', line 55, column 4 to line 57, column 5)",
+  " (in 'string', line 54, column 17 to line 58, column 3)",
+  " (in 'string', line 54, column 2 to line 58, column 3)",
+  " (in 'string', line 59, column 2 to column 11)",
+  " (in 'string', line 50, column 28 to line 60, column 1)",
+  " (in 'string', line 64, column 2 to column 26)",
+  " (in 'string', line 65, column 8 to column 9)",
+  " (in 'string', line 65, column 2 to column 17)",
+  " (in 'string', line 66, column 2 to column 12)",
+  " (in 'string', line 69, column 6 to column 15)",
+  " (in 'string', line 70, column 6 to column 13)",
+  " (in 'string', line 68, column 18 to line 71, column 5)",
+  " (in 'string', line 68, column 4 to line 71, column 5)",
+  " (in 'string', line 67, column 17 to line 72, column 3)",
+  " (in 'string', line 67, column 2 to line 72, column 3)",
+  " (in 'string', line 73, column 2 to column 20)",
+  " (in 'string', line 63, column 38 to line 74, column 1)",
+  " (in 'string', line 80, column 2 to column 26)",
+  " (in 'string', line 81, column 8 to column 9)",
+  " (in 'string', line 81, column 2 to column 17)",
+  " (in 'string', line 82, column 2 to column 12)",
+  " (in 'string', line 85, column 6 to column 15)",
+  " (in 'string', line 86, column 6 to column 13)",
+  " (in 'string', line 84, column 19 to line 87, column 5)",
+  " (in 'string', line 84, column 4 to line 87, column 5)",
+  " (in 'string', line 83, column 17 to line 88, column 3)",
+  " (in 'string', line 83, column 2 to line 88, column 3)",
+  " (in 'string', line 89, column 2 to column 20)",
+  " (in 'string', line 79, column 40 to line 90, column 1)",
+  " (in 'string', line 94, column 2 to column 12)",
+  " (in 'string', line 96, column 19 to column 26)",
+  " (in 'string', line 96, column 4 to column 26)",
+  " (in 'string', line 95, column 31 to line 97, column 3)",
+  " (in 'string', line 95, column 2 to line 97, column 3)",
+  " (in 'string', line 98, column 2 to column 11)",
+  " (in 'string', line 93, column 33 to line 99, column 1)",
+  " (in 'string', line 102, column 8 to column 14)",
+  " (in 'string', line 102, column 2 to column 45)",
+  " (in 'string', line 104, column 14 to column 27)",
+  " (in 'string', line 104, column 4 to column 27)",
+  " (in 'string', line 103, column 31 to line 105, column 3)",
+  " (in 'string', line 103, column 2 to line 105, column 3)",
+  " (in 'string', line 106, column 2 to column 11)",
+  " (in 'string', line 101, column 50 to line 107, column 1)",
+  " (in 'string', line 111, column 2 to column 26)",
+  " (in 'string', line 112, column 8 to column 9)",
+  " (in 'string', line 112, column 2 to column 17)",
+  " (in 'string', line 113, column 2 to column 12)",
+  " (in 'string', line 116, column 6 to column 15)",
+  " (in 'string', line 117, column 6 to column 13)",
+  " (in 'string', line 115, column 18 to line 118, column 5)",
+  " (in 'string', line 115, column 4 to line 118, column 5)",
+  " (in 'string', line 114, column 17 to line 119, column 3)",
+  " (in 'string', line 114, column 2 to line 119, column 3)",
+  " (in 'string', line 120, column 2 to column 20)",
+  " (in 'string', line 110, column 32 to line 121, column 1)",
+  " (in 'string', line 125, column 3 to column 25)",
+  " (in 'string', line 126, column 3 to column 38)",
+  " (in 'string', line 127, column 3 to column 91)",
+  " (in 'string', line 123, column 58 to line 128, column 3)",
+  " (in 'string', line 133, column 4 to column 28)",
+  " (in 'string', line 134, column 11 to column 12)",
+  " (in 'string', line 134, column 4 to column 18)",
+  " (in 'string', line 155, column 13 to column 14)",
+  " (in 'string', line 155, column 6 to column 36)",
+  " (in 'string', line 156, column 13 to column 14)",
+  " (in 'string', line 156, column 6 to column 60)",
+  " (in 'string', line 157, column 6 to column 36)",
+  " (in 'string', line 154, column 26 to line 158, column 5)",
+  " (in 'string', line 154, column 11 to line 158, column 5)",
+  " (in 'string', line 152, column 13 to column 14)",
+  " (in 'string', line 152, column 6 to column 33)",
+  " (in 'string', line 153, column 21 to column 66)",
+  " (in 'string', line 153, column 6 to column 66)",
+  " (in 'string', line 151, column 26 to line 154, column 5)",
+  " (in 'string', line 151, column 11 to line 158, column 5)",
+  " (in 'string', line 150, column 6 to column 44)",
+  " (in 'string', line 149, column 26 to line 151, column 5)",
+  " (in 'string', line 149, column 11 to line 158, column 5)",
+  " (in 'string', line 148, column 21 to column 69)",
+  " (in 'string', line 148, column 6 to column 69)",
+  " (in 'string', line 145, column 26 to line 149, column 5)",
+  " (in 'string', line 145, column 11 to line 158, column 5)",
+  " (in 'string', line 144, column 6 to column 45)",
+  " (in 'string', line 143, column 26 to line 145, column 5)",
+  " (in 'string', line 143, column 11 to line 158, column 5)",
+  " (in 'string', line 142, column 6 to column 28)",
+  " (in 'string', line 141, column 26 to line 143, column 5)",
+  " (in 'string', line 141, column 11 to line 158, column 5)",
+  " (in 'string', line 140, column 6 to column 46)",
+  " (in 'string', line 139, column 26 to line 141, column 5)",
+  " (in 'string', line 139, column 11 to line 158, column 5)",
+  " (in 'string', line 138, column 6 to column 37)",
+  " (in 'string', line 137, column 26 to line 139, column 5)",
+  " (in 'string', line 137, column 11 to line 158, column 5)",
+  " (in 'string', line 136, column 6 to column 27)",
+  " (in 'string', line 135, column 19 to line 137, column 5)",
+  " (in 'string', line 135, column 4 to line 158, column 5)",
+  " (in 'string', line 159, column 4 to column 15)",
+  " (in 'string', line 130, column 69 to line 160, column 3)",
+  " (in 'string', line 165, column 4 to column 28)",
+  " (in 'string', line 166, column 11 to column 12)",
+  " (in 'string', line 166, column 4 to column 18)",
+  " (in 'string', line 187, column 6 to column 31)",
+  " (in 'string', line 188, column 13 to column 14)",
+  " (in 'string', line 188, column 6 to column 57)",
+  " (in 'string', line 189, column 6 to column 36)",
+  " (in 'string', line 186, column 26 to line 190, column 5)",
+  " (in 'string', line 186, column 11 to line 190, column 5)",
+  " (in 'string', line 184, column 13 to column 14)",
+  " (in 'string', line 184, column 6 to column 33)",
+  " (in 'string', line 185, column 21 to column 63)",
+  " (in 'string', line 185, column 6 to column 63)",
+  " (in 'string', line 183, column 26 to line 186, column 5)",
+  " (in 'string', line 183, column 11 to line 190, column 5)",
+  " (in 'string', line 182, column 6 to column 44)",
+  " (in 'string', line 181, column 26 to line 183, column 5)",
+  " (in 'string', line 181, column 11 to line 190, column 5)",
+  " (in 'string', line 180, column 21 to column 66)",
+  " (in 'string', line 180, column 6 to column 66)",
+  " (in 'string', line 177, column 26 to line 181, column 5)",
+  " (in 'string', line 177, column 11 to line 190, column 5)",
+  " (in 'string', line 176, column 6 to column 44)",
+  " (in 'string', line 175, column 26 to line 177, column 5)",
+  " (in 'string', line 175, column 11 to line 190, column 5)",
+  " (in 'string', line 174, column 6 to column 28)",
+  " (in 'string', line 173, column 26 to line 175, column 5)",
+  " (in 'string', line 173, column 11 to line 190, column 5)",
+  " (in 'string', line 172, column 6 to column 44)",
+  " (in 'string', line 171, column 26 to line 173, column 5)",
+  " (in 'string', line 171, column 11 to line 190, column 5)",
+  " (in 'string', line 170, column 6 to column 37)",
+  " (in 'string', line 169, column 26 to line 171, column 5)",
+  " (in 'string', line 169, column 11 to line 190, column 5)",
+  " (in 'string', line 168, column 6 to column 27)",
+  " (in 'string', line 167, column 19 to line 169, column 5)",
+  " (in 'string', line 167, column 4 to line 190, column 5)",
+  " (in 'string', line 191, column 4 to column 15)",
+  " (in 'string', line 162, column 66 to line 192, column 3)",
+  " (in 'string', line 197, column 4 to column 30)",
+  " (in 'string', line 198, column 11 to column 12)",
+  " (in 'string', line 198, column 4 to column 18)",
+  " (in 'string', line 219, column 6 to column 31)",
+  " (in 'string', line 220, column 13 to column 14)",
+  " (in 'string', line 220, column 6 to column 57)",
+  " (in 'string', line 221, column 6 to column 36)",
+  " (in 'string', line 218, column 26 to line 222, column 5)",
+  " (in 'string', line 218, column 11 to line 222, column 5)",
+  " (in 'string', line 216, column 13 to column 14)",
+  " (in 'string', line 216, column 6 to column 33)",
+  " (in 'string', line 217, column 21 to column 60)",
+  " (in 'string', line 217, column 6 to column 60)",
+  " (in 'string', line 215, column 26 to line 218, column 5)",
+  " (in 'string', line 215, column 11 to line 222, column 5)",
+  " (in 'string', line 214, column 6 to column 44)",
+  " (in 'string', line 213, column 26 to line 215, column 5)",
+  " (in 'string', line 213, column 11 to line 222, column 5)",
   " (in 'string', line 212, column 21 to column 63)",
   " (in 'string', line 212, column 6 to column 63)",
-  " (in 'string', line 210, column 26 to line 213, column 5)",
-  " (in 'string', line 210, column 11 to line 217, column 5)",
-  " (in 'string', line 209, column 6 to column 44)",
-  " (in 'string', line 208, column 26 to line 210, column 5)",
-  " (in 'string', line 208, column 11 to line 217, column 5)",
-  " (in 'string', line 207, column 21 to column 66)",
-  " (in 'string', line 207, column 6 to column 66)",
-  " (in 'string', line 204, column 26 to line 208, column 5)",
-  " (in 'string', line 204, column 11 to line 217, column 5)",
-  " (in 'string', line 203, column 6 to column 45)",
-  " (in 'string', line 202, column 26 to line 204, column 5)",
-  " (in 'string', line 202, column 11 to line 217, column 5)",
-  " (in 'string', line 201, column 6 to column 27)",
-  " (in 'string', line 200, column 26 to line 202, column 5)",
-  " (in 'string', line 200, column 11 to line 217, column 5)",
-  " (in 'string', line 199, column 6 to column 45)",
-  " (in 'string', line 198, column 26 to line 200, column 5)",
-  " (in 'string', line 198, column 11 to line 217, column 5)",
-  " (in 'string', line 197, column 6 to column 37)",
-  " (in 'string', line 196, column 26 to line 198, column 5)",
-  " (in 'string', line 196, column 11 to line 217, column 5)",
-  " (in 'string', line 195, column 6 to column 26)",
-  " (in 'string', line 194, column 19 to line 196, column 5)",
-  " (in 'string', line 194, column 4 to line 217, column 5)",
-  " (in 'string', line 218, column 4 to column 15)",
-  " (in 'string', line 189, column 70 to line 219, column 3)",
-  " (in 'string', line 224, column 4 to column 28)",
-  " (in 'string', line 225, column 11 to column 12)",
-  " (in 'string', line 225, column 4 to column 18)",
+  " (in 'string', line 209, column 26 to line 213, column 5)",
+  " (in 'string', line 209, column 11 to line 222, column 5)",
+  " (in 'string', line 208, column 6 to column 43)",
+  " (in 'string', line 207, column 26 to line 209, column 5)",
+  " (in 'string', line 207, column 11 to line 222, column 5)",
+  " (in 'string', line 206, column 6 to column 27)",
+  " (in 'string', line 205, column 26 to line 207, column 5)",
+  " (in 'string', line 205, column 11 to line 222, column 5)",
+  " (in 'string', line 204, column 6 to column 43)",
+  " (in 'string', line 203, column 26 to line 205, column 5)",
+  " (in 'string', line 203, column 11 to line 222, column 5)",
+  " (in 'string', line 202, column 6 to column 36)",
+  " (in 'string', line 201, column 26 to line 203, column 5)",
+  " (in 'string', line 201, column 11 to line 222, column 5)",
+  " (in 'string', line 200, column 6 to column 26)",
+  " (in 'string', line 199, column 19 to line 201, column 5)",
+  " (in 'string', line 199, column 4 to line 222, column 5)",
+  " (in 'string', line 223, column 4 to column 15)",
+  " (in 'string', line 194, column 65 to line 224, column 3)",
+  " (in 'string', line 229, column 4 to column 30)",
+  " (in 'string', line 230, column 11 to column 12)",
+  " (in 'string', line 230, column 4 to column 18)",
+  " (in 'string', line 251, column 13 to column 14)",
+  " (in 'string', line 251, column 6 to column 36)",
+  " (in 'string', line 252, column 13 to column 14)",
+  " (in 'string', line 252, column 6 to column 60)",
+  " (in 'string', line 253, column 6 to column 36)",
+  " (in 'string', line 250, column 26 to line 254, column 5)",
+  " (in 'string', line 250, column 11 to line 254, column 5)",
+  " (in 'string', line 248, column 13 to column 14)",
+  " (in 'string', line 248, column 6 to column 33)",
+  " (in 'string', line 249, column 21 to column 63)",
+  " (in 'string', line 249, column 6 to column 63)",
+  " (in 'string', line 247, column 26 to line 250, column 5)",
+  " (in 'string', line 247, column 11 to line 254, column 5)",
+  " (in 'string', line 246, column 6 to column 44)",
   " (in 'string', line 245, column 26 to line 247, column 5)",
-  " (in 'string', line 245, column 11 to line 247, column 5)",
-  " (in 'string', line 243, column 13 to column 14)",
-  " (in 'string', line 243, column 6 to column 33)",
-  " (in 'string', line 244, column 21 to column 103)",
-  " (in 'string', line 244, column 6 to column 103)",
-  " (in 'string', line 242, column 26 to line 245, column 5)",
-  " (in 'string', line 242, column 11 to line 247, column 5)",
-  " (in 'string', line 241, column 6 to column 88)",
-  " (in 'string', line 240, column 26 to line 242, column 5)",
-  " (in 'string', line 240, column 11 to line 247, column 5)",
-  " (in 'string', line 239, column 21 to column 109)",
-  " (in 'string', line 239, column 6 to column 109)",
-  " (in 'string', line 236, column 26 to line 240, column 5)",
-  " (in 'string', line 236, column 11 to line 247, column 5)",
-  " (in 'string', line 235, column 6 to column 60)",
-  " (in 'string', line 234, column 26 to line 236, column 5)",
-  " (in 'string', line 234, column 11 to line 247, column 5)",
-  " (in 'string', line 233, column 6 to column 17)",
-  " (in 'string', line 232, column 26 to line 234, column 5)",
-  " (in 'string', line 232, column 11 to line 247, column 5)",
-  " (in 'string', line 231, column 6 to column 29)",
-  " (in 'string', line 230, column 26 to line 232, column 5)",
-  " (in 'string', line 230, column 11 to line 247, column 5)",
-  " (in 'string', line 229, column 6 to column 51)",
-  " (in 'string', line 228, column 26 to line 230, column 5)",
-  " (in 'string', line 228, column 11 to line 247, column 5)",
-  " (in 'string', line 227, column 6 to column 16)",
-  " (in 'string', line 226, column 19 to line 228, column 5)",
-  " (in 'string', line 226, column 4 to line 247, column 5)",
-  " (in 'string', line 248, column 4 to column 15)",
-  " (in 'string', line 221, column 69 to line 249, column 3)",
-  " (in 'string', line 254, column 4 to column 28)",
-  " (in 'string', line 255, column 11 to column 12)",
-  " (in 'string', line 255, column 4 to column 18)",
-  " (in 'string', line 275, column 26 to line 277, column 5)",
-  " (in 'string', line 275, column 11 to line 277, column 5)",
-  " (in 'string', line 273, column 13 to column 14)",
-  " (in 'string', line 273, column 6 to column 33)",
-  " (in 'string', line 274, column 21 to column 97)",
-  " (in 'string', line 274, column 6 to column 97)",
-  " (in 'string', line 272, column 26 to line 275, column 5)",
-  " (in 'string', line 272, column 11 to line 277, column 5)",
-  " (in 'string', line 271, column 6 to column 87)",
-  " (in 'string', line 270, column 26 to line 272, column 5)",
-  " (in 'string', line 270, column 11 to line 277, column 5)",
-  " (in 'string', line 269, column 21 to column 103)",
-  " (in 'string', line 269, column 6 to column 103)",
-  " (in 'string', line 266, column 26 to line 270, column 5)",
-  " (in 'string', line 266, column 11 to line 277, column 5)",
-  " (in 'string', line 265, column 6 to column 59)",
-  " (in 'string', line 264, column 26 to line 266, column 5)",
-  " (in 'string', line 264, column 11 to line 277, column 5)",
-  " (in 'string', line 263, column 6 to column 17)",
-  " (in 'string', line 262, column 26 to line 264, column 5)",
-  " (in 'string', line 262, column 11 to line 277, column 5)",
-  " (in 'string', line 261, column 6 to column 28)",
-  " (in 'string', line 260, column 26 to line 262, column 5)",
-  " (in 'string', line 260, column 11 to line 277, column 5)",
-  " (in 'string', line 259, column 6 to column 51)",
-  " (in 'string', line 258, column 26 to line 260, column 5)",
-  " (in 'string', line 258, column 11 to line 277, column 5)",
-  " (in 'string', line 257, column 6 to column 16)",
-  " (in 'string', line 256, column 19 to line 258, column 5)",
-  " (in 'string', line 256, column 4 to line 277, column 5)",
-  " (in 'string', line 278, column 4 to column 15)",
-  " (in 'string', line 251, column 66 to line 279, column 3)",
-  " (in 'string', line 284, column 4 to column 30)",
-  " (in 'string', line 285, column 11 to column 12)",
-  " (in 'string', line 285, column 4 to column 18)",
-  " (in 'string', line 305, column 26 to line 307, column 5)",
-  " (in 'string', line 305, column 11 to line 307, column 5)",
-  " (in 'string', line 303, column 13 to column 14)",
-  " (in 'string', line 303, column 6 to column 33)",
-  " (in 'string', line 304, column 21 to column 91)",
-  " (in 'string', line 304, column 6 to column 91)",
-  " (in 'string', line 302, column 26 to line 305, column 5)",
-  " (in 'string', line 302, column 11 to line 307, column 5)",
-  " (in 'string', line 301, column 6 to column 87)",
-  " (in 'string', line 300, column 26 to line 302, column 5)",
-  " (in 'string', line 300, column 11 to line 307, column 5)",
-  " (in 'string', line 299, column 21 to column 96)",
-  " (in 'string', line 299, column 6 to column 96)",
-  " (in 'string', line 296, column 26 to line 300, column 5)",
-  " (in 'string', line 296, column 11 to line 307, column 5)",
-  " (in 'string', line 295, column 6 to column 59)",
-  " (in 'string', line 294, column 26 to line 296, column 5)",
-  " (in 'string', line 294, column 11 to line 307, column 5)",
-  " (in 'string', line 293, column 6 to column 17)",
-  " (in 'string', line 292, column 26 to line 294, column 5)",
-  " (in 'string', line 292, column 11 to line 307, column 5)",
-  " (in 'string', line 291, column 6 to column 28)",
-  " (in 'string', line 290, column 26 to line 292, column 5)",
-  " (in 'string', line 290, column 11 to line 307, column 5)",
-  " (in 'string', line 289, column 6 to column 51)",
-  " (in 'string', line 288, column 26 to line 290, column 5)",
-  " (in 'string', line 288, column 11 to line 307, column 5)",
-  " (in 'string', line 287, column 6 to column 16)",
-  " (in 'string', line 286, column 19 to line 288, column 5)",
-  " (in 'string', line 286, column 4 to line 307, column 5)",
-  " (in 'string', line 308, column 4 to column 15)",
-  " (in 'string', line 281, column 65 to line 309, column 3)",
-  " (in 'string', line 314, column 4 to column 30)",
-  " (in 'string', line 315, column 11 to column 12)",
-  " (in 'string', line 315, column 4 to column 18)",
-  " (in 'string', line 335, column 26 to line 337, column 5)",
-  " (in 'string', line 335, column 11 to line 337, column 5)",
-  " (in 'string', line 333, column 13 to column 14)",
-  " (in 'string', line 333, column 6 to column 33)",
-  " (in 'string', line 334, column 21 to column 97)",
-  " (in 'string', line 334, column 6 to column 97)",
-  " (in 'string', line 332, column 26 to line 335, column 5)",
-  " (in 'string', line 332, column 11 to line 337, column 5)",
-  " (in 'string', line 331, column 6 to column 88)",
-  " (in 'string', line 330, column 26 to line 332, column 5)",
-  " (in 'string', line 330, column 11 to line 337, column 5)",
-  " (in 'string', line 329, column 21 to column 102)",
-  " (in 'string', line 329, column 6 to column 102)",
-  " (in 'string', line 326, column 26 to line 330, column 5)",
-  " (in 'string', line 326, column 11 to line 337, column 5)",
-  " (in 'string', line 325, column 6 to column 60)",
-  " (in 'string', line 324, column 26 to line 326, column 5)",
-  " (in 'string', line 324, column 11 to line 337, column 5)",
-  " (in 'string', line 323, column 6 to column 17)",
-  " (in 'string', line 322, column 26 to line 324, column 5)",
-  " (in 'string', line 322, column 11 to line 337, column 5)",
-  " (in 'string', line 321, column 6 to column 28)",
-  " (in 'string', line 320, column 26 to line 322, column 5)",
-  " (in 'string', line 320, column 11 to line 337, column 5)",
-  " (in 'string', line 319, column 6 to column 51)",
-  " (in 'string', line 318, column 26 to line 320, column 5)",
-  " (in 'string', line 318, column 11 to line 337, column 5)",
-  " (in 'string', line 317, column 6 to column 16)",
-  " (in 'string', line 316, column 19 to line 318, column 5)",
-  " (in 'string', line 316, column 4 to line 337, column 5)",
-  " (in 'string', line 338, column 4 to column 15)",
-  " (in 'string', line 311, column 70 to line 339, column 3)",
-  " (in 'string', line 342, column 4 to column 30)",
-  " (in 'string', line 343, column 11 to column 12)",
-  " (in 'string', line 343, column 4 to column 16)",
-  " (in 'string', line 345, column 4 to column 44)",
-  " (in 'string', line 346, column 4 to column 70)",
-  " (in 'string', line 347, column 10 to column 13)",
-  " (in 'string', line 347, column 4 to column 22)",
-  " (in 'string', line 348, column 10 to column 15)",
-  " (in 'string', line 348, column 4 to column 24)",
-  " (in 'string', line 349, column 10 to column 15)",
-  " (in 'string', line 349, column 4 to column 24)",
-  " (in 'string', line 350, column 10 to column 15)",
-  " (in 'string', line 350, column 4 to column 24)",
-  " (in 'string', line 351, column 4 to column 49)",
-  " (in 'string', line 352, column 10 to column 12)",
-  " (in 'string', line 352, column 4 to column 21)",
-  " (in 'string', line 353, column 13 to column 35)",
-  " (in 'string', line 353, column 4 to column 35)",
-  " (in 'string', line 354, column 15 to column 37)",
-  " (in 'string', line 354, column 4 to column 37)",
-  " (in 'string', line 355, column 15 to column 37)",
-  " (in 'string', line 355, column 4 to column 37)",
-  " (in 'string', line 356, column 15 to column 37)",
-  " (in 'string', line 356, column 4 to column 37)",
-  " (in 'string', line 357, column 12 to column 39)",
-  " (in 'string', line 357, column 4 to column 39)",
-  " (in 'string', line 368, column 6 to column 41)",
-  " (in 'string', line 370, column 6 to column 62)",
-  " (in 'string', line 366, column 11 to line 371, column 5)",
-  " (in 'string', line 361, column 6 to column 61)",
-  " (in 'string', line 363, column 56 to column 104)",
-  " (in 'string', line 363, column 36 to column 104)",
-  " (in 'string', line 363, column 21 to column 104)",
-  " (in 'string', line 363, column 6 to column 104)",
-  " (in 'string', line 364, column 56 to column 106)",
-  " (in 'string', line 364, column 36 to column 106)",
-  " (in 'string', line 364, column 21 to column 106)",
-  " (in 'string', line 364, column 6 to column 106)",
-  " (in 'string', line 365, column 56 to column 112)",
-  " (in 'string', line 365, column 36 to column 112)",
-  " (in 'string', line 365, column 21 to column 112)",
-  " (in 'string', line 365, column 6 to column 112)",
-  " (in 'string', line 359, column 45 to line 366, column 5)",
-  " (in 'string', line 359, column 4 to line 371, column 5)",
-  " (in 'string', line 373, column 4 to column 29)",
-  " (in 'string', line 377, column 4 to column 86)",
-  " (in 'string', line 379, column 4 to column 66)",
-  " (in 'string', line 380, column 4 to column 13)",
-  " (in 'string', line 341, column 134 to line 381, column 3)",
-  " (in 'string', line 384, column 4 to column 30)",
-  " (in 'string', line 385, column 11 to column 12)",
-  " (in 'string', line 385, column 4 to column 16)",
-  " (in 'string', line 387, column 4 to column 44)",
-  " (in 'string', line 388, column 4 to column 70)",
-  " (in 'string', line 389, column 10 to column 13)",
-  " (in 'string', line 389, column 4 to column 22)",
-  " (in 'string', line 390, column 10 to column 15)",
-  " (in 'string', line 390, column 4 to column 24)",
-  " (in 'string', line 391, column 10 to column 15)",
-  " (in 'string', line 391, column 4 to column 24)",
-  " (in 'string', line 392, column 10 to column 15)",
-  " (in 'string', line 392, column 4 to column 24)",
-  " (in 'string', line 393, column 4 to column 49)",
-  " (in 'string', line 394, column 10 to column 12)",
-  " (in 'string', line 394, column 4 to column 21)",
-  " (in 'string', line 395, column 13 to column 35)",
-  " (in 'string', line 395, column 4 to column 35)",
-  " (in 'string', line 396, column 15 to column 37)",
-  " (in 'string', line 396, column 4 to column 37)",
-  " (in 'string', line 397, column 15 to column 37)",
-  " (in 'string', line 397, column 4 to column 37)",
-  " (in 'string', line 398, column 15 to column 37)",
-  " (in 'string', line 398, column 4 to column 37)",
-  " (in 'string', line 399, column 12 to column 39)",
-  " (in 'string', line 399, column 4 to column 39)",
-  " (in 'string', line 410, column 6 to column 42)",
-  " (in 'string', line 412, column 6 to column 55)",
-  " (in 'string', line 408, column 11 to line 413, column 5)",
-  " (in 'string', line 403, column 6 to column 54)",
-  " (in 'string', line 405, column 56 to column 101)",
-  " (in 'string', line 405, column 36 to column 101)",
-  " (in 'string', line 405, column 21 to column 101)",
-  " (in 'string', line 405, column 6 to column 101)",
-  " (in 'string', line 406, column 56 to column 103)",
-  " (in 'string', line 406, column 36 to column 103)",
-  " (in 'string', line 406, column 21 to column 103)",
-  " (in 'string', line 406, column 6 to column 103)",
-  " (in 'string', line 407, column 56 to column 106)",
-  " (in 'string', line 407, column 36 to column 106)",
-  " (in 'string', line 407, column 21 to column 106)",
-  " (in 'string', line 407, column 6 to column 106)",
-  " (in 'string', line 401, column 45 to line 408, column 5)",
-  " (in 'string', line 401, column 4 to line 413, column 5)",
-  " (in 'string', line 415, column 4 to column 29)",
-  " (in 'string', line 419, column 4 to column 79)",
-  " (in 'string', line 421, column 4 to column 59)",
-  " (in 'string', line 422, column 4 to column 13)",
-  " (in 'string', line 383, column 131 to line 423, column 3)",
-  " (in 'string', line 426, column 4 to column 30)",
-  " (in 'string', line 427, column 11 to column 12)",
-  " (in 'string', line 427, column 4 to column 16)",
-  " (in 'string', line 445, column 6 to column 97)",
-  " (in 'string', line 444, column 28 to line 447, column 5)",
-  " (in 'string', line 444, column 11 to line 447, column 5)",
-  " (in 'string', line 443, column 6 to column 54)",
-  " (in 'string', line 442, column 28 to line 444, column 5)",
-  " (in 'string', line 442, column 11 to line 447, column 5)",
-  " (in 'string', line 440, column 8 to column 80)",
-  " (in 'string', line 439, column 13 to line 441, column 7)",
-  " (in 'string', line 438, column 23 to column 70)",
-  " (in 'string', line 438, column 8 to column 70)",
-  " (in 'string', line 437, column 28 to line 439, column 7)",
-  " (in 'string', line 437, column 13 to line 441, column 7)",
-  " (in 'string', line 435, column 15 to column 16)",
-  " (in 'string', line 435, column 8 to column 35)",
-  " (in 'string', line 436, column 23 to column 62)",
-  " (in 'string', line 436, column 8 to column 62)",
-  " (in 'string', line 434, column 28 to line 437, column 7)",
-  " (in 'string', line 434, column 13 to line 441, column 7)",
-  " (in 'string', line 433, column 23 to column 65)",
-  " (in 'string', line 433, column 8 to column 65)",
-  " (in 'string', line 432, column 21 to line 434, column 7)",
-  " (in 'string', line 432, column 6 to line 441, column 7)",
-  " (in 'string', line 430, column 28 to line 442, column 5)",
-  " (in 'string', line 430, column 11 to line 447, column 5)",
-  " (in 'string', line 429, column 6 to column 43)",
-  " (in 'string', line 428, column 21 to line 430, column 5)",
-  " (in 'string', line 428, column 4 to line 447, column 5)",
-  " (in 'string', line 450, column 6 to column 50)",
-  " (in 'string', line 449, column 24 to line 451, column 5)",
-  " (in 'string', line 449, column 4 to line 451, column 5)",
-  " (in 'string', line 452, column 4 to column 13)",
-  " (in 'string', line 425, column 118 to line 453, column 3)",
-  " (in 'string', line 456, column 4 to column 30)",
-  " (in 'string', line 457, column 11 to column 12)",
-  " (in 'string', line 457, column 4 to column 16)",
-  " (in 'string', line 475, column 6 to column 99)",
-  " (in 'string', line 474, column 28 to line 477, column 5)",
-  " (in 'string', line 474, column 11 to line 477, column 5)",
-  " (in 'string', line 473, column 6 to column 55)",
-  " (in 'string', line 472, column 28 to line 474, column 5)",
-  " (in 'string', line 472, column 11 to line 477, column 5)",
-  " (in 'string', line 470, column 8 to column 82)",
-  " (in 'string', line 469, column 13 to line 471, column 7)",
-  " (in 'string', line 468, column 23 to column 76)",
-  " (in 'string', line 468, column 8 to column 76)",
-  " (in 'string', line 467, column 28 to line 469, column 7)",
-  " (in 'string', line 467, column 13 to line 471, column 7)",
-  " (in 'string', line 465, column 15 to column 16)",
-  " (in 'string', line 465, column 8 to column 35)",
-  " (in 'string', line 466, column 23 to column 65)",
-  " (in 'string', line 466, column 8 to column 65)",
-  " (in 'string', line 464, column 28 to line 467, column 7)",
-  " (in 'string', line 464, column 13 to line 471, column 7)",
-  " (in 'string', line 463, column 23 to column 68)",
-  " (in 'string', line 463, column 8 to column 68)",
-  " (in 'string', line 462, column 21 to line 464, column 7)",
-  " (in 'string', line 462, column 6 to line 471, column 7)",
-  " (in 'string', line 460, column 28 to line 472, column 5)",
-  " (in 'string', line 460, column 11 to line 477, column 5)",
-  " (in 'string', line 459, column 6 to column 44)",
-  " (in 'string', line 458, column 21 to line 460, column 5)",
-  " (in 'string', line 458, column 4 to line 477, column 5)",
-  " (in 'string', line 480, column 6 to column 51)",
-  " (in 'string', line 479, column 24 to line 481, column 5)",
-  " (in 'string', line 479, column 4 to line 481, column 5)",
-  " (in 'string', line 482, column 4 to column 13)",
-  " (in 'string', line 455, column 123 to line 483, column 3)"};
+  " (in 'string', line 245, column 11 to line 254, column 5)",
+  " (in 'string', line 244, column 21 to column 66)",
+  " (in 'string', line 244, column 6 to column 66)",
+  " (in 'string', line 241, column 26 to line 245, column 5)",
+  " (in 'string', line 241, column 11 to line 254, column 5)",
+  " (in 'string', line 240, column 6 to column 45)",
+  " (in 'string', line 239, column 26 to line 241, column 5)",
+  " (in 'string', line 239, column 11 to line 254, column 5)",
+  " (in 'string', line 238, column 6 to column 27)",
+  " (in 'string', line 237, column 26 to line 239, column 5)",
+  " (in 'string', line 237, column 11 to line 254, column 5)",
+  " (in 'string', line 236, column 6 to column 45)",
+  " (in 'string', line 235, column 26 to line 237, column 5)",
+  " (in 'string', line 235, column 11 to line 254, column 5)",
+  " (in 'string', line 234, column 6 to column 37)",
+  " (in 'string', line 233, column 26 to line 235, column 5)",
+  " (in 'string', line 233, column 11 to line 254, column 5)",
+  " (in 'string', line 232, column 6 to column 26)",
+  " (in 'string', line 231, column 19 to line 233, column 5)",
+  " (in 'string', line 231, column 4 to line 254, column 5)",
+  " (in 'string', line 255, column 4 to column 15)",
+  " (in 'string', line 226, column 70 to line 256, column 3)",
+  " (in 'string', line 261, column 4 to column 28)",
+  " (in 'string', line 262, column 11 to column 12)",
+  " (in 'string', line 262, column 4 to column 18)",
+  " (in 'string', line 282, column 26 to line 284, column 5)",
+  " (in 'string', line 282, column 11 to line 284, column 5)",
+  " (in 'string', line 280, column 13 to column 14)",
+  " (in 'string', line 280, column 6 to column 33)",
+  " (in 'string', line 281, column 21 to column 103)",
+  " (in 'string', line 281, column 6 to column 103)",
+  " (in 'string', line 279, column 26 to line 282, column 5)",
+  " (in 'string', line 279, column 11 to line 284, column 5)",
+  " (in 'string', line 278, column 6 to column 88)",
+  " (in 'string', line 277, column 26 to line 279, column 5)",
+  " (in 'string', line 277, column 11 to line 284, column 5)",
+  " (in 'string', line 276, column 21 to column 109)",
+  " (in 'string', line 276, column 6 to column 109)",
+  " (in 'string', line 273, column 26 to line 277, column 5)",
+  " (in 'string', line 273, column 11 to line 284, column 5)",
+  " (in 'string', line 272, column 6 to column 60)",
+  " (in 'string', line 271, column 26 to line 273, column 5)",
+  " (in 'string', line 271, column 11 to line 284, column 5)",
+  " (in 'string', line 270, column 6 to column 17)",
+  " (in 'string', line 269, column 26 to line 271, column 5)",
+  " (in 'string', line 269, column 11 to line 284, column 5)",
+  " (in 'string', line 268, column 6 to column 29)",
+  " (in 'string', line 267, column 26 to line 269, column 5)",
+  " (in 'string', line 267, column 11 to line 284, column 5)",
+  " (in 'string', line 266, column 6 to column 51)",
+  " (in 'string', line 265, column 26 to line 267, column 5)",
+  " (in 'string', line 265, column 11 to line 284, column 5)",
+  " (in 'string', line 264, column 6 to column 16)",
+  " (in 'string', line 263, column 19 to line 265, column 5)",
+  " (in 'string', line 263, column 4 to line 284, column 5)",
+  " (in 'string', line 285, column 4 to column 15)",
+  " (in 'string', line 258, column 69 to line 286, column 3)",
+  " (in 'string', line 291, column 4 to column 28)",
+  " (in 'string', line 292, column 11 to column 12)",
+  " (in 'string', line 292, column 4 to column 18)",
+  " (in 'string', line 312, column 26 to line 314, column 5)",
+  " (in 'string', line 312, column 11 to line 314, column 5)",
+  " (in 'string', line 310, column 13 to column 14)",
+  " (in 'string', line 310, column 6 to column 33)",
+  " (in 'string', line 311, column 21 to column 97)",
+  " (in 'string', line 311, column 6 to column 97)",
+  " (in 'string', line 309, column 26 to line 312, column 5)",
+  " (in 'string', line 309, column 11 to line 314, column 5)",
+  " (in 'string', line 308, column 6 to column 87)",
+  " (in 'string', line 307, column 26 to line 309, column 5)",
+  " (in 'string', line 307, column 11 to line 314, column 5)",
+  " (in 'string', line 306, column 21 to column 103)",
+  " (in 'string', line 306, column 6 to column 103)",
+  " (in 'string', line 303, column 26 to line 307, column 5)",
+  " (in 'string', line 303, column 11 to line 314, column 5)",
+  " (in 'string', line 302, column 6 to column 59)",
+  " (in 'string', line 301, column 26 to line 303, column 5)",
+  " (in 'string', line 301, column 11 to line 314, column 5)",
+  " (in 'string', line 300, column 6 to column 17)",
+  " (in 'string', line 299, column 26 to line 301, column 5)",
+  " (in 'string', line 299, column 11 to line 314, column 5)",
+  " (in 'string', line 298, column 6 to column 28)",
+  " (in 'string', line 297, column 26 to line 299, column 5)",
+  " (in 'string', line 297, column 11 to line 314, column 5)",
+  " (in 'string', line 296, column 6 to column 51)",
+  " (in 'string', line 295, column 26 to line 297, column 5)",
+  " (in 'string', line 295, column 11 to line 314, column 5)",
+  " (in 'string', line 294, column 6 to column 16)",
+  " (in 'string', line 293, column 19 to line 295, column 5)",
+  " (in 'string', line 293, column 4 to line 314, column 5)",
+  " (in 'string', line 315, column 4 to column 15)",
+  " (in 'string', line 288, column 66 to line 316, column 3)",
+  " (in 'string', line 321, column 4 to column 30)",
+  " (in 'string', line 322, column 11 to column 12)",
+  " (in 'string', line 322, column 4 to column 18)",
+  " (in 'string', line 342, column 26 to line 344, column 5)",
+  " (in 'string', line 342, column 11 to line 344, column 5)",
+  " (in 'string', line 340, column 13 to column 14)",
+  " (in 'string', line 340, column 6 to column 33)",
+  " (in 'string', line 341, column 21 to column 91)",
+  " (in 'string', line 341, column 6 to column 91)",
+  " (in 'string', line 339, column 26 to line 342, column 5)",
+  " (in 'string', line 339, column 11 to line 344, column 5)",
+  " (in 'string', line 338, column 6 to column 87)",
+  " (in 'string', line 337, column 26 to line 339, column 5)",
+  " (in 'string', line 337, column 11 to line 344, column 5)",
+  " (in 'string', line 336, column 21 to column 96)",
+  " (in 'string', line 336, column 6 to column 96)",
+  " (in 'string', line 333, column 26 to line 337, column 5)",
+  " (in 'string', line 333, column 11 to line 344, column 5)",
+  " (in 'string', line 332, column 6 to column 59)",
+  " (in 'string', line 331, column 26 to line 333, column 5)",
+  " (in 'string', line 331, column 11 to line 344, column 5)",
+  " (in 'string', line 330, column 6 to column 17)",
+  " (in 'string', line 329, column 26 to line 331, column 5)",
+  " (in 'string', line 329, column 11 to line 344, column 5)",
+  " (in 'string', line 328, column 6 to column 28)",
+  " (in 'string', line 327, column 26 to line 329, column 5)",
+  " (in 'string', line 327, column 11 to line 344, column 5)",
+  " (in 'string', line 326, column 6 to column 51)",
+  " (in 'string', line 325, column 26 to line 327, column 5)",
+  " (in 'string', line 325, column 11 to line 344, column 5)",
+  " (in 'string', line 324, column 6 to column 16)",
+  " (in 'string', line 323, column 19 to line 325, column 5)",
+  " (in 'string', line 323, column 4 to line 344, column 5)",
+  " (in 'string', line 345, column 4 to column 15)",
+  " (in 'string', line 318, column 65 to line 346, column 3)",
+  " (in 'string', line 351, column 4 to column 30)",
+  " (in 'string', line 352, column 11 to column 12)",
+  " (in 'string', line 352, column 4 to column 18)",
+  " (in 'string', line 372, column 26 to line 374, column 5)",
+  " (in 'string', line 372, column 11 to line 374, column 5)",
+  " (in 'string', line 370, column 13 to column 14)",
+  " (in 'string', line 370, column 6 to column 33)",
+  " (in 'string', line 371, column 21 to column 97)",
+  " (in 'string', line 371, column 6 to column 97)",
+  " (in 'string', line 369, column 26 to line 372, column 5)",
+  " (in 'string', line 369, column 11 to line 374, column 5)",
+  " (in 'string', line 368, column 6 to column 88)",
+  " (in 'string', line 367, column 26 to line 369, column 5)",
+  " (in 'string', line 367, column 11 to line 374, column 5)",
+  " (in 'string', line 366, column 21 to column 102)",
+  " (in 'string', line 366, column 6 to column 102)",
+  " (in 'string', line 363, column 26 to line 367, column 5)",
+  " (in 'string', line 363, column 11 to line 374, column 5)",
+  " (in 'string', line 362, column 6 to column 60)",
+  " (in 'string', line 361, column 26 to line 363, column 5)",
+  " (in 'string', line 361, column 11 to line 374, column 5)",
+  " (in 'string', line 360, column 6 to column 17)",
+  " (in 'string', line 359, column 26 to line 361, column 5)",
+  " (in 'string', line 359, column 11 to line 374, column 5)",
+  " (in 'string', line 358, column 6 to column 28)",
+  " (in 'string', line 357, column 26 to line 359, column 5)",
+  " (in 'string', line 357, column 11 to line 374, column 5)",
+  " (in 'string', line 356, column 6 to column 51)",
+  " (in 'string', line 355, column 26 to line 357, column 5)",
+  " (in 'string', line 355, column 11 to line 374, column 5)",
+  " (in 'string', line 354, column 6 to column 16)",
+  " (in 'string', line 353, column 19 to line 355, column 5)",
+  " (in 'string', line 353, column 4 to line 374, column 5)",
+  " (in 'string', line 375, column 4 to column 15)",
+  " (in 'string', line 348, column 70 to line 376, column 3)",
+  " (in 'string', line 379, column 4 to column 30)",
+  " (in 'string', line 380, column 11 to column 12)",
+  " (in 'string', line 380, column 4 to column 16)",
+  " (in 'string', line 382, column 4 to column 44)",
+  " (in 'string', line 383, column 4 to column 70)",
+  " (in 'string', line 384, column 10 to column 13)",
+  " (in 'string', line 384, column 4 to column 22)",
+  " (in 'string', line 385, column 10 to column 15)",
+  " (in 'string', line 385, column 4 to column 24)",
+  " (in 'string', line 386, column 10 to column 15)",
+  " (in 'string', line 386, column 4 to column 24)",
+  " (in 'string', line 387, column 10 to column 15)",
+  " (in 'string', line 387, column 4 to column 24)",
+  " (in 'string', line 388, column 4 to column 49)",
+  " (in 'string', line 389, column 10 to column 12)",
+  " (in 'string', line 389, column 4 to column 21)",
+  " (in 'string', line 390, column 13 to column 35)",
+  " (in 'string', line 390, column 4 to column 35)",
+  " (in 'string', line 391, column 15 to column 37)",
+  " (in 'string', line 391, column 4 to column 37)",
+  " (in 'string', line 392, column 15 to column 37)",
+  " (in 'string', line 392, column 4 to column 37)",
+  " (in 'string', line 393, column 15 to column 37)",
+  " (in 'string', line 393, column 4 to column 37)",
+  " (in 'string', line 394, column 12 to column 39)",
+  " (in 'string', line 394, column 4 to column 39)",
+  " (in 'string', line 405, column 6 to column 41)",
+  " (in 'string', line 407, column 6 to column 62)",
+  " (in 'string', line 403, column 11 to line 408, column 5)",
+  " (in 'string', line 398, column 6 to column 61)",
+  " (in 'string', line 400, column 56 to column 104)",
+  " (in 'string', line 400, column 36 to column 104)",
+  " (in 'string', line 400, column 21 to column 104)",
+  " (in 'string', line 400, column 6 to column 104)",
+  " (in 'string', line 401, column 56 to column 106)",
+  " (in 'string', line 401, column 36 to column 106)",
+  " (in 'string', line 401, column 21 to column 106)",
+  " (in 'string', line 401, column 6 to column 106)",
+  " (in 'string', line 402, column 56 to column 112)",
+  " (in 'string', line 402, column 36 to column 112)",
+  " (in 'string', line 402, column 21 to column 112)",
+  " (in 'string', line 402, column 6 to column 112)",
+  " (in 'string', line 396, column 45 to line 403, column 5)",
+  " (in 'string', line 396, column 4 to line 408, column 5)",
+  " (in 'string', line 410, column 4 to column 29)",
+  " (in 'string', line 414, column 4 to column 86)",
+  " (in 'string', line 416, column 4 to column 66)",
+  " (in 'string', line 417, column 4 to column 13)",
+  " (in 'string', line 378, column 134 to line 418, column 3)",
+  " (in 'string', line 421, column 4 to column 30)",
+  " (in 'string', line 422, column 11 to column 12)",
+  " (in 'string', line 422, column 4 to column 16)",
+  " (in 'string', line 424, column 4 to column 44)",
+  " (in 'string', line 425, column 4 to column 70)",
+  " (in 'string', line 426, column 10 to column 13)",
+  " (in 'string', line 426, column 4 to column 22)",
+  " (in 'string', line 427, column 10 to column 15)",
+  " (in 'string', line 427, column 4 to column 24)",
+  " (in 'string', line 428, column 10 to column 15)",
+  " (in 'string', line 428, column 4 to column 24)",
+  " (in 'string', line 429, column 10 to column 15)",
+  " (in 'string', line 429, column 4 to column 24)",
+  " (in 'string', line 430, column 4 to column 49)",
+  " (in 'string', line 431, column 10 to column 12)",
+  " (in 'string', line 431, column 4 to column 21)",
+  " (in 'string', line 432, column 13 to column 35)",
+  " (in 'string', line 432, column 4 to column 35)",
+  " (in 'string', line 433, column 15 to column 37)",
+  " (in 'string', line 433, column 4 to column 37)",
+  " (in 'string', line 434, column 15 to column 37)",
+  " (in 'string', line 434, column 4 to column 37)",
+  " (in 'string', line 435, column 15 to column 37)",
+  " (in 'string', line 435, column 4 to column 37)",
+  " (in 'string', line 436, column 12 to column 39)",
+  " (in 'string', line 436, column 4 to column 39)",
+  " (in 'string', line 447, column 6 to column 42)",
+  " (in 'string', line 449, column 6 to column 55)",
+  " (in 'string', line 445, column 11 to line 450, column 5)",
+  " (in 'string', line 440, column 6 to column 54)",
+  " (in 'string', line 442, column 56 to column 101)",
+  " (in 'string', line 442, column 36 to column 101)",
+  " (in 'string', line 442, column 21 to column 101)",
+  " (in 'string', line 442, column 6 to column 101)",
+  " (in 'string', line 443, column 56 to column 103)",
+  " (in 'string', line 443, column 36 to column 103)",
+  " (in 'string', line 443, column 21 to column 103)",
+  " (in 'string', line 443, column 6 to column 103)",
+  " (in 'string', line 444, column 56 to column 106)",
+  " (in 'string', line 444, column 36 to column 106)",
+  " (in 'string', line 444, column 21 to column 106)",
+  " (in 'string', line 444, column 6 to column 106)",
+  " (in 'string', line 438, column 45 to line 445, column 5)",
+  " (in 'string', line 438, column 4 to line 450, column 5)",
+  " (in 'string', line 452, column 4 to column 29)",
+  " (in 'string', line 456, column 4 to column 79)",
+  " (in 'string', line 458, column 4 to column 59)",
+  " (in 'string', line 459, column 4 to column 13)",
+  " (in 'string', line 420, column 131 to line 460, column 3)",
+  " (in 'string', line 463, column 4 to column 30)",
+  " (in 'string', line 464, column 11 to column 12)",
+  " (in 'string', line 464, column 4 to column 16)",
+  " (in 'string', line 482, column 6 to column 97)",
+  " (in 'string', line 481, column 28 to line 484, column 5)",
+  " (in 'string', line 481, column 11 to line 484, column 5)",
+  " (in 'string', line 480, column 6 to column 54)",
+  " (in 'string', line 479, column 28 to line 481, column 5)",
+  " (in 'string', line 479, column 11 to line 484, column 5)",
+  " (in 'string', line 477, column 8 to column 80)",
+  " (in 'string', line 476, column 13 to line 478, column 7)",
+  " (in 'string', line 475, column 23 to column 70)",
+  " (in 'string', line 475, column 8 to column 70)",
+  " (in 'string', line 474, column 28 to line 476, column 7)",
+  " (in 'string', line 474, column 13 to line 478, column 7)",
+  " (in 'string', line 472, column 15 to column 16)",
+  " (in 'string', line 472, column 8 to column 35)",
+  " (in 'string', line 473, column 23 to column 62)",
+  " (in 'string', line 473, column 8 to column 62)",
+  " (in 'string', line 471, column 28 to line 474, column 7)",
+  " (in 'string', line 471, column 13 to line 478, column 7)",
+  " (in 'string', line 470, column 23 to column 65)",
+  " (in 'string', line 470, column 8 to column 65)",
+  " (in 'string', line 469, column 21 to line 471, column 7)",
+  " (in 'string', line 469, column 6 to line 478, column 7)",
+  " (in 'string', line 467, column 28 to line 479, column 5)",
+  " (in 'string', line 467, column 11 to line 484, column 5)",
+  " (in 'string', line 466, column 6 to column 43)",
+  " (in 'string', line 465, column 21 to line 467, column 5)",
+  " (in 'string', line 465, column 4 to line 484, column 5)",
+  " (in 'string', line 487, column 6 to column 50)",
+  " (in 'string', line 486, column 24 to line 488, column 5)",
+  " (in 'string', line 486, column 4 to line 488, column 5)",
+  " (in 'string', line 489, column 4 to column 13)",
+  " (in 'string', line 462, column 118 to line 490, column 3)",
+  " (in 'string', line 493, column 4 to column 30)",
+  " (in 'string', line 494, column 11 to column 12)",
+  " (in 'string', line 494, column 4 to column 16)",
+  " (in 'string', line 512, column 6 to column 99)",
+  " (in 'string', line 511, column 28 to line 514, column 5)",
+  " (in 'string', line 511, column 11 to line 514, column 5)",
+  " (in 'string', line 510, column 6 to column 55)",
+  " (in 'string', line 509, column 28 to line 511, column 5)",
+  " (in 'string', line 509, column 11 to line 514, column 5)",
+  " (in 'string', line 507, column 8 to column 82)",
+  " (in 'string', line 506, column 13 to line 508, column 7)",
+  " (in 'string', line 505, column 23 to column 76)",
+  " (in 'string', line 505, column 8 to column 76)",
+  " (in 'string', line 504, column 28 to line 506, column 7)",
+  " (in 'string', line 504, column 13 to line 508, column 7)",
+  " (in 'string', line 502, column 15 to column 16)",
+  " (in 'string', line 502, column 8 to column 35)",
+  " (in 'string', line 503, column 23 to column 65)",
+  " (in 'string', line 503, column 8 to column 65)",
+  " (in 'string', line 501, column 28 to line 504, column 7)",
+  " (in 'string', line 501, column 13 to line 508, column 7)",
+  " (in 'string', line 500, column 23 to column 68)",
+  " (in 'string', line 500, column 8 to column 68)",
+  " (in 'string', line 499, column 21 to line 501, column 7)",
+  " (in 'string', line 499, column 6 to line 508, column 7)",
+  " (in 'string', line 497, column 28 to line 509, column 5)",
+  " (in 'string', line 497, column 11 to line 514, column 5)",
+  " (in 'string', line 496, column 6 to column 44)",
+  " (in 'string', line 495, column 21 to line 497, column 5)",
+  " (in 'string', line 495, column 4 to line 514, column 5)",
+  " (in 'string', line 517, column 6 to column 51)",
+  " (in 'string', line 516, column 24 to line 518, column 5)",
+  " (in 'string', line 516, column 4 to line 518, column 5)",
+  " (in 'string', line 519, column 4 to column 13)",
+  " (in 'string', line 492, column 123 to line 520, column 3)"};
 template <bool propto__, typename T0__, typename T2__, typename T3__,
           typename T4__, typename T_lp__, typename T_lp_accum__,
           stan::require_all_t<stan::is_col_vector<T0__>,
@@ -1144,10 +1284,22 @@ void
 prior_select_lp(const T0__& y_arg__, const int& dist, const T2__& location,
                 const T3__& scale, const T4__& df, T_lp__& lp__,
                 T_lp_accum__& lp_accum__, std::ostream* pstream__);
+template <bool propto__, typename T0__, typename T2__, typename T3__,
+          typename T4__, typename T_lp__, typename T_lp_accum__,
+          stan::require_all_t<stan::is_stan_scalar<T0__>,
+                              stan::is_stan_scalar<T2__>,
+                              stan::is_stan_scalar<T3__>,
+                              stan::is_stan_scalar<T4__>>* = nullptr>
+void
+prior_select2_lp(const T0__& y, const int& dist, const T2__& location,
+                 const T3__& scale, const T4__& df, T_lp__& lp__,
+                 T_lp_accum__& lp_accum__, std::ostream* pstream__);
 template <typename T0__,
           stan::require_all_t<stan::is_eigen_matrix_dynamic<T0__>,
                               stan::is_vt_not_complex<T0__>>* = nullptr>
 int count_nonzero(const T0__& m_arg__, std::ostream* pstream__);
+std::vector<int>
+which_gt0a(const std::vector<int>& x, std::ostream* pstream__);
 std::vector<int>
 which(const std::vector<int>& x, const int& y, std::ostream* pstream__);
 int nwhich(const std::vector<int>& x, const int& y, std::ostream* pstream__);
@@ -1351,70 +1503,70 @@ prior_select_lp(const T0__& y_arg__, const int& dist, const T2__& location,
   // suppress unused var warning
   (void) DUMMY_VAR__;
   try {
-    current_statement__ = 582;
+    current_statement__ = 685;
     if (stan::math::logical_eq(dist, 0)) {} else {
-                                            current_statement__ = 580;
+                                            current_statement__ = 683;
                                             if (stan::math::logical_eq(dist,
                                                   1)) {
-                                              current_statement__ = 578;
+                                              current_statement__ = 681;
                                               lp_accum__.add(stan::math::normal_lpdf<
                                                                propto__>(y,
                                                                location,
                                                                scale));
                                             } else {
-                                              current_statement__ = 577;
+                                              current_statement__ = 680;
                                               if (stan::math::logical_eq(
                                                     dist, 2)) {
-                                                current_statement__ = 575;
+                                                current_statement__ = 678;
                                                 lp_accum__.add(stan::math::cauchy_lpdf<
                                                                  propto__>(y,
                                                                  location,
                                                                  scale));
                                               } else {
-                                                current_statement__ = 574;
+                                                current_statement__ = 677;
                                                 if (stan::math::logical_eq(
                                                       dist, 3)) {
-                                                  current_statement__ = 572;
+                                                  current_statement__ = 675;
                                                   lp_accum__.add(stan::math::student_t_lpdf<
                                                                    propto__>(
                                                                    y, df,
                                                                    location,
                                                                    scale));
                                                 } else {
-                                                  current_statement__ = 571;
+                                                  current_statement__ = 674;
                                                   if (stan::math::logical_eq(
                                                         dist, 4)) {
-                                                    current_statement__ = 569;
+                                                    current_statement__ = 672;
                                                     lp_accum__.add(stan::math::exponential_lpdf<
                                                                     propto__>(
                                                                     y, (1 /
                                                                     scale)));
                                                   } else {
-                                                    current_statement__ = 568;
+                                                    current_statement__ = 671;
                                                     if (stan::math::logical_eq(
                                                           dist, 5)) {
-                                                      current_statement__ = 566;
+                                                      current_statement__ = 669;
                                                       lp_accum__.add(
                                                         stan::math::lognormal_lpdf<
                                                           propto__>(y,
                                                           location, scale));
                                                     } else {
-                                                      current_statement__ = 565;
+                                                      current_statement__ = 668;
                                                       if (stan::math::logical_eq(
                                                             dist, 6)) {
-                                                        current_statement__ = 562;
+                                                        current_statement__ = 665;
                                                         lp_accum__.add(
                                                           stan::math::student_t_lpdf<
                                                             propto__>(
                                                             stan::math::log(y),
                                                             df, location,
                                                             scale));
-                                                        current_statement__ = 563;
+                                                        current_statement__ = 666;
                                                         lp_accum__.add(
                                                           stan::math::minus(
                                                             stan::math::log(y)));
                                                       } else {
-                                                        current_statement__ = 560;
+                                                        current_statement__ = 663;
                                                         std::stringstream
                                                           errmsg_stream__;
                                                         stan::math::stan_print(
@@ -1429,7 +1581,106 @@ prior_select_lp(const T0__& y_arg__, const int& dist, const T2__& location,
                                               }
                                             }
     }
-    current_statement__ = 583;
+    current_statement__ = 686;
+    return ;
+  } catch (const std::exception& e) {
+    stan::lang::rethrow_located(e, locations_array__[current_statement__]);
+  }
+}
+template <bool propto__, typename T0__, typename T2__, typename T3__,
+          typename T4__, typename T_lp__, typename T_lp_accum__,
+          stan::require_all_t<stan::is_stan_scalar<T0__>,
+                              stan::is_stan_scalar<T2__>,
+                              stan::is_stan_scalar<T3__>,
+                              stan::is_stan_scalar<T4__>>*>
+void
+prior_select2_lp(const T0__& y, const int& dist, const T2__& location,
+                 const T3__& scale, const T4__& df, T_lp__& lp__,
+                 T_lp_accum__& lp_accum__, std::ostream* pstream__) {
+  using local_scalar_t__ = stan::promote_args_t<T0__, T2__, T3__, T4__>;
+  int current_statement__ = 0;
+  local_scalar_t__ DUMMY_VAR__(std::numeric_limits<double>::quiet_NaN());
+  // suppress unused var warning
+  (void) DUMMY_VAR__;
+  try {
+    current_statement__ = 710;
+    if (stan::math::logical_eq(dist, 0)) {} else {
+                                            current_statement__ = 708;
+                                            if (stan::math::logical_eq(dist,
+                                                  1)) {
+                                              current_statement__ = 706;
+                                              lp_accum__.add(stan::math::normal_lpdf<
+                                                               propto__>(y,
+                                                               location,
+                                                               scale));
+                                            } else {
+                                              current_statement__ = 705;
+                                              if (stan::math::logical_eq(
+                                                    dist, 2)) {
+                                                current_statement__ = 703;
+                                                lp_accum__.add(stan::math::cauchy_lpdf<
+                                                                 propto__>(y,
+                                                                 location,
+                                                                 scale));
+                                              } else {
+                                                current_statement__ = 702;
+                                                if (stan::math::logical_eq(
+                                                      dist, 3)) {
+                                                  current_statement__ = 700;
+                                                  lp_accum__.add(stan::math::student_t_lpdf<
+                                                                   propto__>(
+                                                                   y, df,
+                                                                   location,
+                                                                   scale));
+                                                } else {
+                                                  current_statement__ = 699;
+                                                  if (stan::math::logical_eq(
+                                                        dist, 4)) {
+                                                    current_statement__ = 697;
+                                                    lp_accum__.add(stan::math::exponential_lpdf<
+                                                                    propto__>(
+                                                                    y, (1 /
+                                                                    scale)));
+                                                  } else {
+                                                    current_statement__ = 696;
+                                                    if (stan::math::logical_eq(
+                                                          dist, 5)) {
+                                                      current_statement__ = 694;
+                                                      lp_accum__.add(
+                                                        stan::math::lognormal_lpdf<
+                                                          propto__>(y,
+                                                          location, scale));
+                                                    } else {
+                                                      current_statement__ = 693;
+                                                      if (stan::math::logical_eq(
+                                                            dist, 6)) {
+                                                        current_statement__ = 690;
+                                                        lp_accum__.add(
+                                                          stan::math::student_t_lpdf<
+                                                            propto__>(
+                                                            stan::math::log(y),
+                                                            df, location,
+                                                            scale));
+                                                        current_statement__ = 691;
+                                                        lp_accum__.add(-
+                                                          stan::math::log(y));
+                                                      } else {
+                                                        current_statement__ = 688;
+                                                        std::stringstream
+                                                          errmsg_stream__;
+                                                        stan::math::stan_print(
+                                                          &errmsg_stream__,
+                                                          "Not a supported prior dist.");
+                                                        throw std::domain_error(
+                                                                errmsg_stream__.str());
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+    }
+    current_statement__ = 711;
     return ;
   } catch (const std::exception& e) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -1450,29 +1701,67 @@ int count_nonzero(const T0__& m_arg__, std::ostream* pstream__) {
   (void) DUMMY_VAR__;
   try {
     int I = std::numeric_limits<int>::min();
-    current_statement__ = 585;
+    current_statement__ = 713;
     I = stan::math::rows(m);
     int J = std::numeric_limits<int>::min();
-    current_statement__ = 586;
+    current_statement__ = 714;
     J = stan::math::cols(m);
     int c = std::numeric_limits<int>::min();
-    current_statement__ = 587;
+    current_statement__ = 715;
     c = 0;
-    current_statement__ = 593;
+    current_statement__ = 721;
     for (int j = 1; j <= I; ++j) {
-      current_statement__ = 591;
+      current_statement__ = 719;
       for (int i = 1; i <= J; ++i) {
-        current_statement__ = 589;
+        current_statement__ = 717;
         if (stan::math::logical_neq(
               stan::model::rvalue(m, "m", stan::model::index_uni(i),
                 stan::model::index_uni(j)), 0)) {
-          current_statement__ = 588;
+          current_statement__ = 716;
           c = (c + 1);
         }
       }
     }
-    current_statement__ = 594;
+    current_statement__ = 722;
     return c;
+  } catch (const std::exception& e) {
+    stan::lang::rethrow_located(e, locations_array__[current_statement__]);
+  }
+}
+std::vector<int>
+which_gt0a(const std::vector<int>& x, std::ostream* pstream__) {
+  using local_scalar_t__ = double;
+  int current_statement__ = 0;
+  static constexpr bool propto__ = true;
+  // suppress unused var warning
+  (void) propto__;
+  local_scalar_t__ DUMMY_VAR__(std::numeric_limits<double>::quiet_NaN());
+  // suppress unused var warning
+  (void) DUMMY_VAR__;
+  try {
+    int n = std::numeric_limits<int>::min();
+    current_statement__ = 724;
+    n = stan::math::num_elements(x);
+    current_statement__ = 725;
+    stan::math::validate_non_negative_index("w", "n", n);
+    std::vector<int> w = std::vector<int>(n, std::numeric_limits<int>::min());
+    int c = std::numeric_limits<int>::min();
+    current_statement__ = 727;
+    c = 1;
+    current_statement__ = 733;
+    for (int i = 1; i <= n; ++i) {
+      current_statement__ = 731;
+      if (stan::math::logical_gt(
+            stan::model::rvalue(x, "x", stan::model::index_uni(i)), 0)) {
+        current_statement__ = 728;
+        stan::model::assign(w, i, "assigning variable w",
+          stan::model::index_uni(c));
+        current_statement__ = 729;
+        c = (c + 1);
+      }
+    }
+    current_statement__ = 734;
+    return stan::model::rvalue(w, "w", stan::model::index_min_max(1, (c - 1)));
   } catch (const std::exception& e) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
   }
@@ -1489,27 +1778,27 @@ which(const std::vector<int>& x, const int& y, std::ostream* pstream__) {
   (void) DUMMY_VAR__;
   try {
     int n = std::numeric_limits<int>::min();
-    current_statement__ = 596;
+    current_statement__ = 736;
     n = stan::math::num_elements(x);
-    current_statement__ = 597;
+    current_statement__ = 737;
     stan::math::validate_non_negative_index("w", "n", n);
     std::vector<int> w = std::vector<int>(n, std::numeric_limits<int>::min());
     int c = std::numeric_limits<int>::min();
-    current_statement__ = 599;
+    current_statement__ = 739;
     c = 1;
-    current_statement__ = 605;
+    current_statement__ = 745;
     for (int i = 1; i <= n; ++i) {
-      current_statement__ = 603;
+      current_statement__ = 743;
       if (stan::math::logical_eq(
             stan::model::rvalue(x, "x", stan::model::index_uni(i)), y)) {
-        current_statement__ = 600;
+        current_statement__ = 740;
         stan::model::assign(w, i, "assigning variable w",
           stan::model::index_uni(c));
-        current_statement__ = 601;
+        current_statement__ = 741;
         c = (c + 1);
       }
     }
-    current_statement__ = 606;
+    current_statement__ = 746;
     return stan::model::rvalue(w, "w", stan::model::index_min_max(1, (c - 1)));
   } catch (const std::exception& e) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -1526,18 +1815,18 @@ int nwhich(const std::vector<int>& x, const int& y, std::ostream* pstream__) {
   (void) DUMMY_VAR__;
   try {
     int w = std::numeric_limits<int>::min();
-    current_statement__ = 608;
+    current_statement__ = 748;
     w = 0;
-    current_statement__ = 612;
+    current_statement__ = 752;
     for (int i = 1; i <= stan::math::num_elements(x); ++i) {
-      current_statement__ = 610;
+      current_statement__ = 750;
       if (stan::math::logical_eq(
             stan::model::rvalue(x, "x", stan::model::index_uni(i)), y)) {
-        current_statement__ = 609;
+        current_statement__ = 749;
         w = (w + 1);
       }
     }
-    current_statement__ = 613;
+    current_statement__ = 753;
     return w;
   } catch (const std::exception& e) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -1555,18 +1844,18 @@ nwhich_all(const std::vector<int>& x, const int& max_id, std::ostream*
   // suppress unused var warning
   (void) DUMMY_VAR__;
   try {
-    current_statement__ = 615;
+    current_statement__ = 755;
     stan::math::validate_non_negative_index("w", "max_id", max_id);
     std::vector<int> w =
       std::vector<int>(max_id, std::numeric_limits<int>::min());
-    current_statement__ = 616;
+    current_statement__ = 756;
     stan::model::assign(w, stan::math::rep_array(0, max_id),
       "assigning variable w");
-    current_statement__ = 620;
+    current_statement__ = 760;
     for (int i = 1; i <= stan::math::num_elements(x); ++i) {
-      current_statement__ = 618;
+      current_statement__ = 758;
       if (stan::model::rvalue(x, "x", stan::model::index_uni(i))) {
-        current_statement__ = 617;
+        current_statement__ = 757;
         stan::model::assign(w,
           (stan::model::rvalue(w, "w",
              stan::model::index_uni(
@@ -1576,7 +1865,7 @@ nwhich_all(const std::vector<int>& x, const int& max_id, std::ostream*
             stan::model::rvalue(x, "x", stan::model::index_uni(i))));
       }
     }
-    current_statement__ = 621;
+    current_statement__ = 761;
     return w;
   } catch (const std::exception& e) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -1597,27 +1886,27 @@ std::vector<int> which_gt0(const T0__& x_arg__, std::ostream* pstream__) {
   (void) DUMMY_VAR__;
   try {
     int n = std::numeric_limits<int>::min();
-    current_statement__ = 623;
+    current_statement__ = 763;
     n = stan::math::num_elements(x);
-    current_statement__ = 624;
+    current_statement__ = 764;
     stan::math::validate_non_negative_index("w", "n", n);
     std::vector<int> w = std::vector<int>(n, std::numeric_limits<int>::min());
     int c = std::numeric_limits<int>::min();
-    current_statement__ = 626;
+    current_statement__ = 766;
     c = 1;
-    current_statement__ = 632;
+    current_statement__ = 772;
     for (int i = 1; i <= n; ++i) {
-      current_statement__ = 630;
+      current_statement__ = 770;
       if (stan::math::logical_gt(
             stan::model::rvalue(x, "x", stan::model::index_uni(i)), 0)) {
-        current_statement__ = 627;
+        current_statement__ = 767;
         stan::model::assign(w, i, "assigning variable w",
           stan::model::index_uni(c));
-        current_statement__ = 628;
+        current_statement__ = 768;
         c = (c + 1);
       }
     }
-    current_statement__ = 633;
+    current_statement__ = 773;
     return stan::model::rvalue(w, "w", stan::model::index_min_max(1, (c - 1)));
   } catch (const std::exception& e) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -1639,12 +1928,12 @@ gengamma_lpdf(const T0__& y, const T1__& mu, const T2__& sigma, const T3__&
   (void) DUMMY_VAR__;
   try {
     local_scalar_t__ Q = DUMMY_VAR__;
-    current_statement__ = 635;
+    current_statement__ = 775;
     Q = stan::math::pow(k, -0.5);
     local_scalar_t__ w = DUMMY_VAR__;
-    current_statement__ = 636;
+    current_statement__ = 776;
     w = ((Q * (stan::math::log(y) - mu)) / sigma);
-    current_statement__ = 637;
+    current_statement__ = 777;
     return ((((-stan::math::log(sigma) - stan::math::log(y)) - ((0.5 *
            stan::math::log(k)) * (1 - (2 * k)))) + (k * (w -
            stan::math::exp(w)))) - stan::math::lgamma(k));
@@ -1683,47 +1972,47 @@ lS(const int& dist, const T1__& y_arg__, const T2__& eta_arg__, const T3__&
   (void) DUMMY_VAR__;
   try {
     int n = std::numeric_limits<int>::min();
-    current_statement__ = 639;
+    current_statement__ = 779;
     n = stan::math::num_elements(y);
-    current_statement__ = 640;
+    current_statement__ = 780;
     stan::math::validate_non_negative_index("out", "n", n);
     Eigen::Matrix<local_scalar_t__,-1,1> out =
       Eigen::Matrix<local_scalar_t__,-1,1>::Constant(n, DUMMY_VAR__);
-    current_statement__ = 676;
+    current_statement__ = 816;
     if (stan::math::logical_eq(dist, 1)) {
-      current_statement__ = 674;
+      current_statement__ = 814;
       stan::model::assign(out,
         stan::math::elt_multiply(stan::math::minus(y), stan::math::exp(eta)),
         "assigning variable out");
     } else {
-      current_statement__ = 673;
+      current_statement__ = 813;
       if (stan::math::logical_eq(dist, 2)) {
-        current_statement__ = 671;
+        current_statement__ = 811;
         stan::model::assign(out,
           stan::math::elt_multiply(
             stan::math::minus(stan::math::pow(y, aux)), stan::math::exp(eta)),
           "assigning variable out");
       } else {
-        current_statement__ = 670;
+        current_statement__ = 810;
         if (stan::math::logical_eq(dist, 3)) {
-          current_statement__ = 668;
+          current_statement__ = 808;
           stan::model::assign(out,
             stan::math::elt_multiply(
               stan::math::elt_divide(stan::math::minus(stan::math::exp(eta)),
                 aux), stan::math::expm1(stan::math::elt_multiply(aux, y))),
             "assigning variable out");
         } else {
-          current_statement__ = 667;
+          current_statement__ = 807;
           if (stan::math::logical_eq(dist, 4)) {
-            current_statement__ = 665;
+            current_statement__ = 805;
             stan::model::assign(out,
               stan::math::elt_multiply(stan::math::minus(y),
                 stan::math::exp(stan::math::minus(eta))),
               "assigning variable out");
           } else {
-            current_statement__ = 664;
+            current_statement__ = 804;
             if (stan::math::logical_eq(dist, 5)) {
-              current_statement__ = 662;
+              current_statement__ = 802;
               stan::model::assign(out,
                 stan::math::elt_multiply(
                   stan::math::minus(stan::math::pow(y, aux)),
@@ -1731,11 +2020,11 @@ lS(const int& dist, const T1__& y_arg__, const T2__& eta_arg__, const T3__&
                     stan::math::elt_multiply(stan::math::minus(aux), eta))),
                 "assigning variable out");
             } else {
-              current_statement__ = 661;
+              current_statement__ = 801;
               if (stan::math::logical_eq(dist, 6)) {
-                current_statement__ = 659;
+                current_statement__ = 799;
                 for (int i = 1; i <= n; ++i) {
-                  current_statement__ = 658;
+                  current_statement__ = 798;
                   stan::model::assign(out,
                     stan::math::lognormal_lccdf(
                       stan::model::rvalue(y, "y", stan::model::index_uni(i)),
@@ -1746,9 +2035,9 @@ lS(const int& dist, const T1__& y_arg__, const T2__& eta_arg__, const T3__&
                     "assigning variable out", stan::model::index_uni(i));
                 }
               } else {
-                current_statement__ = 657;
+                current_statement__ = 797;
                 if (stan::math::logical_eq(dist, 7)) {
-                  current_statement__ = 655;
+                  current_statement__ = 795;
                   stan::model::assign(out,
                     stan::math::minus(
                       stan::math::log1p(
@@ -1756,20 +2045,20 @@ lS(const int& dist, const T1__& y_arg__, const T2__& eta_arg__, const T3__&
                           stan::math::elt_divide(y, stan::math::exp(eta)),
                           aux))), "assigning variable out");
                 } else {
-                  current_statement__ = 654;
+                  current_statement__ = 794;
                   if (stan::math::logical_eq(dist, 8)) {
-                    current_statement__ = 649;
+                    current_statement__ = 789;
                     stan::math::validate_non_negative_index("eeta", "n", n);
                     Eigen::Matrix<local_scalar_t__,-1,1> eeta =
                       Eigen::Matrix<local_scalar_t__,-1,1>::Constant(n,
                         DUMMY_VAR__);
-                    current_statement__ = 650;
+                    current_statement__ = 790;
                     stan::model::assign(eeta,
                       stan::math::exp(stan::math::minus(eta)),
                       "assigning variable eeta");
-                    current_statement__ = 652;
+                    current_statement__ = 792;
                     for (int i = 1; i <= n; ++i) {
-                      current_statement__ = 651;
+                      current_statement__ = 791;
                       stan::model::assign(out,
                         stan::math::gamma_lccdf(
                           stan::model::rvalue(y, "y",
@@ -1781,23 +2070,23 @@ lS(const int& dist, const T1__& y_arg__, const T2__& eta_arg__, const T3__&
                         "assigning variable out", stan::model::index_uni(i));
                     }
                   } else {
-                    current_statement__ = 648;
+                    current_statement__ = 788;
                     if (stan::math::logical_eq(dist, 9)) {
-                      current_statement__ = 642;
+                      current_statement__ = 782;
                       stan::math::validate_non_negative_index("Q", "n", n);
                       Eigen::Matrix<local_scalar_t__,-1,1> Q =
                         Eigen::Matrix<local_scalar_t__,-1,1>::Constant(n,
                           DUMMY_VAR__);
-                      current_statement__ = 643;
+                      current_statement__ = 783;
                       stan::model::assign(Q,
                         stan::math::inv(stan::math::sqrt(aux2)),
                         "assigning variable Q");
-                      current_statement__ = 644;
+                      current_statement__ = 784;
                       stan::math::validate_non_negative_index("w", "n", n);
                       Eigen::Matrix<local_scalar_t__,-1,1> w =
                         Eigen::Matrix<local_scalar_t__,-1,1>::Constant(n,
                           DUMMY_VAR__);
-                      current_statement__ = 645;
+                      current_statement__ = 785;
                       stan::model::assign(w,
                         stan::math::elt_multiply(
                           stan::math::exp(
@@ -1805,7 +2094,7 @@ lS(const int& dist, const T1__& y_arg__, const T2__& eta_arg__, const T3__&
                               stan::math::elt_multiply(Q,
                                 stan::math::subtract(stan::math::log(y), eta)),
                               aux)), aux2), "assigning variable w");
-                      current_statement__ = 646;
+                      current_statement__ = 786;
                       stan::model::assign(out,
                         stan::math::log1m(stan::math::gamma_p(aux2, w)),
                         "assigning variable out");
@@ -1818,7 +2107,7 @@ lS(const int& dist, const T1__& y_arg__, const T2__& eta_arg__, const T3__&
         }
       }
     }
-    current_statement__ = 677;
+    current_statement__ = 817;
     return out;
   } catch (const std::exception& e) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -1848,58 +2137,58 @@ lS2(const int& dist, const T1__& y_arg__, const T2__& eta_arg__, const T3__&
   (void) DUMMY_VAR__;
   try {
     int n = std::numeric_limits<int>::min();
-    current_statement__ = 679;
+    current_statement__ = 819;
     n = stan::math::num_elements(y);
-    current_statement__ = 680;
+    current_statement__ = 820;
     stan::math::validate_non_negative_index("out", "n", n);
     Eigen::Matrix<local_scalar_t__,-1,1> out =
       Eigen::Matrix<local_scalar_t__,-1,1>::Constant(n, DUMMY_VAR__);
-    current_statement__ = 715;
+    current_statement__ = 855;
     if (stan::math::logical_eq(dist, 1)) {
-      current_statement__ = 713;
+      current_statement__ = 853;
       stan::model::assign(out,
         stan::math::elt_multiply(stan::math::minus(y), stan::math::exp(eta)),
         "assigning variable out");
     } else {
-      current_statement__ = 712;
+      current_statement__ = 852;
       if (stan::math::logical_eq(dist, 2)) {
-        current_statement__ = 710;
+        current_statement__ = 850;
         stan::model::assign(out,
           stan::math::elt_multiply(
             stan::math::minus(stan::math::pow(y, aux)), stan::math::exp(eta)),
           "assigning variable out");
       } else {
-        current_statement__ = 709;
+        current_statement__ = 849;
         if (stan::math::logical_eq(dist, 3)) {
-          current_statement__ = 707;
+          current_statement__ = 847;
           stan::model::assign(out,
             stan::math::elt_multiply(
               stan::math::divide(stan::math::minus(stan::math::exp(eta)), aux),
               stan::math::expm1(stan::math::multiply(aux, y))),
             "assigning variable out");
         } else {
-          current_statement__ = 706;
+          current_statement__ = 846;
           if (stan::math::logical_eq(dist, 4)) {
-            current_statement__ = 704;
+            current_statement__ = 844;
             stan::model::assign(out,
               stan::math::elt_multiply(stan::math::minus(y),
                 stan::math::exp(stan::math::minus(eta))),
               "assigning variable out");
           } else {
-            current_statement__ = 703;
+            current_statement__ = 843;
             if (stan::math::logical_eq(dist, 5)) {
-              current_statement__ = 701;
+              current_statement__ = 841;
               stan::model::assign(out,
                 stan::math::elt_multiply(
                   stan::math::minus(stan::math::pow(y, aux)),
                   stan::math::exp(stan::math::multiply(-aux, eta))),
                 "assigning variable out");
             } else {
-              current_statement__ = 700;
+              current_statement__ = 840;
               if (stan::math::logical_eq(dist, 6)) {
-                current_statement__ = 698;
+                current_statement__ = 838;
                 for (int i = 1; i <= n; ++i) {
-                  current_statement__ = 697;
+                  current_statement__ = 837;
                   stan::model::assign(out,
                     stan::math::lognormal_lccdf(
                       stan::model::rvalue(y, "y", stan::model::index_uni(i)),
@@ -1908,9 +2197,9 @@ lS2(const int& dist, const T1__& y_arg__, const T2__& eta_arg__, const T3__&
                     "assigning variable out", stan::model::index_uni(i));
                 }
               } else {
-                current_statement__ = 696;
+                current_statement__ = 836;
                 if (stan::math::logical_eq(dist, 7)) {
-                  current_statement__ = 694;
+                  current_statement__ = 834;
                   stan::model::assign(out,
                     stan::math::minus(
                       stan::math::log1p(
@@ -1918,20 +2207,20 @@ lS2(const int& dist, const T1__& y_arg__, const T2__& eta_arg__, const T3__&
                           stan::math::elt_divide(y, stan::math::exp(eta)),
                           aux))), "assigning variable out");
                 } else {
-                  current_statement__ = 693;
+                  current_statement__ = 833;
                   if (stan::math::logical_eq(dist, 8)) {
-                    current_statement__ = 688;
+                    current_statement__ = 828;
                     stan::math::validate_non_negative_index("eeta", "n", n);
                     Eigen::Matrix<local_scalar_t__,-1,1> eeta =
                       Eigen::Matrix<local_scalar_t__,-1,1>::Constant(n,
                         DUMMY_VAR__);
-                    current_statement__ = 689;
+                    current_statement__ = 829;
                     stan::model::assign(eeta,
                       stan::math::exp(stan::math::minus(eta)),
                       "assigning variable eeta");
-                    current_statement__ = 691;
+                    current_statement__ = 831;
                     for (int i = 1; i <= n; ++i) {
-                      current_statement__ = 690;
+                      current_statement__ = 830;
                       stan::model::assign(out,
                         stan::math::gamma_lccdf(
                           stan::model::rvalue(y, "y",
@@ -1941,17 +2230,17 @@ lS2(const int& dist, const T1__& y_arg__, const T2__& eta_arg__, const T3__&
                         "assigning variable out", stan::model::index_uni(i));
                     }
                   } else {
-                    current_statement__ = 687;
+                    current_statement__ = 827;
                     if (stan::math::logical_eq(dist, 9)) {
                       local_scalar_t__ Q = DUMMY_VAR__;
-                      current_statement__ = 682;
+                      current_statement__ = 822;
                       Q = stan::math::inv(stan::math::sqrt(aux2));
-                      current_statement__ = 683;
+                      current_statement__ = 823;
                       stan::math::validate_non_negative_index("w", "n", n);
                       Eigen::Matrix<local_scalar_t__,-1,1> w =
                         Eigen::Matrix<local_scalar_t__,-1,1>::Constant(n,
                           DUMMY_VAR__);
-                      current_statement__ = 684;
+                      current_statement__ = 824;
                       stan::model::assign(w,
                         stan::math::multiply(
                           stan::math::exp(
@@ -1959,7 +2248,7 @@ lS2(const int& dist, const T1__& y_arg__, const T2__& eta_arg__, const T3__&
                               stan::math::multiply(Q,
                                 stan::math::subtract(stan::math::log(y), eta)),
                               aux)), aux2), "assigning variable w");
-                      current_statement__ = 685;
+                      current_statement__ = 825;
                       stan::model::assign(out,
                         stan::math::log1m(stan::math::gamma_p(aux2, w)),
                         "assigning variable out");
@@ -1972,7 +2261,7 @@ lS2(const int& dist, const T1__& y_arg__, const T2__& eta_arg__, const T3__&
         }
       }
     }
-    current_statement__ = 716;
+    current_statement__ = 856;
     return out;
   } catch (const std::exception& e) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -1999,55 +2288,55 @@ lS_a(const int& dist, const T1__& y, const T2__& eta_arg__, const T3__& aux,
   (void) DUMMY_VAR__;
   try {
     int n = std::numeric_limits<int>::min();
-    current_statement__ = 718;
+    current_statement__ = 858;
     n = stan::math::num_elements(eta);
-    current_statement__ = 719;
+    current_statement__ = 859;
     stan::math::validate_non_negative_index("out", "n", n);
     Eigen::Matrix<local_scalar_t__,-1,1> out =
       Eigen::Matrix<local_scalar_t__,-1,1>::Constant(n, DUMMY_VAR__);
-    current_statement__ = 754;
+    current_statement__ = 894;
     if (stan::math::logical_eq(dist, 1)) {
-      current_statement__ = 752;
+      current_statement__ = 892;
       stan::model::assign(out,
         stan::math::multiply(-y, stan::math::exp(eta)),
         "assigning variable out");
     } else {
-      current_statement__ = 751;
+      current_statement__ = 891;
       if (stan::math::logical_eq(dist, 2)) {
-        current_statement__ = 749;
+        current_statement__ = 889;
         stan::model::assign(out,
           stan::math::multiply(-stan::math::pow(y, aux), stan::math::exp(eta)),
           "assigning variable out");
       } else {
-        current_statement__ = 748;
+        current_statement__ = 888;
         if (stan::math::logical_eq(dist, 3)) {
-          current_statement__ = 746;
+          current_statement__ = 886;
           stan::model::assign(out,
             stan::math::multiply(
               stan::math::divide(stan::math::minus(stan::math::exp(eta)), aux),
               stan::math::expm1((aux * y))), "assigning variable out");
         } else {
-          current_statement__ = 745;
+          current_statement__ = 885;
           if (stan::math::logical_eq(dist, 4)) {
-            current_statement__ = 743;
+            current_statement__ = 883;
             stan::model::assign(out,
               stan::math::multiply(-y,
                 stan::math::exp(stan::math::minus(eta))),
               "assigning variable out");
           } else {
-            current_statement__ = 742;
+            current_statement__ = 882;
             if (stan::math::logical_eq(dist, 5)) {
-              current_statement__ = 740;
+              current_statement__ = 880;
               stan::model::assign(out,
                 stan::math::multiply(-stan::math::pow(y, aux),
                   stan::math::exp(stan::math::multiply(-aux, eta))),
                 "assigning variable out");
             } else {
-              current_statement__ = 739;
+              current_statement__ = 879;
               if (stan::math::logical_eq(dist, 6)) {
-                current_statement__ = 737;
+                current_statement__ = 877;
                 for (int i = 1; i <= n; ++i) {
-                  current_statement__ = 736;
+                  current_statement__ = 876;
                   stan::model::assign(out,
                     stan::math::lognormal_lccdf(y,
                       stan::model::rvalue(eta, "eta",
@@ -2055,9 +2344,9 @@ lS_a(const int& dist, const T1__& y, const T2__& eta_arg__, const T3__& aux,
                     "assigning variable out", stan::model::index_uni(i));
                 }
               } else {
-                current_statement__ = 735;
+                current_statement__ = 875;
                 if (stan::math::logical_eq(dist, 7)) {
-                  current_statement__ = 733;
+                  current_statement__ = 873;
                   stan::model::assign(out,
                     stan::math::minus(
                       stan::math::log1p(
@@ -2065,20 +2354,20 @@ lS_a(const int& dist, const T1__& y, const T2__& eta_arg__, const T3__& aux,
                           stan::math::elt_divide(y, stan::math::exp(eta)),
                           aux))), "assigning variable out");
                 } else {
-                  current_statement__ = 732;
+                  current_statement__ = 872;
                   if (stan::math::logical_eq(dist, 8)) {
-                    current_statement__ = 727;
+                    current_statement__ = 867;
                     stan::math::validate_non_negative_index("eeta", "n", n);
                     Eigen::Matrix<local_scalar_t__,-1,1> eeta =
                       Eigen::Matrix<local_scalar_t__,-1,1>::Constant(n,
                         DUMMY_VAR__);
-                    current_statement__ = 728;
+                    current_statement__ = 868;
                     stan::model::assign(eeta,
                       stan::math::exp(stan::math::minus(eta)),
                       "assigning variable eeta");
-                    current_statement__ = 730;
+                    current_statement__ = 870;
                     for (int i = 1; i <= n; ++i) {
-                      current_statement__ = 729;
+                      current_statement__ = 869;
                       stan::model::assign(out,
                         stan::math::gamma_lccdf(y, aux,
                           stan::model::rvalue(eeta, "eeta",
@@ -2086,17 +2375,17 @@ lS_a(const int& dist, const T1__& y, const T2__& eta_arg__, const T3__& aux,
                         "assigning variable out", stan::model::index_uni(i));
                     }
                   } else {
-                    current_statement__ = 726;
+                    current_statement__ = 866;
                     if (stan::math::logical_eq(dist, 9)) {
                       local_scalar_t__ Q = DUMMY_VAR__;
-                      current_statement__ = 721;
+                      current_statement__ = 861;
                       Q = stan::math::pow(aux2, -0.5);
-                      current_statement__ = 722;
+                      current_statement__ = 862;
                       stan::math::validate_non_negative_index("w", "n", n);
                       Eigen::Matrix<local_scalar_t__,-1,1> w =
                         Eigen::Matrix<local_scalar_t__,-1,1>::Constant(n,
                           DUMMY_VAR__);
-                      current_statement__ = 723;
+                      current_statement__ = 863;
                       stan::model::assign(w,
                         stan::math::multiply(
                           stan::math::exp(
@@ -2104,7 +2393,7 @@ lS_a(const int& dist, const T1__& y, const T2__& eta_arg__, const T3__& aux,
                               stan::math::multiply(Q,
                                 stan::math::subtract(stan::math::log(y), eta)),
                               aux)), aux2), "assigning variable w");
-                      current_statement__ = 724;
+                      current_statement__ = 864;
                       stan::model::assign(out,
                         stan::math::log1m(stan::math::gamma_p(aux2, w)),
                         "assigning variable out");
@@ -2117,7 +2406,7 @@ lS_a(const int& dist, const T1__& y, const T2__& eta_arg__, const T3__& aux,
         }
       }
     }
-    current_statement__ = 755;
+    current_statement__ = 895;
     return out;
   } catch (const std::exception& e) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -2151,47 +2440,47 @@ lS_a2(const int& dist, const T1__& y, const T2__& eta_arg__, const T3__&
   (void) DUMMY_VAR__;
   try {
     int n = std::numeric_limits<int>::min();
-    current_statement__ = 757;
+    current_statement__ = 897;
     n = stan::math::num_elements(eta);
-    current_statement__ = 758;
+    current_statement__ = 898;
     stan::math::validate_non_negative_index("out", "n", n);
     Eigen::Matrix<local_scalar_t__,-1,1> out =
       Eigen::Matrix<local_scalar_t__,-1,1>::Constant(n, DUMMY_VAR__);
-    current_statement__ = 794;
+    current_statement__ = 934;
     if (stan::math::logical_eq(dist, 1)) {
-      current_statement__ = 792;
+      current_statement__ = 932;
       stan::model::assign(out,
         stan::math::multiply(-y, stan::math::exp(eta)),
         "assigning variable out");
     } else {
-      current_statement__ = 791;
+      current_statement__ = 931;
       if (stan::math::logical_eq(dist, 2)) {
-        current_statement__ = 789;
+        current_statement__ = 929;
         stan::model::assign(out,
           stan::math::elt_multiply(
             stan::math::minus(stan::math::pow(y, aux)), stan::math::exp(eta)),
           "assigning variable out");
       } else {
-        current_statement__ = 788;
+        current_statement__ = 928;
         if (stan::math::logical_eq(dist, 3)) {
-          current_statement__ = 786;
+          current_statement__ = 926;
           stan::model::assign(out,
             stan::math::elt_multiply(
               stan::math::elt_divide(stan::math::minus(stan::math::exp(eta)),
                 aux), stan::math::expm1(stan::math::multiply(aux, y))),
             "assigning variable out");
         } else {
-          current_statement__ = 785;
+          current_statement__ = 925;
           if (stan::math::logical_eq(dist, 4)) {
-            current_statement__ = 783;
+            current_statement__ = 923;
             stan::model::assign(out,
               stan::math::multiply(-y,
                 stan::math::exp(stan::math::minus(eta))),
               "assigning variable out");
           } else {
-            current_statement__ = 782;
+            current_statement__ = 922;
             if (stan::math::logical_eq(dist, 5)) {
-              current_statement__ = 780;
+              current_statement__ = 920;
               stan::model::assign(out,
                 stan::math::elt_multiply(
                   stan::math::minus(stan::math::pow(y, aux)),
@@ -2199,11 +2488,11 @@ lS_a2(const int& dist, const T1__& y, const T2__& eta_arg__, const T3__&
                     stan::math::elt_multiply(stan::math::minus(aux), eta))),
                 "assigning variable out");
             } else {
-              current_statement__ = 779;
+              current_statement__ = 919;
               if (stan::math::logical_eq(dist, 6)) {
-                current_statement__ = 777;
+                current_statement__ = 917;
                 for (int i = 1; i <= n; ++i) {
-                  current_statement__ = 776;
+                  current_statement__ = 916;
                   stan::model::assign(out,
                     stan::math::lognormal_lccdf(y,
                       stan::model::rvalue(eta, "eta",
@@ -2213,9 +2502,9 @@ lS_a2(const int& dist, const T1__& y, const T2__& eta_arg__, const T3__&
                     "assigning variable out", stan::model::index_uni(i));
                 }
               } else {
-                current_statement__ = 775;
+                current_statement__ = 915;
                 if (stan::math::logical_eq(dist, 7)) {
-                  current_statement__ = 773;
+                  current_statement__ = 913;
                   stan::model::assign(out,
                     stan::math::minus(
                       stan::math::log1p(
@@ -2223,20 +2512,20 @@ lS_a2(const int& dist, const T1__& y, const T2__& eta_arg__, const T3__&
                           stan::math::elt_divide(y, stan::math::exp(eta)),
                           aux))), "assigning variable out");
                 } else {
-                  current_statement__ = 772;
+                  current_statement__ = 912;
                   if (stan::math::logical_eq(dist, 8)) {
-                    current_statement__ = 767;
+                    current_statement__ = 907;
                     stan::math::validate_non_negative_index("eeta", "n", n);
                     Eigen::Matrix<local_scalar_t__,-1,1> eeta =
                       Eigen::Matrix<local_scalar_t__,-1,1>::Constant(n,
                         DUMMY_VAR__);
-                    current_statement__ = 768;
+                    current_statement__ = 908;
                     stan::model::assign(eeta,
                       stan::math::exp(stan::math::minus(eta)),
                       "assigning variable eeta");
-                    current_statement__ = 770;
+                    current_statement__ = 910;
                     for (int i = 1; i <= n; ++i) {
-                      current_statement__ = 769;
+                      current_statement__ = 909;
                       stan::model::assign(out,
                         stan::math::gamma_lccdf(y,
                           stan::model::rvalue(aux, "aux",
@@ -2246,22 +2535,22 @@ lS_a2(const int& dist, const T1__& y, const T2__& eta_arg__, const T3__&
                         "assigning variable out", stan::model::index_uni(i));
                     }
                   } else {
-                    current_statement__ = 766;
+                    current_statement__ = 906;
                     if (stan::math::logical_eq(dist, 9)) {
-                      current_statement__ = 760;
+                      current_statement__ = 900;
                       stan::math::validate_non_negative_index("Q", "n", n);
                       Eigen::Matrix<local_scalar_t__,-1,1> Q =
                         Eigen::Matrix<local_scalar_t__,-1,1>::Constant(n,
                           DUMMY_VAR__);
-                      current_statement__ = 761;
+                      current_statement__ = 901;
                       stan::model::assign(Q, stan::math::pow(aux2, -0.5),
                         "assigning variable Q");
-                      current_statement__ = 762;
+                      current_statement__ = 902;
                       stan::math::validate_non_negative_index("w", "n", n);
                       Eigen::Matrix<local_scalar_t__,-1,1> w =
                         Eigen::Matrix<local_scalar_t__,-1,1>::Constant(n,
                           DUMMY_VAR__);
-                      current_statement__ = 763;
+                      current_statement__ = 903;
                       stan::model::assign(w,
                         stan::math::elt_multiply(
                           stan::math::exp(
@@ -2269,7 +2558,7 @@ lS_a2(const int& dist, const T1__& y, const T2__& eta_arg__, const T3__&
                               stan::math::elt_multiply(Q,
                                 stan::math::subtract(stan::math::log(y), eta)),
                               aux)), aux2), "assigning variable w");
-                      current_statement__ = 764;
+                      current_statement__ = 904;
                       stan::model::assign(out,
                         stan::math::log1m(stan::math::gamma_p(aux2, w)),
                         "assigning variable out");
@@ -2282,7 +2571,7 @@ lS_a2(const int& dist, const T1__& y, const T2__& eta_arg__, const T3__&
         }
       }
     }
-    current_statement__ = 795;
+    current_statement__ = 935;
     return out;
   } catch (const std::exception& e) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -2319,41 +2608,41 @@ lh(const int& dist, const T1__& y_arg__, const T2__& eta_arg__, const T3__&
   (void) DUMMY_VAR__;
   try {
     int n = std::numeric_limits<int>::min();
-    current_statement__ = 797;
+    current_statement__ = 937;
     n = stan::math::num_elements(y);
-    current_statement__ = 798;
+    current_statement__ = 938;
     stan::math::validate_non_negative_index("out", "n", n);
     Eigen::Matrix<local_scalar_t__,-1,1> out =
       Eigen::Matrix<local_scalar_t__,-1,1>::Constant(n, DUMMY_VAR__);
-    current_statement__ = 829;
+    current_statement__ = 969;
     if (stan::math::logical_eq(dist, 1)) {
-      current_statement__ = 827;
+      current_statement__ = 967;
       stan::model::assign(out, eta, "assigning variable out");
     } else {
-      current_statement__ = 826;
+      current_statement__ = 966;
       if (stan::math::logical_eq(dist, 2)) {
-        current_statement__ = 824;
+        current_statement__ = 964;
         stan::model::assign(out,
           stan::math::add(stan::math::add(stan::math::log(aux), eta),
             stan::math::multiply_log(stan::math::subtract(aux, 1), y)),
           "assigning variable out");
       } else {
-        current_statement__ = 823;
+        current_statement__ = 963;
         if (stan::math::logical_eq(dist, 3)) {
-          current_statement__ = 821;
+          current_statement__ = 961;
           stan::model::assign(out,
             stan::math::add(eta, stan::math::elt_multiply(aux, y)),
             "assigning variable out");
         } else {
-          current_statement__ = 820;
+          current_statement__ = 960;
           if (stan::math::logical_eq(dist, 4)) {
-            current_statement__ = 818;
+            current_statement__ = 958;
             stan::model::assign(out, stan::math::minus(eta),
               "assigning variable out");
           } else {
-            current_statement__ = 817;
+            current_statement__ = 957;
             if (stan::math::logical_eq(dist, 5)) {
-              current_statement__ = 815;
+              current_statement__ = 955;
               stan::model::assign(out,
                 stan::math::add(
                   stan::math::subtract(stan::math::log(aux),
@@ -2361,11 +2650,11 @@ lh(const int& dist, const T1__& y_arg__, const T2__& eta_arg__, const T3__&
                   stan::math::multiply_log(stan::math::subtract(aux, 1), y)),
                 "assigning variable out");
             } else {
-              current_statement__ = 814;
+              current_statement__ = 954;
               if (stan::math::logical_eq(dist, 6)) {
-                current_statement__ = 812;
+                current_statement__ = 952;
                 for (int i = 1; i <= n; ++i) {
-                  current_statement__ = 811;
+                  current_statement__ = 951;
                   stan::model::assign(out,
                     (stan::math::lognormal_lpdf<false>(
                        stan::model::rvalue(y, "y", stan::model::index_uni(i)),
@@ -2382,9 +2671,9 @@ lh(const int& dist, const T1__& y_arg__, const T2__& eta_arg__, const T3__&
                     "assigning variable out", stan::model::index_uni(i));
                 }
               } else {
-                current_statement__ = 810;
+                current_statement__ = 950;
                 if (stan::math::logical_eq(dist, 7)) {
-                  current_statement__ = 808;
+                  current_statement__ = 948;
                   stan::model::assign(out,
                     stan::math::subtract(
                       stan::math::add(
@@ -2397,20 +2686,20 @@ lh(const int& dist, const T1__& y_arg__, const T2__& eta_arg__, const T3__&
                           stan::math::elt_divide(y, stan::math::exp(eta)),
                           aux))), "assigning variable out");
                 } else {
-                  current_statement__ = 807;
+                  current_statement__ = 947;
                   if (stan::math::logical_eq(dist, 8)) {
-                    current_statement__ = 802;
+                    current_statement__ = 942;
                     stan::math::validate_non_negative_index("eeta", "n", n);
                     Eigen::Matrix<local_scalar_t__,-1,1> eeta =
                       Eigen::Matrix<local_scalar_t__,-1,1>::Constant(n,
                         DUMMY_VAR__);
-                    current_statement__ = 803;
+                    current_statement__ = 943;
                     stan::model::assign(eeta,
                       stan::math::exp(stan::math::minus(eta)),
                       "assigning variable eeta");
-                    current_statement__ = 805;
+                    current_statement__ = 945;
                     for (int i = 1; i <= n; ++i) {
-                      current_statement__ = 804;
+                      current_statement__ = 944;
                       stan::model::assign(out,
                         (stan::math::gamma_lpdf<false>(
                            stan::model::rvalue(y, "y",
@@ -2429,7 +2718,7 @@ lh(const int& dist, const T1__& y_arg__, const T2__& eta_arg__, const T3__&
                         "assigning variable out", stan::model::index_uni(i));
                     }
                   } else {
-                    current_statement__ = 801;
+                    current_statement__ = 941;
                     if (stan::math::logical_eq(dist, 9)) {}
                   }
                 }
@@ -2439,7 +2728,7 @@ lh(const int& dist, const T1__& y_arg__, const T2__& eta_arg__, const T3__&
         }
       }
     }
-    current_statement__ = 830;
+    current_statement__ = 970;
     return out;
   } catch (const std::exception& e) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -2469,40 +2758,40 @@ lh2(const int& dist, const T1__& y_arg__, const T2__& eta_arg__, const T3__&
   (void) DUMMY_VAR__;
   try {
     int n = std::numeric_limits<int>::min();
-    current_statement__ = 832;
+    current_statement__ = 972;
     n = stan::math::num_elements(y);
-    current_statement__ = 833;
+    current_statement__ = 973;
     stan::math::validate_non_negative_index("out", "n", n);
     Eigen::Matrix<local_scalar_t__,-1,1> out =
       Eigen::Matrix<local_scalar_t__,-1,1>::Constant(n, DUMMY_VAR__);
-    current_statement__ = 864;
+    current_statement__ = 1004;
     if (stan::math::logical_eq(dist, 1)) {
-      current_statement__ = 862;
+      current_statement__ = 1002;
       stan::model::assign(out, eta, "assigning variable out");
     } else {
-      current_statement__ = 861;
+      current_statement__ = 1001;
       if (stan::math::logical_eq(dist, 2)) {
-        current_statement__ = 859;
+        current_statement__ = 999;
         stan::model::assign(out,
           stan::math::add(stan::math::add(stan::math::log(aux), eta),
             stan::math::multiply_log((aux - 1), y)), "assigning variable out");
       } else {
-        current_statement__ = 858;
+        current_statement__ = 998;
         if (stan::math::logical_eq(dist, 3)) {
-          current_statement__ = 856;
+          current_statement__ = 996;
           stan::model::assign(out,
             stan::math::add(eta, stan::math::multiply(aux, y)),
             "assigning variable out");
         } else {
-          current_statement__ = 855;
+          current_statement__ = 995;
           if (stan::math::logical_eq(dist, 4)) {
-            current_statement__ = 853;
+            current_statement__ = 993;
             stan::model::assign(out, stan::math::minus(eta),
               "assigning variable out");
           } else {
-            current_statement__ = 852;
+            current_statement__ = 992;
             if (stan::math::logical_eq(dist, 5)) {
-              current_statement__ = 850;
+              current_statement__ = 990;
               stan::model::assign(out,
                 stan::math::add(
                   stan::math::subtract(stan::math::log(aux),
@@ -2510,11 +2799,11 @@ lh2(const int& dist, const T1__& y_arg__, const T2__& eta_arg__, const T3__&
                   stan::math::multiply_log((aux - 1), y)),
                 "assigning variable out");
             } else {
-              current_statement__ = 849;
+              current_statement__ = 989;
               if (stan::math::logical_eq(dist, 6)) {
-                current_statement__ = 847;
+                current_statement__ = 987;
                 for (int i = 1; i <= n; ++i) {
-                  current_statement__ = 846;
+                  current_statement__ = 986;
                   stan::model::assign(out,
                     (stan::math::lognormal_lpdf<false>(
                        stan::model::rvalue(y, "y", stan::model::index_uni(i)),
@@ -2527,9 +2816,9 @@ lh2(const int& dist, const T1__& y_arg__, const T2__& eta_arg__, const T3__&
                     "assigning variable out", stan::model::index_uni(i));
                 }
               } else {
-                current_statement__ = 845;
+                current_statement__ = 985;
                 if (stan::math::logical_eq(dist, 7)) {
-                  current_statement__ = 843;
+                  current_statement__ = 983;
                   stan::model::assign(out,
                     stan::math::subtract(
                       stan::math::add(
@@ -2541,20 +2830,20 @@ lh2(const int& dist, const T1__& y_arg__, const T2__& eta_arg__, const T3__&
                           stan::math::elt_divide(y, stan::math::exp(eta)),
                           aux))), "assigning variable out");
                 } else {
-                  current_statement__ = 842;
+                  current_statement__ = 982;
                   if (stan::math::logical_eq(dist, 8)) {
-                    current_statement__ = 837;
+                    current_statement__ = 977;
                     stan::math::validate_non_negative_index("eeta", "n", n);
                     Eigen::Matrix<local_scalar_t__,-1,1> eeta =
                       Eigen::Matrix<local_scalar_t__,-1,1>::Constant(n,
                         DUMMY_VAR__);
-                    current_statement__ = 838;
+                    current_statement__ = 978;
                     stan::model::assign(eeta,
                       stan::math::exp(stan::math::minus(eta)),
                       "assigning variable eeta");
-                    current_statement__ = 840;
+                    current_statement__ = 980;
                     for (int i = 1; i <= n; ++i) {
-                      current_statement__ = 839;
+                      current_statement__ = 979;
                       stan::model::assign(out,
                         (stan::math::gamma_lpdf<false>(
                            stan::model::rvalue(y, "y",
@@ -2569,7 +2858,7 @@ lh2(const int& dist, const T1__& y_arg__, const T2__& eta_arg__, const T3__&
                         "assigning variable out", stan::model::index_uni(i));
                     }
                   } else {
-                    current_statement__ = 836;
+                    current_statement__ = 976;
                     if (stan::math::logical_eq(dist, 9)) {}
                   }
                 }
@@ -2579,7 +2868,7 @@ lh2(const int& dist, const T1__& y_arg__, const T2__& eta_arg__, const T3__&
         }
       }
     }
-    current_statement__ = 865;
+    current_statement__ = 1005;
     return out;
   } catch (const std::exception& e) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -2606,39 +2895,39 @@ lh_a(const int& dist, const T1__& y, const T2__& eta_arg__, const T3__& aux,
   (void) DUMMY_VAR__;
   try {
     int n = std::numeric_limits<int>::min();
-    current_statement__ = 867;
+    current_statement__ = 1007;
     n = stan::math::num_elements(eta);
-    current_statement__ = 868;
+    current_statement__ = 1008;
     stan::math::validate_non_negative_index("out", "n", n);
     Eigen::Matrix<local_scalar_t__,-1,1> out =
       Eigen::Matrix<local_scalar_t__,-1,1>::Constant(n, DUMMY_VAR__);
-    current_statement__ = 899;
+    current_statement__ = 1039;
     if (stan::math::logical_eq(dist, 1)) {
-      current_statement__ = 897;
+      current_statement__ = 1037;
       stan::model::assign(out, eta, "assigning variable out");
     } else {
-      current_statement__ = 896;
+      current_statement__ = 1036;
       if (stan::math::logical_eq(dist, 2)) {
-        current_statement__ = 894;
+        current_statement__ = 1034;
         stan::model::assign(out,
           stan::math::add(stan::math::add(stan::math::log(aux), eta),
             stan::math::multiply_log((aux - 1), y)), "assigning variable out");
       } else {
-        current_statement__ = 893;
+        current_statement__ = 1033;
         if (stan::math::logical_eq(dist, 3)) {
-          current_statement__ = 891;
+          current_statement__ = 1031;
           stan::model::assign(out, stan::math::add(eta, (aux * y)),
             "assigning variable out");
         } else {
-          current_statement__ = 890;
+          current_statement__ = 1030;
           if (stan::math::logical_eq(dist, 4)) {
-            current_statement__ = 888;
+            current_statement__ = 1028;
             stan::model::assign(out, stan::math::minus(eta),
               "assigning variable out");
           } else {
-            current_statement__ = 887;
+            current_statement__ = 1027;
             if (stan::math::logical_eq(dist, 5)) {
-              current_statement__ = 885;
+              current_statement__ = 1025;
               stan::model::assign(out,
                 stan::math::add(
                   stan::math::subtract(stan::math::log(aux),
@@ -2646,11 +2935,11 @@ lh_a(const int& dist, const T1__& y, const T2__& eta_arg__, const T3__& aux,
                   stan::math::multiply_log((aux - 1), y)),
                 "assigning variable out");
             } else {
-              current_statement__ = 884;
+              current_statement__ = 1024;
               if (stan::math::logical_eq(dist, 6)) {
-                current_statement__ = 882;
+                current_statement__ = 1022;
                 for (int i = 1; i <= n; ++i) {
-                  current_statement__ = 881;
+                  current_statement__ = 1021;
                   stan::model::assign(out,
                     (stan::math::lognormal_lpdf<false>(y,
                        stan::model::rvalue(eta, "eta",
@@ -2661,9 +2950,9 @@ lh_a(const int& dist, const T1__& y, const T2__& eta_arg__, const T3__& aux,
                     "assigning variable out", stan::model::index_uni(i));
                 }
               } else {
-                current_statement__ = 880;
+                current_statement__ = 1020;
                 if (stan::math::logical_eq(dist, 7)) {
-                  current_statement__ = 878;
+                  current_statement__ = 1018;
                   stan::model::assign(out,
                     stan::math::subtract(
                       stan::math::add(
@@ -2675,20 +2964,20 @@ lh_a(const int& dist, const T1__& y, const T2__& eta_arg__, const T3__& aux,
                           stan::math::elt_divide(y, stan::math::exp(eta)),
                           aux))), "assigning variable out");
                 } else {
-                  current_statement__ = 877;
+                  current_statement__ = 1017;
                   if (stan::math::logical_eq(dist, 8)) {
-                    current_statement__ = 872;
+                    current_statement__ = 1012;
                     stan::math::validate_non_negative_index("eeta", "n", n);
                     Eigen::Matrix<local_scalar_t__,-1,1> eeta =
                       Eigen::Matrix<local_scalar_t__,-1,1>::Constant(n,
                         DUMMY_VAR__);
-                    current_statement__ = 873;
+                    current_statement__ = 1013;
                     stan::model::assign(eeta,
                       stan::math::exp(stan::math::minus(eta)),
                       "assigning variable eeta");
-                    current_statement__ = 875;
+                    current_statement__ = 1015;
                     for (int i = 1; i <= n; ++i) {
-                      current_statement__ = 874;
+                      current_statement__ = 1014;
                       stan::model::assign(out,
                         (stan::math::gamma_lpdf<false>(y, aux,
                            stan::model::rvalue(eeta, "eeta",
@@ -2699,7 +2988,7 @@ lh_a(const int& dist, const T1__& y, const T2__& eta_arg__, const T3__& aux,
                         "assigning variable out", stan::model::index_uni(i));
                     }
                   } else {
-                    current_statement__ = 871;
+                    current_statement__ = 1011;
                     if (stan::math::logical_eq(dist, 9)) {}
                   }
                 }
@@ -2709,7 +2998,7 @@ lh_a(const int& dist, const T1__& y, const T2__& eta_arg__, const T3__& aux,
         }
       }
     }
-    current_statement__ = 900;
+    current_statement__ = 1040;
     return out;
   } catch (const std::exception& e) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -2743,41 +3032,41 @@ lh_a2(const int& dist, const T1__& y, const T2__& eta_arg__, const T3__&
   (void) DUMMY_VAR__;
   try {
     int n = std::numeric_limits<int>::min();
-    current_statement__ = 902;
+    current_statement__ = 1042;
     n = stan::math::num_elements(eta);
-    current_statement__ = 903;
+    current_statement__ = 1043;
     stan::math::validate_non_negative_index("out", "n", n);
     Eigen::Matrix<local_scalar_t__,-1,1> out =
       Eigen::Matrix<local_scalar_t__,-1,1>::Constant(n, DUMMY_VAR__);
-    current_statement__ = 934;
+    current_statement__ = 1074;
     if (stan::math::logical_eq(dist, 1)) {
-      current_statement__ = 932;
+      current_statement__ = 1072;
       stan::model::assign(out, eta, "assigning variable out");
     } else {
-      current_statement__ = 931;
+      current_statement__ = 1071;
       if (stan::math::logical_eq(dist, 2)) {
-        current_statement__ = 929;
+        current_statement__ = 1069;
         stan::model::assign(out,
           stan::math::add(stan::math::add(stan::math::log(aux), eta),
             stan::math::multiply_log(stan::math::subtract(aux, 1), y)),
           "assigning variable out");
       } else {
-        current_statement__ = 928;
+        current_statement__ = 1068;
         if (stan::math::logical_eq(dist, 3)) {
-          current_statement__ = 926;
+          current_statement__ = 1066;
           stan::model::assign(out,
             stan::math::add(eta, stan::math::multiply(aux, y)),
             "assigning variable out");
         } else {
-          current_statement__ = 925;
+          current_statement__ = 1065;
           if (stan::math::logical_eq(dist, 4)) {
-            current_statement__ = 923;
+            current_statement__ = 1063;
             stan::model::assign(out, stan::math::minus(eta),
               "assigning variable out");
           } else {
-            current_statement__ = 922;
+            current_statement__ = 1062;
             if (stan::math::logical_eq(dist, 5)) {
-              current_statement__ = 920;
+              current_statement__ = 1060;
               stan::model::assign(out,
                 stan::math::add(
                   stan::math::subtract(stan::math::log(aux),
@@ -2785,11 +3074,11 @@ lh_a2(const int& dist, const T1__& y, const T2__& eta_arg__, const T3__&
                   stan::math::multiply_log(stan::math::subtract(aux, 1), y)),
                 "assigning variable out");
             } else {
-              current_statement__ = 919;
+              current_statement__ = 1059;
               if (stan::math::logical_eq(dist, 6)) {
-                current_statement__ = 917;
+                current_statement__ = 1057;
                 for (int i = 1; i <= n; ++i) {
-                  current_statement__ = 916;
+                  current_statement__ = 1056;
                   stan::model::assign(out,
                     (stan::math::lognormal_lpdf<false>(y,
                        stan::model::rvalue(eta, "eta",
@@ -2804,9 +3093,9 @@ lh_a2(const int& dist, const T1__& y, const T2__& eta_arg__, const T3__&
                     "assigning variable out", stan::model::index_uni(i));
                 }
               } else {
-                current_statement__ = 915;
+                current_statement__ = 1055;
                 if (stan::math::logical_eq(dist, 7)) {
-                  current_statement__ = 913;
+                  current_statement__ = 1053;
                   stan::model::assign(out,
                     stan::math::subtract(
                       stan::math::add(
@@ -2819,20 +3108,20 @@ lh_a2(const int& dist, const T1__& y, const T2__& eta_arg__, const T3__&
                           stan::math::elt_divide(y, stan::math::exp(eta)),
                           aux))), "assigning variable out");
                 } else {
-                  current_statement__ = 912;
+                  current_statement__ = 1052;
                   if (stan::math::logical_eq(dist, 8)) {
-                    current_statement__ = 907;
+                    current_statement__ = 1047;
                     stan::math::validate_non_negative_index("eeta", "n", n);
                     Eigen::Matrix<local_scalar_t__,-1,1> eeta =
                       Eigen::Matrix<local_scalar_t__,-1,1>::Constant(n,
                         DUMMY_VAR__);
-                    current_statement__ = 908;
+                    current_statement__ = 1048;
                     stan::model::assign(eeta,
                       stan::math::exp(stan::math::minus(eta)),
                       "assigning variable eeta");
-                    current_statement__ = 910;
+                    current_statement__ = 1050;
                     for (int i = 1; i <= n; ++i) {
-                      current_statement__ = 909;
+                      current_statement__ = 1049;
                       stan::model::assign(out,
                         (stan::math::gamma_lpdf<false>(y,
                            stan::model::rvalue(aux, "aux",
@@ -2847,7 +3136,7 @@ lh_a2(const int& dist, const T1__& y, const T2__& eta_arg__, const T3__&
                         "assigning variable out", stan::model::index_uni(i));
                     }
                   } else {
-                    current_statement__ = 906;
+                    current_statement__ = 1046;
                     if (stan::math::logical_eq(dist, 9)) {}
                   }
                 }
@@ -2857,7 +3146,7 @@ lh_a2(const int& dist, const T1__& y, const T2__& eta_arg__, const T3__&
         }
       }
     }
-    current_statement__ = 935;
+    current_statement__ = 1075;
     return out;
   } catch (const std::exception& e) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -2906,44 +3195,44 @@ loglik(const int& dist, const T1__& time_arg__, const T2__& start_time_arg__,
   (void) DUMMY_VAR__;
   try {
     int n = std::numeric_limits<int>::min();
-    current_statement__ = 937;
+    current_statement__ = 1077;
     n = stan::math::num_elements(eta);
-    current_statement__ = 938;
+    current_statement__ = 1078;
     stan::math::validate_non_negative_index("l", "n", n);
     Eigen::Matrix<local_scalar_t__,-1,1> l =
       Eigen::Matrix<local_scalar_t__,-1,1>::Constant(n, DUMMY_VAR__);
     std::vector<int> nw =
       std::vector<int>(3, std::numeric_limits<int>::min());
-    current_statement__ = 940;
+    current_statement__ = 1080;
     stan::model::assign(nw, nwhich_all(status, 3, pstream__),
       "assigning variable nw");
     int nw0 = std::numeric_limits<int>::min();
-    current_statement__ = 941;
+    current_statement__ = 1081;
     nw0 = ((stan::math::primitive_value(
               (stan::math::primitive_value(stan::math::logical_eq(dist, 6))
               ||
               stan::math::primitive_value(stan::math::logical_eq(dist, 8))))
       || stan::math::primitive_value(stan::math::logical_eq(dist, 9))) ? (n -
       stan::math::sum(nw)) : 0);
-    current_statement__ = 942;
+    current_statement__ = 1082;
     stan::math::validate_non_negative_index("w0", "nw0", nw0);
     std::vector<int> w0 =
       std::vector<int>(nw0, std::numeric_limits<int>::min());
-    current_statement__ = 944;
+    current_statement__ = 1084;
     stan::math::validate_non_negative_index("w1", "nw[1]",
       stan::model::rvalue(nw, "nw", stan::model::index_uni(1)));
     std::vector<int> w1 =
       std::vector<int>(stan::model::rvalue(nw, "nw",
                          stan::model::index_uni(1)),
         std::numeric_limits<int>::min());
-    current_statement__ = 946;
+    current_statement__ = 1086;
     stan::math::validate_non_negative_index("w2", "nw[2]",
       stan::model::rvalue(nw, "nw", stan::model::index_uni(2)));
     std::vector<int> w2 =
       std::vector<int>(stan::model::rvalue(nw, "nw",
                          stan::model::index_uni(2)),
         std::numeric_limits<int>::min());
-    current_statement__ = 948;
+    current_statement__ = 1088;
     stan::math::validate_non_negative_index("w3", "nw[3]",
       stan::model::rvalue(nw, "nw", stan::model::index_uni(3)));
     std::vector<int> w3 =
@@ -2951,48 +3240,48 @@ loglik(const int& dist, const T1__& time_arg__, const T2__& start_time_arg__,
                          stan::model::index_uni(3)),
         std::numeric_limits<int>::min());
     int nd = std::numeric_limits<int>::min();
-    current_statement__ = 950;
+    current_statement__ = 1090;
     nd = stan::math::num_elements(which_gt0(delay_time, pstream__));
-    current_statement__ = 951;
+    current_statement__ = 1091;
     stan::math::validate_non_negative_index("wd", "nd", nd);
     std::vector<int> wd =
       std::vector<int>(nd, std::numeric_limits<int>::min());
-    current_statement__ = 954;
+    current_statement__ = 1094;
     if (nw0) {
-      current_statement__ = 953;
+      current_statement__ = 1093;
       stan::model::assign(w0, which(status, 0, pstream__),
         "assigning variable w0");
     }
-    current_statement__ = 956;
+    current_statement__ = 1096;
     if (stan::model::rvalue(nw, "nw", stan::model::index_uni(1))) {
-      current_statement__ = 955;
+      current_statement__ = 1095;
       stan::model::assign(w1, which(status, 1, pstream__),
         "assigning variable w1");
     }
-    current_statement__ = 958;
+    current_statement__ = 1098;
     if (stan::model::rvalue(nw, "nw", stan::model::index_uni(2))) {
-      current_statement__ = 957;
+      current_statement__ = 1097;
       stan::model::assign(w2, which(status, 2, pstream__),
         "assigning variable w2");
     }
-    current_statement__ = 960;
+    current_statement__ = 1100;
     if (stan::model::rvalue(nw, "nw", stan::model::index_uni(3))) {
-      current_statement__ = 959;
+      current_statement__ = 1099;
       stan::model::assign(w3, which(status, 3, pstream__),
         "assigning variable w3");
     }
-    current_statement__ = 962;
+    current_statement__ = 1102;
     if (nd) {
-      current_statement__ = 961;
+      current_statement__ = 1101;
       stan::model::assign(wd, which_gt0(delay_time, pstream__),
         "assigning variable wd");
     }
-    current_statement__ = 980;
+    current_statement__ = 1120;
     if ((stan::math::primitive_value(
            (stan::math::primitive_value(stan::math::logical_eq(dist, 6)) ||
            stan::math::primitive_value(stan::math::logical_eq(dist, 8))))
         || stan::math::primitive_value(stan::math::logical_eq(dist, 9)))) {
-      current_statement__ = 966;
+      current_statement__ = 1106;
       stan::model::assign(l,
         lS(dist,
           stan::model::rvalue(time, "time", stan::model::index_multi(w0)),
@@ -3000,15 +3289,15 @@ loglik(const int& dist, const T1__& time_arg__, const T2__& start_time_arg__,
           stan::model::rvalue(aux, "aux", stan::model::index_multi(w0)),
           stan::model::rvalue(aux2, "aux2", stan::model::index_multi(w0)),
           pstream__), "assigning variable l", stan::model::index_multi(w0));
-      current_statement__ = 970;
+      current_statement__ = 1110;
       if (stan::math::logical_eq(dist, 6)) {
-        current_statement__ = 969;
+        current_statement__ = 1109;
         for (int i = 1; i <= n; ++i) {
-          current_statement__ = 968;
+          current_statement__ = 1108;
           if (stan::math::logical_eq(
                 stan::model::rvalue(status, "status",
                   stan::model::index_uni(i)), 1)) {
-            current_statement__ = 967;
+            current_statement__ = 1107;
             stan::model::assign(l,
               stan::math::lognormal_lpdf<false>(
                 stan::model::rvalue(time, "time", stan::model::index_uni(i)),
@@ -3018,15 +3307,15 @@ loglik(const int& dist, const T1__& time_arg__, const T2__& start_time_arg__,
           }
         }
       }
-      current_statement__ = 974;
+      current_statement__ = 1114;
       if (stan::math::logical_eq(dist, 8)) {
-        current_statement__ = 973;
+        current_statement__ = 1113;
         for (int i = 1; i <= n; ++i) {
-          current_statement__ = 972;
+          current_statement__ = 1112;
           if (stan::math::logical_eq(
                 stan::model::rvalue(status, "status",
                   stan::model::index_uni(i)), 1)) {
-            current_statement__ = 971;
+            current_statement__ = 1111;
             stan::model::assign(l,
               stan::math::gamma_lpdf<false>(
                 stan::model::rvalue(time, "time", stan::model::index_uni(i)),
@@ -3037,15 +3326,15 @@ loglik(const int& dist, const T1__& time_arg__, const T2__& start_time_arg__,
           }
         }
       }
-      current_statement__ = 978;
+      current_statement__ = 1118;
       if (stan::math::logical_eq(dist, 9)) {
-        current_statement__ = 977;
+        current_statement__ = 1117;
         for (int i = 1; i <= n; ++i) {
-          current_statement__ = 976;
+          current_statement__ = 1116;
           if (stan::math::logical_eq(
                 stan::model::rvalue(status, "status",
                   stan::model::index_uni(i)), 1)) {
-            current_statement__ = 975;
+            current_statement__ = 1115;
             stan::model::assign(l,
               gengamma_lpdf<false>(
                 stan::model::rvalue(time, "time", stan::model::index_uni(i)),
@@ -3057,10 +3346,10 @@ loglik(const int& dist, const T1__& time_arg__, const T2__& start_time_arg__,
         }
       }
     } else {
-      current_statement__ = 963;
+      current_statement__ = 1103;
       stan::model::assign(l, lS(dist, time, eta, aux, aux2, pstream__),
         "assigning variable l");
-      current_statement__ = 964;
+      current_statement__ = 1104;
       stan::model::assign(l,
         stan::math::add(
           stan::model::deep_copy(
@@ -3072,13 +3361,13 @@ loglik(const int& dist, const T1__& time_arg__, const T2__& start_time_arg__,
             stan::model::rvalue(aux2, "aux2", stan::model::index_multi(w1)),
             pstream__)), "assigning variable l", stan::model::index_multi(w1));
     }
-    current_statement__ = 981;
+    current_statement__ = 1121;
     stan::model::assign(l,
       stan::math::log1m_exp(
         stan::model::deep_copy(
           stan::model::rvalue(l, "l", stan::model::index_multi(w2)))),
       "assigning variable l", stan::model::index_multi(w2));
-    current_statement__ = 982;
+    current_statement__ = 1122;
     stan::model::assign(l,
       stan::math::log_diff_exp(
         lS(dist,
@@ -3091,7 +3380,7 @@ loglik(const int& dist, const T1__& time_arg__, const T2__& start_time_arg__,
         stan::model::deep_copy(
           stan::model::rvalue(l, "l", stan::model::index_multi(w3)))),
       "assigning variable l", stan::model::index_multi(w3));
-    current_statement__ = 983;
+    current_statement__ = 1123;
     stan::model::assign(l,
       stan::math::subtract(
         stan::model::deep_copy(
@@ -3103,7 +3392,7 @@ loglik(const int& dist, const T1__& time_arg__, const T2__& start_time_arg__,
           stan::model::rvalue(aux, "aux", stan::model::index_multi(wd)),
           stan::model::rvalue(aux2, "aux2", stan::model::index_multi(wd)),
           pstream__)), "assigning variable l", stan::model::index_multi(wd));
-    current_statement__ = 984;
+    current_statement__ = 1124;
     return l;
   } catch (const std::exception& e) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -3146,44 +3435,44 @@ loglik2(const int& dist, const T1__& time_arg__, const T2__&
   (void) DUMMY_VAR__;
   try {
     int n = std::numeric_limits<int>::min();
-    current_statement__ = 986;
+    current_statement__ = 1126;
     n = stan::math::num_elements(eta);
-    current_statement__ = 987;
+    current_statement__ = 1127;
     stan::math::validate_non_negative_index("l", "n", n);
     Eigen::Matrix<local_scalar_t__,-1,1> l =
       Eigen::Matrix<local_scalar_t__,-1,1>::Constant(n, DUMMY_VAR__);
     std::vector<int> nw =
       std::vector<int>(3, std::numeric_limits<int>::min());
-    current_statement__ = 989;
+    current_statement__ = 1129;
     stan::model::assign(nw, nwhich_all(status, 3, pstream__),
       "assigning variable nw");
     int nw0 = std::numeric_limits<int>::min();
-    current_statement__ = 990;
+    current_statement__ = 1130;
     nw0 = ((stan::math::primitive_value(
               (stan::math::primitive_value(stan::math::logical_eq(dist, 6))
               ||
               stan::math::primitive_value(stan::math::logical_eq(dist, 8))))
       || stan::math::primitive_value(stan::math::logical_eq(dist, 9))) ? (n -
       stan::math::sum(nw)) : 0);
-    current_statement__ = 991;
+    current_statement__ = 1131;
     stan::math::validate_non_negative_index("w0", "nw0", nw0);
     std::vector<int> w0 =
       std::vector<int>(nw0, std::numeric_limits<int>::min());
-    current_statement__ = 993;
+    current_statement__ = 1133;
     stan::math::validate_non_negative_index("w1", "nw[1]",
       stan::model::rvalue(nw, "nw", stan::model::index_uni(1)));
     std::vector<int> w1 =
       std::vector<int>(stan::model::rvalue(nw, "nw",
                          stan::model::index_uni(1)),
         std::numeric_limits<int>::min());
-    current_statement__ = 995;
+    current_statement__ = 1135;
     stan::math::validate_non_negative_index("w2", "nw[2]",
       stan::model::rvalue(nw, "nw", stan::model::index_uni(2)));
     std::vector<int> w2 =
       std::vector<int>(stan::model::rvalue(nw, "nw",
                          stan::model::index_uni(2)),
         std::numeric_limits<int>::min());
-    current_statement__ = 997;
+    current_statement__ = 1137;
     stan::math::validate_non_negative_index("w3", "nw[3]",
       stan::model::rvalue(nw, "nw", stan::model::index_uni(3)));
     std::vector<int> w3 =
@@ -3191,63 +3480,63 @@ loglik2(const int& dist, const T1__& time_arg__, const T2__&
                          stan::model::index_uni(3)),
         std::numeric_limits<int>::min());
     int nd = std::numeric_limits<int>::min();
-    current_statement__ = 999;
+    current_statement__ = 1139;
     nd = stan::math::num_elements(which_gt0(delay_time, pstream__));
-    current_statement__ = 1000;
+    current_statement__ = 1140;
     stan::math::validate_non_negative_index("wd", "nd", nd);
     std::vector<int> wd =
       std::vector<int>(nd, std::numeric_limits<int>::min());
-    current_statement__ = 1003;
+    current_statement__ = 1143;
     if (nw0) {
-      current_statement__ = 1002;
+      current_statement__ = 1142;
       stan::model::assign(w0, which(status, 0, pstream__),
         "assigning variable w0");
     }
-    current_statement__ = 1005;
+    current_statement__ = 1145;
     if (stan::model::rvalue(nw, "nw", stan::model::index_uni(1))) {
-      current_statement__ = 1004;
+      current_statement__ = 1144;
       stan::model::assign(w1, which(status, 1, pstream__),
         "assigning variable w1");
     }
-    current_statement__ = 1007;
+    current_statement__ = 1147;
     if (stan::model::rvalue(nw, "nw", stan::model::index_uni(2))) {
-      current_statement__ = 1006;
+      current_statement__ = 1146;
       stan::model::assign(w2, which(status, 2, pstream__),
         "assigning variable w2");
     }
-    current_statement__ = 1009;
+    current_statement__ = 1149;
     if (stan::model::rvalue(nw, "nw", stan::model::index_uni(3))) {
-      current_statement__ = 1008;
+      current_statement__ = 1148;
       stan::model::assign(w3, which(status, 3, pstream__),
         "assigning variable w3");
     }
-    current_statement__ = 1011;
+    current_statement__ = 1151;
     if (nd) {
-      current_statement__ = 1010;
+      current_statement__ = 1150;
       stan::model::assign(wd, which_gt0(delay_time, pstream__),
         "assigning variable wd");
     }
-    current_statement__ = 1029;
+    current_statement__ = 1169;
     if ((stan::math::primitive_value(
            (stan::math::primitive_value(stan::math::logical_eq(dist, 6)) ||
            stan::math::primitive_value(stan::math::logical_eq(dist, 8))))
         || stan::math::primitive_value(stan::math::logical_eq(dist, 9)))) {
-      current_statement__ = 1015;
+      current_statement__ = 1155;
       stan::model::assign(l,
         lS2(dist,
           stan::model::rvalue(time, "time", stan::model::index_multi(w0)),
           stan::model::rvalue(eta, "eta", stan::model::index_multi(w0)), aux,
           aux2, pstream__), "assigning variable l",
         stan::model::index_multi(w0));
-      current_statement__ = 1019;
+      current_statement__ = 1159;
       if (stan::math::logical_eq(dist, 6)) {
-        current_statement__ = 1018;
+        current_statement__ = 1158;
         for (int i = 1; i <= n; ++i) {
-          current_statement__ = 1017;
+          current_statement__ = 1157;
           if (stan::math::logical_eq(
                 stan::model::rvalue(status, "status",
                   stan::model::index_uni(i)), 1)) {
-            current_statement__ = 1016;
+            current_statement__ = 1156;
             stan::model::assign(l,
               stan::math::lognormal_lpdf<false>(
                 stan::model::rvalue(time, "time", stan::model::index_uni(i)),
@@ -3256,15 +3545,15 @@ loglik2(const int& dist, const T1__& time_arg__, const T2__&
           }
         }
       }
-      current_statement__ = 1023;
+      current_statement__ = 1163;
       if (stan::math::logical_eq(dist, 8)) {
-        current_statement__ = 1022;
+        current_statement__ = 1162;
         for (int i = 1; i <= n; ++i) {
-          current_statement__ = 1021;
+          current_statement__ = 1161;
           if (stan::math::logical_eq(
                 stan::model::rvalue(status, "status",
                   stan::model::index_uni(i)), 1)) {
-            current_statement__ = 1020;
+            current_statement__ = 1160;
             stan::model::assign(l,
               stan::math::gamma_lpdf<false>(
                 stan::model::rvalue(time, "time", stan::model::index_uni(i)),
@@ -3275,15 +3564,15 @@ loglik2(const int& dist, const T1__& time_arg__, const T2__&
           }
         }
       }
-      current_statement__ = 1027;
+      current_statement__ = 1167;
       if (stan::math::logical_eq(dist, 9)) {
-        current_statement__ = 1026;
+        current_statement__ = 1166;
         for (int i = 1; i <= n; ++i) {
-          current_statement__ = 1025;
+          current_statement__ = 1165;
           if (stan::math::logical_eq(
                 stan::model::rvalue(status, "status",
                   stan::model::index_uni(i)), 1)) {
-            current_statement__ = 1024;
+            current_statement__ = 1164;
             stan::model::assign(l,
               gengamma_lpdf<false>(
                 stan::model::rvalue(time, "time", stan::model::index_uni(i)),
@@ -3294,10 +3583,10 @@ loglik2(const int& dist, const T1__& time_arg__, const T2__&
         }
       }
     } else {
-      current_statement__ = 1012;
+      current_statement__ = 1152;
       stan::model::assign(l, lS2(dist, time, eta, aux, aux2, pstream__),
         "assigning variable l");
-      current_statement__ = 1013;
+      current_statement__ = 1153;
       stan::model::assign(l,
         stan::math::add(
           stan::model::deep_copy(
@@ -3308,13 +3597,13 @@ loglik2(const int& dist, const T1__& time_arg__, const T2__&
             aux, aux2, pstream__)), "assigning variable l",
         stan::model::index_multi(w1));
     }
-    current_statement__ = 1030;
+    current_statement__ = 1170;
     stan::model::assign(l,
       stan::math::log1m_exp(
         stan::model::deep_copy(
           stan::model::rvalue(l, "l", stan::model::index_multi(w2)))),
       "assigning variable l", stan::model::index_multi(w2));
-    current_statement__ = 1031;
+    current_statement__ = 1171;
     stan::model::assign(l,
       stan::math::log_diff_exp(
         lS2(dist,
@@ -3325,7 +3614,7 @@ loglik2(const int& dist, const T1__& time_arg__, const T2__&
         stan::model::deep_copy(
           stan::model::rvalue(l, "l", stan::model::index_multi(w3)))),
       "assigning variable l", stan::model::index_multi(w3));
-    current_statement__ = 1032;
+    current_statement__ = 1172;
     stan::model::assign(l,
       stan::math::subtract(
         stan::model::deep_copy(
@@ -3336,7 +3625,7 @@ loglik2(const int& dist, const T1__& time_arg__, const T2__&
           stan::model::rvalue(eta, "eta", stan::model::index_multi(wd)), aux,
           aux2, pstream__)), "assigning variable l",
       stan::model::index_multi(wd));
-    current_statement__ = 1033;
+    current_statement__ = 1173;
     return l;
   } catch (const std::exception& e) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -3369,55 +3658,55 @@ loglik_a(const int& dist, const T1__& time, const T2__& start_time,
   (void) DUMMY_VAR__;
   try {
     int n = std::numeric_limits<int>::min();
-    current_statement__ = 1035;
+    current_statement__ = 1175;
     n = stan::math::num_elements(eta);
-    current_statement__ = 1036;
+    current_statement__ = 1176;
     stan::math::validate_non_negative_index("l", "n", n);
     Eigen::Matrix<local_scalar_t__,-1,1> l =
       Eigen::Matrix<local_scalar_t__,-1,1>::Constant(n, DUMMY_VAR__);
-    current_statement__ = 1064;
+    current_statement__ = 1204;
     if (stan::math::logical_eq(status, 0)) {
-      current_statement__ = 1062;
+      current_statement__ = 1202;
       stan::model::assign(l, lS_a(dist, time, eta, aux, aux2, pstream__),
         "assigning variable l");
     } else {
-      current_statement__ = 1061;
+      current_statement__ = 1201;
       if (stan::math::logical_eq(status, 1)) {
-        current_statement__ = 1059;
+        current_statement__ = 1199;
         if (stan::math::logical_eq(dist, 6)) {
-          current_statement__ = 1057;
+          current_statement__ = 1197;
           for (int i = 1; i <= n; ++i) {
-            current_statement__ = 1056;
+            current_statement__ = 1196;
             stan::model::assign(l,
               stan::math::lognormal_lpdf<false>(time,
                 stan::model::rvalue(eta, "eta", stan::model::index_uni(i)),
                 aux), "assigning variable l", stan::model::index_uni(i));
           }
         } else {
-          current_statement__ = 1055;
+          current_statement__ = 1195;
           if (stan::math::logical_eq(dist, 8)) {
-            current_statement__ = 1050;
+            current_statement__ = 1190;
             stan::math::validate_non_negative_index("eeta", "n", n);
             Eigen::Matrix<local_scalar_t__,-1,1> eeta =
               Eigen::Matrix<local_scalar_t__,-1,1>::Constant(n, DUMMY_VAR__);
-            current_statement__ = 1051;
+            current_statement__ = 1191;
             stan::model::assign(eeta,
               stan::math::exp(stan::math::minus(eta)),
               "assigning variable eeta");
-            current_statement__ = 1053;
+            current_statement__ = 1193;
             for (int i = 1; i <= n; ++i) {
-              current_statement__ = 1052;
+              current_statement__ = 1192;
               stan::model::assign(l,
                 stan::math::gamma_lpdf<false>(time, aux,
                   stan::model::rvalue(eeta, "eeta", stan::model::index_uni(i))),
                 "assigning variable l", stan::model::index_uni(i));
             }
           } else {
-            current_statement__ = 1049;
+            current_statement__ = 1189;
             if (stan::math::logical_eq(dist, 9)) {
-              current_statement__ = 1047;
+              current_statement__ = 1187;
               for (int i = 1; i <= n; ++i) {
-                current_statement__ = 1046;
+                current_statement__ = 1186;
                 stan::model::assign(l,
                   gengamma_lpdf<false>(time,
                     stan::model::rvalue(eta, "eta", stan::model::index_uni(i)),
@@ -3425,7 +3714,7 @@ loglik_a(const int& dist, const T1__& time, const T2__& start_time,
                   stan::model::index_uni(i));
               }
             } else {
-              current_statement__ = 1044;
+              current_statement__ = 1184;
               stan::model::assign(l,
                 stan::math::add(lS_a(dist, time, eta, aux, aux2, pstream__),
                   lh_a(dist, time, eta, aux, aux2, pstream__)),
@@ -3434,16 +3723,16 @@ loglik_a(const int& dist, const T1__& time, const T2__& start_time,
           }
         }
       } else {
-        current_statement__ = 1043;
+        current_statement__ = 1183;
         if (stan::math::logical_eq(status, 2)) {
-          current_statement__ = 1041;
+          current_statement__ = 1181;
           stan::model::assign(l,
             stan::math::log1m_exp(lS_a(dist, time, eta, aux, aux2, pstream__)),
             "assigning variable l");
         } else {
-          current_statement__ = 1040;
+          current_statement__ = 1180;
           if (stan::math::logical_eq(status, 3)) {
-            current_statement__ = 1038;
+            current_statement__ = 1178;
             stan::model::assign(l,
               stan::math::log_diff_exp(
                 lS_a(dist, start_time, eta, aux, aux2, pstream__),
@@ -3453,15 +3742,15 @@ loglik_a(const int& dist, const T1__& time, const T2__& start_time,
         }
       }
     }
-    current_statement__ = 1067;
+    current_statement__ = 1207;
     if (stan::math::logical_gt(delay_time, 0)) {
-      current_statement__ = 1065;
+      current_statement__ = 1205;
       stan::model::assign(l,
         stan::math::subtract(stan::model::deep_copy(l),
           lS_a(dist, delay_time, eta, aux, aux2, pstream__)),
         "assigning variable l");
     }
-    current_statement__ = 1068;
+    current_statement__ = 1208;
     return l;
   } catch (const std::exception& e) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -3501,25 +3790,25 @@ loglik_a2(const int& dist, const T1__& time, const T2__& start_time,
   (void) DUMMY_VAR__;
   try {
     int n = std::numeric_limits<int>::min();
-    current_statement__ = 1070;
+    current_statement__ = 1210;
     n = stan::math::num_elements(eta);
-    current_statement__ = 1071;
+    current_statement__ = 1211;
     stan::math::validate_non_negative_index("l", "n", n);
     Eigen::Matrix<local_scalar_t__,-1,1> l =
       Eigen::Matrix<local_scalar_t__,-1,1>::Constant(n, DUMMY_VAR__);
-    current_statement__ = 1099;
+    current_statement__ = 1239;
     if (stan::math::logical_eq(status, 0)) {
-      current_statement__ = 1097;
+      current_statement__ = 1237;
       stan::model::assign(l, lS_a2(dist, time, eta, aux, aux2, pstream__),
         "assigning variable l");
     } else {
-      current_statement__ = 1096;
+      current_statement__ = 1236;
       if (stan::math::logical_eq(status, 1)) {
-        current_statement__ = 1094;
+        current_statement__ = 1234;
         if (stan::math::logical_eq(dist, 6)) {
-          current_statement__ = 1092;
+          current_statement__ = 1232;
           for (int i = 1; i <= n; ++i) {
-            current_statement__ = 1091;
+            current_statement__ = 1231;
             stan::model::assign(l,
               stan::math::lognormal_lpdf<false>(time,
                 stan::model::rvalue(eta, "eta", stan::model::index_uni(i)),
@@ -3527,19 +3816,19 @@ loglik_a2(const int& dist, const T1__& time, const T2__& start_time,
               "assigning variable l", stan::model::index_uni(i));
           }
         } else {
-          current_statement__ = 1090;
+          current_statement__ = 1230;
           if (stan::math::logical_eq(dist, 8)) {
-            current_statement__ = 1085;
+            current_statement__ = 1225;
             stan::math::validate_non_negative_index("eeta", "n", n);
             Eigen::Matrix<local_scalar_t__,-1,1> eeta =
               Eigen::Matrix<local_scalar_t__,-1,1>::Constant(n, DUMMY_VAR__);
-            current_statement__ = 1086;
+            current_statement__ = 1226;
             stan::model::assign(eeta,
               stan::math::exp(stan::math::minus(eta)),
               "assigning variable eeta");
-            current_statement__ = 1088;
+            current_statement__ = 1228;
             for (int i = 1; i <= n; ++i) {
-              current_statement__ = 1087;
+              current_statement__ = 1227;
               stan::model::assign(l,
                 stan::math::gamma_lpdf<false>(time,
                   stan::model::rvalue(aux, "aux", stan::model::index_uni(i)),
@@ -3547,11 +3836,11 @@ loglik_a2(const int& dist, const T1__& time, const T2__& start_time,
                 "assigning variable l", stan::model::index_uni(i));
             }
           } else {
-            current_statement__ = 1084;
+            current_statement__ = 1224;
             if (stan::math::logical_eq(dist, 9)) {
-              current_statement__ = 1082;
+              current_statement__ = 1222;
               for (int i = 1; i <= n; ++i) {
-                current_statement__ = 1081;
+                current_statement__ = 1221;
                 stan::model::assign(l,
                   gengamma_lpdf<false>(time,
                     stan::model::rvalue(eta, "eta", stan::model::index_uni(i)),
@@ -3561,7 +3850,7 @@ loglik_a2(const int& dist, const T1__& time, const T2__& start_time,
                   "assigning variable l", stan::model::index_uni(i));
               }
             } else {
-              current_statement__ = 1079;
+              current_statement__ = 1219;
               stan::model::assign(l,
                 stan::math::add(lS_a2(dist, time, eta, aux, aux2, pstream__),
                   lh_a2(dist, time, eta, aux, aux2, pstream__)),
@@ -3570,17 +3859,17 @@ loglik_a2(const int& dist, const T1__& time, const T2__& start_time,
           }
         }
       } else {
-        current_statement__ = 1078;
+        current_statement__ = 1218;
         if (stan::math::logical_eq(status, 2)) {
-          current_statement__ = 1076;
+          current_statement__ = 1216;
           stan::model::assign(l,
             stan::math::log1m_exp(
               lS_a2(dist, time, eta, aux, aux2, pstream__)),
             "assigning variable l");
         } else {
-          current_statement__ = 1075;
+          current_statement__ = 1215;
           if (stan::math::logical_eq(status, 3)) {
-            current_statement__ = 1073;
+            current_statement__ = 1213;
             stan::model::assign(l,
               stan::math::log_diff_exp(
                 lS_a2(dist, start_time, eta, aux, aux2, pstream__),
@@ -3590,15 +3879,15 @@ loglik_a2(const int& dist, const T1__& time, const T2__& start_time,
         }
       }
     }
-    current_statement__ = 1102;
+    current_statement__ = 1242;
     if (stan::math::logical_gt(delay_time, 0)) {
-      current_statement__ = 1100;
+      current_statement__ = 1240;
       stan::model::assign(l,
         stan::math::subtract(stan::model::deep_copy(l),
           lS_a2(dist, delay_time, eta, aux, aux2, pstream__)),
         "assigning variable l");
     }
-    current_statement__ = 1103;
+    current_statement__ = 1243;
     return l;
   } catch (const std::exception& e) {
     stan::lang::rethrow_located(e, locations_array__[current_statement__]);
@@ -3656,6 +3945,17 @@ private:
   double prior_reg_location;
   double prior_reg_scale;
   double prior_reg_df;
+  int class_effects;
+  std::vector<int> which_CE;
+  std::vector<int> which_CE_sd;
+  int prior_class_mean_dist;
+  double prior_class_mean_location;
+  double prior_class_mean_scale;
+  double prior_class_mean_df;
+  int prior_class_sd_dist;
+  double prior_class_sd_location;
+  double prior_class_sd_scale;
+  double prior_class_sd_df;
   int prior_aux_dist;
   double prior_aux_location;
   double prior_aux_scale;
@@ -3725,13 +4025,22 @@ private:
   int n_int_thin;
   Eigen::Matrix<double,-1,-1> inv_Sigma_data__;
   std::vector<int> nc_agd_contrast;
+  int n_class;
+  std::vector<int> which_class;
+  std::vector<int> which_class_sd;
+  int n_class_trts;
+  std::vector<int> which_class_trt;
   int tau_1dim__;
+  int class_mean_1dim__;
+  int class_sd_1dim__;
+  int z_class_1dim__;
   int aux2_1dim__;
   int beta_aux_1dim__;
   int beta_aux_2dim__;
   int d_1dim__;
   int beta_1dim__;
   int eta_agd_contrast_ii_1dim__;
+  int f_class_1dim__;
   int shape_1dim__;
   int sdlog_1dim__;
   int sigma_1dim__;
@@ -3792,207 +4101,207 @@ public:
     try {
       int pos__ = std::numeric_limits<int>::min();
       pos__ = 1;
-      current_statement__ = 327;
+      current_statement__ = 384;
       context__.validate_dims("data initialization", "ns_ipd", "int",
         std::vector<size_t>{});
       ns_ipd = std::numeric_limits<int>::min();
-      current_statement__ = 327;
+      current_statement__ = 384;
       ns_ipd = context__.vals_i("ns_ipd")[(1 - 1)];
-      current_statement__ = 327;
+      current_statement__ = 384;
       stan::math::check_greater_or_equal(function__, "ns_ipd", ns_ipd, 0);
-      current_statement__ = 328;
+      current_statement__ = 385;
       context__.validate_dims("data initialization", "ns_agd_arm", "int",
         std::vector<size_t>{});
       ns_agd_arm = std::numeric_limits<int>::min();
-      current_statement__ = 328;
+      current_statement__ = 385;
       ns_agd_arm = context__.vals_i("ns_agd_arm")[(1 - 1)];
-      current_statement__ = 328;
+      current_statement__ = 385;
       stan::math::check_greater_or_equal(function__, "ns_agd_arm",
         ns_agd_arm, 0);
-      current_statement__ = 329;
+      current_statement__ = 386;
       context__.validate_dims("data initialization", "ns_agd_contrast",
         "int", std::vector<size_t>{});
       ns_agd_contrast = std::numeric_limits<int>::min();
-      current_statement__ = 329;
+      current_statement__ = 386;
       ns_agd_contrast = context__.vals_i("ns_agd_contrast")[(1 - 1)];
-      current_statement__ = 329;
+      current_statement__ = 386;
       stan::math::check_greater_or_equal(function__, "ns_agd_contrast",
         ns_agd_contrast, 0);
-      current_statement__ = 330;
+      current_statement__ = 387;
       context__.validate_dims("data initialization", "ni_ipd", "int",
         std::vector<size_t>{});
       ni_ipd = std::numeric_limits<int>::min();
-      current_statement__ = 330;
+      current_statement__ = 387;
       ni_ipd = context__.vals_i("ni_ipd")[(1 - 1)];
-      current_statement__ = 330;
+      current_statement__ = 387;
       stan::math::check_greater_or_equal(function__, "ni_ipd", ni_ipd, 0);
-      current_statement__ = 331;
+      current_statement__ = 388;
       context__.validate_dims("data initialization", "ni_agd_arm", "int",
         std::vector<size_t>{});
       ni_agd_arm = std::numeric_limits<int>::min();
-      current_statement__ = 331;
+      current_statement__ = 388;
       ni_agd_arm = context__.vals_i("ni_agd_arm")[(1 - 1)];
-      current_statement__ = 331;
+      current_statement__ = 388;
       stan::math::check_greater_or_equal(function__, "ni_agd_arm",
         ni_agd_arm, 0);
-      current_statement__ = 332;
+      current_statement__ = 389;
       context__.validate_dims("data initialization", "ni_agd_contrast",
         "int", std::vector<size_t>{});
       ni_agd_contrast = std::numeric_limits<int>::min();
-      current_statement__ = 332;
+      current_statement__ = 389;
       ni_agd_contrast = context__.vals_i("ni_agd_contrast")[(1 - 1)];
-      current_statement__ = 332;
+      current_statement__ = 389;
       stan::math::check_greater_or_equal(function__, "ni_agd_contrast",
         ni_agd_contrast, 0);
-      current_statement__ = 333;
+      current_statement__ = 390;
       context__.validate_dims("data initialization", "narm_ipd", "int",
         std::vector<size_t>{});
       narm_ipd = std::numeric_limits<int>::min();
-      current_statement__ = 333;
+      current_statement__ = 390;
       narm_ipd = context__.vals_i("narm_ipd")[(1 - 1)];
-      current_statement__ = 333;
+      current_statement__ = 390;
       stan::math::check_greater_or_equal(function__, "narm_ipd", narm_ipd, 0);
-      current_statement__ = 334;
+      current_statement__ = 391;
       stan::math::validate_non_negative_index("ipd_arm", "ni_ipd", ni_ipd);
-      current_statement__ = 335;
+      current_statement__ = 392;
       context__.validate_dims("data initialization", "ipd_arm", "int",
         std::vector<size_t>{static_cast<size_t>(ni_ipd)});
       ipd_arm = std::vector<int>(ni_ipd, std::numeric_limits<int>::min());
-      current_statement__ = 335;
+      current_statement__ = 392;
       ipd_arm = context__.vals_i("ipd_arm");
-      current_statement__ = 335;
+      current_statement__ = 392;
       stan::math::check_greater_or_equal(function__, "ipd_arm", ipd_arm, 1);
-      current_statement__ = 336;
+      current_statement__ = 393;
       stan::math::validate_non_negative_index("ipd_trt", "narm_ipd", narm_ipd);
-      current_statement__ = 337;
+      current_statement__ = 394;
       context__.validate_dims("data initialization", "ipd_trt", "int",
         std::vector<size_t>{static_cast<size_t>(narm_ipd)});
       ipd_trt = std::vector<int>(narm_ipd, std::numeric_limits<int>::min());
-      current_statement__ = 337;
+      current_statement__ = 394;
       ipd_trt = context__.vals_i("ipd_trt");
-      current_statement__ = 337;
+      current_statement__ = 394;
       stan::math::check_greater_or_equal(function__, "ipd_trt", ipd_trt, 1);
-      current_statement__ = 338;
+      current_statement__ = 395;
       context__.validate_dims("data initialization", "narm_agd_arm", "int",
         std::vector<size_t>{});
       narm_agd_arm = std::numeric_limits<int>::min();
-      current_statement__ = 338;
+      current_statement__ = 395;
       narm_agd_arm = context__.vals_i("narm_agd_arm")[(1 - 1)];
-      current_statement__ = 338;
+      current_statement__ = 395;
       stan::math::check_greater_or_equal(function__, "narm_agd_arm",
         narm_agd_arm, 0);
-      current_statement__ = 339;
+      current_statement__ = 396;
       stan::math::validate_non_negative_index("agd_arm_trt", "narm_agd_arm",
         narm_agd_arm);
-      current_statement__ = 340;
+      current_statement__ = 397;
       context__.validate_dims("data initialization", "agd_arm_trt", "int",
         std::vector<size_t>{static_cast<size_t>(narm_agd_arm)});
       agd_arm_trt = std::vector<int>(narm_agd_arm,
                       std::numeric_limits<int>::min());
-      current_statement__ = 340;
+      current_statement__ = 397;
       agd_arm_trt = context__.vals_i("agd_arm_trt");
-      current_statement__ = 340;
+      current_statement__ = 397;
       stan::math::check_greater_or_equal(function__, "agd_arm_trt",
         agd_arm_trt, 1);
-      current_statement__ = 341;
+      current_statement__ = 398;
       stan::math::validate_non_negative_index("agd_contrast_trt",
         "ni_agd_contrast", ni_agd_contrast);
-      current_statement__ = 342;
+      current_statement__ = 399;
       context__.validate_dims("data initialization", "agd_contrast_trt",
         "int", std::vector<size_t>{static_cast<size_t>(ni_agd_contrast)});
       agd_contrast_trt = std::vector<int>(ni_agd_contrast,
                            std::numeric_limits<int>::min());
-      current_statement__ = 342;
+      current_statement__ = 399;
       agd_contrast_trt = context__.vals_i("agd_contrast_trt");
-      current_statement__ = 342;
+      current_statement__ = 399;
       stan::math::check_greater_or_equal(function__, "agd_contrast_trt",
         agd_contrast_trt, 1);
-      current_statement__ = 343;
+      current_statement__ = 400;
       stan::math::validate_non_negative_index("agd_contrast_trt_b",
         "ni_agd_contrast", ni_agd_contrast);
-      current_statement__ = 344;
+      current_statement__ = 401;
       context__.validate_dims("data initialization", "agd_contrast_trt_b",
         "int", std::vector<size_t>{static_cast<size_t>(ni_agd_contrast)});
       agd_contrast_trt_b = std::vector<int>(ni_agd_contrast,
                              std::numeric_limits<int>::min());
-      current_statement__ = 344;
+      current_statement__ = 401;
       agd_contrast_trt_b = context__.vals_i("agd_contrast_trt_b");
-      current_statement__ = 344;
+      current_statement__ = 401;
       stan::math::check_greater_or_equal(function__, "agd_contrast_trt_b",
         agd_contrast_trt_b, 1);
-      current_statement__ = 345;
+      current_statement__ = 402;
       context__.validate_dims("data initialization", "nt", "int",
         std::vector<size_t>{});
       nt = std::numeric_limits<int>::min();
-      current_statement__ = 345;
+      current_statement__ = 402;
       nt = context__.vals_i("nt")[(1 - 1)];
-      current_statement__ = 345;
+      current_statement__ = 402;
       stan::math::check_greater_or_equal(function__, "nt", nt, 1);
-      current_statement__ = 346;
+      current_statement__ = 403;
       context__.validate_dims("data initialization", "nX", "int",
         std::vector<size_t>{});
       nX = std::numeric_limits<int>::min();
-      current_statement__ = 346;
+      current_statement__ = 403;
       nX = context__.vals_i("nX")[(1 - 1)];
-      current_statement__ = 346;
+      current_statement__ = 403;
       stan::math::check_greater_or_equal(function__, "nX", nX, 0);
-      current_statement__ = 347;
+      current_statement__ = 404;
       context__.validate_dims("data initialization", "nchains", "int",
         std::vector<size_t>{});
       nchains = std::numeric_limits<int>::min();
-      current_statement__ = 347;
+      current_statement__ = 404;
       nchains = context__.vals_i("nchains")[(1 - 1)];
-      current_statement__ = 347;
+      current_statement__ = 404;
       stan::math::check_greater_or_equal(function__, "nchains", nchains, 1);
-      current_statement__ = 348;
+      current_statement__ = 405;
       context__.validate_dims("data initialization", "CHAIN_ID", "int",
         std::vector<size_t>{});
       CHAIN_ID = std::numeric_limits<int>::min();
-      current_statement__ = 348;
+      current_statement__ = 405;
       CHAIN_ID = context__.vals_i("CHAIN_ID")[(1 - 1)];
-      current_statement__ = 348;
+      current_statement__ = 405;
       stan::math::check_greater_or_equal(function__, "CHAIN_ID", CHAIN_ID, 1);
-      current_statement__ = 348;
+      current_statement__ = 405;
       stan::math::check_less_or_equal(function__, "CHAIN_ID", CHAIN_ID,
         nchains);
-      current_statement__ = 349;
+      current_statement__ = 406;
       stan::math::validate_non_negative_index("nint_vec", "nchains", nchains);
-      current_statement__ = 350;
+      current_statement__ = 407;
       context__.validate_dims("data initialization", "nint_vec", "int",
         std::vector<size_t>{static_cast<size_t>(nchains)});
       nint_vec = std::vector<int>(nchains, std::numeric_limits<int>::min());
-      current_statement__ = 350;
+      current_statement__ = 407;
       nint_vec = context__.vals_i("nint_vec");
-      current_statement__ = 350;
+      current_statement__ = 407;
       stan::math::check_greater_or_equal(function__, "nint_vec", nint_vec, 1);
-      current_statement__ = 351;
+      current_statement__ = 408;
       context__.validate_dims("data initialization", "nint_max", "int",
         std::vector<size_t>{});
       nint_max = std::numeric_limits<int>::min();
-      current_statement__ = 351;
+      current_statement__ = 408;
       nint_max = context__.vals_i("nint_max")[(1 - 1)];
-      current_statement__ = 351;
+      current_statement__ = 408;
       stan::math::check_greater_or_equal(function__, "nint_max", nint_max, 1);
-      current_statement__ = 352;
+      current_statement__ = 409;
       context__.validate_dims("data initialization", "int_thin", "int",
         std::vector<size_t>{});
       int_thin = std::numeric_limits<int>::min();
-      current_statement__ = 352;
+      current_statement__ = 409;
       int_thin = context__.vals_i("int_thin")[(1 - 1)];
-      current_statement__ = 352;
+      current_statement__ = 409;
       stan::math::check_greater_or_equal(function__, "int_thin", int_thin, 0);
-      current_statement__ = 353;
+      current_statement__ = 410;
       context__.validate_dims("data initialization", "link", "int",
         std::vector<size_t>{});
       link = std::numeric_limits<int>::min();
-      current_statement__ = 353;
+      current_statement__ = 410;
       link = context__.vals_i("link")[(1 - 1)];
-      current_statement__ = 353;
+      current_statement__ = 410;
       stan::math::check_greater_or_equal(function__, "link", link, 1);
-      current_statement__ = 354;
+      current_statement__ = 411;
       stan::math::validate_non_negative_index("agd_contrast_y",
         "ni_agd_contrast", ni_agd_contrast);
-      current_statement__ = 355;
+      current_statement__ = 412;
       context__.validate_dims("data initialization", "agd_contrast_y",
         "double", std::vector<size_t>{static_cast<size_t>(ni_agd_contrast)});
       agd_contrast_y_data__ = Eigen::Matrix<double,-1,1>::Constant(ni_agd_contrast,
@@ -4002,29 +4311,29 @@ public:
         ni_agd_contrast);
       {
         std::vector<local_scalar_t__> agd_contrast_y_flat__;
-        current_statement__ = 355;
+        current_statement__ = 412;
         agd_contrast_y_flat__ = context__.vals_r("agd_contrast_y");
-        current_statement__ = 355;
+        current_statement__ = 412;
         pos__ = 1;
-        current_statement__ = 355;
+        current_statement__ = 412;
         for (int sym1__ = 1; sym1__ <= ni_agd_contrast; ++sym1__) {
-          current_statement__ = 355;
+          current_statement__ = 412;
           stan::model::assign(agd_contrast_y, agd_contrast_y_flat__[(pos__ -
             1)], "assigning variable agd_contrast_y",
             stan::model::index_uni(sym1__));
-          current_statement__ = 355;
+          current_statement__ = 412;
           pos__ = (pos__ + 1);
         }
       }
-      current_statement__ = 356;
+      current_statement__ = 413;
       stan::math::validate_non_negative_index("agd_contrast_Sigma",
         "ni_agd_contrast ? ni_agd_contrast : 1",
         (ni_agd_contrast ? ni_agd_contrast : 1));
-      current_statement__ = 356;
+      current_statement__ = 413;
       stan::math::validate_non_negative_index("agd_contrast_Sigma",
         "ni_agd_contrast ? ni_agd_contrast : 1",
         (ni_agd_contrast ? ni_agd_contrast : 1));
-      current_statement__ = 357;
+      current_statement__ = 414;
       context__.validate_dims("data initialization", "agd_contrast_Sigma",
         "double",
         std::vector<size_t>{static_cast<size_t>(
@@ -4039,46 +4348,46 @@ public:
         (ni_agd_contrast ? ni_agd_contrast : 1));
       {
         std::vector<local_scalar_t__> agd_contrast_Sigma_flat__;
-        current_statement__ = 357;
+        current_statement__ = 414;
         agd_contrast_Sigma_flat__ = context__.vals_r("agd_contrast_Sigma");
-        current_statement__ = 357;
+        current_statement__ = 414;
         pos__ = 1;
-        current_statement__ = 357;
+        current_statement__ = 414;
         for (int sym1__ = 1; sym1__ <=
              (ni_agd_contrast ? ni_agd_contrast : 1); ++sym1__) {
-          current_statement__ = 357;
+          current_statement__ = 414;
           for (int sym2__ = 1; sym2__ <=
                (ni_agd_contrast ? ni_agd_contrast : 1); ++sym2__) {
-            current_statement__ = 357;
+            current_statement__ = 414;
             stan::model::assign(agd_contrast_Sigma,
               agd_contrast_Sigma_flat__[(pos__ - 1)],
               "assigning variable agd_contrast_Sigma",
               stan::model::index_uni(sym2__), stan::model::index_uni(sym1__));
-            current_statement__ = 357;
+            current_statement__ = 414;
             pos__ = (pos__ + 1);
           }
         }
       }
-      current_statement__ = 357;
+      current_statement__ = 414;
       stan::math::check_cov_matrix(function__, "agd_contrast_Sigma",
         agd_contrast_Sigma);
-      current_statement__ = 358;
+      current_statement__ = 415;
       context__.validate_dims("data initialization", "QR", "int",
         std::vector<size_t>{});
       QR = std::numeric_limits<int>::min();
-      current_statement__ = 358;
+      current_statement__ = 415;
       QR = context__.vals_i("QR")[(1 - 1)];
-      current_statement__ = 358;
+      current_statement__ = 415;
       stan::math::check_greater_or_equal(function__, "QR", QR, 0);
-      current_statement__ = 358;
+      current_statement__ = 415;
       stan::math::check_less_or_equal(function__, "QR", QR, 1);
-      current_statement__ = 359;
+      current_statement__ = 416;
       stan::math::validate_non_negative_index("X",
         "ni_ipd + nint_max * (ni_agd_arm + ni_agd_contrast)", (ni_ipd +
         (nint_max * (ni_agd_arm + ni_agd_contrast))));
-      current_statement__ = 360;
+      current_statement__ = 417;
       stan::math::validate_non_negative_index("X", "nX", nX);
-      current_statement__ = 361;
+      current_statement__ = 418;
       context__.validate_dims("data initialization", "X", "double",
         std::vector<size_t>{static_cast<size_t>((ni_ipd + (nint_max *
                               (ni_agd_arm + ni_agd_contrast)))),
@@ -4090,31 +4399,31 @@ public:
         (ni_ipd + (nint_max * (ni_agd_arm + ni_agd_contrast))), nX);
       {
         std::vector<local_scalar_t__> X_flat__;
-        current_statement__ = 361;
+        current_statement__ = 418;
         X_flat__ = context__.vals_r("X");
-        current_statement__ = 361;
+        current_statement__ = 418;
         pos__ = 1;
-        current_statement__ = 361;
+        current_statement__ = 418;
         for (int sym1__ = 1; sym1__ <= nX; ++sym1__) {
-          current_statement__ = 361;
+          current_statement__ = 418;
           for (int sym2__ = 1; sym2__ <= (ni_ipd + (nint_max * (ni_agd_arm +
                ni_agd_contrast))); ++sym2__) {
-            current_statement__ = 361;
+            current_statement__ = 418;
             stan::model::assign(X, X_flat__[(pos__ - 1)],
               "assigning variable X", stan::model::index_uni(sym2__),
               stan::model::index_uni(sym1__));
-            current_statement__ = 361;
+            current_statement__ = 418;
             pos__ = (pos__ + 1);
           }
         }
       }
-      current_statement__ = 362;
+      current_statement__ = 419;
       stan::math::validate_non_negative_index("R_inv", "QR ? nX : 0",
         (QR ? nX : 0));
-      current_statement__ = 363;
+      current_statement__ = 420;
       stan::math::validate_non_negative_index("R_inv", "QR ? nX : 0",
         (QR ? nX : 0));
-      current_statement__ = 364;
+      current_statement__ = 421;
       context__.validate_dims("data initialization", "R_inv", "double",
         std::vector<size_t>{static_cast<size_t>((QR ? nX : 0)),
           static_cast<size_t>((QR ? nX : 0))});
@@ -4126,40 +4435,40 @@ public:
         (QR ? nX : 0), (QR ? nX : 0));
       {
         std::vector<local_scalar_t__> R_inv_flat__;
-        current_statement__ = 364;
+        current_statement__ = 421;
         R_inv_flat__ = context__.vals_r("R_inv");
-        current_statement__ = 364;
+        current_statement__ = 421;
         pos__ = 1;
-        current_statement__ = 364;
+        current_statement__ = 421;
         for (int sym1__ = 1; sym1__ <= (QR ? nX : 0); ++sym1__) {
-          current_statement__ = 364;
+          current_statement__ = 421;
           for (int sym2__ = 1; sym2__ <= (QR ? nX : 0); ++sym2__) {
-            current_statement__ = 364;
+            current_statement__ = 421;
             stan::model::assign(R_inv, R_inv_flat__[(pos__ - 1)],
               "assigning variable R_inv", stan::model::index_uni(sym2__),
               stan::model::index_uni(sym1__));
-            current_statement__ = 364;
+            current_statement__ = 421;
             pos__ = (pos__ + 1);
           }
         }
       }
-      current_statement__ = 365;
+      current_statement__ = 422;
       context__.validate_dims("data initialization", "has_offset", "int",
         std::vector<size_t>{});
       has_offset = std::numeric_limits<int>::min();
-      current_statement__ = 365;
+      current_statement__ = 422;
       has_offset = context__.vals_i("has_offset")[(1 - 1)];
-      current_statement__ = 365;
+      current_statement__ = 422;
       stan::math::check_greater_or_equal(function__, "has_offset",
         has_offset, 0);
-      current_statement__ = 365;
+      current_statement__ = 422;
       stan::math::check_less_or_equal(function__, "has_offset", has_offset, 1);
-      current_statement__ = 366;
+      current_statement__ = 423;
       stan::math::validate_non_negative_index("offsets",
         "has_offset ? ni_ipd + nint_max * (ni_agd_arm + ni_agd_contrast) : 0",
         (has_offset ? (ni_ipd + (nint_max * (ni_agd_arm +
         ni_agd_contrast))) : 0));
-      current_statement__ = 367;
+      current_statement__ = 424;
       context__.validate_dims("data initialization", "offsets", "double",
         std::vector<size_t>{static_cast<size_t>((has_offset ? (ni_ipd +
                               (nint_max * (ni_agd_arm +
@@ -4173,51 +4482,51 @@ public:
         ni_agd_contrast))) : 0));
       {
         std::vector<local_scalar_t__> offsets_flat__;
-        current_statement__ = 367;
+        current_statement__ = 424;
         offsets_flat__ = context__.vals_r("offsets");
-        current_statement__ = 367;
+        current_statement__ = 424;
         pos__ = 1;
-        current_statement__ = 367;
+        current_statement__ = 424;
         for (int sym1__ = 1; sym1__ <= (has_offset ? (ni_ipd + (nint_max *
              (ni_agd_arm + ni_agd_contrast))) : 0); ++sym1__) {
-          current_statement__ = 367;
+          current_statement__ = 424;
           stan::model::assign(offsets, offsets_flat__[(pos__ - 1)],
             "assigning variable offsets", stan::model::index_uni(sym1__));
-          current_statement__ = 367;
+          current_statement__ = 424;
           pos__ = (pos__ + 1);
         }
       }
-      current_statement__ = 368;
+      current_statement__ = 425;
       context__.validate_dims("data initialization", "RE", "int",
         std::vector<size_t>{});
       RE = std::numeric_limits<int>::min();
-      current_statement__ = 368;
+      current_statement__ = 425;
       RE = context__.vals_i("RE")[(1 - 1)];
-      current_statement__ = 368;
+      current_statement__ = 425;
       stan::math::check_greater_or_equal(function__, "RE", RE, 0);
-      current_statement__ = 368;
+      current_statement__ = 425;
       stan::math::check_less_or_equal(function__, "RE", RE, 1);
-      current_statement__ = 369;
+      current_statement__ = 426;
       stan::math::validate_non_negative_index("which_RE",
         "RE ? narm_ipd + narm_agd_arm + ni_agd_contrast : 0",
         (RE ? ((narm_ipd + narm_agd_arm) + ni_agd_contrast) : 0));
-      current_statement__ = 370;
+      current_statement__ = 427;
       context__.validate_dims("data initialization", "which_RE", "int",
         std::vector<size_t>{static_cast<size_t>((RE ? ((narm_ipd +
                               narm_agd_arm) + ni_agd_contrast) : 0))});
       which_RE = std::vector<int>((RE ? ((narm_ipd + narm_agd_arm) +
                    ni_agd_contrast) : 0), std::numeric_limits<int>::min());
-      current_statement__ = 370;
+      current_statement__ = 427;
       which_RE = context__.vals_i("which_RE");
-      current_statement__ = 370;
+      current_statement__ = 427;
       stan::math::check_greater_or_equal(function__, "which_RE", which_RE, 0);
-      current_statement__ = 371;
+      current_statement__ = 428;
       stan::math::validate_non_negative_index("RE_cor",
         "RE ? max(which_RE) : 1", (RE ? stan::math::max(which_RE) : 1));
-      current_statement__ = 371;
+      current_statement__ = 428;
       stan::math::validate_non_negative_index("RE_cor",
         "RE ? max(which_RE) : 1", (RE ? stan::math::max(which_RE) : 1));
-      current_statement__ = 372;
+      current_statement__ = 429;
       context__.validate_dims("data initialization", "RE_cor", "double",
         std::vector<size_t>{static_cast<size_t>(
                               (RE ? stan::math::max(which_RE) : 1)),
@@ -4232,293 +4541,409 @@ public:
         (RE ? stan::math::max(which_RE) : 1));
       {
         std::vector<local_scalar_t__> RE_cor_flat__;
-        current_statement__ = 372;
+        current_statement__ = 429;
         RE_cor_flat__ = context__.vals_r("RE_cor");
-        current_statement__ = 372;
+        current_statement__ = 429;
         pos__ = 1;
-        current_statement__ = 372;
+        current_statement__ = 429;
         for (int sym1__ = 1; sym1__ <=
              (RE ? stan::math::max(which_RE) : 1); ++sym1__) {
-          current_statement__ = 372;
+          current_statement__ = 429;
           for (int sym2__ = 1; sym2__ <=
                (RE ? stan::math::max(which_RE) : 1); ++sym2__) {
-            current_statement__ = 372;
+            current_statement__ = 429;
             stan::model::assign(RE_cor, RE_cor_flat__[(pos__ - 1)],
               "assigning variable RE_cor", stan::model::index_uni(sym2__),
               stan::model::index_uni(sym1__));
-            current_statement__ = 372;
+            current_statement__ = 429;
             pos__ = (pos__ + 1);
           }
         }
       }
-      current_statement__ = 372;
+      current_statement__ = 429;
       stan::math::check_corr_matrix(function__, "RE_cor", RE_cor);
-      current_statement__ = 373;
+      current_statement__ = 430;
       context__.validate_dims("data initialization", "nodesplit", "int",
         std::vector<size_t>{});
       nodesplit = std::numeric_limits<int>::min();
-      current_statement__ = 373;
+      current_statement__ = 430;
       nodesplit = context__.vals_i("nodesplit")[(1 - 1)];
-      current_statement__ = 373;
+      current_statement__ = 430;
       stan::math::check_greater_or_equal(function__, "nodesplit", nodesplit,
         0);
-      current_statement__ = 373;
+      current_statement__ = 430;
       stan::math::check_less_or_equal(function__, "nodesplit", nodesplit, 1);
-      current_statement__ = 374;
+      current_statement__ = 431;
       context__.validate_dims("data initialization", "prior_intercept_dist",
         "int", std::vector<size_t>{});
       prior_intercept_dist = std::numeric_limits<int>::min();
-      current_statement__ = 374;
+      current_statement__ = 431;
       prior_intercept_dist = context__.vals_i("prior_intercept_dist")[(1 -
         1)];
-      current_statement__ = 374;
+      current_statement__ = 431;
       stan::math::check_greater_or_equal(function__, "prior_intercept_dist",
         prior_intercept_dist, 0);
-      current_statement__ = 374;
+      current_statement__ = 431;
       stan::math::check_less_or_equal(function__, "prior_intercept_dist",
         prior_intercept_dist, 3);
-      current_statement__ = 375;
+      current_statement__ = 432;
       context__.validate_dims("data initialization",
         "prior_intercept_location", "double", std::vector<size_t>{});
       prior_intercept_location = std::numeric_limits<double>::quiet_NaN();
-      current_statement__ = 375;
+      current_statement__ = 432;
       prior_intercept_location = context__.vals_r("prior_intercept_location")[(1
         - 1)];
-      current_statement__ = 376;
+      current_statement__ = 433;
       context__.validate_dims("data initialization", "prior_intercept_scale",
         "double", std::vector<size_t>{});
       prior_intercept_scale = std::numeric_limits<double>::quiet_NaN();
-      current_statement__ = 376;
+      current_statement__ = 433;
       prior_intercept_scale = context__.vals_r("prior_intercept_scale")[(1 -
         1)];
-      current_statement__ = 376;
+      current_statement__ = 433;
       stan::math::check_greater_or_equal(function__, "prior_intercept_scale",
         prior_intercept_scale, 0);
-      current_statement__ = 377;
+      current_statement__ = 434;
       context__.validate_dims("data initialization", "prior_intercept_df",
         "double", std::vector<size_t>{});
       prior_intercept_df = std::numeric_limits<double>::quiet_NaN();
-      current_statement__ = 377;
+      current_statement__ = 434;
       prior_intercept_df = context__.vals_r("prior_intercept_df")[(1 - 1)];
-      current_statement__ = 377;
+      current_statement__ = 434;
       stan::math::check_greater_or_equal(function__, "prior_intercept_df",
         prior_intercept_df, 0);
-      current_statement__ = 378;
+      current_statement__ = 435;
       context__.validate_dims("data initialization", "prior_trt_dist", "int",
         std::vector<size_t>{});
       prior_trt_dist = std::numeric_limits<int>::min();
-      current_statement__ = 378;
+      current_statement__ = 435;
       prior_trt_dist = context__.vals_i("prior_trt_dist")[(1 - 1)];
-      current_statement__ = 378;
+      current_statement__ = 435;
       stan::math::check_greater_or_equal(function__, "prior_trt_dist",
         prior_trt_dist, 0);
-      current_statement__ = 378;
+      current_statement__ = 435;
       stan::math::check_less_or_equal(function__, "prior_trt_dist",
         prior_trt_dist, 3);
-      current_statement__ = 379;
+      current_statement__ = 436;
       context__.validate_dims("data initialization", "prior_trt_location",
         "double", std::vector<size_t>{});
       prior_trt_location = std::numeric_limits<double>::quiet_NaN();
-      current_statement__ = 379;
+      current_statement__ = 436;
       prior_trt_location = context__.vals_r("prior_trt_location")[(1 - 1)];
-      current_statement__ = 380;
+      current_statement__ = 437;
       context__.validate_dims("data initialization", "prior_trt_scale",
         "double", std::vector<size_t>{});
       prior_trt_scale = std::numeric_limits<double>::quiet_NaN();
-      current_statement__ = 380;
+      current_statement__ = 437;
       prior_trt_scale = context__.vals_r("prior_trt_scale")[(1 - 1)];
-      current_statement__ = 380;
+      current_statement__ = 437;
       stan::math::check_greater_or_equal(function__, "prior_trt_scale",
         prior_trt_scale, 0);
-      current_statement__ = 381;
+      current_statement__ = 438;
       context__.validate_dims("data initialization", "prior_trt_df",
         "double", std::vector<size_t>{});
       prior_trt_df = std::numeric_limits<double>::quiet_NaN();
-      current_statement__ = 381;
+      current_statement__ = 438;
       prior_trt_df = context__.vals_r("prior_trt_df")[(1 - 1)];
-      current_statement__ = 381;
+      current_statement__ = 438;
       stan::math::check_greater_or_equal(function__, "prior_trt_df",
         prior_trt_df, 0);
-      current_statement__ = 382;
+      current_statement__ = 439;
       context__.validate_dims("data initialization", "prior_het_dist", "int",
         std::vector<size_t>{});
       prior_het_dist = std::numeric_limits<int>::min();
-      current_statement__ = 382;
+      current_statement__ = 439;
       prior_het_dist = context__.vals_i("prior_het_dist")[(1 - 1)];
-      current_statement__ = 382;
+      current_statement__ = 439;
       stan::math::check_greater_or_equal(function__, "prior_het_dist",
         prior_het_dist, 0);
-      current_statement__ = 382;
+      current_statement__ = 439;
       stan::math::check_less_or_equal(function__, "prior_het_dist",
         prior_het_dist, 6);
-      current_statement__ = 383;
+      current_statement__ = 440;
       context__.validate_dims("data initialization", "prior_het_type", "int",
         std::vector<size_t>{});
       prior_het_type = std::numeric_limits<int>::min();
-      current_statement__ = 383;
+      current_statement__ = 440;
       prior_het_type = context__.vals_i("prior_het_type")[(1 - 1)];
-      current_statement__ = 383;
+      current_statement__ = 440;
       stan::math::check_greater_or_equal(function__, "prior_het_type",
         prior_het_type, 1);
-      current_statement__ = 383;
+      current_statement__ = 440;
       stan::math::check_less_or_equal(function__, "prior_het_type",
         prior_het_type, 3);
-      current_statement__ = 384;
+      current_statement__ = 441;
       context__.validate_dims("data initialization", "prior_het_location",
         "double", std::vector<size_t>{});
       prior_het_location = std::numeric_limits<double>::quiet_NaN();
-      current_statement__ = 384;
+      current_statement__ = 441;
       prior_het_location = context__.vals_r("prior_het_location")[(1 - 1)];
-      current_statement__ = 385;
+      current_statement__ = 442;
       context__.validate_dims("data initialization", "prior_het_scale",
         "double", std::vector<size_t>{});
       prior_het_scale = std::numeric_limits<double>::quiet_NaN();
-      current_statement__ = 385;
+      current_statement__ = 442;
       prior_het_scale = context__.vals_r("prior_het_scale")[(1 - 1)];
-      current_statement__ = 385;
+      current_statement__ = 442;
       stan::math::check_greater_or_equal(function__, "prior_het_scale",
         prior_het_scale, 0);
-      current_statement__ = 386;
+      current_statement__ = 443;
       context__.validate_dims("data initialization", "prior_het_df",
         "double", std::vector<size_t>{});
       prior_het_df = std::numeric_limits<double>::quiet_NaN();
-      current_statement__ = 386;
+      current_statement__ = 443;
       prior_het_df = context__.vals_r("prior_het_df")[(1 - 1)];
-      current_statement__ = 386;
+      current_statement__ = 443;
       stan::math::check_greater_or_equal(function__, "prior_het_df",
         prior_het_df, 0);
-      current_statement__ = 387;
+      current_statement__ = 444;
       context__.validate_dims("data initialization", "prior_reg_dist", "int",
         std::vector<size_t>{});
       prior_reg_dist = std::numeric_limits<int>::min();
-      current_statement__ = 387;
+      current_statement__ = 444;
       prior_reg_dist = context__.vals_i("prior_reg_dist")[(1 - 1)];
-      current_statement__ = 387;
+      current_statement__ = 444;
       stan::math::check_greater_or_equal(function__, "prior_reg_dist",
         prior_reg_dist, 0);
-      current_statement__ = 387;
+      current_statement__ = 444;
       stan::math::check_less_or_equal(function__, "prior_reg_dist",
         prior_reg_dist, 3);
-      current_statement__ = 388;
+      current_statement__ = 445;
       context__.validate_dims("data initialization", "prior_reg_location",
         "double", std::vector<size_t>{});
       prior_reg_location = std::numeric_limits<double>::quiet_NaN();
-      current_statement__ = 388;
+      current_statement__ = 445;
       prior_reg_location = context__.vals_r("prior_reg_location")[(1 - 1)];
-      current_statement__ = 389;
+      current_statement__ = 446;
       context__.validate_dims("data initialization", "prior_reg_scale",
         "double", std::vector<size_t>{});
       prior_reg_scale = std::numeric_limits<double>::quiet_NaN();
-      current_statement__ = 389;
+      current_statement__ = 446;
       prior_reg_scale = context__.vals_r("prior_reg_scale")[(1 - 1)];
-      current_statement__ = 389;
+      current_statement__ = 446;
       stan::math::check_greater_or_equal(function__, "prior_reg_scale",
         prior_reg_scale, 0);
-      current_statement__ = 390;
+      current_statement__ = 447;
       context__.validate_dims("data initialization", "prior_reg_df",
         "double", std::vector<size_t>{});
       prior_reg_df = std::numeric_limits<double>::quiet_NaN();
-      current_statement__ = 390;
+      current_statement__ = 447;
       prior_reg_df = context__.vals_r("prior_reg_df")[(1 - 1)];
-      current_statement__ = 390;
+      current_statement__ = 447;
       stan::math::check_greater_or_equal(function__, "prior_reg_df",
         prior_reg_df, 0);
-      current_statement__ = 391;
+      current_statement__ = 448;
+      context__.validate_dims("data initialization", "class_effects", "int",
+        std::vector<size_t>{});
+      class_effects = std::numeric_limits<int>::min();
+      current_statement__ = 448;
+      class_effects = context__.vals_i("class_effects")[(1 - 1)];
+      current_statement__ = 448;
+      stan::math::check_greater_or_equal(function__, "class_effects",
+        class_effects, 0);
+      current_statement__ = 448;
+      stan::math::check_less_or_equal(function__, "class_effects",
+        class_effects, 1);
+      current_statement__ = 449;
+      stan::math::validate_non_negative_index("which_CE",
+        "class_effects ? nt - 1 : 0", (class_effects ? (nt - 1) : 0));
+      current_statement__ = 450;
+      context__.validate_dims("data initialization", "which_CE", "int",
+        std::vector<size_t>{static_cast<size_t>((class_effects ? (nt -
+                              1) : 0))});
+      which_CE = std::vector<int>((class_effects ? (nt - 1) : 0),
+                   std::numeric_limits<int>::min());
+      current_statement__ = 450;
+      which_CE = context__.vals_i("which_CE");
+      current_statement__ = 450;
+      stan::math::check_greater_or_equal(function__, "which_CE", which_CE, 0);
+      current_statement__ = 451;
+      stan::math::validate_non_negative_index("which_CE_sd",
+        "class_effects ? nt - 1 : 0", (class_effects ? (nt - 1) : 0));
+      current_statement__ = 452;
+      context__.validate_dims("data initialization", "which_CE_sd", "int",
+        std::vector<size_t>{static_cast<size_t>((class_effects ? (nt -
+                              1) : 0))});
+      which_CE_sd = std::vector<int>((class_effects ? (nt - 1) : 0),
+                      std::numeric_limits<int>::min());
+      current_statement__ = 452;
+      which_CE_sd = context__.vals_i("which_CE_sd");
+      current_statement__ = 452;
+      stan::math::check_greater_or_equal(function__, "which_CE_sd",
+        which_CE_sd, 0);
+      current_statement__ = 453;
+      context__.validate_dims("data initialization", "prior_class_mean_dist",
+        "int", std::vector<size_t>{});
+      prior_class_mean_dist = std::numeric_limits<int>::min();
+      current_statement__ = 453;
+      prior_class_mean_dist = context__.vals_i("prior_class_mean_dist")[(1 -
+        1)];
+      current_statement__ = 453;
+      stan::math::check_greater_or_equal(function__, "prior_class_mean_dist",
+        prior_class_mean_dist, 0);
+      current_statement__ = 453;
+      stan::math::check_less_or_equal(function__, "prior_class_mean_dist",
+        prior_class_mean_dist, 3);
+      current_statement__ = 454;
+      context__.validate_dims("data initialization",
+        "prior_class_mean_location", "double", std::vector<size_t>{});
+      prior_class_mean_location = std::numeric_limits<double>::quiet_NaN();
+      current_statement__ = 454;
+      prior_class_mean_location = context__.vals_r("prior_class_mean_location")[(1
+        - 1)];
+      current_statement__ = 455;
+      context__.validate_dims("data initialization",
+        "prior_class_mean_scale", "double", std::vector<size_t>{});
+      prior_class_mean_scale = std::numeric_limits<double>::quiet_NaN();
+      current_statement__ = 455;
+      prior_class_mean_scale = context__.vals_r("prior_class_mean_scale")[(1
+        - 1)];
+      current_statement__ = 455;
+      stan::math::check_greater_or_equal(function__,
+        "prior_class_mean_scale", prior_class_mean_scale, 0);
+      current_statement__ = 456;
+      context__.validate_dims("data initialization", "prior_class_mean_df",
+        "double", std::vector<size_t>{});
+      prior_class_mean_df = std::numeric_limits<double>::quiet_NaN();
+      current_statement__ = 456;
+      prior_class_mean_df = context__.vals_r("prior_class_mean_df")[(1 - 1)];
+      current_statement__ = 456;
+      stan::math::check_greater_or_equal(function__, "prior_class_mean_df",
+        prior_class_mean_df, 0);
+      current_statement__ = 457;
+      context__.validate_dims("data initialization", "prior_class_sd_dist",
+        "int", std::vector<size_t>{});
+      prior_class_sd_dist = std::numeric_limits<int>::min();
+      current_statement__ = 457;
+      prior_class_sd_dist = context__.vals_i("prior_class_sd_dist")[(1 - 1)];
+      current_statement__ = 457;
+      stan::math::check_greater_or_equal(function__, "prior_class_sd_dist",
+        prior_class_sd_dist, 0);
+      current_statement__ = 457;
+      stan::math::check_less_or_equal(function__, "prior_class_sd_dist",
+        prior_class_sd_dist, 6);
+      current_statement__ = 458;
+      context__.validate_dims("data initialization",
+        "prior_class_sd_location", "double", std::vector<size_t>{});
+      prior_class_sd_location = std::numeric_limits<double>::quiet_NaN();
+      current_statement__ = 458;
+      prior_class_sd_location = context__.vals_r("prior_class_sd_location")[(1
+        - 1)];
+      current_statement__ = 459;
+      context__.validate_dims("data initialization", "prior_class_sd_scale",
+        "double", std::vector<size_t>{});
+      prior_class_sd_scale = std::numeric_limits<double>::quiet_NaN();
+      current_statement__ = 459;
+      prior_class_sd_scale = context__.vals_r("prior_class_sd_scale")[(1 -
+        1)];
+      current_statement__ = 459;
+      stan::math::check_greater_or_equal(function__, "prior_class_sd_scale",
+        prior_class_sd_scale, 0);
+      current_statement__ = 460;
+      context__.validate_dims("data initialization", "prior_class_sd_df",
+        "double", std::vector<size_t>{});
+      prior_class_sd_df = std::numeric_limits<double>::quiet_NaN();
+      current_statement__ = 460;
+      prior_class_sd_df = context__.vals_r("prior_class_sd_df")[(1 - 1)];
+      current_statement__ = 460;
+      stan::math::check_greater_or_equal(function__, "prior_class_sd_df",
+        prior_class_sd_df, 0);
+      current_statement__ = 461;
       context__.validate_dims("data initialization", "prior_aux_dist", "int",
         std::vector<size_t>{});
       prior_aux_dist = std::numeric_limits<int>::min();
-      current_statement__ = 391;
+      current_statement__ = 461;
       prior_aux_dist = context__.vals_i("prior_aux_dist")[(1 - 1)];
-      current_statement__ = 391;
+      current_statement__ = 461;
       stan::math::check_greater_or_equal(function__, "prior_aux_dist",
         prior_aux_dist, 0);
-      current_statement__ = 391;
+      current_statement__ = 461;
       stan::math::check_less_or_equal(function__, "prior_aux_dist",
         prior_aux_dist, 6);
-      current_statement__ = 392;
+      current_statement__ = 462;
       context__.validate_dims("data initialization", "prior_aux_location",
         "double", std::vector<size_t>{});
       prior_aux_location = std::numeric_limits<double>::quiet_NaN();
-      current_statement__ = 392;
+      current_statement__ = 462;
       prior_aux_location = context__.vals_r("prior_aux_location")[(1 - 1)];
-      current_statement__ = 393;
+      current_statement__ = 463;
       context__.validate_dims("data initialization", "prior_aux_scale",
         "double", std::vector<size_t>{});
       prior_aux_scale = std::numeric_limits<double>::quiet_NaN();
-      current_statement__ = 393;
+      current_statement__ = 463;
       prior_aux_scale = context__.vals_r("prior_aux_scale")[(1 - 1)];
-      current_statement__ = 393;
+      current_statement__ = 463;
       stan::math::check_greater_or_equal(function__, "prior_aux_scale",
         prior_aux_scale, 0);
-      current_statement__ = 394;
+      current_statement__ = 464;
       context__.validate_dims("data initialization", "prior_aux_df",
         "double", std::vector<size_t>{});
       prior_aux_df = std::numeric_limits<double>::quiet_NaN();
-      current_statement__ = 394;
+      current_statement__ = 464;
       prior_aux_df = context__.vals_r("prior_aux_df")[(1 - 1)];
-      current_statement__ = 394;
+      current_statement__ = 464;
       stan::math::check_greater_or_equal(function__, "prior_aux_df",
         prior_aux_df, 0);
-      current_statement__ = 395;
+      current_statement__ = 465;
       context__.validate_dims("data initialization", "prior_aux2_dist",
         "int", std::vector<size_t>{});
       prior_aux2_dist = std::numeric_limits<int>::min();
-      current_statement__ = 395;
+      current_statement__ = 465;
       prior_aux2_dist = context__.vals_i("prior_aux2_dist")[(1 - 1)];
-      current_statement__ = 395;
+      current_statement__ = 465;
       stan::math::check_greater_or_equal(function__, "prior_aux2_dist",
         prior_aux2_dist, 0);
-      current_statement__ = 395;
+      current_statement__ = 465;
       stan::math::check_less_or_equal(function__, "prior_aux2_dist",
         prior_aux2_dist, 6);
-      current_statement__ = 396;
+      current_statement__ = 466;
       context__.validate_dims("data initialization", "prior_aux2_location",
         "double", std::vector<size_t>{});
       prior_aux2_location = std::numeric_limits<double>::quiet_NaN();
-      current_statement__ = 396;
+      current_statement__ = 466;
       prior_aux2_location = context__.vals_r("prior_aux2_location")[(1 - 1)];
-      current_statement__ = 397;
+      current_statement__ = 467;
       context__.validate_dims("data initialization", "prior_aux2_scale",
         "double", std::vector<size_t>{});
       prior_aux2_scale = std::numeric_limits<double>::quiet_NaN();
-      current_statement__ = 397;
+      current_statement__ = 467;
       prior_aux2_scale = context__.vals_r("prior_aux2_scale")[(1 - 1)];
-      current_statement__ = 397;
+      current_statement__ = 467;
       stan::math::check_greater_or_equal(function__, "prior_aux2_scale",
         prior_aux2_scale, 0);
-      current_statement__ = 398;
+      current_statement__ = 468;
       context__.validate_dims("data initialization", "prior_aux2_df",
         "double", std::vector<size_t>{});
       prior_aux2_df = std::numeric_limits<double>::quiet_NaN();
-      current_statement__ = 398;
+      current_statement__ = 468;
       prior_aux2_df = context__.vals_r("prior_aux2_df")[(1 - 1)];
-      current_statement__ = 398;
+      current_statement__ = 468;
       stan::math::check_greater_or_equal(function__, "prior_aux2_df",
         prior_aux2_df, 0);
-      current_statement__ = 399;
+      current_statement__ = 469;
       context__.validate_dims("data initialization", "dist", "int",
         std::vector<size_t>{});
       dist = std::numeric_limits<int>::min();
-      current_statement__ = 399;
+      current_statement__ = 469;
       dist = context__.vals_i("dist")[(1 - 1)];
-      current_statement__ = 399;
+      current_statement__ = 469;
       stan::math::check_greater_or_equal(function__, "dist", dist, 1);
-      current_statement__ = 400;
+      current_statement__ = 470;
       stan::math::validate_non_negative_index("agd_arm_arm", "ni_agd_arm",
         ni_agd_arm);
-      current_statement__ = 401;
+      current_statement__ = 471;
       context__.validate_dims("data initialization", "agd_arm_arm", "int",
         std::vector<size_t>{static_cast<size_t>(ni_agd_arm)});
       agd_arm_arm = std::vector<int>(ni_agd_arm,
                       std::numeric_limits<int>::min());
-      current_statement__ = 401;
+      current_statement__ = 471;
       agd_arm_arm = context__.vals_i("agd_arm_arm");
-      current_statement__ = 401;
+      current_statement__ = 471;
       stan::math::check_greater_or_equal(function__, "agd_arm_arm",
         agd_arm_arm, 1);
-      current_statement__ = 402;
+      current_statement__ = 472;
       stan::math::validate_non_negative_index("ipd_time", "ni_ipd", ni_ipd);
-      current_statement__ = 403;
+      current_statement__ = 473;
       context__.validate_dims("data initialization", "ipd_time", "double",
         std::vector<size_t>{static_cast<size_t>(ni_ipd)});
       ipd_time_data__ = Eigen::Matrix<double,-1,1>::Constant(ni_ipd,
@@ -4528,23 +4953,23 @@ public:
         ni_ipd);
       {
         std::vector<local_scalar_t__> ipd_time_flat__;
-        current_statement__ = 403;
+        current_statement__ = 473;
         ipd_time_flat__ = context__.vals_r("ipd_time");
-        current_statement__ = 403;
+        current_statement__ = 473;
         pos__ = 1;
-        current_statement__ = 403;
+        current_statement__ = 473;
         for (int sym1__ = 1; sym1__ <= ni_ipd; ++sym1__) {
-          current_statement__ = 403;
+          current_statement__ = 473;
           stan::model::assign(ipd_time, ipd_time_flat__[(pos__ - 1)],
             "assigning variable ipd_time", stan::model::index_uni(sym1__));
-          current_statement__ = 403;
+          current_statement__ = 473;
           pos__ = (pos__ + 1);
         }
       }
-      current_statement__ = 404;
+      current_statement__ = 474;
       stan::math::validate_non_negative_index("ipd_start_time", "ni_ipd",
         ni_ipd);
-      current_statement__ = 405;
+      current_statement__ = 475;
       context__.validate_dims("data initialization", "ipd_start_time",
         "double", std::vector<size_t>{static_cast<size_t>(ni_ipd)});
       ipd_start_time_data__ = Eigen::Matrix<double,-1,1>::Constant(ni_ipd,
@@ -4554,24 +4979,24 @@ public:
         ni_ipd);
       {
         std::vector<local_scalar_t__> ipd_start_time_flat__;
-        current_statement__ = 405;
+        current_statement__ = 475;
         ipd_start_time_flat__ = context__.vals_r("ipd_start_time");
-        current_statement__ = 405;
+        current_statement__ = 475;
         pos__ = 1;
-        current_statement__ = 405;
+        current_statement__ = 475;
         for (int sym1__ = 1; sym1__ <= ni_ipd; ++sym1__) {
-          current_statement__ = 405;
+          current_statement__ = 475;
           stan::model::assign(ipd_start_time, ipd_start_time_flat__[(pos__ -
             1)], "assigning variable ipd_start_time",
             stan::model::index_uni(sym1__));
-          current_statement__ = 405;
+          current_statement__ = 475;
           pos__ = (pos__ + 1);
         }
       }
-      current_statement__ = 406;
+      current_statement__ = 476;
       stan::math::validate_non_negative_index("ipd_delay_time", "ni_ipd",
         ni_ipd);
-      current_statement__ = 407;
+      current_statement__ = 477;
       context__.validate_dims("data initialization", "ipd_delay_time",
         "double", std::vector<size_t>{static_cast<size_t>(ni_ipd)});
       ipd_delay_time_data__ = Eigen::Matrix<double,-1,1>::Constant(ni_ipd,
@@ -4581,37 +5006,37 @@ public:
         ni_ipd);
       {
         std::vector<local_scalar_t__> ipd_delay_time_flat__;
-        current_statement__ = 407;
+        current_statement__ = 477;
         ipd_delay_time_flat__ = context__.vals_r("ipd_delay_time");
-        current_statement__ = 407;
+        current_statement__ = 477;
         pos__ = 1;
-        current_statement__ = 407;
+        current_statement__ = 477;
         for (int sym1__ = 1; sym1__ <= ni_ipd; ++sym1__) {
-          current_statement__ = 407;
+          current_statement__ = 477;
           stan::model::assign(ipd_delay_time, ipd_delay_time_flat__[(pos__ -
             1)], "assigning variable ipd_delay_time",
             stan::model::index_uni(sym1__));
-          current_statement__ = 407;
+          current_statement__ = 477;
           pos__ = (pos__ + 1);
         }
       }
-      current_statement__ = 408;
+      current_statement__ = 478;
       stan::math::validate_non_negative_index("ipd_status", "ni_ipd", ni_ipd);
-      current_statement__ = 409;
+      current_statement__ = 479;
       context__.validate_dims("data initialization", "ipd_status", "int",
         std::vector<size_t>{static_cast<size_t>(ni_ipd)});
       ipd_status = std::vector<int>(ni_ipd, std::numeric_limits<int>::min());
-      current_statement__ = 409;
+      current_statement__ = 479;
       ipd_status = context__.vals_i("ipd_status");
-      current_statement__ = 409;
+      current_statement__ = 479;
       stan::math::check_greater_or_equal(function__, "ipd_status",
         ipd_status, 0);
-      current_statement__ = 409;
+      current_statement__ = 479;
       stan::math::check_less_or_equal(function__, "ipd_status", ipd_status, 3);
-      current_statement__ = 410;
+      current_statement__ = 480;
       stan::math::validate_non_negative_index("agd_arm_time", "ni_agd_arm",
         ni_agd_arm);
-      current_statement__ = 411;
+      current_statement__ = 481;
       context__.validate_dims("data initialization", "agd_arm_time",
         "double", std::vector<size_t>{static_cast<size_t>(ni_agd_arm)});
       agd_arm_time_data__ = Eigen::Matrix<double,-1,1>::Constant(ni_agd_arm,
@@ -4621,23 +5046,23 @@ public:
         ni_agd_arm);
       {
         std::vector<local_scalar_t__> agd_arm_time_flat__;
-        current_statement__ = 411;
+        current_statement__ = 481;
         agd_arm_time_flat__ = context__.vals_r("agd_arm_time");
-        current_statement__ = 411;
+        current_statement__ = 481;
         pos__ = 1;
-        current_statement__ = 411;
+        current_statement__ = 481;
         for (int sym1__ = 1; sym1__ <= ni_agd_arm; ++sym1__) {
-          current_statement__ = 411;
+          current_statement__ = 481;
           stan::model::assign(agd_arm_time, agd_arm_time_flat__[(pos__ - 1)],
             "assigning variable agd_arm_time", stan::model::index_uni(sym1__));
-          current_statement__ = 411;
+          current_statement__ = 481;
           pos__ = (pos__ + 1);
         }
       }
-      current_statement__ = 412;
+      current_statement__ = 482;
       stan::math::validate_non_negative_index("agd_arm_start_time",
         "ni_agd_arm", ni_agd_arm);
-      current_statement__ = 413;
+      current_statement__ = 483;
       context__.validate_dims("data initialization", "agd_arm_start_time",
         "double", std::vector<size_t>{static_cast<size_t>(ni_agd_arm)});
       agd_arm_start_time_data__ = Eigen::Matrix<double,-1,1>::Constant(ni_agd_arm,
@@ -4647,25 +5072,25 @@ public:
         ni_agd_arm);
       {
         std::vector<local_scalar_t__> agd_arm_start_time_flat__;
-        current_statement__ = 413;
+        current_statement__ = 483;
         agd_arm_start_time_flat__ = context__.vals_r("agd_arm_start_time");
-        current_statement__ = 413;
+        current_statement__ = 483;
         pos__ = 1;
-        current_statement__ = 413;
+        current_statement__ = 483;
         for (int sym1__ = 1; sym1__ <= ni_agd_arm; ++sym1__) {
-          current_statement__ = 413;
+          current_statement__ = 483;
           stan::model::assign(agd_arm_start_time,
             agd_arm_start_time_flat__[(pos__ - 1)],
             "assigning variable agd_arm_start_time",
             stan::model::index_uni(sym1__));
-          current_statement__ = 413;
+          current_statement__ = 483;
           pos__ = (pos__ + 1);
         }
       }
-      current_statement__ = 414;
+      current_statement__ = 484;
       stan::math::validate_non_negative_index("agd_arm_delay_time",
         "ni_agd_arm", ni_agd_arm);
-      current_statement__ = 415;
+      current_statement__ = 485;
       context__.validate_dims("data initialization", "agd_arm_delay_time",
         "double", std::vector<size_t>{static_cast<size_t>(ni_agd_arm)});
       agd_arm_delay_time_data__ = Eigen::Matrix<double,-1,1>::Constant(ni_agd_arm,
@@ -4675,92 +5100,92 @@ public:
         ni_agd_arm);
       {
         std::vector<local_scalar_t__> agd_arm_delay_time_flat__;
-        current_statement__ = 415;
+        current_statement__ = 485;
         agd_arm_delay_time_flat__ = context__.vals_r("agd_arm_delay_time");
-        current_statement__ = 415;
+        current_statement__ = 485;
         pos__ = 1;
-        current_statement__ = 415;
+        current_statement__ = 485;
         for (int sym1__ = 1; sym1__ <= ni_agd_arm; ++sym1__) {
-          current_statement__ = 415;
+          current_statement__ = 485;
           stan::model::assign(agd_arm_delay_time,
             agd_arm_delay_time_flat__[(pos__ - 1)],
             "assigning variable agd_arm_delay_time",
             stan::model::index_uni(sym1__));
-          current_statement__ = 415;
+          current_statement__ = 485;
           pos__ = (pos__ + 1);
         }
       }
-      current_statement__ = 416;
+      current_statement__ = 486;
       stan::math::validate_non_negative_index("agd_arm_status", "ni_agd_arm",
         ni_agd_arm);
-      current_statement__ = 417;
+      current_statement__ = 487;
       context__.validate_dims("data initialization", "agd_arm_status", "int",
         std::vector<size_t>{static_cast<size_t>(ni_agd_arm)});
       agd_arm_status = std::vector<int>(ni_agd_arm,
                          std::numeric_limits<int>::min());
-      current_statement__ = 417;
+      current_statement__ = 487;
       agd_arm_status = context__.vals_i("agd_arm_status");
-      current_statement__ = 417;
+      current_statement__ = 487;
       stan::math::check_greater_or_equal(function__, "agd_arm_status",
         agd_arm_status, 0);
-      current_statement__ = 417;
+      current_statement__ = 487;
       stan::math::check_less_or_equal(function__, "agd_arm_status",
         agd_arm_status, 3);
-      current_statement__ = 418;
+      current_statement__ = 488;
       context__.validate_dims("data initialization", "aux_int", "int",
         std::vector<size_t>{});
       aux_int = std::numeric_limits<int>::min();
-      current_statement__ = 418;
+      current_statement__ = 488;
       aux_int = context__.vals_i("aux_int")[(1 - 1)];
-      current_statement__ = 418;
+      current_statement__ = 488;
       stan::math::check_greater_or_equal(function__, "aux_int", aux_int, 0);
-      current_statement__ = 418;
+      current_statement__ = 488;
       stan::math::check_less_or_equal(function__, "aux_int", aux_int, 1);
-      current_statement__ = 419;
+      current_statement__ = 489;
       stan::math::validate_non_negative_index("aux_id",
         "ni_ipd + ni_agd_arm * (aux_int ? nint_max : 1)", (ni_ipd +
         (ni_agd_arm * (aux_int ? nint_max : 1))));
-      current_statement__ = 420;
+      current_statement__ = 490;
       context__.validate_dims("data initialization", "aux_id", "int",
         std::vector<size_t>{static_cast<size_t>((ni_ipd + (ni_agd_arm *
                               (aux_int ? nint_max : 1))))});
       aux_id = std::vector<int>((ni_ipd + (ni_agd_arm *
                  (aux_int ? nint_max : 1))), std::numeric_limits<int>::min());
-      current_statement__ = 420;
+      current_statement__ = 490;
       aux_id = context__.vals_i("aux_id");
-      current_statement__ = 420;
+      current_statement__ = 490;
       stan::math::check_greater_or_equal(function__, "aux_id", aux_id, 1);
-      current_statement__ = 421;
+      current_statement__ = 491;
       stan::math::validate_non_negative_index("aux_group",
         "ni_ipd + ni_agd_arm * (aux_int ? nint_max : 1)", (ni_ipd +
         (ni_agd_arm * (aux_int ? nint_max : 1))));
-      current_statement__ = 422;
+      current_statement__ = 492;
       context__.validate_dims("data initialization", "aux_group", "int",
         std::vector<size_t>{static_cast<size_t>((ni_ipd + (ni_agd_arm *
                               (aux_int ? nint_max : 1))))});
       aux_group = std::vector<int>((ni_ipd + (ni_agd_arm *
                     (aux_int ? nint_max : 1))),
                     std::numeric_limits<int>::min());
-      current_statement__ = 422;
+      current_statement__ = 492;
       aux_group = context__.vals_i("aux_group");
-      current_statement__ = 422;
+      current_statement__ = 492;
       stan::math::check_greater_or_equal(function__, "aux_group", aux_group,
         1);
-      current_statement__ = 423;
+      current_statement__ = 493;
       context__.validate_dims("data initialization", "nX_aux", "int",
         std::vector<size_t>{});
       nX_aux = std::numeric_limits<int>::min();
-      current_statement__ = 423;
+      current_statement__ = 493;
       nX_aux = context__.vals_i("nX_aux")[(1 - 1)];
-      current_statement__ = 423;
+      current_statement__ = 493;
       stan::math::check_greater_or_equal(function__, "nX_aux", nX_aux, 0);
-      current_statement__ = 424;
+      current_statement__ = 494;
       stan::math::validate_non_negative_index("X_aux",
         "ni_ipd + (aux_int ? nint_max : 1) * ni_agd_arm", (ni_ipd +
         ((aux_int ? nint_max : 1) * ni_agd_arm)));
-      current_statement__ = 425;
+      current_statement__ = 495;
       stan::math::validate_non_negative_index("X_aux", "nX_aux", nX_aux);
-      current_statement__ = 426;
+      current_statement__ = 496;
       context__.validate_dims("data initialization", "X_aux", "double",
         std::vector<size_t>{static_cast<size_t>((ni_ipd +
                               ((aux_int ? nint_max : 1) * ni_agd_arm))),
@@ -4773,176 +5198,176 @@ public:
         + ((aux_int ? nint_max : 1) * ni_agd_arm)), nX_aux);
       {
         std::vector<local_scalar_t__> X_aux_flat__;
-        current_statement__ = 426;
+        current_statement__ = 496;
         X_aux_flat__ = context__.vals_r("X_aux");
-        current_statement__ = 426;
+        current_statement__ = 496;
         pos__ = 1;
-        current_statement__ = 426;
+        current_statement__ = 496;
         for (int sym1__ = 1; sym1__ <= nX_aux; ++sym1__) {
-          current_statement__ = 426;
+          current_statement__ = 496;
           for (int sym2__ = 1; sym2__ <= (ni_ipd + ((aux_int ? nint_max : 1)
                * ni_agd_arm)); ++sym2__) {
-            current_statement__ = 426;
+            current_statement__ = 496;
             stan::model::assign(X_aux, X_aux_flat__[(pos__ - 1)],
               "assigning variable X_aux", stan::model::index_uni(sym2__),
               stan::model::index_uni(sym1__));
-            current_statement__ = 426;
+            current_statement__ = 496;
             pos__ = (pos__ + 1);
           }
         }
       }
-      current_statement__ = 427;
+      current_statement__ = 497;
       context__.validate_dims("data initialization", "aux_reg_trt", "int",
         std::vector<size_t>{});
       aux_reg_trt = std::numeric_limits<int>::min();
-      current_statement__ = 427;
+      current_statement__ = 497;
       aux_reg_trt = context__.vals_i("aux_reg_trt")[(1 - 1)];
-      current_statement__ = 427;
+      current_statement__ = 497;
       stan::math::check_greater_or_equal(function__, "aux_reg_trt",
         aux_reg_trt, 0);
-      current_statement__ = 427;
+      current_statement__ = 497;
       stan::math::check_less_or_equal(function__, "aux_reg_trt", aux_reg_trt,
         1);
-      current_statement__ = 428;
+      current_statement__ = 498;
       context__.validate_dims("data initialization", "prior_aux_reg_dist",
         "int", std::vector<size_t>{});
       prior_aux_reg_dist = std::numeric_limits<int>::min();
-      current_statement__ = 428;
+      current_statement__ = 498;
       prior_aux_reg_dist = context__.vals_i("prior_aux_reg_dist")[(1 - 1)];
-      current_statement__ = 428;
+      current_statement__ = 498;
       stan::math::check_greater_or_equal(function__, "prior_aux_reg_dist",
         prior_aux_reg_dist, 0);
-      current_statement__ = 428;
+      current_statement__ = 498;
       stan::math::check_less_or_equal(function__, "prior_aux_reg_dist",
         prior_aux_reg_dist, 6);
-      current_statement__ = 429;
+      current_statement__ = 499;
       context__.validate_dims("data initialization",
         "prior_aux_reg_location", "double", std::vector<size_t>{});
       prior_aux_reg_location = std::numeric_limits<double>::quiet_NaN();
-      current_statement__ = 429;
+      current_statement__ = 499;
       prior_aux_reg_location = context__.vals_r("prior_aux_reg_location")[(1
         - 1)];
-      current_statement__ = 429;
+      current_statement__ = 499;
       stan::math::check_greater_or_equal(function__,
         "prior_aux_reg_location", prior_aux_reg_location, 0);
-      current_statement__ = 430;
+      current_statement__ = 500;
       context__.validate_dims("data initialization", "prior_aux_reg_scale",
         "double", std::vector<size_t>{});
       prior_aux_reg_scale = std::numeric_limits<double>::quiet_NaN();
-      current_statement__ = 430;
+      current_statement__ = 500;
       prior_aux_reg_scale = context__.vals_r("prior_aux_reg_scale")[(1 - 1)];
-      current_statement__ = 430;
+      current_statement__ = 500;
       stan::math::check_greater_or_equal(function__, "prior_aux_reg_scale",
         prior_aux_reg_scale, 0);
-      current_statement__ = 431;
+      current_statement__ = 501;
       context__.validate_dims("data initialization", "prior_aux_reg_df",
         "double", std::vector<size_t>{});
       prior_aux_reg_df = std::numeric_limits<double>::quiet_NaN();
-      current_statement__ = 431;
+      current_statement__ = 501;
       prior_aux_reg_df = context__.vals_r("prior_aux_reg_df")[(1 - 1)];
-      current_statement__ = 431;
+      current_statement__ = 501;
       stan::math::check_greater_or_equal(function__, "prior_aux_reg_df",
         prior_aux_reg_df, 0);
-      current_statement__ = 432;
+      current_statement__ = 502;
       nonexp = std::numeric_limits<int>::min();
-      current_statement__ = 432;
+      current_statement__ = 502;
       nonexp = ((stan::math::primitive_value(stan::math::logical_eq(dist, 1))
         ||
         stan::math::primitive_value(stan::math::logical_eq(dist, 4))) ? 0 : 1);
-      current_statement__ = 433;
+      current_statement__ = 503;
       gengamma = std::numeric_limits<int>::min();
-      current_statement__ = 433;
+      current_statement__ = 503;
       gengamma = (stan::math::logical_gte(dist, 9) ? 1 : 0);
-      current_statement__ = 434;
+      current_statement__ = 504;
       n_aux = std::numeric_limits<int>::min();
-      current_statement__ = 434;
+      current_statement__ = 504;
       n_aux = (nonexp ? stan::math::max(aux_id) : 0);
-      current_statement__ = 435;
+      current_statement__ = 505;
       n_aux_group = std::numeric_limits<int>::min();
-      current_statement__ = 435;
+      current_statement__ = 505;
       n_aux_group = (nonexp ? stan::math::max(aux_group) : 0);
-      current_statement__ = 436;
+      current_statement__ = 506;
       stan::math::validate_non_negative_index("agd_arm_arm2", "ni_agd_arm",
         ni_agd_arm);
-      current_statement__ = 437;
+      current_statement__ = 507;
       agd_arm_arm2 = std::vector<int>(ni_agd_arm,
                        std::numeric_limits<int>::min());
-      current_statement__ = 438;
+      current_statement__ = 508;
       stan::math::validate_non_negative_index("aux_id_ipd", "ni_ipd", ni_ipd);
-      current_statement__ = 439;
+      current_statement__ = 509;
       aux_id_ipd = std::vector<int>(ni_ipd, std::numeric_limits<int>::min());
-      current_statement__ = 439;
+      current_statement__ = 509;
       stan::model::assign(aux_id_ipd,
         stan::model::rvalue(aux_id, "aux_id",
           stan::model::index_min_max(1, ni_ipd)),
         "assigning variable aux_id_ipd");
-      current_statement__ = 440;
+      current_statement__ = 510;
       stan::math::validate_non_negative_index("aux_id_agd_arm",
         "ni_agd_arm * (aux_int ? nint_max : 1)", (ni_agd_arm *
         (aux_int ? nint_max : 1)));
-      current_statement__ = 441;
+      current_statement__ = 511;
       aux_id_agd_arm = std::vector<int>((ni_agd_arm *
                          (aux_int ? nint_max : 1)),
                          std::numeric_limits<int>::min());
-      current_statement__ = 441;
+      current_statement__ = 511;
       stan::model::assign(aux_id_agd_arm,
         stan::model::rvalue(aux_id, "aux_id",
           stan::model::index_min_max((ni_ipd + 1), (ni_ipd + (ni_agd_arm *
             (aux_int ? nint_max : 1))))), "assigning variable aux_id_agd_arm");
-      current_statement__ = 442;
+      current_statement__ = 512;
       stan::math::validate_non_negative_index("aux_group_ipd", "ni_ipd",
         ni_ipd);
-      current_statement__ = 443;
+      current_statement__ = 513;
       aux_group_ipd = std::vector<int>(ni_ipd,
                         std::numeric_limits<int>::min());
-      current_statement__ = 443;
+      current_statement__ = 513;
       stan::model::assign(aux_group_ipd,
         stan::model::rvalue(aux_group, "aux_group",
           stan::model::index_min_max(1, ni_ipd)),
         "assigning variable aux_group_ipd");
-      current_statement__ = 444;
+      current_statement__ = 514;
       stan::math::validate_non_negative_index("aux_group_agd_arm",
         "ni_agd_arm * (aux_int ? nint_max : 1)", (ni_agd_arm *
         (aux_int ? nint_max : 1)));
-      current_statement__ = 445;
+      current_statement__ = 515;
       aux_group_agd_arm = std::vector<int>((ni_agd_arm *
                             (aux_int ? nint_max : 1)),
                             std::numeric_limits<int>::min());
-      current_statement__ = 445;
+      current_statement__ = 515;
       stan::model::assign(aux_group_agd_arm,
         stan::model::rvalue(aux_group, "aux_group",
           stan::model::index_min_max((ni_ipd + 1), (ni_ipd + (ni_agd_arm *
             (aux_int ? nint_max : 1))))),
         "assigning variable aux_group_agd_arm");
-      current_statement__ = 446;
+      current_statement__ = 516;
       stan::math::validate_non_negative_index("ni_aux_group_ipd",
         "(nonexp && aux_int == 0) ? n_aux_group : 1",
         ((stan::math::primitive_value(nonexp) &&
         stan::math::primitive_value(stan::math::logical_eq(aux_int, 0))) ? n_aux_group : 1));
-      current_statement__ = 447;
+      current_statement__ = 517;
       ni_aux_group_ipd = std::vector<int>(((stan::math::primitive_value(
                                               nonexp) &&
                            stan::math::primitive_value(
                              stan::math::logical_eq(aux_int, 0))) ? n_aux_group : 1),
                            std::numeric_limits<int>::min());
-      current_statement__ = 447;
+      current_statement__ = 517;
       stan::model::assign(ni_aux_group_ipd,
         ((stan::math::primitive_value(nonexp) &&
         stan::math::primitive_value(stan::math::logical_eq(aux_int, 0))) ? 
         nwhich_all(aux_group_ipd, n_aux_group, pstream__) : std::vector<int>{0}),
         "assigning variable ni_aux_group_ipd");
-      current_statement__ = 448;
+      current_statement__ = 518;
       stan::math::validate_non_negative_index("wi_aux_group_ipd",
         "(nonexp && aux_int == 0) ? n_aux_group : 0",
         ((stan::math::primitive_value(nonexp) &&
         stan::math::primitive_value(stan::math::logical_eq(aux_int, 0))) ? n_aux_group : 0));
-      current_statement__ = 449;
+      current_statement__ = 519;
       stan::math::validate_non_negative_index("wi_aux_group_ipd",
         "(nonexp && aux_int == 0) ? max(ni_aux_group_ipd) : 0",
         ((stan::math::primitive_value(nonexp) &&
         stan::math::primitive_value(stan::math::logical_eq(aux_int, 0))) ? 
         stan::math::max(ni_aux_group_ipd) : 0));
-      current_statement__ = 450;
+      current_statement__ = 520;
       wi_aux_group_ipd = std::vector<std::vector<int>>(((stan::math::primitive_value(
                                                            nonexp) &&
                            stan::math::primitive_value(
@@ -4953,36 +5378,36 @@ public:
                                stan::math::logical_eq(aux_int, 0))) ? 
                              stan::math::max(ni_aux_group_ipd) : 0),
                              std::numeric_limits<int>::min()));
-      current_statement__ = 451;
+      current_statement__ = 521;
       stan::math::validate_non_negative_index("ni_aux_group_agd_arm",
         "(nonexp && aux_int == 0) ? n_aux_group : 1",
         ((stan::math::primitive_value(nonexp) &&
         stan::math::primitive_value(stan::math::logical_eq(aux_int, 0))) ? n_aux_group : 1));
-      current_statement__ = 452;
+      current_statement__ = 522;
       ni_aux_group_agd_arm = std::vector<int>(((stan::math::primitive_value(
                                                   nonexp) &&
                                stan::math::primitive_value(
                                  stan::math::logical_eq(aux_int, 0))) ? n_aux_group : 1),
                                std::numeric_limits<int>::min());
-      current_statement__ = 452;
+      current_statement__ = 522;
       stan::model::assign(ni_aux_group_agd_arm,
         ((stan::math::primitive_value(nonexp) &&
         stan::math::primitive_value(stan::math::logical_eq(aux_int, 0))) ? 
         nwhich_all(aux_group_agd_arm, n_aux_group, pstream__) : std::vector<
                                                                   int>{0}),
         "assigning variable ni_aux_group_agd_arm");
-      current_statement__ = 453;
+      current_statement__ = 523;
       stan::math::validate_non_negative_index("wi_aux_group_agd_arm",
         "(nonexp && aux_int == 0) ? n_aux_group : 0",
         ((stan::math::primitive_value(nonexp) &&
         stan::math::primitive_value(stan::math::logical_eq(aux_int, 0))) ? n_aux_group : 0));
-      current_statement__ = 454;
+      current_statement__ = 524;
       stan::math::validate_non_negative_index("wi_aux_group_agd_arm",
         "(nonexp && aux_int == 0) ? max(ni_aux_group_agd_arm) : 0",
         ((stan::math::primitive_value(nonexp) &&
         stan::math::primitive_value(stan::math::logical_eq(aux_int, 0))) ? 
         stan::math::max(ni_aux_group_agd_arm) : 0));
-      current_statement__ = 455;
+      current_statement__ = 525;
       wi_aux_group_agd_arm = std::vector<std::vector<int>>(((stan::math::primitive_value(
                                                                nonexp) &&
                                stan::math::primitive_value(
@@ -4993,191 +5418,191 @@ public:
                                    stan::math::logical_eq(aux_int, 0))) ? 
                                  stan::math::max(ni_aux_group_agd_arm) : 0),
                                  std::numeric_limits<int>::min()));
-      current_statement__ = 456;
+      current_statement__ = 526;
       stan::math::validate_non_negative_index("Xauxdummy", "nX_aux", nX_aux);
-      current_statement__ = 457;
+      current_statement__ = 527;
       Xauxdummy_data__ = Eigen::Matrix<double,-1,-1>::Constant(0, nX_aux,
                            std::numeric_limits<double>::quiet_NaN());
       new (&Xauxdummy)
         Eigen::Map<Eigen::Matrix<double,-1,-1>>(Xauxdummy_data__.data(), 0,
         nX_aux);
-      current_statement__ = 458;
+      current_statement__ = 528;
       stan::math::validate_non_negative_index("X_aux_ipd", "ni_ipd", ni_ipd);
-      current_statement__ = 459;
+      current_statement__ = 529;
       stan::math::validate_non_negative_index("X_aux_ipd", "nX_aux", nX_aux);
-      current_statement__ = 460;
+      current_statement__ = 530;
       X_aux_ipd_data__ = Eigen::Matrix<double,-1,-1>::Constant(ni_ipd,
                            nX_aux, std::numeric_limits<double>::quiet_NaN());
       new (&X_aux_ipd)
         Eigen::Map<Eigen::Matrix<double,-1,-1>>(X_aux_ipd_data__.data(),
         ni_ipd, nX_aux);
-      current_statement__ = 460;
+      current_statement__ = 530;
       stan::model::assign(X_aux_ipd,
         (ni_ipd ? stan::math::eval(
                     stan::model::rvalue(X_aux, "X_aux",
                       stan::model::index_min_max(1, ni_ipd))) : stan::math::eval(
                                                                   Xauxdummy)),
         "assigning variable X_aux_ipd");
-      current_statement__ = 461;
+      current_statement__ = 531;
       stan::math::validate_non_negative_index("X_aux_agd_arm",
         "(aux_int ? nint_max : 1) * ni_agd_arm", ((aux_int ? nint_max : 1) *
         ni_agd_arm));
-      current_statement__ = 462;
+      current_statement__ = 532;
       stan::math::validate_non_negative_index("X_aux_agd_arm", "nX_aux",
         nX_aux);
-      current_statement__ = 463;
+      current_statement__ = 533;
       X_aux_agd_arm_data__ = Eigen::Matrix<double,-1,-1>::Constant(((aux_int ? nint_max : 1)
                                * ni_agd_arm), nX_aux,
                                std::numeric_limits<double>::quiet_NaN());
       new (&X_aux_agd_arm)
         Eigen::Map<Eigen::Matrix<double,-1,-1>>(X_aux_agd_arm_data__.data(),
         ((aux_int ? nint_max : 1) * ni_agd_arm), nX_aux);
-      current_statement__ = 463;
+      current_statement__ = 533;
       stan::model::assign(X_aux_agd_arm,
         (ni_agd_arm ? stan::math::eval(
                         stan::model::rvalue(X_aux, "X_aux",
                           stan::model::index_min_max((ni_ipd + 1), (ni_ipd +
                             ((aux_int ? nint_max : 1) * ni_agd_arm))))) : 
         stan::math::eval(Xauxdummy)), "assigning variable X_aux_agd_arm");
-      current_statement__ = 464;
+      current_statement__ = 534;
       nint = std::numeric_limits<int>::min();
-      current_statement__ = 464;
+      current_statement__ = 534;
       nint = stan::model::rvalue(nint_vec, "nint_vec",
                stan::model::index_uni(CHAIN_ID));
-      current_statement__ = 465;
+      current_statement__ = 535;
       n_delta = std::numeric_limits<int>::min();
-      current_statement__ = 465;
+      current_statement__ = 535;
       n_delta = (RE ? stan::math::max(which_RE) : 0);
-      current_statement__ = 466;
+      current_statement__ = 536;
       stan::math::validate_non_negative_index("RE_mu", "n_delta", n_delta);
-      current_statement__ = 467;
+      current_statement__ = 537;
       RE_mu_data__ = Eigen::Matrix<double,-1,1>::Constant(n_delta,
                        std::numeric_limits<double>::quiet_NaN());
       new (&RE_mu)
         Eigen::Map<Eigen::Matrix<double,-1,1>>(RE_mu_data__.data(), n_delta);
-      current_statement__ = 467;
+      current_statement__ = 537;
       stan::model::assign(RE_mu, stan::math::rep_vector(0, n_delta),
         "assigning variable RE_mu");
-      current_statement__ = 468;
+      current_statement__ = 538;
       REdummy_data__ = Eigen::Matrix<double,-1,-1>::Constant(0, 0,
                          std::numeric_limits<double>::quiet_NaN());
       new (&REdummy)
         Eigen::Map<Eigen::Matrix<double,-1,-1>>(REdummy_data__.data(), 0, 0);
-      current_statement__ = 469;
+      current_statement__ = 539;
       stan::math::validate_non_negative_index("RE_L", "n_delta", n_delta);
-      current_statement__ = 469;
+      current_statement__ = 539;
       stan::math::validate_non_negative_index("RE_L", "n_delta", n_delta);
-      current_statement__ = 470;
+      current_statement__ = 540;
       RE_L_data__ = Eigen::Matrix<double,-1,-1>::Constant(n_delta, n_delta,
                       std::numeric_limits<double>::quiet_NaN());
       new (&RE_L) Eigen::Map<Eigen::Matrix<double,-1,-1>>(RE_L_data__.data(),
         n_delta, n_delta);
-      current_statement__ = 470;
+      current_statement__ = 540;
       stan::model::assign(RE_L,
         (n_delta ? stan::math::eval(stan::math::cholesky_decompose(RE_cor)) : 
         stan::math::eval(REdummy)), "assigning variable RE_L");
-      current_statement__ = 471;
+      current_statement__ = 541;
       wdummy_data__ = Eigen::Matrix<double,-1,1>::Constant(0,
                         std::numeric_limits<double>::quiet_NaN());
       new (&wdummy)
         Eigen::Map<Eigen::Matrix<double,-1,1>>(wdummy_data__.data(), 0);
-      current_statement__ = 472;
+      current_statement__ = 542;
       vudummy = std::vector<int>(0, std::numeric_limits<int>::min());
-      current_statement__ = 473;
+      current_statement__ = 543;
       RE_L_nz = std::numeric_limits<int>::min();
-      current_statement__ = 473;
+      current_statement__ = 543;
       RE_L_nz = count_nonzero(RE_L, pstream__);
-      current_statement__ = 474;
+      current_statement__ = 544;
       RE_sparse = std::numeric_limits<int>::min();
-      current_statement__ = 474;
+      current_statement__ = 544;
       RE_sparse = stan::math::logical_lte(((RE_L_nz * 1.0) /
                     stan::math::num_elements(RE_L)), 0.1);
-      current_statement__ = 475;
+      current_statement__ = 545;
       stan::math::validate_non_negative_index("RE_L_w",
         "RE_sparse ? RE_L_nz : 0", (RE_sparse ? RE_L_nz : 0));
-      current_statement__ = 476;
+      current_statement__ = 546;
       RE_L_w_data__ = Eigen::Matrix<double,-1,1>::Constant((RE_sparse ? RE_L_nz : 0),
                         std::numeric_limits<double>::quiet_NaN());
       new (&RE_L_w)
         Eigen::Map<Eigen::Matrix<double,-1,1>>(RE_L_w_data__.data(),
         (RE_sparse ? RE_L_nz : 0));
-      current_statement__ = 476;
+      current_statement__ = 546;
       stan::model::assign(RE_L_w,
         (RE_sparse ? stan::math::eval(stan::math::csr_extract_w(RE_L)) : 
         stan::math::eval(wdummy)), "assigning variable RE_L_w");
-      current_statement__ = 477;
+      current_statement__ = 547;
       stan::math::validate_non_negative_index("RE_L_v",
         "RE_sparse ? RE_L_nz : 0", (RE_sparse ? RE_L_nz : 0));
-      current_statement__ = 478;
+      current_statement__ = 548;
       RE_L_v = std::vector<int>((RE_sparse ? RE_L_nz : 0),
                  std::numeric_limits<int>::min());
-      current_statement__ = 478;
+      current_statement__ = 548;
       stan::model::assign(RE_L_v,
         (RE_sparse ? stan::math::csr_extract_v(RE_L) : vudummy),
         "assigning variable RE_L_v");
-      current_statement__ = 479;
+      current_statement__ = 549;
       stan::math::validate_non_negative_index("RE_L_u",
         "RE_sparse ? n_delta + 1 : 0", (RE_sparse ? (n_delta + 1) : 0));
-      current_statement__ = 480;
+      current_statement__ = 550;
       RE_L_u = std::vector<int>((RE_sparse ? (n_delta + 1) : 0),
                  std::numeric_limits<int>::min());
-      current_statement__ = 480;
+      current_statement__ = 550;
       stan::model::assign(RE_L_u,
         (RE_sparse ? stan::math::csr_extract_u(RE_L) : vudummy),
         "assigning variable RE_L_u");
-      current_statement__ = 481;
+      current_statement__ = 551;
       totns = std::numeric_limits<int>::min();
-      current_statement__ = 481;
+      current_statement__ = 551;
       totns = (ns_ipd + ns_agd_arm);
-      current_statement__ = 482;
+      current_statement__ = 552;
       stan::math::validate_non_negative_index("trt",
         "narm_ipd + narm_agd_arm + ni_agd_contrast", ((narm_ipd +
         narm_agd_arm) + ni_agd_contrast));
-      current_statement__ = 483;
+      current_statement__ = 553;
       trt = std::vector<int>(((narm_ipd + narm_agd_arm) + ni_agd_contrast),
               std::numeric_limits<int>::min());
-      current_statement__ = 483;
+      current_statement__ = 553;
       stan::model::assign(trt,
         stan::math::append_array(
           stan::math::append_array(ipd_trt, agd_arm_trt), agd_contrast_trt),
         "assigning variable trt");
-      current_statement__ = 484;
+      current_statement__ = 554;
       stan::math::validate_non_negative_index("Xdummy", "nX", nX);
-      current_statement__ = 485;
+      current_statement__ = 555;
       Xdummy_data__ = Eigen::Matrix<double,-1,-1>::Constant(0, nX,
                         std::numeric_limits<double>::quiet_NaN());
       new (&Xdummy)
         Eigen::Map<Eigen::Matrix<double,-1,-1>>(Xdummy_data__.data(), 0, nX);
-      current_statement__ = 486;
+      current_statement__ = 556;
       stan::math::validate_non_negative_index("X_ipd", "ni_ipd", ni_ipd);
-      current_statement__ = 487;
+      current_statement__ = 557;
       stan::math::validate_non_negative_index("X_ipd", "nX", nX);
-      current_statement__ = 488;
+      current_statement__ = 558;
       X_ipd_data__ = Eigen::Matrix<double,-1,-1>::Constant(ni_ipd, nX,
                        std::numeric_limits<double>::quiet_NaN());
       new (&X_ipd)
         Eigen::Map<Eigen::Matrix<double,-1,-1>>(X_ipd_data__.data(), ni_ipd,
         nX);
-      current_statement__ = 488;
+      current_statement__ = 558;
       stan::model::assign(X_ipd,
         (ni_ipd ? stan::math::eval(
                     stan::model::rvalue(X, "X",
                       stan::model::index_min_max(1, ni_ipd))) : stan::math::eval(
                                                                   Xdummy)),
         "assigning variable X_ipd");
-      current_statement__ = 489;
+      current_statement__ = 559;
       stan::math::validate_non_negative_index("X_agd_arm",
         "nint_max * ni_agd_arm", (nint_max * ni_agd_arm));
-      current_statement__ = 490;
+      current_statement__ = 560;
       stan::math::validate_non_negative_index("X_agd_arm", "nX", nX);
-      current_statement__ = 491;
+      current_statement__ = 561;
       X_agd_arm_data__ = Eigen::Matrix<double,-1,-1>::Constant((nint_max *
                            ni_agd_arm), nX,
                            std::numeric_limits<double>::quiet_NaN());
       new (&X_agd_arm)
         Eigen::Map<Eigen::Matrix<double,-1,-1>>(X_agd_arm_data__.data(),
         (nint_max * ni_agd_arm), nX);
-      current_statement__ = 491;
+      current_statement__ = 561;
       stan::model::assign(X_agd_arm,
         (ni_agd_arm ? stan::math::eval(
                         stan::model::rvalue(X, "X",
@@ -5185,19 +5610,19 @@ public:
                             (nint_max * ni_agd_arm))))) : stan::math::eval(
                                                             Xdummy)),
         "assigning variable X_agd_arm");
-      current_statement__ = 492;
+      current_statement__ = 562;
       stan::math::validate_non_negative_index("X_agd_contrast",
         "nint_max * ni_agd_contrast", (nint_max * ni_agd_contrast));
-      current_statement__ = 493;
+      current_statement__ = 563;
       stan::math::validate_non_negative_index("X_agd_contrast", "nX", nX);
-      current_statement__ = 494;
+      current_statement__ = 564;
       X_agd_contrast_data__ = Eigen::Matrix<double,-1,-1>::Constant((nint_max
                                 * ni_agd_contrast), nX,
                                 std::numeric_limits<double>::quiet_NaN());
       new (&X_agd_contrast)
         Eigen::Map<Eigen::Matrix<double,-1,-1>>(X_agd_contrast_data__.data(),
         (nint_max * ni_agd_contrast), nX);
-      current_statement__ = 494;
+      current_statement__ = 564;
       stan::model::assign(X_agd_contrast,
         (ni_agd_contrast ? stan::math::eval(
                              stan::model::rvalue(X, "X",
@@ -5205,17 +5630,17 @@ public:
                                  (nint_max * ni_agd_arm)) + 1), (ni_ipd +
                                  (nint_max * (ni_agd_arm + ni_agd_contrast)))))) : 
         stan::math::eval(Xdummy)), "assigning variable X_agd_contrast");
-      current_statement__ = 495;
+      current_statement__ = 565;
       odummy_data__ = Eigen::Matrix<double,-1,1>::Constant(0,
                         std::numeric_limits<double>::quiet_NaN());
       new (&odummy)
         Eigen::Map<Eigen::Matrix<double,-1,1>>(odummy_data__.data(), 0);
-      current_statement__ = 496;
+      current_statement__ = 566;
       stan::math::validate_non_negative_index("offset_ipd",
         "has_offset && ni_ipd ? ni_ipd : 0",
         ((stan::math::primitive_value(has_offset) &&
         stan::math::primitive_value(ni_ipd)) ? ni_ipd : 0));
-      current_statement__ = 497;
+      current_statement__ = 567;
       offset_ipd_data__ = Eigen::Matrix<double,-1,1>::Constant(((stan::math::primitive_value(
                                                                    has_offset)
                             &&
@@ -5225,7 +5650,7 @@ public:
         Eigen::Map<Eigen::Matrix<double,-1,1>>(offset_ipd_data__.data(),
         ((stan::math::primitive_value(has_offset) &&
         stan::math::primitive_value(ni_ipd)) ? ni_ipd : 0));
-      current_statement__ = 497;
+      current_statement__ = 567;
       stan::model::assign(offset_ipd,
         ((stan::math::primitive_value(has_offset) &&
         stan::math::primitive_value(ni_ipd)) ? stan::math::eval(
@@ -5235,13 +5660,13 @@ public:
                                                      1, ni_ipd))) : stan::math::eval(
                                                                     odummy)),
         "assigning variable offset_ipd");
-      current_statement__ = 498;
+      current_statement__ = 568;
       stan::math::validate_non_negative_index("offset_agd_arm",
         "has_offset && ni_agd_arm ? nint_max * ni_agd_arm : 0",
         ((stan::math::primitive_value(has_offset) &&
         stan::math::primitive_value(ni_agd_arm)) ? (nint_max *
         ni_agd_arm) : 0));
-      current_statement__ = 499;
+      current_statement__ = 569;
       offset_agd_arm_data__ = Eigen::Matrix<double,-1,1>::Constant(((
                                 stan::math::primitive_value(has_offset) &&
                                 stan::math::primitive_value(ni_agd_arm)) ? (nint_max
@@ -5252,7 +5677,7 @@ public:
         ((stan::math::primitive_value(has_offset) &&
         stan::math::primitive_value(ni_agd_arm)) ? (nint_max *
         ni_agd_arm) : 0));
-      current_statement__ = 499;
+      current_statement__ = 569;
       stan::model::assign(offset_agd_arm,
         ((stan::math::primitive_value(has_offset) &&
         stan::math::primitive_value(ni_agd_arm)) ? stan::math::eval(
@@ -5263,13 +5688,13 @@ public:
                                                          (ni_ipd + (nint_max
                                                          * ni_agd_arm))))) : 
         stan::math::eval(odummy)), "assigning variable offset_agd_arm");
-      current_statement__ = 500;
+      current_statement__ = 570;
       stan::math::validate_non_negative_index("offset_agd_contrast",
         "has_offset && ni_agd_contrast ? nint_max * ni_agd_contrast : 0",
         ((stan::math::primitive_value(has_offset) &&
         stan::math::primitive_value(ni_agd_contrast)) ? (nint_max *
         ni_agd_contrast) : 0));
-      current_statement__ = 501;
+      current_statement__ = 571;
       offset_agd_contrast_data__ = Eigen::Matrix<double,-1,1>::Constant(((
                                      stan::math::primitive_value(has_offset)
                                      &&
@@ -5282,7 +5707,7 @@ public:
         ((stan::math::primitive_value(has_offset) &&
         stan::math::primitive_value(ni_agd_contrast)) ? (nint_max *
         ni_agd_contrast) : 0));
-      current_statement__ = 501;
+      current_statement__ = 571;
       stan::model::assign(offset_agd_contrast,
         ((stan::math::primitive_value(has_offset) &&
         stan::math::primitive_value(ni_agd_contrast)) ? stan::math::eval(
@@ -5298,23 +5723,23 @@ public:
                                                               (ni_agd_arm +
                                                               ni_agd_contrast)))))) : 
         stan::math::eval(odummy)), "assigning variable offset_agd_contrast");
-      current_statement__ = 502;
+      current_statement__ = 572;
       n_int_thin = std::numeric_limits<int>::min();
-      current_statement__ = 502;
+      current_statement__ = 572;
       n_int_thin = ((stan::math::primitive_value(
                        stan::math::logical_gt(nint_max, 1))
         &&
         stan::math::primitive_value(stan::math::logical_gt(int_thin, 0))) ? (nint
         / int_thin) : 0);
-      current_statement__ = 503;
+      current_statement__ = 573;
       stan::math::validate_non_negative_index("inv_Sigma",
         "ni_agd_contrast ? ni_agd_contrast : 1",
         (ni_agd_contrast ? ni_agd_contrast : 1));
-      current_statement__ = 504;
+      current_statement__ = 574;
       stan::math::validate_non_negative_index("inv_Sigma",
         "ni_agd_contrast ? ni_agd_contrast : 1",
         (ni_agd_contrast ? ni_agd_contrast : 1));
-      current_statement__ = 505;
+      current_statement__ = 575;
       inv_Sigma_data__ = Eigen::Matrix<double,-1,-1>::Constant((ni_agd_contrast ? ni_agd_contrast : 1),
                            (ni_agd_contrast ? ni_agd_contrast : 1),
                            std::numeric_limits<double>::quiet_NaN());
@@ -5322,64 +5747,137 @@ public:
         Eigen::Map<Eigen::Matrix<double,-1,-1>>(inv_Sigma_data__.data(),
         (ni_agd_contrast ? ni_agd_contrast : 1),
         (ni_agd_contrast ? ni_agd_contrast : 1));
-      current_statement__ = 505;
+      current_statement__ = 575;
       stan::model::assign(inv_Sigma,
         stan::math::inverse_spd(agd_contrast_Sigma),
         "assigning variable inv_Sigma");
-      current_statement__ = 506;
+      current_statement__ = 576;
       stan::math::validate_non_negative_index("nc_agd_contrast",
         "ns_agd_contrast", ns_agd_contrast);
-      current_statement__ = 507;
+      current_statement__ = 577;
       nc_agd_contrast = std::vector<int>(ns_agd_contrast,
                           std::numeric_limits<int>::min());
-      current_statement__ = 521;
+      current_statement__ = 591;
       if (ns_agd_contrast) {
         int s = std::numeric_limits<int>::min();
-        current_statement__ = 508;
+        current_statement__ = 578;
         s = 1;
         int c = std::numeric_limits<int>::min();
-        current_statement__ = 509;
+        current_statement__ = 579;
         c = 1;
-        current_statement__ = 518;
+        current_statement__ = 588;
         for (int i = 1; i <= (ni_agd_contrast - 1); ++i) {
-          current_statement__ = 516;
+          current_statement__ = 586;
           if (stan::math::logical_eq(
                 stan::model::rvalue(agd_contrast_Sigma, "agd_contrast_Sigma",
                   stan::model::index_uni(i), stan::model::index_uni((i + 1))),
                 0)) {
-            current_statement__ = 512;
+            current_statement__ = 582;
             stan::model::assign(nc_agd_contrast, c,
               "assigning variable nc_agd_contrast", stan::model::index_uni(s));
-            current_statement__ = 513;
+            current_statement__ = 583;
             s = (s + 1);
-            current_statement__ = 514;
+            current_statement__ = 584;
             c = 1;
           } else {
-            current_statement__ = 510;
+            current_statement__ = 580;
             c = (c + 1);
           }
         }
-        current_statement__ = 519;
+        current_statement__ = 589;
         stan::model::assign(nc_agd_contrast, c,
           "assigning variable nc_agd_contrast", stan::model::index_uni(s));
       }
-      current_statement__ = 523;
+      current_statement__ = 592;
+      n_class = std::numeric_limits<int>::min();
+      current_statement__ = 592;
+      n_class = (class_effects ? stan::math::max(which_CE) : 0);
+      current_statement__ = 593;
+      stan::math::validate_non_negative_index("which_class",
+        "class_effects ? nt - 1 : 0", (class_effects ? (nt - 1) : 0));
+      current_statement__ = 594;
+      which_class = std::vector<int>((class_effects ? (nt - 1) : 0),
+                      std::numeric_limits<int>::min());
+      current_statement__ = 595;
+      stan::math::validate_non_negative_index("which_class_sd",
+        "class_effects ? n_class : 0", (class_effects ? n_class : 0));
+      current_statement__ = 596;
+      which_class_sd = std::vector<int>((class_effects ? n_class : 0),
+                         std::numeric_limits<int>::min());
+      current_statement__ = 597;
+      n_class_trts = std::numeric_limits<int>::min();
+      current_statement__ = 597;
+      n_class_trts = stan::math::num_elements(which_gt0a(which_CE, pstream__));
+      current_statement__ = 598;
+      stan::math::validate_non_negative_index("which_class_trt",
+        "n_class_trts", n_class_trts);
+      current_statement__ = 599;
+      which_class_trt = std::vector<int>(n_class_trts,
+                          std::numeric_limits<int>::min());
+      current_statement__ = 599;
+      stan::model::assign(which_class_trt, which_gt0a(which_CE, pstream__),
+        "assigning variable which_class_trt");
+      current_statement__ = 609;
+      if (class_effects) {
+        current_statement__ = 607;
+        for (int c = 1; c <= n_class; ++c) {
+          current_statement__ = 605;
+          for (int t = 1; t <= (nt - 1); ++t) {
+            current_statement__ = 603;
+            if (stan::math::logical_eq(
+                  stan::model::rvalue(which_CE, "which_CE",
+                    stan::model::index_uni(t)), c)) {
+              current_statement__ = 600;
+              stan::model::assign(which_class_sd,
+                stan::model::rvalue(which_CE_sd, "which_CE_sd",
+                  stan::model::index_uni(t)),
+                "assigning variable which_class_sd",
+                stan::model::index_uni(c));
+              break;
+            }
+          }
+        }
+      }
+      current_statement__ = 620;
+      if (class_effects) {
+        int count = std::numeric_limits<int>::min();
+        current_statement__ = 610;
+        count = 1;
+        current_statement__ = 618;
+        for (int t = 1; t <= (nt - 1); ++t) {
+          current_statement__ = 616;
+          if (stan::math::logical_gt(
+                stan::model::rvalue(which_CE_sd, "which_CE_sd",
+                  stan::model::index_uni(t)), 0)) {
+            current_statement__ = 613;
+            stan::model::assign(which_class, count,
+              "assigning variable which_class", stan::model::index_uni(t));
+            current_statement__ = 614;
+            count = (count + 1);
+          } else {
+            current_statement__ = 611;
+            stan::model::assign(which_class, 0,
+              "assigning variable which_class", stan::model::index_uni(t));
+          }
+        }
+      }
+      current_statement__ = 622;
       for (int i = 1; i <= ni_agd_arm; ++i) {
-        current_statement__ = 522;
+        current_statement__ = 621;
         stan::model::assign(agd_arm_arm2, (narm_ipd +
           stan::model::rvalue(agd_arm_arm, "agd_arm_arm",
             stan::model::index_uni(i))), "assigning variable agd_arm_arm2",
           stan::model::index_uni(i));
       }
-      current_statement__ = 530;
+      current_statement__ = 629;
       if ((stan::math::primitive_value(nonexp) &&
           stan::math::primitive_value(stan::math::logical_eq(aux_int, 0)))) {
-        current_statement__ = 529;
+        current_statement__ = 628;
         for (int i = 1; i <= n_aux_group; ++i) {
-          current_statement__ = 525;
+          current_statement__ = 624;
           if (stan::model::rvalue(ni_aux_group_ipd, "ni_aux_group_ipd",
                 stan::model::index_uni(i))) {
-            current_statement__ = 524;
+            current_statement__ = 623;
             stan::model::assign(wi_aux_group_ipd,
               which(aux_group_ipd, i, pstream__),
               "assigning variable wi_aux_group_ipd",
@@ -5388,10 +5886,10 @@ public:
                 stan::model::rvalue(ni_aux_group_ipd, "ni_aux_group_ipd",
                   stan::model::index_uni(i))));
           }
-          current_statement__ = 527;
+          current_statement__ = 626;
           if (stan::model::rvalue(ni_aux_group_agd_arm,
                 "ni_aux_group_agd_arm", stan::model::index_uni(i))) {
-            current_statement__ = 526;
+            current_statement__ = 625;
             stan::model::assign(wi_aux_group_agd_arm,
               which(aux_group_agd_arm, i, pstream__),
               "assigning variable wi_aux_group_agd_arm",
@@ -5402,112 +5900,151 @@ public:
           }
         }
       }
-      current_statement__ = 432;
+      current_statement__ = 502;
       stan::math::check_greater_or_equal(function__, "nonexp", nonexp, 0);
-      current_statement__ = 432;
+      current_statement__ = 502;
       stan::math::check_less_or_equal(function__, "nonexp", nonexp, 1);
-      current_statement__ = 433;
+      current_statement__ = 503;
       stan::math::check_greater_or_equal(function__, "gengamma", gengamma, 0);
-      current_statement__ = 433;
+      current_statement__ = 503;
       stan::math::check_less_or_equal(function__, "gengamma", gengamma, 1);
-      current_statement__ = 439;
+      current_statement__ = 509;
       stan::math::check_greater_or_equal(function__, "aux_id_ipd",
         aux_id_ipd, 1);
-      current_statement__ = 441;
+      current_statement__ = 511;
       stan::math::check_greater_or_equal(function__, "aux_id_agd_arm",
         aux_id_agd_arm, 1);
-      current_statement__ = 443;
+      current_statement__ = 513;
       stan::math::check_greater_or_equal(function__, "aux_group_ipd",
         aux_group_ipd, 1);
-      current_statement__ = 445;
+      current_statement__ = 515;
       stan::math::check_greater_or_equal(function__, "aux_group_agd_arm",
         aux_group_agd_arm, 1);
-      current_statement__ = 464;
-      stan::math::check_greater_or_equal(function__, "nint", nint, 1);
-      current_statement__ = 464;
-      stan::math::check_less_or_equal(function__, "nint", nint, nint_max);
-      current_statement__ = 465;
-      stan::math::check_greater_or_equal(function__, "n_delta", n_delta, 0);
-      current_statement__ = 470;
-      stan::math::check_cholesky_factor_corr(function__, "RE_L", RE_L);
-      current_statement__ = 483;
-      stan::math::check_greater_or_equal(function__, "trt", trt, 1);
-      current_statement__ = 531;
-      stan::math::validate_non_negative_index("beta_tilde", "nX", nX);
-      current_statement__ = 532;
-      stan::math::validate_non_negative_index("u_delta", "n_delta", n_delta);
-      current_statement__ = 533;
-      tau_1dim__ = std::numeric_limits<int>::min();
-      current_statement__ = 533;
-      tau_1dim__ = (RE ? 1 : 0);
-      current_statement__ = 533;
-      stan::math::validate_non_negative_index("tau", "RE ? 1 : 0", tau_1dim__);
       current_statement__ = 534;
+      stan::math::check_greater_or_equal(function__, "nint", nint, 1);
+      current_statement__ = 534;
+      stan::math::check_less_or_equal(function__, "nint", nint, nint_max);
+      current_statement__ = 535;
+      stan::math::check_greater_or_equal(function__, "n_delta", n_delta, 0);
+      current_statement__ = 540;
+      stan::math::check_cholesky_factor_corr(function__, "RE_L", RE_L);
+      current_statement__ = 553;
+      stan::math::check_greater_or_equal(function__, "trt", trt, 1);
+      current_statement__ = 592;
+      stan::math::check_greater_or_equal(function__, "n_class", n_class, 0);
+      current_statement__ = 594;
+      stan::math::check_greater_or_equal(function__, "which_class",
+        which_class, 0);
+      current_statement__ = 596;
+      stan::math::check_greater_or_equal(function__, "which_class_sd",
+        which_class_sd, 0);
+      current_statement__ = 597;
+      stan::math::check_greater_or_equal(function__, "n_class_trts",
+        n_class_trts, 0);
+      current_statement__ = 630;
+      stan::math::validate_non_negative_index("beta_tilde", "nX", nX);
+      current_statement__ = 631;
+      stan::math::validate_non_negative_index("u_delta", "n_delta", n_delta);
+      current_statement__ = 632;
+      tau_1dim__ = std::numeric_limits<int>::min();
+      current_statement__ = 632;
+      tau_1dim__ = (RE ? 1 : 0);
+      current_statement__ = 632;
+      stan::math::validate_non_negative_index("tau", "RE ? 1 : 0", tau_1dim__);
+      current_statement__ = 633;
+      class_mean_1dim__ = std::numeric_limits<int>::min();
+      current_statement__ = 633;
+      class_mean_1dim__ = (class_effects ? stan::math::max(which_CE) : 0);
+      current_statement__ = 633;
+      stan::math::validate_non_negative_index("class_mean",
+        "class_effects ? max(which_CE) : 0", class_mean_1dim__);
+      current_statement__ = 634;
+      class_sd_1dim__ = std::numeric_limits<int>::min();
+      current_statement__ = 634;
+      class_sd_1dim__ = (class_effects ? stan::math::max(which_CE_sd) : 0);
+      current_statement__ = 634;
+      stan::math::validate_non_negative_index("class_sd",
+        "class_effects ? max(which_CE_sd) : 0", class_sd_1dim__);
+      current_statement__ = 635;
+      z_class_1dim__ = std::numeric_limits<int>::min();
+      current_statement__ = 635;
+      z_class_1dim__ = (class_effects ? n_class_trts : 0);
+      current_statement__ = 635;
+      stan::math::validate_non_negative_index("z_class",
+        "class_effects ? n_class_trts : 0", z_class_1dim__);
+      current_statement__ = 636;
       stan::math::validate_non_negative_index("aux", "n_aux", n_aux);
-      current_statement__ = 535;
+      current_statement__ = 637;
       aux2_1dim__ = std::numeric_limits<int>::min();
-      current_statement__ = 535;
+      current_statement__ = 637;
       aux2_1dim__ = (n_aux * gengamma);
-      current_statement__ = 535;
+      current_statement__ = 637;
       stan::math::validate_non_negative_index("aux2", "n_aux * gengamma",
         aux2_1dim__);
-      current_statement__ = 536;
+      current_statement__ = 638;
       beta_aux_1dim__ = std::numeric_limits<int>::min();
-      current_statement__ = 536;
+      current_statement__ = 638;
       beta_aux_1dim__ = (nonexp ? nX_aux : 0);
-      current_statement__ = 536;
+      current_statement__ = 638;
       stan::math::validate_non_negative_index("beta_aux",
         "nonexp ? nX_aux : 0", beta_aux_1dim__);
-      current_statement__ = 537;
+      current_statement__ = 639;
       beta_aux_2dim__ = std::numeric_limits<int>::min();
-      current_statement__ = 537;
+      current_statement__ = 639;
       beta_aux_2dim__ = (nonexp + gengamma);
-      current_statement__ = 537;
+      current_statement__ = 639;
       stan::math::validate_non_negative_index("beta_aux",
         "nonexp + gengamma", beta_aux_2dim__);
-      current_statement__ = 538;
+      current_statement__ = 640;
       stan::math::validate_non_negative_index("log_L_ipd", "ni_ipd", ni_ipd);
-      current_statement__ = 539;
+      current_statement__ = 641;
       stan::math::validate_non_negative_index("log_L_agd_arm", "ni_agd_arm",
         ni_agd_arm);
-      current_statement__ = 540;
+      current_statement__ = 642;
       stan::math::validate_non_negative_index("eta_ipd", "ni_ipd", ni_ipd);
-      current_statement__ = 541;
+      current_statement__ = 643;
       stan::math::validate_non_negative_index("f_delta", "n_delta", n_delta);
-      current_statement__ = 542;
+      current_statement__ = 644;
       stan::math::validate_non_negative_index("allbeta", "nX", nX);
-      current_statement__ = 543;
+      current_statement__ = 645;
       stan::math::validate_non_negative_index("mu", "totns", totns);
-      current_statement__ = 544;
+      current_statement__ = 646;
       d_1dim__ = std::numeric_limits<int>::min();
-      current_statement__ = 544;
+      current_statement__ = 646;
       d_1dim__ = (nt - 1);
-      current_statement__ = 544;
+      current_statement__ = 646;
       stan::math::validate_non_negative_index("d", "nt - 1", d_1dim__);
-      current_statement__ = 545;
+      current_statement__ = 647;
       stan::math::validate_non_negative_index("omega", "nodesplit", nodesplit);
-      current_statement__ = 546;
+      current_statement__ = 648;
       beta_1dim__ = std::numeric_limits<int>::min();
-      current_statement__ = 546;
+      current_statement__ = 648;
       beta_1dim__ = (((nX - totns) - (nt - 1)) - nodesplit);
-      current_statement__ = 546;
+      current_statement__ = 648;
       stan::math::validate_non_negative_index("beta",
         "nX - totns - (nt - 1) - nodesplit", beta_1dim__);
-      current_statement__ = 547;
+      current_statement__ = 649;
       eta_agd_contrast_ii_1dim__ = std::numeric_limits<int>::min();
-      current_statement__ = 547;
+      current_statement__ = 649;
       eta_agd_contrast_ii_1dim__ = (stan::math::logical_gt(nint_max, 1) ? (nint
         * ni_agd_contrast) : 0);
-      current_statement__ = 547;
+      current_statement__ = 649;
       stan::math::validate_non_negative_index("eta_agd_contrast_ii",
         "nint_max > 1 ? nint * ni_agd_contrast : 0",
         eta_agd_contrast_ii_1dim__);
-      current_statement__ = 548;
+      current_statement__ = 650;
       stan::math::validate_non_negative_index("eta_agd_contrast_bar",
         "ni_agd_contrast", ni_agd_contrast);
-      current_statement__ = 549;
+      current_statement__ = 651;
+      f_class_1dim__ = std::numeric_limits<int>::min();
+      current_statement__ = 651;
+      f_class_1dim__ = (class_effects ? stan::math::max(which_class) : 0);
+      current_statement__ = 651;
+      stan::math::validate_non_negative_index("f_class",
+        "class_effects ? max(which_class) : 0", f_class_1dim__);
+      current_statement__ = 652;
       shape_1dim__ = std::numeric_limits<int>::min();
-      current_statement__ = 549;
+      current_statement__ = 652;
       shape_1dim__ = ((stan::math::primitive_value(
                          (stan::math::primitive_value(
                             (stan::math::primitive_value(
@@ -5518,75 +6055,76 @@ public:
                            stan::math::logical_neq(dist, 6))))
         &&
         stan::math::primitive_value(stan::math::logical_neq(dist, 9))) ? n_aux : 0);
-      current_statement__ = 549;
+      current_statement__ = 652;
       stan::math::validate_non_negative_index("shape",
         "(dist != 1 && dist != 4 && dist != 6 && dist != 9) ? n_aux : 0",
         shape_1dim__);
-      current_statement__ = 550;
+      current_statement__ = 653;
       sdlog_1dim__ = std::numeric_limits<int>::min();
-      current_statement__ = 550;
+      current_statement__ = 653;
       sdlog_1dim__ = (stan::math::logical_eq(dist, 6) ? n_aux : 0);
-      current_statement__ = 550;
+      current_statement__ = 653;
       stan::math::validate_non_negative_index("sdlog",
         "dist == 6 ? n_aux : 0", sdlog_1dim__);
-      current_statement__ = 551;
+      current_statement__ = 654;
       sigma_1dim__ = std::numeric_limits<int>::min();
-      current_statement__ = 551;
+      current_statement__ = 654;
       sigma_1dim__ = (stan::math::logical_eq(dist, 9) ? n_aux : 0);
-      current_statement__ = 551;
+      current_statement__ = 654;
       stan::math::validate_non_negative_index("sigma",
         "dist == 9 ? n_aux : 0", sigma_1dim__);
-      current_statement__ = 552;
+      current_statement__ = 655;
       k_1dim__ = std::numeric_limits<int>::min();
-      current_statement__ = 552;
+      current_statement__ = 655;
       k_1dim__ = (stan::math::logical_eq(dist, 9) ? n_aux : 0);
-      current_statement__ = 552;
+      current_statement__ = 655;
       stan::math::validate_non_negative_index("k", "dist == 9 ? n_aux : 0",
         k_1dim__);
-      current_statement__ = 553;
+      current_statement__ = 656;
       d_aux_1dim__ = std::numeric_limits<int>::min();
-      current_statement__ = 553;
+      current_statement__ = 656;
       d_aux_1dim__ = (aux_reg_trt ? (nt - 1) : 0);
-      current_statement__ = 553;
+      current_statement__ = 656;
       stan::math::validate_non_negative_index("d_aux",
         "aux_reg_trt ? nt - 1 : 0", d_aux_1dim__);
-      current_statement__ = 554;
+      current_statement__ = 657;
       d_aux_2dim__ = std::numeric_limits<int>::min();
-      current_statement__ = 554;
+      current_statement__ = 657;
       d_aux_2dim__ = (nonexp + gengamma);
-      current_statement__ = 554;
+      current_statement__ = 657;
       stan::math::validate_non_negative_index("d_aux", "nonexp + gengamma",
         d_aux_2dim__);
-      current_statement__ = 555;
+      current_statement__ = 658;
       log_lik_1dim__ = std::numeric_limits<int>::min();
-      current_statement__ = 555;
+      current_statement__ = 658;
       log_lik_1dim__ = ((ni_ipd + ni_agd_arm) + ns_agd_contrast);
-      current_statement__ = 555;
+      current_statement__ = 658;
       stan::math::validate_non_negative_index("log_lik",
         "ni_ipd + ni_agd_arm + ns_agd_contrast", log_lik_1dim__);
-      current_statement__ = 556;
+      current_statement__ = 659;
       resdev_1dim__ = std::numeric_limits<int>::min();
-      current_statement__ = 556;
+      current_statement__ = 659;
       resdev_1dim__ = ((ni_ipd + ni_agd_arm) + ns_agd_contrast);
-      current_statement__ = 556;
+      current_statement__ = 659;
       stan::math::validate_non_negative_index("resdev",
         "ni_ipd + ni_agd_arm + ns_agd_contrast", resdev_1dim__);
-      current_statement__ = 557;
+      current_statement__ = 660;
       stan::math::validate_non_negative_index("fitted_agd_contrast",
         "ni_agd_contrast", ni_agd_contrast);
-      current_statement__ = 558;
+      current_statement__ = 661;
       theta_bar_cum_agd_contrast_1dim__ = std::numeric_limits<int>::min();
-      current_statement__ = 558;
+      current_statement__ = 661;
       theta_bar_cum_agd_contrast_1dim__ = (ni_agd_contrast * n_int_thin);
-      current_statement__ = 558;
+      current_statement__ = 661;
       stan::math::validate_non_negative_index("theta_bar_cum_agd_contrast",
         "ni_agd_contrast * n_int_thin", theta_bar_cum_agd_contrast_1dim__);
-      current_statement__ = 559;
+      current_statement__ = 662;
       stan::math::validate_non_negative_index("delta", "n_delta", n_delta);
     } catch (const std::exception& e) {
       stan::lang::rethrow_located(e, locations_array__[current_statement__]);
     }
-    num_params_r__ = nX + n_delta + tau_1dim__ + n_aux + aux2_1dim__ +
+    num_params_r__ = nX + n_delta + tau_1dim__ + class_mean_1dim__ +
+      class_sd_1dim__ + z_class_1dim__ + n_aux + aux2_1dim__ +
       (beta_aux_1dim__ * beta_aux_2dim__);
   }
   inline std::string model_name() const final {
@@ -5633,23 +6171,42 @@ public:
       tau = in__.template read_constrain_lb<
               Eigen::Matrix<local_scalar_t__,-1,1>, jacobian__>(0, lp__,
               tau_1dim__);
+      Eigen::Matrix<local_scalar_t__,-1,1> class_mean =
+        Eigen::Matrix<local_scalar_t__,-1,1>::Constant(class_mean_1dim__,
+          DUMMY_VAR__);
+      current_statement__ = 4;
+      class_mean = in__.template read<
+                     Eigen::Matrix<local_scalar_t__,-1,1>>(class_mean_1dim__);
+      Eigen::Matrix<local_scalar_t__,-1,1> class_sd =
+        Eigen::Matrix<local_scalar_t__,-1,1>::Constant(class_sd_1dim__,
+          DUMMY_VAR__);
+      current_statement__ = 5;
+      class_sd = in__.template read_constrain_lb<
+                   Eigen::Matrix<local_scalar_t__,-1,1>, jacobian__>(0, lp__,
+                   class_sd_1dim__);
+      Eigen::Matrix<local_scalar_t__,-1,1> z_class =
+        Eigen::Matrix<local_scalar_t__,-1,1>::Constant(z_class_1dim__,
+          DUMMY_VAR__);
+      current_statement__ = 6;
+      z_class = in__.template read<
+                  Eigen::Matrix<local_scalar_t__,-1,1>>(z_class_1dim__);
       Eigen::Matrix<local_scalar_t__,-1,1> aux =
         Eigen::Matrix<local_scalar_t__,-1,1>::Constant(n_aux, DUMMY_VAR__);
-      current_statement__ = 4;
+      current_statement__ = 7;
       aux = in__.template read_constrain_lb<
               Eigen::Matrix<local_scalar_t__,-1,1>, jacobian__>(0, lp__,
               n_aux);
       Eigen::Matrix<local_scalar_t__,-1,1> aux2 =
         Eigen::Matrix<local_scalar_t__,-1,1>::Constant(aux2_1dim__,
           DUMMY_VAR__);
-      current_statement__ = 5;
+      current_statement__ = 8;
       aux2 = in__.template read_constrain_lb<
                Eigen::Matrix<local_scalar_t__,-1,1>, jacobian__>(0, lp__,
                aux2_1dim__);
       Eigen::Matrix<local_scalar_t__,-1,-1> beta_aux =
         Eigen::Matrix<local_scalar_t__,-1,-1>::Constant(beta_aux_1dim__,
           beta_aux_2dim__, DUMMY_VAR__);
-      current_statement__ = 6;
+      current_statement__ = 9;
       beta_aux = in__.template read<
                    Eigen::Matrix<local_scalar_t__,-1,-1>>(beta_aux_1dim__,
                    beta_aux_2dim__);
@@ -5662,7 +6219,7 @@ public:
         Eigen::Matrix<local_scalar_t__,-1,1>::Constant(ni_ipd, DUMMY_VAR__);
       Eigen::Matrix<local_scalar_t__,-1,1> f_delta =
         Eigen::Matrix<local_scalar_t__,-1,1>::Constant(n_delta, DUMMY_VAR__);
-      current_statement__ = 10;
+      current_statement__ = 13;
       stan::model::assign(f_delta,
         (RE ? stan::math::eval(
                 (RE_sparse ? stan::math::eval(
@@ -5679,7 +6236,7 @@ public:
         stan::math::eval(u_delta)), "assigning variable f_delta");
       Eigen::Matrix<local_scalar_t__,-1,1> allbeta =
         Eigen::Matrix<local_scalar_t__,-1,1>::Constant(nX, DUMMY_VAR__);
-      current_statement__ = 11;
+      current_statement__ = 14;
       stan::model::assign(allbeta,
         (QR ? stan::math::eval(stan::math::multiply(R_inv, beta_tilde)) : 
         stan::math::eval(beta_tilde)), "assigning variable allbeta");
@@ -5687,7 +6244,7 @@ public:
         Eigen::Matrix<local_scalar_t__,-1,1>::Constant(totns, DUMMY_VAR__);
       Eigen::Matrix<local_scalar_t__,-1,1> d =
         Eigen::Matrix<local_scalar_t__,-1,1>::Constant(d_1dim__, DUMMY_VAR__);
-      current_statement__ = 13;
+      current_statement__ = 16;
       stan::model::assign(d,
         stan::model::rvalue(allbeta, "allbeta",
           stan::model::index_min_max((totns + 1), ((totns + nt) - 1))),
@@ -5704,40 +6261,40 @@ public:
       Eigen::Matrix<local_scalar_t__,-1,1> eta_agd_contrast_bar =
         Eigen::Matrix<local_scalar_t__,-1,1>::Constant(ni_agd_contrast,
           DUMMY_VAR__);
-      current_statement__ = 30;
+      current_statement__ = 34;
       if (totns) {
-        current_statement__ = 28;
+        current_statement__ = 32;
         stan::model::assign(mu,
           stan::model::rvalue(allbeta, "allbeta",
             stan::model::index_min_max(1, totns)), "assigning variable mu");
       }
-      current_statement__ = 33;
+      current_statement__ = 37;
       if ((((nX - totns) - (nt - 1)) - nodesplit)) {
-        current_statement__ = 31;
+        current_statement__ = 35;
         stan::model::assign(beta,
           stan::model::rvalue(allbeta, "allbeta",
             stan::model::index_min(((totns + nt) + nodesplit))),
           "assigning variable beta");
       }
-      current_statement__ = 36;
+      current_statement__ = 40;
       if (nodesplit) {
-        current_statement__ = 34;
+        current_statement__ = 38;
         stan::model::assign(omega,
           stan::model::rvalue(allbeta, "allbeta",
             stan::model::index_uni((totns + nt))),
           "assigning variable omega", stan::model::index_uni(1));
       }
-      current_statement__ = 50;
+      current_statement__ = 54;
       if (ni_ipd) {
-        current_statement__ = 48;
+        current_statement__ = 52;
         if (RE) {
-          current_statement__ = 39;
+          current_statement__ = 43;
           stan::math::validate_non_negative_index("eta_ipd_noRE", "ni_ipd",
             ni_ipd);
           Eigen::Matrix<local_scalar_t__,-1,1> eta_ipd_noRE =
             Eigen::Matrix<local_scalar_t__,-1,1>::Constant(ni_ipd,
               DUMMY_VAR__);
-          current_statement__ = 40;
+          current_statement__ = 44;
           stan::model::assign(eta_ipd_noRE,
             (has_offset ? stan::math::eval(
                             stan::math::add(
@@ -5746,14 +6303,14 @@ public:
                                                stan::math::multiply(X_ipd,
                                                  beta_tilde))),
             "assigning variable eta_ipd_noRE");
-          current_statement__ = 45;
+          current_statement__ = 49;
           for (int i = 1; i <= ni_ipd; ++i) {
-            current_statement__ = 43;
+            current_statement__ = 47;
             if (stan::model::rvalue(which_RE, "which_RE",
                   stan::model::index_uni(
                     stan::model::rvalue(ipd_arm, "ipd_arm",
                       stan::model::index_uni(i))))) {
-              current_statement__ = 42;
+              current_statement__ = 46;
               stan::model::assign(eta_ipd,
                 (stan::model::rvalue(eta_ipd_noRE, "eta_ipd_noRE",
                    stan::model::index_uni(i)) +
@@ -5765,7 +6322,7 @@ public:
                           stan::model::index_uni(i))))))),
                 "assigning variable eta_ipd", stan::model::index_uni(i));
             } else {
-              current_statement__ = 41;
+              current_statement__ = 45;
               stan::model::assign(eta_ipd,
                 stan::model::rvalue(eta_ipd_noRE, "eta_ipd_noRE",
                   stan::model::index_uni(i)), "assigning variable eta_ipd",
@@ -5773,7 +6330,7 @@ public:
             }
           }
         } else {
-          current_statement__ = 37;
+          current_statement__ = 41;
           stan::model::assign(eta_ipd,
             (has_offset ? stan::math::eval(
                             stan::math::add(
@@ -5784,17 +6341,87 @@ public:
             "assigning variable eta_ipd");
         }
       }
-      current_statement__ = 85;
+      Eigen::Matrix<local_scalar_t__,-1,1> f_class =
+        Eigen::Matrix<local_scalar_t__,-1,1>::Constant(f_class_1dim__,
+          DUMMY_VAR__);
+      current_statement__ = 58;
+      if (class_effects) {
+        current_statement__ = 55;
+        stan::model::assign(f_class,
+          stan::math::add(
+            stan::math::subtract(
+              stan::model::rvalue(class_mean, "class_mean",
+                stan::model::index_multi(
+                  stan::model::rvalue(which_CE, "which_CE",
+                    stan::model::index_multi(which_class_trt)))),
+              stan::model::rvalue(d, "d",
+                stan::model::index_multi(which_class_trt))),
+            stan::math::elt_multiply(
+              stan::model::rvalue(class_sd, "class_sd",
+                stan::model::index_multi(
+                  stan::model::rvalue(which_CE_sd, "which_CE_sd",
+                    stan::model::index_multi(which_class_trt)))), z_class)),
+          "assigning variable f_class");
+        current_statement__ = 56;
+        stan::model::assign(d,
+          stan::math::add(
+            stan::model::rvalue(class_mean, "class_mean",
+              stan::model::index_multi(
+                stan::model::rvalue(which_CE, "which_CE",
+                  stan::model::index_multi(which_class_trt)))),
+            stan::math::elt_multiply(
+              stan::model::rvalue(class_sd, "class_sd",
+                stan::model::index_multi(
+                  stan::model::rvalue(which_CE_sd, "which_CE_sd",
+                    stan::model::index_multi(which_class_trt)))), z_class)),
+          "assigning variable d", stan::model::index_multi(which_class_trt));
+      }
+      current_statement__ = 65;
+      if (class_effects) {
+        current_statement__ = 63;
+        for (int i = 1; i <= ni_ipd; ++i) {
+          current_statement__ = 61;
+          if ((stan::math::primitive_value(
+                 stan::math::logical_gt(
+                   stan::model::rvalue(ipd_trt, "ipd_trt",
+                     stan::model::index_uni(
+                       stan::model::rvalue(ipd_arm, "ipd_arm",
+                         stan::model::index_uni(i)))), 1))
+              &&
+              stan::math::primitive_value(
+                stan::model::rvalue(which_CE, "which_CE",
+                  stan::model::index_uni(
+                    (stan::model::rvalue(ipd_trt, "ipd_trt",
+                       stan::model::index_uni(
+                         stan::model::rvalue(ipd_arm, "ipd_arm",
+                           stan::model::index_uni(i)))) - 1)))))) {
+            current_statement__ = 59;
+            stan::model::assign(eta_ipd,
+              (stan::model::rvalue(eta_ipd, "eta_ipd",
+                 stan::model::index_uni(i)) +
+              stan::model::rvalue(f_class, "f_class",
+                stan::model::index_uni(
+                  stan::model::rvalue(which_class, "which_class",
+                    stan::model::index_uni(
+                      stan::model::rvalue(ipd_trt, "ipd_trt",
+                        stan::model::index_uni(
+                          (stan::model::rvalue(ipd_arm, "ipd_arm",
+                             stan::model::index_uni(i)) - 1)))))))),
+              "assigning variable eta_ipd", stan::model::index_uni(i));
+          }
+        }
+      }
+      current_statement__ = 120;
       if (ni_agd_contrast) {
-        current_statement__ = 83;
+        current_statement__ = 118;
         if (stan::math::logical_gt(nint_max, 1)) {
-          current_statement__ = 63;
+          current_statement__ = 88;
           stan::math::validate_non_negative_index("eta_agd_contrast_noRE",
             "nint_max * ni_agd_contrast", (nint_max * ni_agd_contrast));
           Eigen::Matrix<local_scalar_t__,-1,1> eta_agd_contrast_noRE =
             Eigen::Matrix<local_scalar_t__,-1,1>::Constant((nint_max *
               ni_agd_contrast), DUMMY_VAR__);
-          current_statement__ = 64;
+          current_statement__ = 89;
           stan::model::assign(eta_agd_contrast_noRE,
             (has_offset ? stan::math::eval(
                             stan::math::add(
@@ -5804,14 +6431,82 @@ public:
                                                           X_agd_contrast,
                                                           beta_tilde))),
             "assigning variable eta_agd_contrast_noRE");
-          current_statement__ = 81;
+          current_statement__ = 99;
+          if (class_effects) {
+            current_statement__ = 97;
+            for (int i = 1; i <= ni_agd_arm; ++i) {
+              current_statement__ = 92;
+              if ((stan::math::primitive_value(
+                     stan::math::logical_gt(
+                       stan::model::rvalue(agd_contrast_trt,
+                         "agd_contrast_trt", stan::model::index_uni(i)), 1))
+                  &&
+                  stan::math::primitive_value(
+                    stan::model::rvalue(which_CE, "which_CE",
+                      stan::model::index_uni(
+                        (stan::model::rvalue(agd_contrast_trt,
+                           "agd_contrast_trt", stan::model::index_uni(i)) -
+                        1)))))) {
+                current_statement__ = 90;
+                stan::model::assign(eta_agd_contrast_noRE,
+                  stan::math::add(
+                    stan::model::deep_copy(
+                      stan::model::rvalue(eta_agd_contrast_noRE,
+                        "eta_agd_contrast_noRE",
+                        stan::model::index_min_max((1 + ((i - 1) *
+                          nint_max)), (((i - 1) * nint_max) + nint)))),
+                    stan::model::rvalue(f_class, "f_class",
+                      stan::model::index_uni(
+                        stan::model::rvalue(which_class, "which_class",
+                          stan::model::index_uni(
+                            (stan::model::rvalue(agd_contrast_trt,
+                               "agd_contrast_trt", stan::model::index_uni(i))
+                            - 1)))))),
+                  "assigning variable eta_agd_contrast_noRE",
+                  stan::model::index_min_max((1 + ((i - 1) * nint_max)), (((i
+                    - 1) * nint_max) + nint)));
+              }
+              current_statement__ = 95;
+              if ((stan::math::primitive_value(
+                     stan::math::logical_gt(
+                       stan::model::rvalue(agd_contrast_trt_b,
+                         "agd_contrast_trt_b", stan::model::index_uni(i)), 1))
+                  &&
+                  stan::math::primitive_value(
+                    stan::model::rvalue(which_CE, "which_CE",
+                      stan::model::index_uni(
+                        (stan::model::rvalue(agd_contrast_trt_b,
+                           "agd_contrast_trt_b", stan::model::index_uni(i)) -
+                        1)))))) {
+                current_statement__ = 93;
+                stan::model::assign(eta_agd_contrast_noRE,
+                  stan::math::subtract(
+                    stan::model::deep_copy(
+                      stan::model::rvalue(eta_agd_contrast_noRE,
+                        "eta_agd_contrast_noRE",
+                        stan::model::index_min_max((1 + ((i - 1) *
+                          nint_max)), (((i - 1) * nint_max) + nint)))),
+                    stan::model::rvalue(f_class, "f_class",
+                      stan::model::index_uni(
+                        stan::model::rvalue(which_class, "which_class",
+                          stan::model::index_uni(
+                            (stan::model::rvalue(agd_contrast_trt_b,
+                               "agd_contrast_trt_b",
+                               stan::model::index_uni(i)) - 1)))))),
+                  "assigning variable eta_agd_contrast_noRE",
+                  stan::model::index_min_max((1 + ((i - 1) * nint_max)), (((i
+                    - 1) * nint_max) + nint)));
+              }
+            }
+          }
+          current_statement__ = 116;
           if (RE) {
-            current_statement__ = 79;
+            current_statement__ = 114;
             for (int i = 1; i <= ni_agd_contrast; ++i) {
-              current_statement__ = 76;
+              current_statement__ = 111;
               if (stan::model::rvalue(which_RE, "which_RE",
                     stan::model::index_uni(((narm_ipd + narm_agd_arm) + i)))) {
-                current_statement__ = 75;
+                current_statement__ = 110;
                 stan::model::assign(eta_agd_contrast_ii,
                   stan::math::add(
                     stan::model::rvalue(eta_agd_contrast_noRE,
@@ -5827,7 +6522,7 @@ public:
                   stan::model::index_min_max((1 + ((i - 1) * nint)), (i *
                     nint)));
               } else {
-                current_statement__ = 74;
+                current_statement__ = 109;
                 stan::model::assign(eta_agd_contrast_ii,
                   stan::model::rvalue(eta_agd_contrast_noRE,
                     "eta_agd_contrast_noRE",
@@ -5837,7 +6532,7 @@ public:
                   stan::model::index_min_max((1 + ((i - 1) * nint)), (i *
                     nint)));
               }
-              current_statement__ = 77;
+              current_statement__ = 112;
               stan::model::assign(eta_agd_contrast_bar,
                 stan::math::mean(
                   stan::model::rvalue(eta_agd_contrast_ii,
@@ -5847,15 +6542,15 @@ public:
                 stan::model::index_uni(i));
             }
           } else {
-            current_statement__ = 69;
+            current_statement__ = 104;
             if (stan::math::logical_eq(nint, nint_max)) {
-              current_statement__ = 68;
+              current_statement__ = 103;
               stan::model::assign(eta_agd_contrast_ii, eta_agd_contrast_noRE,
                 "assigning variable eta_agd_contrast_ii");
             } else {
-              current_statement__ = 67;
+              current_statement__ = 102;
               for (int i = 1; i <= ni_agd_contrast; ++i) {
-                current_statement__ = 65;
+                current_statement__ = 100;
                 stan::model::assign(eta_agd_contrast_ii,
                   stan::model::rvalue(eta_agd_contrast_noRE,
                     "eta_agd_contrast_noRE",
@@ -5866,9 +6561,9 @@ public:
                     nint)));
               }
             }
-            current_statement__ = 72;
+            current_statement__ = 107;
             for (int i = 1; i <= ni_agd_contrast; ++i) {
-              current_statement__ = 70;
+              current_statement__ = 105;
               stan::model::assign(eta_agd_contrast_bar,
                 stan::math::mean(
                   stan::model::rvalue(eta_agd_contrast_ii,
@@ -5879,15 +6574,15 @@ public:
             }
           }
         } else {
-          current_statement__ = 61;
+          current_statement__ = 76;
           if (RE) {
-            current_statement__ = 53;
+            current_statement__ = 68;
             stan::math::validate_non_negative_index("eta_agd_contrast_noRE",
               "nint * ni_agd_contrast", (nint * ni_agd_contrast));
             Eigen::Matrix<local_scalar_t__,-1,1> eta_agd_contrast_noRE =
               Eigen::Matrix<local_scalar_t__,-1,1>::Constant((nint *
                 ni_agd_contrast), DUMMY_VAR__);
-            current_statement__ = 54;
+            current_statement__ = 69;
             stan::model::assign(eta_agd_contrast_noRE,
               (has_offset ? stan::math::eval(
                               stan::math::add(
@@ -5896,12 +6591,12 @@ public:
               stan::math::eval(
                 stan::math::multiply(X_agd_contrast, beta_tilde))),
               "assigning variable eta_agd_contrast_noRE");
-            current_statement__ = 59;
+            current_statement__ = 74;
             for (int i = 1; i <= ni_agd_contrast; ++i) {
-              current_statement__ = 57;
+              current_statement__ = 72;
               if (stan::model::rvalue(which_RE, "which_RE",
                     stan::model::index_uni(((narm_ipd + narm_agd_arm) + i)))) {
-                current_statement__ = 56;
+                current_statement__ = 71;
                 stan::model::assign(eta_agd_contrast_bar,
                   (stan::model::rvalue(eta_agd_contrast_noRE,
                      "eta_agd_contrast_noRE", stan::model::index_uni(i)) +
@@ -5912,7 +6607,7 @@ public:
                           i)))))), "assigning variable eta_agd_contrast_bar",
                   stan::model::index_uni(i));
               } else {
-                current_statement__ = 55;
+                current_statement__ = 70;
                 stan::model::assign(eta_agd_contrast_bar,
                   stan::model::rvalue(eta_agd_contrast_noRE,
                     "eta_agd_contrast_noRE", stan::model::index_uni(i)),
@@ -5921,7 +6616,7 @@ public:
               }
             }
           } else {
-            current_statement__ = 51;
+            current_statement__ = 66;
             stan::model::assign(eta_agd_contrast_bar,
               (has_offset ? stan::math::eval(
                               stan::math::add(
@@ -5931,42 +6626,99 @@ public:
                 stan::math::multiply(X_agd_contrast, beta_tilde))),
               "assigning variable eta_agd_contrast_bar");
           }
+          current_statement__ = 86;
+          if (class_effects) {
+            current_statement__ = 84;
+            for (int i = 1; i <= ni_agd_contrast; ++i) {
+              current_statement__ = 79;
+              if ((stan::math::primitive_value(
+                     stan::math::logical_gt(
+                       stan::model::rvalue(agd_contrast_trt,
+                         "agd_contrast_trt", stan::model::index_uni(i)), 1))
+                  &&
+                  stan::math::primitive_value(
+                    stan::model::rvalue(which_CE, "which_CE",
+                      stan::model::index_uni(
+                        (stan::model::rvalue(agd_contrast_trt,
+                           "agd_contrast_trt", stan::model::index_uni(i)) -
+                        1)))))) {
+                current_statement__ = 77;
+                stan::model::assign(eta_agd_contrast_bar,
+                  (stan::model::rvalue(eta_agd_contrast_bar,
+                     "eta_agd_contrast_bar", stan::model::index_uni(i)) +
+                  stan::model::rvalue(f_class, "f_class",
+                    stan::model::index_uni(
+                      stan::model::rvalue(which_class, "which_class",
+                        stan::model::index_uni(
+                          (stan::model::rvalue(agd_contrast_trt,
+                             "agd_contrast_trt", stan::model::index_uni(i)) -
+                          1)))))), "assigning variable eta_agd_contrast_bar",
+                  stan::model::index_uni(i));
+              }
+              current_statement__ = 82;
+              if ((stan::math::primitive_value(
+                     stan::math::logical_gt(
+                       stan::model::rvalue(agd_contrast_trt_b,
+                         "agd_contrast_trt_b", stan::model::index_uni(i)), 1))
+                  &&
+                  stan::math::primitive_value(
+                    stan::model::rvalue(which_CE, "which_CE",
+                      stan::model::index_uni(
+                        (stan::model::rvalue(agd_contrast_trt_b,
+                           "agd_contrast_trt_b", stan::model::index_uni(i)) -
+                        1)))))) {
+                current_statement__ = 80;
+                stan::model::assign(eta_agd_contrast_bar,
+                  (stan::model::rvalue(eta_agd_contrast_bar,
+                     "eta_agd_contrast_bar", stan::model::index_uni(i)) -
+                  stan::model::rvalue(f_class, "f_class",
+                    stan::model::index_uni(
+                      stan::model::rvalue(which_class, "which_class",
+                        stan::model::index_uni(
+                          (stan::model::rvalue(agd_contrast_trt_b,
+                             "agd_contrast_trt_b", stan::model::index_uni(i))
+                          - 1)))))),
+                  "assigning variable eta_agd_contrast_bar",
+                  stan::model::index_uni(i));
+              }
+            }
+          }
         }
       }
-      current_statement__ = 129;
+      current_statement__ = 164;
       if (ni_ipd) {
-        current_statement__ = 127;
+        current_statement__ = 162;
         if ((stan::math::primitive_value(stan::math::logical_eq(nonexp, 0))
             || stan::math::primitive_value(aux_int))) {
-          current_statement__ = 112;
+          current_statement__ = 147;
           stan::math::validate_non_negative_index("auxi", "ni_ipd", ni_ipd);
           Eigen::Matrix<local_scalar_t__,-1,1> auxi =
             Eigen::Matrix<local_scalar_t__,-1,1>::Constant(ni_ipd,
               DUMMY_VAR__);
-          current_statement__ = 114;
+          current_statement__ = 149;
           stan::math::validate_non_negative_index("aux2i", "ni_ipd", ni_ipd);
           Eigen::Matrix<local_scalar_t__,-1,1> aux2i =
             Eigen::Matrix<local_scalar_t__,-1,1>::Constant(ni_ipd,
               DUMMY_VAR__);
-          current_statement__ = 116;
+          current_statement__ = 151;
           stan::math::validate_non_negative_index("eXbeta",
             "nonexp ? ni_ipd : 0", (nonexp ? ni_ipd : 0));
-          current_statement__ = 117;
+          current_statement__ = 152;
           stan::math::validate_non_negative_index("eXbeta",
             "nonexp + gengamma", (nonexp + gengamma));
           Eigen::Matrix<local_scalar_t__,-1,-1> eXbeta =
             Eigen::Matrix<local_scalar_t__,-1,-1>::Constant((nonexp ? ni_ipd : 0),
               (nonexp + gengamma), DUMMY_VAR__);
-          current_statement__ = 120;
+          current_statement__ = 155;
           if (nonexp) {
-            current_statement__ = 119;
+            current_statement__ = 154;
             stan::model::assign(eXbeta,
               stan::math::exp(stan::math::multiply(X_aux_ipd, beta_aux)),
               "assigning variable eXbeta");
           }
-          current_statement__ = 122;
+          current_statement__ = 157;
           if (nonexp) {
-            current_statement__ = 121;
+            current_statement__ = 156;
             stan::model::assign(auxi,
               stan::math::elt_multiply(
                 stan::model::rvalue(aux, "aux",
@@ -5975,9 +6727,9 @@ public:
                   stan::model::index_omni(), stan::model::index_uni(1))),
               "assigning variable auxi");
           }
-          current_statement__ = 124;
+          current_statement__ = 159;
           if (gengamma) {
-            current_statement__ = 123;
+            current_statement__ = 158;
             stan::model::assign(aux2i,
               stan::math::elt_multiply(
                 stan::model::rvalue(aux2, "aux2",
@@ -5986,40 +6738,40 @@ public:
                   stan::model::index_omni(), stan::model::index_uni(2))),
               "assigning variable aux2i");
           }
-          current_statement__ = 125;
+          current_statement__ = 160;
           stan::model::assign(log_L_ipd,
             loglik(dist, ipd_time, ipd_start_time, ipd_delay_time,
               ipd_status, eta_ipd, auxi, aux2i, pstream__),
             "assigning variable log_L_ipd");
         } else {
-          current_statement__ = 110;
+          current_statement__ = 145;
           for (int i = 1; i <= n_aux_group; ++i) {
             int ni = std::numeric_limits<int>::min();
-            current_statement__ = 86;
+            current_statement__ = 121;
             ni = stan::model::rvalue(ni_aux_group_ipd, "ni_aux_group_ipd",
                    stan::model::index_uni(i));
-            current_statement__ = 108;
+            current_statement__ = 143;
             if (ni) {
-              current_statement__ = 87;
+              current_statement__ = 122;
               stan::math::validate_non_negative_index("wi", "ni", ni);
               std::vector<int> wi =
                 std::vector<int>(ni, std::numeric_limits<int>::min());
-              current_statement__ = 88;
+              current_statement__ = 123;
               stan::model::assign(wi,
                 stan::model::rvalue(wi_aux_group_ipd, "wi_aux_group_ipd",
                   stan::model::index_uni(i),
                   stan::model::index_min_max(1, ni)), "assigning variable wi");
               local_scalar_t__ auxi = DUMMY_VAR__;
               local_scalar_t__ aux2i = DUMMY_VAR__;
-              current_statement__ = 91;
+              current_statement__ = 126;
               stan::math::validate_non_negative_index("eXbeta",
                 "nonexp + gengamma", (nonexp + gengamma));
               Eigen::Matrix<local_scalar_t__,1,-1> eXbeta =
                 Eigen::Matrix<local_scalar_t__,1,-1>::Constant((nonexp +
                   gengamma), DUMMY_VAR__);
-              current_statement__ = 94;
+              current_statement__ = 129;
               if (nonexp) {
-                current_statement__ = 93;
+                current_statement__ = 128;
                 stan::model::assign(eXbeta,
                   stan::math::exp(
                     stan::math::multiply(
@@ -6030,11 +6782,11 @@ public:
                         stan::model::index_omni()), beta_aux)),
                   "assigning variable eXbeta");
               }
-              current_statement__ = 105;
+              current_statement__ = 140;
               if (nX_aux) {
-                current_statement__ = 101;
+                current_statement__ = 136;
                 if (nonexp) {
-                  current_statement__ = 100;
+                  current_statement__ = 135;
                   auxi = (stan::model::rvalue(aux, "aux",
                             stan::model::index_uni(
                               stan::model::rvalue(aux_id_ipd, "aux_id_ipd",
@@ -6045,9 +6797,9 @@ public:
                     stan::model::rvalue(eXbeta, "eXbeta",
                       stan::model::index_uni(1)));
                 }
-                current_statement__ = 103;
+                current_statement__ = 138;
                 if (gengamma) {
-                  current_statement__ = 102;
+                  current_statement__ = 137;
                   aux2i = (stan::model::rvalue(aux2, "aux2",
                              stan::model::index_uni(
                                stan::model::rvalue(aux_id_ipd, "aux_id_ipd",
@@ -6059,20 +6811,20 @@ public:
                       stan::model::index_uni(2)));
                 }
               } else {
-                current_statement__ = 96;
+                current_statement__ = 131;
                 if (nonexp) {
-                  current_statement__ = 95;
+                  current_statement__ = 130;
                   auxi = stan::model::rvalue(aux, "aux",
                            stan::model::index_uni(i));
                 }
-                current_statement__ = 98;
+                current_statement__ = 133;
                 if (gengamma) {
-                  current_statement__ = 97;
+                  current_statement__ = 132;
                   aux2i = stan::model::rvalue(aux2, "aux2",
                             stan::model::index_uni(i));
                 }
               }
-              current_statement__ = 106;
+              current_statement__ = 141;
               stan::model::assign(log_L_ipd,
                 loglik2(dist,
                   stan::model::rvalue(ipd_time, "ipd_time",
@@ -6090,15 +6842,15 @@ public:
           }
         }
       }
-      current_statement__ = 242;
+      current_statement__ = 284;
       if (ni_agd_arm) {
-        current_statement__ = 130;
+        current_statement__ = 165;
         stan::math::validate_non_negative_index("eta_agd_arm_noRE",
           "nint_max * ni_agd_arm", (nint_max * ni_agd_arm));
         Eigen::Matrix<local_scalar_t__,-1,1> eta_agd_arm_noRE =
           Eigen::Matrix<local_scalar_t__,-1,1>::Constant((nint_max *
             ni_agd_arm), DUMMY_VAR__);
-        current_statement__ = 131;
+        current_statement__ = 166;
         stan::model::assign(eta_agd_arm_noRE,
           (has_offset ? stan::math::eval(
                           stan::math::add(
@@ -6107,47 +6859,81 @@ public:
                                                  stan::math::multiply(
                                                    X_agd_arm, beta_tilde))),
           "assigning variable eta_agd_arm_noRE");
-        current_statement__ = 240;
+        current_statement__ = 173;
+        if (class_effects) {
+          current_statement__ = 171;
+          for (int i = 1; i <= ni_agd_arm; ++i) {
+            current_statement__ = 169;
+            if ((stan::math::primitive_value(
+                   stan::math::logical_gt(
+                     stan::model::rvalue(agd_arm_trt, "agd_arm_trt",
+                       stan::model::index_uni(i)), 1))
+                &&
+                stan::math::primitive_value(
+                  stan::model::rvalue(which_CE, "which_CE",
+                    stan::model::index_uni(
+                      (stan::model::rvalue(agd_arm_trt, "agd_arm_trt",
+                         stan::model::index_uni(i)) - 1)))))) {
+              current_statement__ = 167;
+              stan::model::assign(eta_agd_arm_noRE,
+                stan::math::add(
+                  stan::model::deep_copy(
+                    stan::model::rvalue(eta_agd_arm_noRE, "eta_agd_arm_noRE",
+                      stan::model::index_min_max((1 + ((i - 1) * nint_max)),
+                        (((i - 1) * nint_max) + nint)))),
+                  stan::model::rvalue(f_class, "f_class",
+                    stan::model::index_uni(
+                      stan::model::rvalue(which_class, "which_class",
+                        stan::model::index_uni(
+                          (stan::model::rvalue(agd_arm_trt, "agd_arm_trt",
+                             stan::model::index_uni(i)) - 1)))))),
+                "assigning variable eta_agd_arm_noRE",
+                stan::model::index_min_max((1 + ((i - 1) * nint_max)), (((i -
+                  1) * nint_max) + nint)));
+            }
+          }
+        }
+        current_statement__ = 282;
         if (stan::math::logical_gt(nint_max, 1)) {
-          current_statement__ = 238;
+          current_statement__ = 280;
           if ((stan::math::primitive_value(stan::math::logical_eq(nonexp, 0))
               || stan::math::primitive_value(aux_int))) {
-            current_statement__ = 236;
+            current_statement__ = 278;
             for (int i = 1; i <= ni_agd_arm; ++i) {
-              current_statement__ = 213;
+              current_statement__ = 255;
               stan::math::validate_non_negative_index("eta_agd_arm_ii",
                 "nint", nint);
               Eigen::Matrix<local_scalar_t__,-1,1> eta_agd_arm_ii =
                 Eigen::Matrix<local_scalar_t__,-1,1>::Constant(nint,
                   DUMMY_VAR__);
-              current_statement__ = 215;
+              current_statement__ = 257;
               stan::math::validate_non_negative_index("log_L_ii", "nint",
                 nint);
               Eigen::Matrix<local_scalar_t__,-1,1> log_L_ii =
                 Eigen::Matrix<local_scalar_t__,-1,1>::Constant(nint,
                   DUMMY_VAR__);
-              current_statement__ = 217;
+              current_statement__ = 259;
               stan::math::validate_non_negative_index("auxi", "nint", nint);
               Eigen::Matrix<local_scalar_t__,-1,1> auxi =
                 Eigen::Matrix<local_scalar_t__,-1,1>::Constant(nint,
                   DUMMY_VAR__);
-              current_statement__ = 219;
+              current_statement__ = 261;
               stan::math::validate_non_negative_index("aux2i", "nint", nint);
               Eigen::Matrix<local_scalar_t__,-1,1> aux2i =
                 Eigen::Matrix<local_scalar_t__,-1,1>::Constant(nint,
                   DUMMY_VAR__);
-              current_statement__ = 221;
+              current_statement__ = 263;
               stan::math::validate_non_negative_index("eXbeta",
                 "nonexp ? nint : 0", (nonexp ? nint : 0));
-              current_statement__ = 222;
+              current_statement__ = 264;
               stan::math::validate_non_negative_index("eXbeta",
                 "nonexp + gengamma", (nonexp + gengamma));
               Eigen::Matrix<local_scalar_t__,-1,-1> eXbeta =
                 Eigen::Matrix<local_scalar_t__,-1,-1>::Constant((nonexp ? nint : 0),
                   (nonexp + gengamma), DUMMY_VAR__);
-              current_statement__ = 225;
+              current_statement__ = 267;
               if (nonexp) {
-                current_statement__ = 224;
+                current_statement__ = 266;
                 stan::model::assign(eXbeta,
                   stan::math::exp(
                     stan::math::multiply(
@@ -6157,9 +6943,9 @@ public:
                         stan::model::index_omni()), beta_aux)),
                   "assigning variable eXbeta");
               }
-              current_statement__ = 227;
+              current_statement__ = 269;
               if (nonexp) {
-                current_statement__ = 226;
+                current_statement__ = 268;
                 stan::model::assign(auxi,
                   stan::math::elt_multiply(
                     stan::model::rvalue(aux, "aux",
@@ -6171,9 +6957,9 @@ public:
                       stan::model::index_omni(), stan::model::index_uni(1))),
                   "assigning variable auxi");
               }
-              current_statement__ = 229;
+              current_statement__ = 271;
               if (gengamma) {
-                current_statement__ = 228;
+                current_statement__ = 270;
                 stan::model::assign(aux2i,
                   stan::math::elt_multiply(
                     stan::model::rvalue(aux2, "aux2",
@@ -6185,20 +6971,20 @@ public:
                       stan::model::index_omni(), stan::model::index_uni(2))),
                   "assigning variable aux2i");
               }
-              current_statement__ = 230;
+              current_statement__ = 272;
               stan::model::assign(eta_agd_arm_ii,
                 stan::model::rvalue(eta_agd_arm_noRE, "eta_agd_arm_noRE",
                   stan::model::index_min_max((1 + ((i - 1) * nint_max)), (((i
                     - 1) * nint_max) + nint))),
                 "assigning variable eta_agd_arm_ii");
-              current_statement__ = 232;
+              current_statement__ = 274;
               if ((stan::math::primitive_value(RE) &&
                   stan::math::primitive_value(
                     stan::model::rvalue(which_RE, "which_RE",
                       stan::model::index_uni(
                         stan::model::rvalue(agd_arm_arm2, "agd_arm_arm2",
                           stan::model::index_uni(i))))))) {
-                current_statement__ = 231;
+                current_statement__ = 273;
                 stan::model::assign(eta_agd_arm_ii,
                   stan::math::add(stan::model::deep_copy(eta_agd_arm_ii),
                     stan::model::rvalue(f_delta, "f_delta",
@@ -6209,7 +6995,7 @@ public:
                               stan::model::index_uni(i))))))),
                   "assigning variable eta_agd_arm_ii");
               }
-              current_statement__ = 233;
+              current_statement__ = 275;
               stan::model::assign(log_L_ii,
                 loglik_a2(dist,
                   stan::model::rvalue(agd_arm_time, "agd_arm_time",
@@ -6221,25 +7007,25 @@ public:
                   stan::model::rvalue(agd_arm_status, "agd_arm_status",
                     stan::model::index_uni(i)), eta_agd_arm_ii, auxi, aux2i,
                   pstream__), "assigning variable log_L_ii");
-              current_statement__ = 234;
+              current_statement__ = 276;
               stan::model::assign(log_L_agd_arm,
                 (stan::math::log_sum_exp(log_L_ii) - stan::math::log(nint)),
                 "assigning variable log_L_agd_arm", stan::model::index_uni(i));
             }
           } else {
-            current_statement__ = 211;
+            current_statement__ = 253;
             for (int i = 1; i <= n_aux_group; ++i) {
               int ni = std::numeric_limits<int>::min();
-              current_statement__ = 181;
+              current_statement__ = 223;
               ni = stan::model::rvalue(ni_aux_group_agd_arm,
                      "ni_aux_group_agd_arm", stan::model::index_uni(i));
-              current_statement__ = 209;
+              current_statement__ = 251;
               if (ni) {
-                current_statement__ = 182;
+                current_statement__ = 224;
                 stan::math::validate_non_negative_index("wi", "ni", ni);
                 std::vector<int> wi =
                   std::vector<int>(ni, std::numeric_limits<int>::min());
-                current_statement__ = 183;
+                current_statement__ = 225;
                 stan::model::assign(wi,
                   stan::model::rvalue(wi_aux_group_agd_arm,
                     "wi_aux_group_agd_arm", stan::model::index_uni(i),
@@ -6247,15 +7033,15 @@ public:
                   "assigning variable wi");
                 local_scalar_t__ auxi = DUMMY_VAR__;
                 local_scalar_t__ aux2i = DUMMY_VAR__;
-                current_statement__ = 186;
+                current_statement__ = 228;
                 stan::math::validate_non_negative_index("eXbeta",
                   "nonexp + gengamma", (nonexp + gengamma));
                 Eigen::Matrix<local_scalar_t__,1,-1> eXbeta =
                   Eigen::Matrix<local_scalar_t__,1,-1>::Constant((nonexp +
                     gengamma), DUMMY_VAR__);
-                current_statement__ = 189;
+                current_statement__ = 231;
                 if (nonexp) {
-                  current_statement__ = 188;
+                  current_statement__ = 230;
                   stan::model::assign(eXbeta,
                     stan::math::exp(
                       stan::math::multiply(
@@ -6266,9 +7052,9 @@ public:
                           stan::model::index_omni()), beta_aux)),
                     "assigning variable eXbeta");
                 }
-                current_statement__ = 196;
+                current_statement__ = 238;
                 if (nX_aux) {
-                  current_statement__ = 193;
+                  current_statement__ = 235;
                   auxi = (nonexp ? (stan::model::rvalue(aux, "aux",
                                       stan::model::index_uni(
                                         stan::model::rvalue(aux_id_agd_arm,
@@ -6279,7 +7065,7 @@ public:
                     *
                     stan::model::rvalue(eXbeta, "eXbeta",
                       stan::model::index_uni(1))) : 0);
-                  current_statement__ = 194;
+                  current_statement__ = 236;
                   aux2i = (gengamma ? (stan::model::rvalue(aux2, "aux2",
                                          stan::model::index_uni(
                                            stan::model::rvalue(
@@ -6292,28 +7078,28 @@ public:
                     stan::model::rvalue(eXbeta, "eXbeta",
                       stan::model::index_uni(2))) : 0);
                 } else {
-                  current_statement__ = 190;
+                  current_statement__ = 232;
                   auxi = (nonexp ? stan::model::rvalue(aux, "aux",
                                      stan::model::index_uni(i)) : 0);
-                  current_statement__ = 191;
+                  current_statement__ = 233;
                   aux2i = (gengamma ? stan::model::rvalue(aux2, "aux2",
                                         stan::model::index_uni(i)) : 0);
                 }
-                current_statement__ = 207;
+                current_statement__ = 249;
                 for (int j = 1; j <= ni; ++j) {
-                  current_statement__ = 197;
+                  current_statement__ = 239;
                   stan::math::validate_non_negative_index("eta_agd_arm_ii",
                     "nint", nint);
                   Eigen::Matrix<local_scalar_t__,-1,1> eta_agd_arm_ii =
                     Eigen::Matrix<local_scalar_t__,-1,1>::Constant(nint,
                       DUMMY_VAR__);
-                  current_statement__ = 199;
+                  current_statement__ = 241;
                   stan::math::validate_non_negative_index("log_L_ii", "nint",
                     nint);
                   Eigen::Matrix<local_scalar_t__,-1,1> log_L_ii =
                     Eigen::Matrix<local_scalar_t__,-1,1>::Constant(nint,
                       DUMMY_VAR__);
-                  current_statement__ = 201;
+                  current_statement__ = 243;
                   stan::model::assign(eta_agd_arm_ii,
                     stan::model::rvalue(eta_agd_arm_noRE, "eta_agd_arm_noRE",
                       stan::model::index_min_max((1 +
@@ -6322,7 +7108,7 @@ public:
                         (((stan::model::rvalue(wi, "wi",
                              stan::model::index_uni(j)) - 1) * nint_max) +
                         nint))), "assigning variable eta_agd_arm_ii");
-                  current_statement__ = 203;
+                  current_statement__ = 245;
                   if ((stan::math::primitive_value(RE) &&
                       stan::math::primitive_value(
                         stan::model::rvalue(which_RE, "which_RE",
@@ -6331,7 +7117,7 @@ public:
                               stan::model::index_uni(
                                 stan::model::rvalue(wi, "wi",
                                   stan::model::index_uni(j))))))))) {
-                    current_statement__ = 202;
+                    current_statement__ = 244;
                     stan::model::assign(eta_agd_arm_ii,
                       stan::math::add(stan::model::deep_copy(eta_agd_arm_ii),
                         stan::model::rvalue(f_delta, "f_delta",
@@ -6345,7 +7131,7 @@ public:
                                       stan::model::index_uni(j))))))))),
                       "assigning variable eta_agd_arm_ii");
                   }
-                  current_statement__ = 204;
+                  current_statement__ = 246;
                   stan::model::assign(log_L_ii,
                     loglik_a(dist,
                       stan::model::rvalue(agd_arm_time, "agd_arm_time",
@@ -6367,7 +7153,7 @@ public:
                           stan::model::rvalue(wi, "wi",
                             stan::model::index_uni(j)))), eta_agd_arm_ii,
                       auxi, aux2i, pstream__), "assigning variable log_L_ii");
-                  current_statement__ = 205;
+                  current_statement__ = 247;
                   stan::model::assign(log_L_agd_arm,
                     (stan::math::log_sum_exp(log_L_ii) -
                     stan::math::log(nint)),
@@ -6379,25 +7165,25 @@ public:
             }
           }
         } else {
-          current_statement__ = 132;
+          current_statement__ = 174;
           stan::math::validate_non_negative_index("eta_agd_arm",
             "ni_agd_arm", ni_agd_arm);
           Eigen::Matrix<local_scalar_t__,-1,1> eta_agd_arm =
             Eigen::Matrix<local_scalar_t__,-1,1>::Constant(ni_agd_arm,
               DUMMY_VAR__);
-          current_statement__ = 133;
+          current_statement__ = 175;
           stan::model::assign(eta_agd_arm, eta_agd_arm_noRE,
             "assigning variable eta_agd_arm");
-          current_statement__ = 137;
+          current_statement__ = 179;
           if (RE) {
-            current_statement__ = 136;
+            current_statement__ = 178;
             for (int i = 1; i <= ni_agd_arm; ++i) {
-              current_statement__ = 135;
+              current_statement__ = 177;
               if (stan::model::rvalue(which_RE, "which_RE",
                     stan::model::index_uni(
                       stan::model::rvalue(agd_arm_arm2, "agd_arm_arm2",
                         stan::model::index_uni(i))))) {
-                current_statement__ = 134;
+                current_statement__ = 176;
                 stan::model::assign(eta_agd_arm,
                   (stan::model::rvalue(eta_agd_arm, "eta_agd_arm",
                      stan::model::index_uni(i)) +
@@ -6411,40 +7197,40 @@ public:
               }
             }
           }
-          current_statement__ = 179;
+          current_statement__ = 221;
           if ((stan::math::primitive_value(stan::math::logical_eq(nonexp, 0))
               || stan::math::primitive_value(aux_int))) {
-            current_statement__ = 164;
+            current_statement__ = 206;
             stan::math::validate_non_negative_index("auxi", "ni_agd_arm",
               ni_agd_arm);
             Eigen::Matrix<local_scalar_t__,-1,1> auxi =
               Eigen::Matrix<local_scalar_t__,-1,1>::Constant(ni_agd_arm,
                 DUMMY_VAR__);
-            current_statement__ = 166;
+            current_statement__ = 208;
             stan::math::validate_non_negative_index("aux2i", "ni_agd_arm",
               ni_agd_arm);
             Eigen::Matrix<local_scalar_t__,-1,1> aux2i =
               Eigen::Matrix<local_scalar_t__,-1,1>::Constant(ni_agd_arm,
                 DUMMY_VAR__);
-            current_statement__ = 168;
+            current_statement__ = 210;
             stan::math::validate_non_negative_index("eXbeta", "ni_agd_arm",
               ni_agd_arm);
-            current_statement__ = 169;
+            current_statement__ = 211;
             stan::math::validate_non_negative_index("eXbeta",
               "nonexp + gengamma", (nonexp + gengamma));
             Eigen::Matrix<local_scalar_t__,-1,-1> eXbeta =
               Eigen::Matrix<local_scalar_t__,-1,-1>::Constant(ni_agd_arm,
                 (nonexp + gengamma), DUMMY_VAR__);
-            current_statement__ = 172;
+            current_statement__ = 214;
             if (nonexp) {
-              current_statement__ = 171;
+              current_statement__ = 213;
               stan::model::assign(eXbeta,
                 stan::math::exp(stan::math::multiply(X_aux_agd_arm, beta_aux)),
                 "assigning variable eXbeta");
             }
-            current_statement__ = 174;
+            current_statement__ = 216;
             if (nonexp) {
-              current_statement__ = 173;
+              current_statement__ = 215;
               stan::model::assign(auxi,
                 stan::math::elt_multiply(
                   stan::model::rvalue(aux, "aux",
@@ -6453,9 +7239,9 @@ public:
                     stan::model::index_omni(), stan::model::index_uni(1))),
                 "assigning variable auxi");
             }
-            current_statement__ = 176;
+            current_statement__ = 218;
             if (gengamma) {
-              current_statement__ = 175;
+              current_statement__ = 217;
               stan::model::assign(aux2i,
                 stan::math::elt_multiply(
                   stan::model::rvalue(aux2, "aux2",
@@ -6464,25 +7250,25 @@ public:
                     stan::model::index_omni(), stan::model::index_uni(2))),
                 "assigning variable aux2i");
             }
-            current_statement__ = 177;
+            current_statement__ = 219;
             stan::model::assign(log_L_agd_arm,
               loglik(dist, agd_arm_time, agd_arm_start_time,
                 agd_arm_delay_time, agd_arm_status, eta_agd_arm, auxi, aux2i,
                 pstream__), "assigning variable log_L_agd_arm");
           } else {
-            current_statement__ = 162;
+            current_statement__ = 204;
             for (int i = 1; i <= n_aux_group; ++i) {
               int ni = std::numeric_limits<int>::min();
-              current_statement__ = 138;
+              current_statement__ = 180;
               ni = stan::model::rvalue(ni_aux_group_agd_arm,
                      "ni_aux_group_agd_arm", stan::model::index_uni(i));
-              current_statement__ = 160;
+              current_statement__ = 202;
               if (ni) {
-                current_statement__ = 139;
+                current_statement__ = 181;
                 stan::math::validate_non_negative_index("wi", "ni", ni);
                 std::vector<int> wi =
                   std::vector<int>(ni, std::numeric_limits<int>::min());
-                current_statement__ = 140;
+                current_statement__ = 182;
                 stan::model::assign(wi,
                   stan::model::rvalue(wi_aux_group_agd_arm,
                     "wi_aux_group_agd_arm", stan::model::index_uni(i),
@@ -6490,15 +7276,15 @@ public:
                   "assigning variable wi");
                 local_scalar_t__ auxi = DUMMY_VAR__;
                 local_scalar_t__ aux2i = DUMMY_VAR__;
-                current_statement__ = 143;
+                current_statement__ = 185;
                 stan::math::validate_non_negative_index("eXbeta",
                   "nonexp + gengamma", (nonexp + gengamma));
                 Eigen::Matrix<local_scalar_t__,1,-1> eXbeta =
                   Eigen::Matrix<local_scalar_t__,1,-1>::Constant((nonexp +
                     gengamma), DUMMY_VAR__);
-                current_statement__ = 146;
+                current_statement__ = 188;
                 if (nonexp) {
-                  current_statement__ = 145;
+                  current_statement__ = 187;
                   stan::model::assign(eXbeta,
                     stan::math::exp(
                       stan::math::multiply(
@@ -6509,11 +7295,11 @@ public:
                           stan::model::index_omni()), beta_aux)),
                     "assigning variable eXbeta");
                 }
-                current_statement__ = 157;
+                current_statement__ = 199;
                 if (nX_aux) {
-                  current_statement__ = 153;
+                  current_statement__ = 195;
                   if (nonexp) {
-                    current_statement__ = 152;
+                    current_statement__ = 194;
                     auxi = (stan::model::rvalue(aux, "aux",
                               stan::model::index_uni(
                                 stan::model::rvalue(aux_id_agd_arm,
@@ -6525,9 +7311,9 @@ public:
                       stan::model::rvalue(eXbeta, "eXbeta",
                         stan::model::index_uni(1)));
                   }
-                  current_statement__ = 155;
+                  current_statement__ = 197;
                   if (gengamma) {
-                    current_statement__ = 154;
+                    current_statement__ = 196;
                     aux2i = (stan::model::rvalue(aux2, "aux2",
                                stan::model::index_uni(
                                  stan::model::rvalue(aux_id_agd_arm,
@@ -6540,20 +7326,20 @@ public:
                         stan::model::index_uni(2)));
                   }
                 } else {
-                  current_statement__ = 148;
+                  current_statement__ = 190;
                   if (nonexp) {
-                    current_statement__ = 147;
+                    current_statement__ = 189;
                     auxi = stan::model::rvalue(aux, "aux",
                              stan::model::index_uni(i));
                   }
-                  current_statement__ = 150;
+                  current_statement__ = 192;
                   if (gengamma) {
-                    current_statement__ = 149;
+                    current_statement__ = 191;
                     aux2i = stan::model::rvalue(aux2, "aux2",
                               stan::model::index_uni(i));
                   }
                 }
-                current_statement__ = 158;
+                current_statement__ = 200;
                 stan::model::assign(log_L_agd_arm,
                   loglik2(dist,
                     stan::model::rvalue(agd_arm_time, "agd_arm_time",
@@ -6574,107 +7360,142 @@ public:
         }
       }
       {
-        current_statement__ = 291;
+        current_statement__ = 333;
         prior_select_lp<propto__>(mu, prior_intercept_dist,
           prior_intercept_location, prior_intercept_scale,
           prior_intercept_df, lp__, lp_accum__, pstream__);
-        current_statement__ = 292;
-        prior_select_lp<propto__>(d, prior_trt_dist, prior_trt_location,
-          prior_trt_scale, prior_trt_df, lp__, lp_accum__, pstream__);
-        current_statement__ = 293;
+        current_statement__ = 339;
+        if (stan::math::logical_eq(class_effects, 0)) {
+          current_statement__ = 337;
+          prior_select_lp<propto__>(d, prior_trt_dist, prior_trt_location,
+            prior_trt_scale, prior_trt_df, lp__, lp_accum__, pstream__);
+        } else {
+          current_statement__ = 334;
+          prior_select_lp<propto__>(class_mean, prior_class_mean_dist,
+            prior_class_mean_location, prior_class_mean_scale,
+            prior_class_mean_df, lp__, lp_accum__, pstream__);
+          current_statement__ = 335;
+          prior_select_lp<propto__>(class_sd, prior_class_sd_dist,
+            prior_class_sd_location, prior_class_sd_scale, prior_class_sd_df,
+            lp__, lp_accum__, pstream__);
+        }
+        current_statement__ = 340;
         prior_select_lp<propto__>(beta, prior_reg_dist, prior_reg_location,
           prior_reg_scale, prior_reg_df, lp__, lp_accum__, pstream__);
-        current_statement__ = 294;
+        current_statement__ = 341;
         prior_select_lp<propto__>(omega, prior_trt_dist, prior_trt_location,
           prior_trt_scale, prior_trt_df, lp__, lp_accum__, pstream__);
-        current_statement__ = 312;
+        current_statement__ = 359;
         if (RE) {
-          current_statement__ = 310;
+          current_statement__ = 357;
           if (stan::math::logical_eq(prior_het_type, 1)) {
-            current_statement__ = 308;
+            current_statement__ = 355;
             prior_select_lp<propto__>(tau, prior_het_dist,
               prior_het_location, prior_het_scale, prior_het_df, lp__,
               lp_accum__, pstream__);
           } else {
-            current_statement__ = 295;
+            current_statement__ = 342;
             stan::math::validate_non_negative_index("tau_t", "RE ? 1 : 0",
               (RE ? 1 : 0));
             Eigen::Matrix<local_scalar_t__,-1,1> tau_t =
               Eigen::Matrix<local_scalar_t__,-1,1>::Constant((RE ? 1 : 0),
                 DUMMY_VAR__);
-            current_statement__ = 304;
+            current_statement__ = 351;
             if (stan::math::logical_eq(prior_het_type, 2)) {
-              current_statement__ = 301;
+              current_statement__ = 348;
               stan::model::assign(tau_t,
                 stan::math::pow(
                   stan::model::rvalue(tau, "tau", stan::model::index_uni(1)),
                   2), "assigning variable tau_t", stan::model::index_uni(1));
-              current_statement__ = 302;
+              current_statement__ = 349;
               lp_accum__.add(stan::math::log(tau));
             } else {
-              current_statement__ = 300;
+              current_statement__ = 347;
               if (stan::math::logical_eq(prior_het_type, 3)) {
-                current_statement__ = 297;
+                current_statement__ = 344;
                 stan::model::assign(tau_t,
                   stan::math::pow(
                     stan::model::rvalue(tau, "tau", stan::model::index_uni(1)),
                     -2), "assigning variable tau_t",
                   stan::model::index_uni(1));
-                current_statement__ = 298;
+                current_statement__ = 345;
                 lp_accum__.add(stan::math::multiply(-3, stan::math::log(tau)));
               }
             }
-            current_statement__ = 305;
+            current_statement__ = 352;
             prior_select_lp<propto__>(tau_t, prior_het_dist,
               prior_het_location, prior_het_scale, prior_het_df, lp__,
               lp_accum__, pstream__);
           }
         }
-        current_statement__ = 313;
+        current_statement__ = 360;
         lp_accum__.add(stan::math::std_normal_lpdf<propto__>(u_delta));
-        current_statement__ = 316;
+        current_statement__ = 363;
         if (ni_agd_contrast) {
-          current_statement__ = 314;
+          current_statement__ = 361;
           lp_accum__.add(stan::math::multi_normal_lpdf<propto__>(
                            agd_contrast_y, eta_agd_contrast_bar,
                            agd_contrast_Sigma));
         }
-        current_statement__ = 318;
+        current_statement__ = 372;
+        if (class_effects) {
+          current_statement__ = 370;
+          for (int t = 1; t <= (nt - 1); ++t) {
+            current_statement__ = 368;
+            if (stan::math::logical_eq(
+                  stan::model::rvalue(which_CE, "which_CE",
+                    stan::model::index_uni(t)), 0)) {
+              current_statement__ = 366;
+              prior_select2_lp<propto__>(
+                stan::model::rvalue(d, "d", stan::model::index_uni(t)),
+                prior_trt_dist, prior_trt_location, prior_trt_scale,
+                prior_trt_df, lp__, lp_accum__, pstream__);
+            } else {
+              current_statement__ = 364;
+              lp_accum__.add(stan::math::std_normal_lpdf<propto__>(
+                               stan::model::rvalue(allbeta, "allbeta",
+                                 stan::model::index_uni((totns + t)))));
+            }
+          }
+        }
+        current_statement__ = 373;
+        lp_accum__.add(stan::math::std_normal_lpdf<propto__>(z_class));
+        current_statement__ = 375;
         if (nonexp) {
-          current_statement__ = 317;
+          current_statement__ = 374;
           prior_select_lp<propto__>(aux, prior_aux_dist, prior_aux_location,
             prior_aux_scale, prior_aux_df, lp__, lp_accum__, pstream__);
         }
-        current_statement__ = 320;
+        current_statement__ = 377;
         if (gengamma) {
-          current_statement__ = 319;
+          current_statement__ = 376;
           prior_select_lp<propto__>(aux2, prior_aux2_dist,
             prior_aux2_location, prior_aux2_scale, prior_aux2_df, lp__,
             lp_accum__, pstream__);
         }
-        current_statement__ = 322;
+        current_statement__ = 379;
         if ((stan::math::primitive_value(nonexp) &&
             stan::math::primitive_value(nX_aux))) {
-          current_statement__ = 321;
+          current_statement__ = 378;
           prior_select_lp<propto__>(
             stan::model::rvalue(beta_aux, "beta_aux",
               stan::model::index_omni(), stan::model::index_uni(1)),
             prior_aux_reg_dist, prior_aux_reg_location, prior_aux_reg_scale,
             prior_aux_reg_df, lp__, lp_accum__, pstream__);
         }
-        current_statement__ = 324;
+        current_statement__ = 381;
         if ((stan::math::primitive_value(gengamma) &&
             stan::math::primitive_value(nX_aux))) {
-          current_statement__ = 323;
+          current_statement__ = 380;
           prior_select_lp<propto__>(
             stan::model::rvalue(beta_aux, "beta_aux",
               stan::model::index_omni(), stan::model::index_uni(2)),
             prior_aux_reg_dist, prior_aux_reg_location, prior_aux_reg_scale,
             prior_aux_reg_df, lp__, lp_accum__, pstream__);
         }
-        current_statement__ = 325;
+        current_statement__ = 382;
         lp_accum__.add(log_L_ipd);
-        current_statement__ = 326;
+        current_statement__ = 383;
         lp_accum__.add(log_L_agd_arm);
       }
     } catch (const std::exception& e) {
@@ -6733,24 +7554,43 @@ public:
       tau = in__.template read_constrain_lb<
               Eigen::Matrix<local_scalar_t__,-1,1>, jacobian__>(0, lp__,
               tau_1dim__);
+      Eigen::Matrix<double,-1,1> class_mean =
+        Eigen::Matrix<double,-1,1>::Constant(class_mean_1dim__,
+          std::numeric_limits<double>::quiet_NaN());
+      current_statement__ = 4;
+      class_mean = in__.template read<
+                     Eigen::Matrix<local_scalar_t__,-1,1>>(class_mean_1dim__);
+      Eigen::Matrix<double,-1,1> class_sd =
+        Eigen::Matrix<double,-1,1>::Constant(class_sd_1dim__,
+          std::numeric_limits<double>::quiet_NaN());
+      current_statement__ = 5;
+      class_sd = in__.template read_constrain_lb<
+                   Eigen::Matrix<local_scalar_t__,-1,1>, jacobian__>(0, lp__,
+                   class_sd_1dim__);
+      Eigen::Matrix<double,-1,1> z_class =
+        Eigen::Matrix<double,-1,1>::Constant(z_class_1dim__,
+          std::numeric_limits<double>::quiet_NaN());
+      current_statement__ = 6;
+      z_class = in__.template read<
+                  Eigen::Matrix<local_scalar_t__,-1,1>>(z_class_1dim__);
       Eigen::Matrix<double,-1,1> aux =
         Eigen::Matrix<double,-1,1>::Constant(n_aux,
           std::numeric_limits<double>::quiet_NaN());
-      current_statement__ = 4;
+      current_statement__ = 7;
       aux = in__.template read_constrain_lb<
               Eigen::Matrix<local_scalar_t__,-1,1>, jacobian__>(0, lp__,
               n_aux);
       Eigen::Matrix<double,-1,1> aux2 =
         Eigen::Matrix<double,-1,1>::Constant(aux2_1dim__,
           std::numeric_limits<double>::quiet_NaN());
-      current_statement__ = 5;
+      current_statement__ = 8;
       aux2 = in__.template read_constrain_lb<
                Eigen::Matrix<local_scalar_t__,-1,1>, jacobian__>(0, lp__,
                aux2_1dim__);
       Eigen::Matrix<double,-1,-1> beta_aux =
         Eigen::Matrix<double,-1,-1>::Constant(beta_aux_1dim__,
           beta_aux_2dim__, std::numeric_limits<double>::quiet_NaN());
-      current_statement__ = 6;
+      current_statement__ = 9;
       beta_aux = in__.template read<
                    Eigen::Matrix<local_scalar_t__,-1,-1>>(beta_aux_1dim__,
                    beta_aux_2dim__);
@@ -6787,9 +7627,15 @@ public:
       Eigen::Matrix<double,-1,1> eta_agd_contrast_bar =
         Eigen::Matrix<double,-1,1>::Constant(ni_agd_contrast,
           std::numeric_limits<double>::quiet_NaN());
+      Eigen::Matrix<double,-1,1> f_class =
+        Eigen::Matrix<double,-1,1>::Constant(f_class_1dim__,
+          std::numeric_limits<double>::quiet_NaN());
       out__.write(beta_tilde);
       out__.write(u_delta);
       out__.write(tau);
+      out__.write(class_mean);
+      out__.write(class_sd);
+      out__.write(z_class);
       out__.write(aux);
       out__.write(aux2);
       out__.write(beta_aux);
@@ -6798,7 +7644,7 @@ public:
             stan::math::primitive_value(emit_generated_quantities__)))) {
         return ;
       }
-      current_statement__ = 10;
+      current_statement__ = 13;
       stan::model::assign(f_delta,
         (RE ? stan::math::eval(
                 (RE_sparse ? stan::math::eval(
@@ -6813,49 +7659,49 @@ public:
                       stan::model::rvalue(tau, "tau",
                         stan::model::index_uni(1)), RE_L), u_delta)))) : 
         stan::math::eval(u_delta)), "assigning variable f_delta");
-      current_statement__ = 11;
+      current_statement__ = 14;
       stan::model::assign(allbeta,
         (QR ? stan::math::eval(stan::math::multiply(R_inv, beta_tilde)) : 
         stan::math::eval(beta_tilde)), "assigning variable allbeta");
-      current_statement__ = 13;
+      current_statement__ = 16;
       stan::model::assign(d,
         stan::model::rvalue(allbeta, "allbeta",
           stan::model::index_min_max((totns + 1), ((totns + nt) - 1))),
         "assigning variable d");
-      current_statement__ = 30;
+      current_statement__ = 34;
       if (totns) {
-        current_statement__ = 28;
+        current_statement__ = 32;
         stan::model::assign(mu,
           stan::model::rvalue(allbeta, "allbeta",
             stan::model::index_min_max(1, totns)), "assigning variable mu");
       }
-      current_statement__ = 33;
+      current_statement__ = 37;
       if ((((nX - totns) - (nt - 1)) - nodesplit)) {
-        current_statement__ = 31;
+        current_statement__ = 35;
         stan::model::assign(beta,
           stan::model::rvalue(allbeta, "allbeta",
             stan::model::index_min(((totns + nt) + nodesplit))),
           "assigning variable beta");
       }
-      current_statement__ = 36;
+      current_statement__ = 40;
       if (nodesplit) {
-        current_statement__ = 34;
+        current_statement__ = 38;
         stan::model::assign(omega,
           stan::model::rvalue(allbeta, "allbeta",
             stan::model::index_uni((totns + nt))),
           "assigning variable omega", stan::model::index_uni(1));
       }
-      current_statement__ = 50;
+      current_statement__ = 54;
       if (ni_ipd) {
-        current_statement__ = 48;
+        current_statement__ = 52;
         if (RE) {
-          current_statement__ = 39;
+          current_statement__ = 43;
           stan::math::validate_non_negative_index("eta_ipd_noRE", "ni_ipd",
             ni_ipd);
           Eigen::Matrix<double,-1,1> eta_ipd_noRE =
             Eigen::Matrix<double,-1,1>::Constant(ni_ipd,
               std::numeric_limits<double>::quiet_NaN());
-          current_statement__ = 40;
+          current_statement__ = 44;
           stan::model::assign(eta_ipd_noRE,
             (has_offset ? stan::math::eval(
                             stan::math::add(
@@ -6864,14 +7710,14 @@ public:
                                                stan::math::multiply(X_ipd,
                                                  beta_tilde))),
             "assigning variable eta_ipd_noRE");
-          current_statement__ = 45;
+          current_statement__ = 49;
           for (int i = 1; i <= ni_ipd; ++i) {
-            current_statement__ = 43;
+            current_statement__ = 47;
             if (stan::model::rvalue(which_RE, "which_RE",
                   stan::model::index_uni(
                     stan::model::rvalue(ipd_arm, "ipd_arm",
                       stan::model::index_uni(i))))) {
-              current_statement__ = 42;
+              current_statement__ = 46;
               stan::model::assign(eta_ipd,
                 (stan::model::rvalue(eta_ipd_noRE, "eta_ipd_noRE",
                    stan::model::index_uni(i)) +
@@ -6883,7 +7729,7 @@ public:
                           stan::model::index_uni(i))))))),
                 "assigning variable eta_ipd", stan::model::index_uni(i));
             } else {
-              current_statement__ = 41;
+              current_statement__ = 45;
               stan::model::assign(eta_ipd,
                 stan::model::rvalue(eta_ipd_noRE, "eta_ipd_noRE",
                   stan::model::index_uni(i)), "assigning variable eta_ipd",
@@ -6891,7 +7737,7 @@ public:
             }
           }
         } else {
-          current_statement__ = 37;
+          current_statement__ = 41;
           stan::model::assign(eta_ipd,
             (has_offset ? stan::math::eval(
                             stan::math::add(
@@ -6902,17 +7748,84 @@ public:
             "assigning variable eta_ipd");
         }
       }
-      current_statement__ = 85;
+      current_statement__ = 58;
+      if (class_effects) {
+        current_statement__ = 55;
+        stan::model::assign(f_class,
+          stan::math::add(
+            stan::math::subtract(
+              stan::model::rvalue(class_mean, "class_mean",
+                stan::model::index_multi(
+                  stan::model::rvalue(which_CE, "which_CE",
+                    stan::model::index_multi(which_class_trt)))),
+              stan::model::rvalue(d, "d",
+                stan::model::index_multi(which_class_trt))),
+            stan::math::elt_multiply(
+              stan::model::rvalue(class_sd, "class_sd",
+                stan::model::index_multi(
+                  stan::model::rvalue(which_CE_sd, "which_CE_sd",
+                    stan::model::index_multi(which_class_trt)))), z_class)),
+          "assigning variable f_class");
+        current_statement__ = 56;
+        stan::model::assign(d,
+          stan::math::add(
+            stan::model::rvalue(class_mean, "class_mean",
+              stan::model::index_multi(
+                stan::model::rvalue(which_CE, "which_CE",
+                  stan::model::index_multi(which_class_trt)))),
+            stan::math::elt_multiply(
+              stan::model::rvalue(class_sd, "class_sd",
+                stan::model::index_multi(
+                  stan::model::rvalue(which_CE_sd, "which_CE_sd",
+                    stan::model::index_multi(which_class_trt)))), z_class)),
+          "assigning variable d", stan::model::index_multi(which_class_trt));
+      }
+      current_statement__ = 65;
+      if (class_effects) {
+        current_statement__ = 63;
+        for (int i = 1; i <= ni_ipd; ++i) {
+          current_statement__ = 61;
+          if ((stan::math::primitive_value(
+                 stan::math::logical_gt(
+                   stan::model::rvalue(ipd_trt, "ipd_trt",
+                     stan::model::index_uni(
+                       stan::model::rvalue(ipd_arm, "ipd_arm",
+                         stan::model::index_uni(i)))), 1))
+              &&
+              stan::math::primitive_value(
+                stan::model::rvalue(which_CE, "which_CE",
+                  stan::model::index_uni(
+                    (stan::model::rvalue(ipd_trt, "ipd_trt",
+                       stan::model::index_uni(
+                         stan::model::rvalue(ipd_arm, "ipd_arm",
+                           stan::model::index_uni(i)))) - 1)))))) {
+            current_statement__ = 59;
+            stan::model::assign(eta_ipd,
+              (stan::model::rvalue(eta_ipd, "eta_ipd",
+                 stan::model::index_uni(i)) +
+              stan::model::rvalue(f_class, "f_class",
+                stan::model::index_uni(
+                  stan::model::rvalue(which_class, "which_class",
+                    stan::model::index_uni(
+                      stan::model::rvalue(ipd_trt, "ipd_trt",
+                        stan::model::index_uni(
+                          (stan::model::rvalue(ipd_arm, "ipd_arm",
+                             stan::model::index_uni(i)) - 1)))))))),
+              "assigning variable eta_ipd", stan::model::index_uni(i));
+          }
+        }
+      }
+      current_statement__ = 120;
       if (ni_agd_contrast) {
-        current_statement__ = 83;
+        current_statement__ = 118;
         if (stan::math::logical_gt(nint_max, 1)) {
-          current_statement__ = 63;
+          current_statement__ = 88;
           stan::math::validate_non_negative_index("eta_agd_contrast_noRE",
             "nint_max * ni_agd_contrast", (nint_max * ni_agd_contrast));
           Eigen::Matrix<double,-1,1> eta_agd_contrast_noRE =
             Eigen::Matrix<double,-1,1>::Constant((nint_max *
               ni_agd_contrast), std::numeric_limits<double>::quiet_NaN());
-          current_statement__ = 64;
+          current_statement__ = 89;
           stan::model::assign(eta_agd_contrast_noRE,
             (has_offset ? stan::math::eval(
                             stan::math::add(
@@ -6922,14 +7835,82 @@ public:
                                                           X_agd_contrast,
                                                           beta_tilde))),
             "assigning variable eta_agd_contrast_noRE");
-          current_statement__ = 81;
+          current_statement__ = 99;
+          if (class_effects) {
+            current_statement__ = 97;
+            for (int i = 1; i <= ni_agd_arm; ++i) {
+              current_statement__ = 92;
+              if ((stan::math::primitive_value(
+                     stan::math::logical_gt(
+                       stan::model::rvalue(agd_contrast_trt,
+                         "agd_contrast_trt", stan::model::index_uni(i)), 1))
+                  &&
+                  stan::math::primitive_value(
+                    stan::model::rvalue(which_CE, "which_CE",
+                      stan::model::index_uni(
+                        (stan::model::rvalue(agd_contrast_trt,
+                           "agd_contrast_trt", stan::model::index_uni(i)) -
+                        1)))))) {
+                current_statement__ = 90;
+                stan::model::assign(eta_agd_contrast_noRE,
+                  stan::math::add(
+                    stan::model::deep_copy(
+                      stan::model::rvalue(eta_agd_contrast_noRE,
+                        "eta_agd_contrast_noRE",
+                        stan::model::index_min_max((1 + ((i - 1) *
+                          nint_max)), (((i - 1) * nint_max) + nint)))),
+                    stan::model::rvalue(f_class, "f_class",
+                      stan::model::index_uni(
+                        stan::model::rvalue(which_class, "which_class",
+                          stan::model::index_uni(
+                            (stan::model::rvalue(agd_contrast_trt,
+                               "agd_contrast_trt", stan::model::index_uni(i))
+                            - 1)))))),
+                  "assigning variable eta_agd_contrast_noRE",
+                  stan::model::index_min_max((1 + ((i - 1) * nint_max)), (((i
+                    - 1) * nint_max) + nint)));
+              }
+              current_statement__ = 95;
+              if ((stan::math::primitive_value(
+                     stan::math::logical_gt(
+                       stan::model::rvalue(agd_contrast_trt_b,
+                         "agd_contrast_trt_b", stan::model::index_uni(i)), 1))
+                  &&
+                  stan::math::primitive_value(
+                    stan::model::rvalue(which_CE, "which_CE",
+                      stan::model::index_uni(
+                        (stan::model::rvalue(agd_contrast_trt_b,
+                           "agd_contrast_trt_b", stan::model::index_uni(i)) -
+                        1)))))) {
+                current_statement__ = 93;
+                stan::model::assign(eta_agd_contrast_noRE,
+                  stan::math::subtract(
+                    stan::model::deep_copy(
+                      stan::model::rvalue(eta_agd_contrast_noRE,
+                        "eta_agd_contrast_noRE",
+                        stan::model::index_min_max((1 + ((i - 1) *
+                          nint_max)), (((i - 1) * nint_max) + nint)))),
+                    stan::model::rvalue(f_class, "f_class",
+                      stan::model::index_uni(
+                        stan::model::rvalue(which_class, "which_class",
+                          stan::model::index_uni(
+                            (stan::model::rvalue(agd_contrast_trt_b,
+                               "agd_contrast_trt_b",
+                               stan::model::index_uni(i)) - 1)))))),
+                  "assigning variable eta_agd_contrast_noRE",
+                  stan::model::index_min_max((1 + ((i - 1) * nint_max)), (((i
+                    - 1) * nint_max) + nint)));
+              }
+            }
+          }
+          current_statement__ = 116;
           if (RE) {
-            current_statement__ = 79;
+            current_statement__ = 114;
             for (int i = 1; i <= ni_agd_contrast; ++i) {
-              current_statement__ = 76;
+              current_statement__ = 111;
               if (stan::model::rvalue(which_RE, "which_RE",
                     stan::model::index_uni(((narm_ipd + narm_agd_arm) + i)))) {
-                current_statement__ = 75;
+                current_statement__ = 110;
                 stan::model::assign(eta_agd_contrast_ii,
                   stan::math::add(
                     stan::model::rvalue(eta_agd_contrast_noRE,
@@ -6945,7 +7926,7 @@ public:
                   stan::model::index_min_max((1 + ((i - 1) * nint)), (i *
                     nint)));
               } else {
-                current_statement__ = 74;
+                current_statement__ = 109;
                 stan::model::assign(eta_agd_contrast_ii,
                   stan::model::rvalue(eta_agd_contrast_noRE,
                     "eta_agd_contrast_noRE",
@@ -6955,7 +7936,7 @@ public:
                   stan::model::index_min_max((1 + ((i - 1) * nint)), (i *
                     nint)));
               }
-              current_statement__ = 77;
+              current_statement__ = 112;
               stan::model::assign(eta_agd_contrast_bar,
                 stan::math::mean(
                   stan::model::rvalue(eta_agd_contrast_ii,
@@ -6965,15 +7946,15 @@ public:
                 stan::model::index_uni(i));
             }
           } else {
-            current_statement__ = 69;
+            current_statement__ = 104;
             if (stan::math::logical_eq(nint, nint_max)) {
-              current_statement__ = 68;
+              current_statement__ = 103;
               stan::model::assign(eta_agd_contrast_ii, eta_agd_contrast_noRE,
                 "assigning variable eta_agd_contrast_ii");
             } else {
-              current_statement__ = 67;
+              current_statement__ = 102;
               for (int i = 1; i <= ni_agd_contrast; ++i) {
-                current_statement__ = 65;
+                current_statement__ = 100;
                 stan::model::assign(eta_agd_contrast_ii,
                   stan::model::rvalue(eta_agd_contrast_noRE,
                     "eta_agd_contrast_noRE",
@@ -6984,9 +7965,9 @@ public:
                     nint)));
               }
             }
-            current_statement__ = 72;
+            current_statement__ = 107;
             for (int i = 1; i <= ni_agd_contrast; ++i) {
-              current_statement__ = 70;
+              current_statement__ = 105;
               stan::model::assign(eta_agd_contrast_bar,
                 stan::math::mean(
                   stan::model::rvalue(eta_agd_contrast_ii,
@@ -6997,15 +7978,15 @@ public:
             }
           }
         } else {
-          current_statement__ = 61;
+          current_statement__ = 76;
           if (RE) {
-            current_statement__ = 53;
+            current_statement__ = 68;
             stan::math::validate_non_negative_index("eta_agd_contrast_noRE",
               "nint * ni_agd_contrast", (nint * ni_agd_contrast));
             Eigen::Matrix<double,-1,1> eta_agd_contrast_noRE =
               Eigen::Matrix<double,-1,1>::Constant((nint * ni_agd_contrast),
                 std::numeric_limits<double>::quiet_NaN());
-            current_statement__ = 54;
+            current_statement__ = 69;
             stan::model::assign(eta_agd_contrast_noRE,
               (has_offset ? stan::math::eval(
                               stan::math::add(
@@ -7014,12 +7995,12 @@ public:
               stan::math::eval(
                 stan::math::multiply(X_agd_contrast, beta_tilde))),
               "assigning variable eta_agd_contrast_noRE");
-            current_statement__ = 59;
+            current_statement__ = 74;
             for (int i = 1; i <= ni_agd_contrast; ++i) {
-              current_statement__ = 57;
+              current_statement__ = 72;
               if (stan::model::rvalue(which_RE, "which_RE",
                     stan::model::index_uni(((narm_ipd + narm_agd_arm) + i)))) {
-                current_statement__ = 56;
+                current_statement__ = 71;
                 stan::model::assign(eta_agd_contrast_bar,
                   (stan::model::rvalue(eta_agd_contrast_noRE,
                      "eta_agd_contrast_noRE", stan::model::index_uni(i)) +
@@ -7030,7 +8011,7 @@ public:
                           i)))))), "assigning variable eta_agd_contrast_bar",
                   stan::model::index_uni(i));
               } else {
-                current_statement__ = 55;
+                current_statement__ = 70;
                 stan::model::assign(eta_agd_contrast_bar,
                   stan::model::rvalue(eta_agd_contrast_noRE,
                     "eta_agd_contrast_noRE", stan::model::index_uni(i)),
@@ -7039,7 +8020,7 @@ public:
               }
             }
           } else {
-            current_statement__ = 51;
+            current_statement__ = 66;
             stan::model::assign(eta_agd_contrast_bar,
               (has_offset ? stan::math::eval(
                               stan::math::add(
@@ -7049,42 +8030,99 @@ public:
                 stan::math::multiply(X_agd_contrast, beta_tilde))),
               "assigning variable eta_agd_contrast_bar");
           }
+          current_statement__ = 86;
+          if (class_effects) {
+            current_statement__ = 84;
+            for (int i = 1; i <= ni_agd_contrast; ++i) {
+              current_statement__ = 79;
+              if ((stan::math::primitive_value(
+                     stan::math::logical_gt(
+                       stan::model::rvalue(agd_contrast_trt,
+                         "agd_contrast_trt", stan::model::index_uni(i)), 1))
+                  &&
+                  stan::math::primitive_value(
+                    stan::model::rvalue(which_CE, "which_CE",
+                      stan::model::index_uni(
+                        (stan::model::rvalue(agd_contrast_trt,
+                           "agd_contrast_trt", stan::model::index_uni(i)) -
+                        1)))))) {
+                current_statement__ = 77;
+                stan::model::assign(eta_agd_contrast_bar,
+                  (stan::model::rvalue(eta_agd_contrast_bar,
+                     "eta_agd_contrast_bar", stan::model::index_uni(i)) +
+                  stan::model::rvalue(f_class, "f_class",
+                    stan::model::index_uni(
+                      stan::model::rvalue(which_class, "which_class",
+                        stan::model::index_uni(
+                          (stan::model::rvalue(agd_contrast_trt,
+                             "agd_contrast_trt", stan::model::index_uni(i)) -
+                          1)))))), "assigning variable eta_agd_contrast_bar",
+                  stan::model::index_uni(i));
+              }
+              current_statement__ = 82;
+              if ((stan::math::primitive_value(
+                     stan::math::logical_gt(
+                       stan::model::rvalue(agd_contrast_trt_b,
+                         "agd_contrast_trt_b", stan::model::index_uni(i)), 1))
+                  &&
+                  stan::math::primitive_value(
+                    stan::model::rvalue(which_CE, "which_CE",
+                      stan::model::index_uni(
+                        (stan::model::rvalue(agd_contrast_trt_b,
+                           "agd_contrast_trt_b", stan::model::index_uni(i)) -
+                        1)))))) {
+                current_statement__ = 80;
+                stan::model::assign(eta_agd_contrast_bar,
+                  (stan::model::rvalue(eta_agd_contrast_bar,
+                     "eta_agd_contrast_bar", stan::model::index_uni(i)) -
+                  stan::model::rvalue(f_class, "f_class",
+                    stan::model::index_uni(
+                      stan::model::rvalue(which_class, "which_class",
+                        stan::model::index_uni(
+                          (stan::model::rvalue(agd_contrast_trt_b,
+                             "agd_contrast_trt_b", stan::model::index_uni(i))
+                          - 1)))))),
+                  "assigning variable eta_agd_contrast_bar",
+                  stan::model::index_uni(i));
+              }
+            }
+          }
         }
       }
-      current_statement__ = 129;
+      current_statement__ = 164;
       if (ni_ipd) {
-        current_statement__ = 127;
+        current_statement__ = 162;
         if ((stan::math::primitive_value(stan::math::logical_eq(nonexp, 0))
             || stan::math::primitive_value(aux_int))) {
-          current_statement__ = 112;
+          current_statement__ = 147;
           stan::math::validate_non_negative_index("auxi", "ni_ipd", ni_ipd);
           Eigen::Matrix<double,-1,1> auxi =
             Eigen::Matrix<double,-1,1>::Constant(ni_ipd,
               std::numeric_limits<double>::quiet_NaN());
-          current_statement__ = 114;
+          current_statement__ = 149;
           stan::math::validate_non_negative_index("aux2i", "ni_ipd", ni_ipd);
           Eigen::Matrix<double,-1,1> aux2i =
             Eigen::Matrix<double,-1,1>::Constant(ni_ipd,
               std::numeric_limits<double>::quiet_NaN());
-          current_statement__ = 116;
+          current_statement__ = 151;
           stan::math::validate_non_negative_index("eXbeta",
             "nonexp ? ni_ipd : 0", (nonexp ? ni_ipd : 0));
-          current_statement__ = 117;
+          current_statement__ = 152;
           stan::math::validate_non_negative_index("eXbeta",
             "nonexp + gengamma", (nonexp + gengamma));
           Eigen::Matrix<double,-1,-1> eXbeta =
             Eigen::Matrix<double,-1,-1>::Constant((nonexp ? ni_ipd : 0),
               (nonexp + gengamma), std::numeric_limits<double>::quiet_NaN());
-          current_statement__ = 120;
+          current_statement__ = 155;
           if (nonexp) {
-            current_statement__ = 119;
+            current_statement__ = 154;
             stan::model::assign(eXbeta,
               stan::math::exp(stan::math::multiply(X_aux_ipd, beta_aux)),
               "assigning variable eXbeta");
           }
-          current_statement__ = 122;
+          current_statement__ = 157;
           if (nonexp) {
-            current_statement__ = 121;
+            current_statement__ = 156;
             stan::model::assign(auxi,
               stan::math::elt_multiply(
                 stan::model::rvalue(aux, "aux",
@@ -7093,9 +8131,9 @@ public:
                   stan::model::index_omni(), stan::model::index_uni(1))),
               "assigning variable auxi");
           }
-          current_statement__ = 124;
+          current_statement__ = 159;
           if (gengamma) {
-            current_statement__ = 123;
+            current_statement__ = 158;
             stan::model::assign(aux2i,
               stan::math::elt_multiply(
                 stan::model::rvalue(aux2, "aux2",
@@ -7104,40 +8142,40 @@ public:
                   stan::model::index_omni(), stan::model::index_uni(2))),
               "assigning variable aux2i");
           }
-          current_statement__ = 125;
+          current_statement__ = 160;
           stan::model::assign(log_L_ipd,
             loglik(dist, ipd_time, ipd_start_time, ipd_delay_time,
               ipd_status, eta_ipd, auxi, aux2i, pstream__),
             "assigning variable log_L_ipd");
         } else {
-          current_statement__ = 110;
+          current_statement__ = 145;
           for (int i = 1; i <= n_aux_group; ++i) {
             int ni = std::numeric_limits<int>::min();
-            current_statement__ = 86;
+            current_statement__ = 121;
             ni = stan::model::rvalue(ni_aux_group_ipd, "ni_aux_group_ipd",
                    stan::model::index_uni(i));
-            current_statement__ = 108;
+            current_statement__ = 143;
             if (ni) {
-              current_statement__ = 87;
+              current_statement__ = 122;
               stan::math::validate_non_negative_index("wi", "ni", ni);
               std::vector<int> wi =
                 std::vector<int>(ni, std::numeric_limits<int>::min());
-              current_statement__ = 88;
+              current_statement__ = 123;
               stan::model::assign(wi,
                 stan::model::rvalue(wi_aux_group_ipd, "wi_aux_group_ipd",
                   stan::model::index_uni(i),
                   stan::model::index_min_max(1, ni)), "assigning variable wi");
               double auxi = std::numeric_limits<double>::quiet_NaN();
               double aux2i = std::numeric_limits<double>::quiet_NaN();
-              current_statement__ = 91;
+              current_statement__ = 126;
               stan::math::validate_non_negative_index("eXbeta",
                 "nonexp + gengamma", (nonexp + gengamma));
               Eigen::Matrix<double,1,-1> eXbeta =
                 Eigen::Matrix<double,1,-1>::Constant((nonexp + gengamma),
                   std::numeric_limits<double>::quiet_NaN());
-              current_statement__ = 94;
+              current_statement__ = 129;
               if (nonexp) {
-                current_statement__ = 93;
+                current_statement__ = 128;
                 stan::model::assign(eXbeta,
                   stan::math::exp(
                     stan::math::multiply(
@@ -7148,11 +8186,11 @@ public:
                         stan::model::index_omni()), beta_aux)),
                   "assigning variable eXbeta");
               }
-              current_statement__ = 105;
+              current_statement__ = 140;
               if (nX_aux) {
-                current_statement__ = 101;
+                current_statement__ = 136;
                 if (nonexp) {
-                  current_statement__ = 100;
+                  current_statement__ = 135;
                   auxi = (stan::model::rvalue(aux, "aux",
                             stan::model::index_uni(
                               stan::model::rvalue(aux_id_ipd, "aux_id_ipd",
@@ -7163,9 +8201,9 @@ public:
                     stan::model::rvalue(eXbeta, "eXbeta",
                       stan::model::index_uni(1)));
                 }
-                current_statement__ = 103;
+                current_statement__ = 138;
                 if (gengamma) {
-                  current_statement__ = 102;
+                  current_statement__ = 137;
                   aux2i = (stan::model::rvalue(aux2, "aux2",
                              stan::model::index_uni(
                                stan::model::rvalue(aux_id_ipd, "aux_id_ipd",
@@ -7177,20 +8215,20 @@ public:
                       stan::model::index_uni(2)));
                 }
               } else {
-                current_statement__ = 96;
+                current_statement__ = 131;
                 if (nonexp) {
-                  current_statement__ = 95;
+                  current_statement__ = 130;
                   auxi = stan::model::rvalue(aux, "aux",
                            stan::model::index_uni(i));
                 }
-                current_statement__ = 98;
+                current_statement__ = 133;
                 if (gengamma) {
-                  current_statement__ = 97;
+                  current_statement__ = 132;
                   aux2i = stan::model::rvalue(aux2, "aux2",
                             stan::model::index_uni(i));
                 }
               }
-              current_statement__ = 106;
+              current_statement__ = 141;
               stan::model::assign(log_L_ipd,
                 loglik2(dist,
                   stan::model::rvalue(ipd_time, "ipd_time",
@@ -7208,15 +8246,15 @@ public:
           }
         }
       }
-      current_statement__ = 242;
+      current_statement__ = 284;
       if (ni_agd_arm) {
-        current_statement__ = 130;
+        current_statement__ = 165;
         stan::math::validate_non_negative_index("eta_agd_arm_noRE",
           "nint_max * ni_agd_arm", (nint_max * ni_agd_arm));
         Eigen::Matrix<double,-1,1> eta_agd_arm_noRE =
           Eigen::Matrix<double,-1,1>::Constant((nint_max * ni_agd_arm),
             std::numeric_limits<double>::quiet_NaN());
-        current_statement__ = 131;
+        current_statement__ = 166;
         stan::model::assign(eta_agd_arm_noRE,
           (has_offset ? stan::math::eval(
                           stan::math::add(
@@ -7225,48 +8263,82 @@ public:
                                                  stan::math::multiply(
                                                    X_agd_arm, beta_tilde))),
           "assigning variable eta_agd_arm_noRE");
-        current_statement__ = 240;
+        current_statement__ = 173;
+        if (class_effects) {
+          current_statement__ = 171;
+          for (int i = 1; i <= ni_agd_arm; ++i) {
+            current_statement__ = 169;
+            if ((stan::math::primitive_value(
+                   stan::math::logical_gt(
+                     stan::model::rvalue(agd_arm_trt, "agd_arm_trt",
+                       stan::model::index_uni(i)), 1))
+                &&
+                stan::math::primitive_value(
+                  stan::model::rvalue(which_CE, "which_CE",
+                    stan::model::index_uni(
+                      (stan::model::rvalue(agd_arm_trt, "agd_arm_trt",
+                         stan::model::index_uni(i)) - 1)))))) {
+              current_statement__ = 167;
+              stan::model::assign(eta_agd_arm_noRE,
+                stan::math::add(
+                  stan::model::deep_copy(
+                    stan::model::rvalue(eta_agd_arm_noRE, "eta_agd_arm_noRE",
+                      stan::model::index_min_max((1 + ((i - 1) * nint_max)),
+                        (((i - 1) * nint_max) + nint)))),
+                  stan::model::rvalue(f_class, "f_class",
+                    stan::model::index_uni(
+                      stan::model::rvalue(which_class, "which_class",
+                        stan::model::index_uni(
+                          (stan::model::rvalue(agd_arm_trt, "agd_arm_trt",
+                             stan::model::index_uni(i)) - 1)))))),
+                "assigning variable eta_agd_arm_noRE",
+                stan::model::index_min_max((1 + ((i - 1) * nint_max)), (((i -
+                  1) * nint_max) + nint)));
+            }
+          }
+        }
+        current_statement__ = 282;
         if (stan::math::logical_gt(nint_max, 1)) {
-          current_statement__ = 238;
+          current_statement__ = 280;
           if ((stan::math::primitive_value(stan::math::logical_eq(nonexp, 0))
               || stan::math::primitive_value(aux_int))) {
-            current_statement__ = 236;
+            current_statement__ = 278;
             for (int i = 1; i <= ni_agd_arm; ++i) {
-              current_statement__ = 213;
+              current_statement__ = 255;
               stan::math::validate_non_negative_index("eta_agd_arm_ii",
                 "nint", nint);
               Eigen::Matrix<double,-1,1> eta_agd_arm_ii =
                 Eigen::Matrix<double,-1,1>::Constant(nint,
                   std::numeric_limits<double>::quiet_NaN());
-              current_statement__ = 215;
+              current_statement__ = 257;
               stan::math::validate_non_negative_index("log_L_ii", "nint",
                 nint);
               Eigen::Matrix<double,-1,1> log_L_ii =
                 Eigen::Matrix<double,-1,1>::Constant(nint,
                   std::numeric_limits<double>::quiet_NaN());
-              current_statement__ = 217;
+              current_statement__ = 259;
               stan::math::validate_non_negative_index("auxi", "nint", nint);
               Eigen::Matrix<double,-1,1> auxi =
                 Eigen::Matrix<double,-1,1>::Constant(nint,
                   std::numeric_limits<double>::quiet_NaN());
-              current_statement__ = 219;
+              current_statement__ = 261;
               stan::math::validate_non_negative_index("aux2i", "nint", nint);
               Eigen::Matrix<double,-1,1> aux2i =
                 Eigen::Matrix<double,-1,1>::Constant(nint,
                   std::numeric_limits<double>::quiet_NaN());
-              current_statement__ = 221;
+              current_statement__ = 263;
               stan::math::validate_non_negative_index("eXbeta",
                 "nonexp ? nint : 0", (nonexp ? nint : 0));
-              current_statement__ = 222;
+              current_statement__ = 264;
               stan::math::validate_non_negative_index("eXbeta",
                 "nonexp + gengamma", (nonexp + gengamma));
               Eigen::Matrix<double,-1,-1> eXbeta =
                 Eigen::Matrix<double,-1,-1>::Constant((nonexp ? nint : 0),
                   (nonexp + gengamma),
                   std::numeric_limits<double>::quiet_NaN());
-              current_statement__ = 225;
+              current_statement__ = 267;
               if (nonexp) {
-                current_statement__ = 224;
+                current_statement__ = 266;
                 stan::model::assign(eXbeta,
                   stan::math::exp(
                     stan::math::multiply(
@@ -7276,9 +8348,9 @@ public:
                         stan::model::index_omni()), beta_aux)),
                   "assigning variable eXbeta");
               }
-              current_statement__ = 227;
+              current_statement__ = 269;
               if (nonexp) {
-                current_statement__ = 226;
+                current_statement__ = 268;
                 stan::model::assign(auxi,
                   stan::math::elt_multiply(
                     stan::model::rvalue(aux, "aux",
@@ -7290,9 +8362,9 @@ public:
                       stan::model::index_omni(), stan::model::index_uni(1))),
                   "assigning variable auxi");
               }
-              current_statement__ = 229;
+              current_statement__ = 271;
               if (gengamma) {
-                current_statement__ = 228;
+                current_statement__ = 270;
                 stan::model::assign(aux2i,
                   stan::math::elt_multiply(
                     stan::model::rvalue(aux2, "aux2",
@@ -7304,20 +8376,20 @@ public:
                       stan::model::index_omni(), stan::model::index_uni(2))),
                   "assigning variable aux2i");
               }
-              current_statement__ = 230;
+              current_statement__ = 272;
               stan::model::assign(eta_agd_arm_ii,
                 stan::model::rvalue(eta_agd_arm_noRE, "eta_agd_arm_noRE",
                   stan::model::index_min_max((1 + ((i - 1) * nint_max)), (((i
                     - 1) * nint_max) + nint))),
                 "assigning variable eta_agd_arm_ii");
-              current_statement__ = 232;
+              current_statement__ = 274;
               if ((stan::math::primitive_value(RE) &&
                   stan::math::primitive_value(
                     stan::model::rvalue(which_RE, "which_RE",
                       stan::model::index_uni(
                         stan::model::rvalue(agd_arm_arm2, "agd_arm_arm2",
                           stan::model::index_uni(i))))))) {
-                current_statement__ = 231;
+                current_statement__ = 273;
                 stan::model::assign(eta_agd_arm_ii,
                   stan::math::add(stan::model::deep_copy(eta_agd_arm_ii),
                     stan::model::rvalue(f_delta, "f_delta",
@@ -7328,7 +8400,7 @@ public:
                               stan::model::index_uni(i))))))),
                   "assigning variable eta_agd_arm_ii");
               }
-              current_statement__ = 233;
+              current_statement__ = 275;
               stan::model::assign(log_L_ii,
                 loglik_a2(dist,
                   stan::model::rvalue(agd_arm_time, "agd_arm_time",
@@ -7340,25 +8412,25 @@ public:
                   stan::model::rvalue(agd_arm_status, "agd_arm_status",
                     stan::model::index_uni(i)), eta_agd_arm_ii, auxi, aux2i,
                   pstream__), "assigning variable log_L_ii");
-              current_statement__ = 234;
+              current_statement__ = 276;
               stan::model::assign(log_L_agd_arm,
                 (stan::math::log_sum_exp(log_L_ii) - stan::math::log(nint)),
                 "assigning variable log_L_agd_arm", stan::model::index_uni(i));
             }
           } else {
-            current_statement__ = 211;
+            current_statement__ = 253;
             for (int i = 1; i <= n_aux_group; ++i) {
               int ni = std::numeric_limits<int>::min();
-              current_statement__ = 181;
+              current_statement__ = 223;
               ni = stan::model::rvalue(ni_aux_group_agd_arm,
                      "ni_aux_group_agd_arm", stan::model::index_uni(i));
-              current_statement__ = 209;
+              current_statement__ = 251;
               if (ni) {
-                current_statement__ = 182;
+                current_statement__ = 224;
                 stan::math::validate_non_negative_index("wi", "ni", ni);
                 std::vector<int> wi =
                   std::vector<int>(ni, std::numeric_limits<int>::min());
-                current_statement__ = 183;
+                current_statement__ = 225;
                 stan::model::assign(wi,
                   stan::model::rvalue(wi_aux_group_agd_arm,
                     "wi_aux_group_agd_arm", stan::model::index_uni(i),
@@ -7366,15 +8438,15 @@ public:
                   "assigning variable wi");
                 double auxi = std::numeric_limits<double>::quiet_NaN();
                 double aux2i = std::numeric_limits<double>::quiet_NaN();
-                current_statement__ = 186;
+                current_statement__ = 228;
                 stan::math::validate_non_negative_index("eXbeta",
                   "nonexp + gengamma", (nonexp + gengamma));
                 Eigen::Matrix<double,1,-1> eXbeta =
                   Eigen::Matrix<double,1,-1>::Constant((nonexp + gengamma),
                     std::numeric_limits<double>::quiet_NaN());
-                current_statement__ = 189;
+                current_statement__ = 231;
                 if (nonexp) {
-                  current_statement__ = 188;
+                  current_statement__ = 230;
                   stan::model::assign(eXbeta,
                     stan::math::exp(
                       stan::math::multiply(
@@ -7385,9 +8457,9 @@ public:
                           stan::model::index_omni()), beta_aux)),
                     "assigning variable eXbeta");
                 }
-                current_statement__ = 196;
+                current_statement__ = 238;
                 if (nX_aux) {
-                  current_statement__ = 193;
+                  current_statement__ = 235;
                   auxi = (nonexp ? (stan::model::rvalue(aux, "aux",
                                       stan::model::index_uni(
                                         stan::model::rvalue(aux_id_agd_arm,
@@ -7398,7 +8470,7 @@ public:
                     *
                     stan::model::rvalue(eXbeta, "eXbeta",
                       stan::model::index_uni(1))) : 0);
-                  current_statement__ = 194;
+                  current_statement__ = 236;
                   aux2i = (gengamma ? (stan::model::rvalue(aux2, "aux2",
                                          stan::model::index_uni(
                                            stan::model::rvalue(
@@ -7411,28 +8483,28 @@ public:
                     stan::model::rvalue(eXbeta, "eXbeta",
                       stan::model::index_uni(2))) : 0);
                 } else {
-                  current_statement__ = 190;
+                  current_statement__ = 232;
                   auxi = (nonexp ? stan::model::rvalue(aux, "aux",
                                      stan::model::index_uni(i)) : 0);
-                  current_statement__ = 191;
+                  current_statement__ = 233;
                   aux2i = (gengamma ? stan::model::rvalue(aux2, "aux2",
                                         stan::model::index_uni(i)) : 0);
                 }
-                current_statement__ = 207;
+                current_statement__ = 249;
                 for (int j = 1; j <= ni; ++j) {
-                  current_statement__ = 197;
+                  current_statement__ = 239;
                   stan::math::validate_non_negative_index("eta_agd_arm_ii",
                     "nint", nint);
                   Eigen::Matrix<double,-1,1> eta_agd_arm_ii =
                     Eigen::Matrix<double,-1,1>::Constant(nint,
                       std::numeric_limits<double>::quiet_NaN());
-                  current_statement__ = 199;
+                  current_statement__ = 241;
                   stan::math::validate_non_negative_index("log_L_ii", "nint",
                     nint);
                   Eigen::Matrix<double,-1,1> log_L_ii =
                     Eigen::Matrix<double,-1,1>::Constant(nint,
                       std::numeric_limits<double>::quiet_NaN());
-                  current_statement__ = 201;
+                  current_statement__ = 243;
                   stan::model::assign(eta_agd_arm_ii,
                     stan::model::rvalue(eta_agd_arm_noRE, "eta_agd_arm_noRE",
                       stan::model::index_min_max((1 +
@@ -7441,7 +8513,7 @@ public:
                         (((stan::model::rvalue(wi, "wi",
                              stan::model::index_uni(j)) - 1) * nint_max) +
                         nint))), "assigning variable eta_agd_arm_ii");
-                  current_statement__ = 203;
+                  current_statement__ = 245;
                   if ((stan::math::primitive_value(RE) &&
                       stan::math::primitive_value(
                         stan::model::rvalue(which_RE, "which_RE",
@@ -7450,7 +8522,7 @@ public:
                               stan::model::index_uni(
                                 stan::model::rvalue(wi, "wi",
                                   stan::model::index_uni(j))))))))) {
-                    current_statement__ = 202;
+                    current_statement__ = 244;
                     stan::model::assign(eta_agd_arm_ii,
                       stan::math::add(stan::model::deep_copy(eta_agd_arm_ii),
                         stan::model::rvalue(f_delta, "f_delta",
@@ -7464,7 +8536,7 @@ public:
                                       stan::model::index_uni(j))))))))),
                       "assigning variable eta_agd_arm_ii");
                   }
-                  current_statement__ = 204;
+                  current_statement__ = 246;
                   stan::model::assign(log_L_ii,
                     loglik_a(dist,
                       stan::model::rvalue(agd_arm_time, "agd_arm_time",
@@ -7486,7 +8558,7 @@ public:
                           stan::model::rvalue(wi, "wi",
                             stan::model::index_uni(j)))), eta_agd_arm_ii,
                       auxi, aux2i, pstream__), "assigning variable log_L_ii");
-                  current_statement__ = 205;
+                  current_statement__ = 247;
                   stan::model::assign(log_L_agd_arm,
                     (stan::math::log_sum_exp(log_L_ii) -
                     stan::math::log(nint)),
@@ -7498,25 +8570,25 @@ public:
             }
           }
         } else {
-          current_statement__ = 132;
+          current_statement__ = 174;
           stan::math::validate_non_negative_index("eta_agd_arm",
             "ni_agd_arm", ni_agd_arm);
           Eigen::Matrix<double,-1,1> eta_agd_arm =
             Eigen::Matrix<double,-1,1>::Constant(ni_agd_arm,
               std::numeric_limits<double>::quiet_NaN());
-          current_statement__ = 133;
+          current_statement__ = 175;
           stan::model::assign(eta_agd_arm, eta_agd_arm_noRE,
             "assigning variable eta_agd_arm");
-          current_statement__ = 137;
+          current_statement__ = 179;
           if (RE) {
-            current_statement__ = 136;
+            current_statement__ = 178;
             for (int i = 1; i <= ni_agd_arm; ++i) {
-              current_statement__ = 135;
+              current_statement__ = 177;
               if (stan::model::rvalue(which_RE, "which_RE",
                     stan::model::index_uni(
                       stan::model::rvalue(agd_arm_arm2, "agd_arm_arm2",
                         stan::model::index_uni(i))))) {
-                current_statement__ = 134;
+                current_statement__ = 176;
                 stan::model::assign(eta_agd_arm,
                   (stan::model::rvalue(eta_agd_arm, "eta_agd_arm",
                      stan::model::index_uni(i)) +
@@ -7530,40 +8602,40 @@ public:
               }
             }
           }
-          current_statement__ = 179;
+          current_statement__ = 221;
           if ((stan::math::primitive_value(stan::math::logical_eq(nonexp, 0))
               || stan::math::primitive_value(aux_int))) {
-            current_statement__ = 164;
+            current_statement__ = 206;
             stan::math::validate_non_negative_index("auxi", "ni_agd_arm",
               ni_agd_arm);
             Eigen::Matrix<double,-1,1> auxi =
               Eigen::Matrix<double,-1,1>::Constant(ni_agd_arm,
                 std::numeric_limits<double>::quiet_NaN());
-            current_statement__ = 166;
+            current_statement__ = 208;
             stan::math::validate_non_negative_index("aux2i", "ni_agd_arm",
               ni_agd_arm);
             Eigen::Matrix<double,-1,1> aux2i =
               Eigen::Matrix<double,-1,1>::Constant(ni_agd_arm,
                 std::numeric_limits<double>::quiet_NaN());
-            current_statement__ = 168;
+            current_statement__ = 210;
             stan::math::validate_non_negative_index("eXbeta", "ni_agd_arm",
               ni_agd_arm);
-            current_statement__ = 169;
+            current_statement__ = 211;
             stan::math::validate_non_negative_index("eXbeta",
               "nonexp + gengamma", (nonexp + gengamma));
             Eigen::Matrix<double,-1,-1> eXbeta =
               Eigen::Matrix<double,-1,-1>::Constant(ni_agd_arm, (nonexp +
                 gengamma), std::numeric_limits<double>::quiet_NaN());
-            current_statement__ = 172;
+            current_statement__ = 214;
             if (nonexp) {
-              current_statement__ = 171;
+              current_statement__ = 213;
               stan::model::assign(eXbeta,
                 stan::math::exp(stan::math::multiply(X_aux_agd_arm, beta_aux)),
                 "assigning variable eXbeta");
             }
-            current_statement__ = 174;
+            current_statement__ = 216;
             if (nonexp) {
-              current_statement__ = 173;
+              current_statement__ = 215;
               stan::model::assign(auxi,
                 stan::math::elt_multiply(
                   stan::model::rvalue(aux, "aux",
@@ -7572,9 +8644,9 @@ public:
                     stan::model::index_omni(), stan::model::index_uni(1))),
                 "assigning variable auxi");
             }
-            current_statement__ = 176;
+            current_statement__ = 218;
             if (gengamma) {
-              current_statement__ = 175;
+              current_statement__ = 217;
               stan::model::assign(aux2i,
                 stan::math::elt_multiply(
                   stan::model::rvalue(aux2, "aux2",
@@ -7583,25 +8655,25 @@ public:
                     stan::model::index_omni(), stan::model::index_uni(2))),
                 "assigning variable aux2i");
             }
-            current_statement__ = 177;
+            current_statement__ = 219;
             stan::model::assign(log_L_agd_arm,
               loglik(dist, agd_arm_time, agd_arm_start_time,
                 agd_arm_delay_time, agd_arm_status, eta_agd_arm, auxi, aux2i,
                 pstream__), "assigning variable log_L_agd_arm");
           } else {
-            current_statement__ = 162;
+            current_statement__ = 204;
             for (int i = 1; i <= n_aux_group; ++i) {
               int ni = std::numeric_limits<int>::min();
-              current_statement__ = 138;
+              current_statement__ = 180;
               ni = stan::model::rvalue(ni_aux_group_agd_arm,
                      "ni_aux_group_agd_arm", stan::model::index_uni(i));
-              current_statement__ = 160;
+              current_statement__ = 202;
               if (ni) {
-                current_statement__ = 139;
+                current_statement__ = 181;
                 stan::math::validate_non_negative_index("wi", "ni", ni);
                 std::vector<int> wi =
                   std::vector<int>(ni, std::numeric_limits<int>::min());
-                current_statement__ = 140;
+                current_statement__ = 182;
                 stan::model::assign(wi,
                   stan::model::rvalue(wi_aux_group_agd_arm,
                     "wi_aux_group_agd_arm", stan::model::index_uni(i),
@@ -7609,15 +8681,15 @@ public:
                   "assigning variable wi");
                 double auxi = std::numeric_limits<double>::quiet_NaN();
                 double aux2i = std::numeric_limits<double>::quiet_NaN();
-                current_statement__ = 143;
+                current_statement__ = 185;
                 stan::math::validate_non_negative_index("eXbeta",
                   "nonexp + gengamma", (nonexp + gengamma));
                 Eigen::Matrix<double,1,-1> eXbeta =
                   Eigen::Matrix<double,1,-1>::Constant((nonexp + gengamma),
                     std::numeric_limits<double>::quiet_NaN());
-                current_statement__ = 146;
+                current_statement__ = 188;
                 if (nonexp) {
-                  current_statement__ = 145;
+                  current_statement__ = 187;
                   stan::model::assign(eXbeta,
                     stan::math::exp(
                       stan::math::multiply(
@@ -7628,11 +8700,11 @@ public:
                           stan::model::index_omni()), beta_aux)),
                     "assigning variable eXbeta");
                 }
-                current_statement__ = 157;
+                current_statement__ = 199;
                 if (nX_aux) {
-                  current_statement__ = 153;
+                  current_statement__ = 195;
                   if (nonexp) {
-                    current_statement__ = 152;
+                    current_statement__ = 194;
                     auxi = (stan::model::rvalue(aux, "aux",
                               stan::model::index_uni(
                                 stan::model::rvalue(aux_id_agd_arm,
@@ -7644,9 +8716,9 @@ public:
                       stan::model::rvalue(eXbeta, "eXbeta",
                         stan::model::index_uni(1)));
                   }
-                  current_statement__ = 155;
+                  current_statement__ = 197;
                   if (gengamma) {
-                    current_statement__ = 154;
+                    current_statement__ = 196;
                     aux2i = (stan::model::rvalue(aux2, "aux2",
                                stan::model::index_uni(
                                  stan::model::rvalue(aux_id_agd_arm,
@@ -7659,20 +8731,20 @@ public:
                         stan::model::index_uni(2)));
                   }
                 } else {
-                  current_statement__ = 148;
+                  current_statement__ = 190;
                   if (nonexp) {
-                    current_statement__ = 147;
+                    current_statement__ = 189;
                     auxi = stan::model::rvalue(aux, "aux",
                              stan::model::index_uni(i));
                   }
-                  current_statement__ = 150;
+                  current_statement__ = 192;
                   if (gengamma) {
-                    current_statement__ = 149;
+                    current_statement__ = 191;
                     aux2i = stan::model::rvalue(aux2, "aux2",
                               stan::model::index_uni(i));
                   }
                 }
-                current_statement__ = 158;
+                current_statement__ = 200;
                 stan::model::assign(log_L_agd_arm,
                   loglik2(dist,
                     stan::model::rvalue(agd_arm_time, "agd_arm_time",
@@ -7704,6 +8776,7 @@ public:
         out__.write(beta);
         out__.write(eta_agd_contrast_ii);
         out__.write(eta_agd_contrast_bar);
+        out__.write(f_class);
       }
       if (stan::math::logical_negation(emit_generated_quantities__)) {
         return ;
@@ -7738,17 +8811,17 @@ public:
       Eigen::Matrix<double,-1,1> delta =
         Eigen::Matrix<double,-1,1>::Constant(n_delta,
           std::numeric_limits<double>::quiet_NaN());
-      current_statement__ = 259;
+      current_statement__ = 301;
       if (RE) {
         int s = std::numeric_limits<int>::min();
-        current_statement__ = 243;
+        current_statement__ = 285;
         s = 1;
-        current_statement__ = 249;
+        current_statement__ = 291;
         for (int i = 1; i <= (narm_ipd + narm_agd_arm); ++i) {
-          current_statement__ = 247;
+          current_statement__ = 289;
           if (stan::model::rvalue(which_RE, "which_RE",
                 stan::model::index_uni(i))) {
-            current_statement__ = 244;
+            current_statement__ = 286;
             stan::model::assign(delta,
               ((stan::math::logical_gt(
                   stan::model::rvalue(trt, "trt", stan::model::index_uni(i)),
@@ -7764,16 +8837,16 @@ public:
                                                     which_RE, "which_RE",
                                                     stan::model::index_uni(i)))) : 0)),
               "assigning variable delta", stan::model::index_uni(s));
-            current_statement__ = 245;
+            current_statement__ = 287;
             s = (s + 1);
           }
         }
-        current_statement__ = 257;
+        current_statement__ = 299;
         for (int i = 1; i <= ni_agd_contrast; ++i) {
-          current_statement__ = 255;
+          current_statement__ = 297;
           if (stan::model::rvalue(which_RE, "which_RE",
                 stan::model::index_uni(((narm_ipd + narm_agd_arm) + i)))) {
-            current_statement__ = 250;
+            current_statement__ = 292;
             stan::model::assign(delta,
               ((stan::math::logical_gt(
                   stan::model::rvalue(trt, "trt",
@@ -7790,11 +8863,11 @@ public:
                   stan::model::rvalue(which_RE, "which_RE",
                     stan::model::index_uni(((narm_ipd + narm_agd_arm) + i))))) : 0)),
               "assigning variable delta", stan::model::index_uni(s));
-            current_statement__ = 252;
+            current_statement__ = 294;
             if (stan::math::logical_gt(
                   stan::model::rvalue(agd_contrast_trt_b,
                     "agd_contrast_trt_b", stan::model::index_uni(i)), 1)) {
-              current_statement__ = 251;
+              current_statement__ = 293;
               stan::model::assign(delta,
                 (stan::model::rvalue(delta, "delta",
                    stan::model::index_uni(s)) -
@@ -7804,16 +8877,16 @@ public:
                        "agd_contrast_trt_b", stan::model::index_uni(i)) - 1)))),
                 "assigning variable delta", stan::model::index_uni(s));
             }
-            current_statement__ = 253;
+            current_statement__ = 295;
             s = (s + 1);
           }
         }
       }
-      current_statement__ = 264;
+      current_statement__ = 306;
       for (int i = 1; i <= ni_agd_contrast; ++i) {
-        current_statement__ = 262;
+        current_statement__ = 304;
         for (int j = 1; j <= n_int_thin; ++j) {
-          current_statement__ = 260;
+          current_statement__ = 302;
           stan::model::assign(theta_bar_cum_agd_contrast,
             stan::math::mean(
               stan::model::rvalue(eta_agd_contrast_ii, "eta_agd_contrast_ii",
@@ -7823,20 +8896,20 @@ public:
             stan::model::index_uni((((i - 1) * n_int_thin) + j)));
         }
       }
-      current_statement__ = 265;
+      current_statement__ = 307;
       stan::model::assign(fitted_agd_contrast, eta_agd_contrast_bar,
         "assigning variable fitted_agd_contrast");
       {
         int a = std::numeric_limits<int>::min();
-        current_statement__ = 266;
+        current_statement__ = 308;
         a = 0;
         int nc = std::numeric_limits<int>::min();
-        current_statement__ = 273;
+        current_statement__ = 315;
         for (int s = 1; s <= ns_agd_contrast; ++s) {
-          current_statement__ = 268;
+          current_statement__ = 310;
           nc = stan::model::rvalue(nc_agd_contrast, "nc_agd_contrast",
                  stan::model::index_uni(s));
-          current_statement__ = 269;
+          current_statement__ = 311;
           stan::model::assign(log_lik,
             stan::math::multi_normal_lpdf<false>(
               stan::model::rvalue(agd_contrast_y, "agd_contrast_y",
@@ -7849,7 +8922,7 @@ public:
                 stan::model::index_min_max((a + 1), (a + nc)))),
             "assigning variable log_lik",
             stan::model::index_uni(((ni_ipd + ni_agd_arm) + s)));
-          current_statement__ = 270;
+          current_statement__ = 312;
           stan::model::assign(resdev,
             stan::math::quad_form(
               stan::model::rvalue(inv_Sigma, "inv_Sigma",
@@ -7863,26 +8936,26 @@ public:
                   stan::model::index_min_max((a + 1), (a + nc))))),
             "assigning variable resdev",
             stan::model::index_uni(((ni_ipd + ni_agd_arm) + s)));
-          current_statement__ = 271;
+          current_statement__ = 313;
           a = (a + nc);
         }
       }
-      current_statement__ = 276;
+      current_statement__ = 318;
       if (ni_ipd) {
-        current_statement__ = 275;
+        current_statement__ = 317;
         stan::model::assign(log_lik, log_L_ipd, "assigning variable log_lik",
           stan::model::index_min_max(1, ni_ipd));
       }
-      current_statement__ = 278;
+      current_statement__ = 320;
       if (ni_agd_arm) {
-        current_statement__ = 277;
+        current_statement__ = 319;
         stan::model::assign(log_lik, log_L_agd_arm,
           "assigning variable log_lik",
           stan::model::index_min_max((ni_ipd + 1), (ni_ipd + ni_agd_arm)));
       }
-      current_statement__ = 280;
+      current_statement__ = 322;
       if ((ni_ipd + ni_agd_arm)) {
-        current_statement__ = 279;
+        current_statement__ = 321;
         stan::model::assign(resdev,
           stan::math::multiply(-2,
             stan::model::rvalue(log_lik, "log_lik",
@@ -7890,7 +8963,7 @@ public:
           "assigning variable resdev",
           stan::model::index_min_max(1, (ni_ipd + ni_agd_arm)));
       }
-      current_statement__ = 282;
+      current_statement__ = 324;
       if ((stan::math::primitive_value(
              (stan::math::primitive_value(
                 (stan::math::primitive_value(stan::math::logical_neq(dist, 1))
@@ -7899,24 +8972,24 @@ public:
              &&
              stan::math::primitive_value(stan::math::logical_neq(dist, 6))))
           && stan::math::primitive_value(stan::math::logical_neq(dist, 9)))) {
-        current_statement__ = 281;
+        current_statement__ = 323;
         stan::model::assign(shape, aux, "assigning variable shape");
       }
-      current_statement__ = 284;
+      current_statement__ = 326;
       if (stan::math::logical_eq(dist, 6)) {
-        current_statement__ = 283;
+        current_statement__ = 325;
         stan::model::assign(sdlog, aux, "assigning variable sdlog");
       }
-      current_statement__ = 288;
+      current_statement__ = 330;
       if (stan::math::logical_eq(dist, 9)) {
-        current_statement__ = 285;
+        current_statement__ = 327;
         stan::model::assign(sigma, aux, "assigning variable sigma");
-        current_statement__ = 286;
+        current_statement__ = 328;
         stan::model::assign(k, aux2, "assigning variable k");
       }
-      current_statement__ = 290;
+      current_statement__ = 332;
       if (aux_reg_trt) {
-        current_statement__ = 289;
+        current_statement__ = 331;
         stan::model::assign(d_aux,
           stan::model::rvalue(beta_aux, "beta_aux",
             stan::model::index_min_max(1, (nt - 1)),
@@ -7974,9 +9047,33 @@ public:
         in__.read<Eigen::Matrix<local_scalar_t__,-1,1>>(tau_1dim__),
         "assigning variable tau");
       out__.write_free_lb(0, tau);
+      Eigen::Matrix<local_scalar_t__,-1,1> class_mean =
+        Eigen::Matrix<local_scalar_t__,-1,1>::Constant(class_mean_1dim__,
+          DUMMY_VAR__);
+      current_statement__ = 4;
+      stan::model::assign(class_mean,
+        in__.read<Eigen::Matrix<local_scalar_t__,-1,1>>(class_mean_1dim__),
+        "assigning variable class_mean");
+      out__.write(class_mean);
+      Eigen::Matrix<local_scalar_t__,-1,1> class_sd =
+        Eigen::Matrix<local_scalar_t__,-1,1>::Constant(class_sd_1dim__,
+          DUMMY_VAR__);
+      current_statement__ = 5;
+      stan::model::assign(class_sd,
+        in__.read<Eigen::Matrix<local_scalar_t__,-1,1>>(class_sd_1dim__),
+        "assigning variable class_sd");
+      out__.write_free_lb(0, class_sd);
+      Eigen::Matrix<local_scalar_t__,-1,1> z_class =
+        Eigen::Matrix<local_scalar_t__,-1,1>::Constant(z_class_1dim__,
+          DUMMY_VAR__);
+      current_statement__ = 6;
+      stan::model::assign(z_class,
+        in__.read<Eigen::Matrix<local_scalar_t__,-1,1>>(z_class_1dim__),
+        "assigning variable z_class");
+      out__.write(z_class);
       Eigen::Matrix<local_scalar_t__,-1,1> aux =
         Eigen::Matrix<local_scalar_t__,-1,1>::Constant(n_aux, DUMMY_VAR__);
-      current_statement__ = 4;
+      current_statement__ = 7;
       stan::model::assign(aux,
         in__.read<Eigen::Matrix<local_scalar_t__,-1,1>>(n_aux),
         "assigning variable aux");
@@ -7984,7 +9081,7 @@ public:
       Eigen::Matrix<local_scalar_t__,-1,1> aux2 =
         Eigen::Matrix<local_scalar_t__,-1,1>::Constant(aux2_1dim__,
           DUMMY_VAR__);
-      current_statement__ = 5;
+      current_statement__ = 8;
       stan::model::assign(aux2,
         in__.read<Eigen::Matrix<local_scalar_t__,-1,1>>(aux2_1dim__),
         "assigning variable aux2");
@@ -7992,7 +9089,7 @@ public:
       Eigen::Matrix<local_scalar_t__,-1,-1> beta_aux =
         Eigen::Matrix<local_scalar_t__,-1,-1>::Constant(beta_aux_1dim__,
           beta_aux_2dim__, DUMMY_VAR__);
-      current_statement__ = 6;
+      current_statement__ = 9;
       stan::model::assign(beta_aux,
         in__.read<Eigen::Matrix<local_scalar_t__,-1,-1>>(beta_aux_1dim__,
           beta_aux_2dim__), "assigning variable beta_aux");
@@ -8022,12 +9119,22 @@ public:
       context__.validate_dims("parameter initialization", "tau", "double",
         std::vector<size_t>{static_cast<size_t>(tau_1dim__)});
       current_statement__ = 4;
+      context__.validate_dims("parameter initialization", "class_mean",
+        "double",
+        std::vector<size_t>{static_cast<size_t>(class_mean_1dim__)});
+      current_statement__ = 5;
+      context__.validate_dims("parameter initialization", "class_sd",
+        "double", std::vector<size_t>{static_cast<size_t>(class_sd_1dim__)});
+      current_statement__ = 6;
+      context__.validate_dims("parameter initialization", "z_class",
+        "double", std::vector<size_t>{static_cast<size_t>(z_class_1dim__)});
+      current_statement__ = 7;
       context__.validate_dims("parameter initialization", "aux", "double",
         std::vector<size_t>{static_cast<size_t>(n_aux)});
-      current_statement__ = 5;
+      current_statement__ = 8;
       context__.validate_dims("parameter initialization", "aux2", "double",
         std::vector<size_t>{static_cast<size_t>(aux2_1dim__)});
-      current_statement__ = 6;
+      current_statement__ = 9;
       context__.validate_dims("parameter initialization", "beta_aux",
         "double",
         std::vector<size_t>{static_cast<size_t>(beta_aux_1dim__),
@@ -8089,20 +9196,77 @@ public:
         }
       }
       out__.write_free_lb(0, tau);
+      Eigen::Matrix<local_scalar_t__,-1,1> class_mean =
+        Eigen::Matrix<local_scalar_t__,-1,1>::Constant(class_mean_1dim__,
+          DUMMY_VAR__);
+      {
+        std::vector<local_scalar_t__> class_mean_flat__;
+        current_statement__ = 4;
+        class_mean_flat__ = context__.vals_r("class_mean");
+        current_statement__ = 4;
+        pos__ = 1;
+        current_statement__ = 4;
+        for (int sym1__ = 1; sym1__ <= class_mean_1dim__; ++sym1__) {
+          current_statement__ = 4;
+          stan::model::assign(class_mean, class_mean_flat__[(pos__ - 1)],
+            "assigning variable class_mean", stan::model::index_uni(sym1__));
+          current_statement__ = 4;
+          pos__ = (pos__ + 1);
+        }
+      }
+      out__.write(class_mean);
+      Eigen::Matrix<local_scalar_t__,-1,1> class_sd =
+        Eigen::Matrix<local_scalar_t__,-1,1>::Constant(class_sd_1dim__,
+          DUMMY_VAR__);
+      {
+        std::vector<local_scalar_t__> class_sd_flat__;
+        current_statement__ = 5;
+        class_sd_flat__ = context__.vals_r("class_sd");
+        current_statement__ = 5;
+        pos__ = 1;
+        current_statement__ = 5;
+        for (int sym1__ = 1; sym1__ <= class_sd_1dim__; ++sym1__) {
+          current_statement__ = 5;
+          stan::model::assign(class_sd, class_sd_flat__[(pos__ - 1)],
+            "assigning variable class_sd", stan::model::index_uni(sym1__));
+          current_statement__ = 5;
+          pos__ = (pos__ + 1);
+        }
+      }
+      out__.write_free_lb(0, class_sd);
+      Eigen::Matrix<local_scalar_t__,-1,1> z_class =
+        Eigen::Matrix<local_scalar_t__,-1,1>::Constant(z_class_1dim__,
+          DUMMY_VAR__);
+      {
+        std::vector<local_scalar_t__> z_class_flat__;
+        current_statement__ = 6;
+        z_class_flat__ = context__.vals_r("z_class");
+        current_statement__ = 6;
+        pos__ = 1;
+        current_statement__ = 6;
+        for (int sym1__ = 1; sym1__ <= z_class_1dim__; ++sym1__) {
+          current_statement__ = 6;
+          stan::model::assign(z_class, z_class_flat__[(pos__ - 1)],
+            "assigning variable z_class", stan::model::index_uni(sym1__));
+          current_statement__ = 6;
+          pos__ = (pos__ + 1);
+        }
+      }
+      out__.write(z_class);
       Eigen::Matrix<local_scalar_t__,-1,1> aux =
         Eigen::Matrix<local_scalar_t__,-1,1>::Constant(n_aux, DUMMY_VAR__);
       {
         std::vector<local_scalar_t__> aux_flat__;
-        current_statement__ = 4;
+        current_statement__ = 7;
         aux_flat__ = context__.vals_r("aux");
-        current_statement__ = 4;
+        current_statement__ = 7;
         pos__ = 1;
-        current_statement__ = 4;
+        current_statement__ = 7;
         for (int sym1__ = 1; sym1__ <= n_aux; ++sym1__) {
-          current_statement__ = 4;
+          current_statement__ = 7;
           stan::model::assign(aux, aux_flat__[(pos__ - 1)],
             "assigning variable aux", stan::model::index_uni(sym1__));
-          current_statement__ = 4;
+          current_statement__ = 7;
           pos__ = (pos__ + 1);
         }
       }
@@ -8112,16 +9276,16 @@ public:
           DUMMY_VAR__);
       {
         std::vector<local_scalar_t__> aux2_flat__;
-        current_statement__ = 5;
+        current_statement__ = 8;
         aux2_flat__ = context__.vals_r("aux2");
-        current_statement__ = 5;
+        current_statement__ = 8;
         pos__ = 1;
-        current_statement__ = 5;
+        current_statement__ = 8;
         for (int sym1__ = 1; sym1__ <= aux2_1dim__; ++sym1__) {
-          current_statement__ = 5;
+          current_statement__ = 8;
           stan::model::assign(aux2, aux2_flat__[(pos__ - 1)],
             "assigning variable aux2", stan::model::index_uni(sym1__));
-          current_statement__ = 5;
+          current_statement__ = 8;
           pos__ = (pos__ + 1);
         }
       }
@@ -8131,19 +9295,19 @@ public:
           beta_aux_2dim__, DUMMY_VAR__);
       {
         std::vector<local_scalar_t__> beta_aux_flat__;
-        current_statement__ = 6;
+        current_statement__ = 9;
         beta_aux_flat__ = context__.vals_r("beta_aux");
-        current_statement__ = 6;
+        current_statement__ = 9;
         pos__ = 1;
-        current_statement__ = 6;
+        current_statement__ = 9;
         for (int sym1__ = 1; sym1__ <= beta_aux_2dim__; ++sym1__) {
-          current_statement__ = 6;
+          current_statement__ = 9;
           for (int sym2__ = 1; sym2__ <= beta_aux_1dim__; ++sym2__) {
-            current_statement__ = 6;
+            current_statement__ = 9;
             stan::model::assign(beta_aux, beta_aux_flat__[(pos__ - 1)],
               "assigning variable beta_aux", stan::model::index_uni(sym2__),
               stan::model::index_uni(sym1__));
-            current_statement__ = 6;
+            current_statement__ = 9;
             pos__ = (pos__ + 1);
           }
         }
@@ -8157,13 +9321,14 @@ public:
   get_param_names(std::vector<std::string>& names__, const bool
                   emit_transformed_parameters__ = true, const bool
                   emit_generated_quantities__ = true) const {
-    names__ = std::vector<std::string>{"beta_tilde", "u_delta", "tau", "aux",
-                "aux2", "beta_aux"};
+    names__ = std::vector<std::string>{"beta_tilde", "u_delta", "tau",
+                "class_mean", "class_sd", "z_class", "aux", "aux2",
+                "beta_aux"};
     if (emit_transformed_parameters__) {
       std::vector<std::string>
         temp{"log_L_ipd", "log_L_agd_arm", "eta_ipd", "f_delta", "allbeta",
              "mu", "d", "omega", "beta", "eta_agd_contrast_ii",
-             "eta_agd_contrast_bar"};
+             "eta_agd_contrast_bar", "f_class"};
       names__.reserve(names__.size() + temp.size());
       names__.insert(names__.end(), temp.begin(), temp.end());
     }
@@ -8184,6 +9349,9 @@ public:
                                                                     nX)},
                 std::vector<size_t>{static_cast<size_t>(n_delta)},
                 std::vector<size_t>{static_cast<size_t>(tau_1dim__)},
+                std::vector<size_t>{static_cast<size_t>(class_mean_1dim__)},
+                std::vector<size_t>{static_cast<size_t>(class_sd_1dim__)},
+                std::vector<size_t>{static_cast<size_t>(z_class_1dim__)},
                 std::vector<size_t>{static_cast<size_t>(n_aux)},
                 std::vector<size_t>{static_cast<size_t>(aux2_1dim__)},
                 std::vector<size_t>{static_cast<size_t>(beta_aux_1dim__),
@@ -8201,7 +9369,8 @@ public:
              std::vector<size_t>{static_cast<size_t>(beta_1dim__)},
              std::vector<size_t>{static_cast<size_t>(
                                    eta_agd_contrast_ii_1dim__)},
-             std::vector<size_t>{static_cast<size_t>(ni_agd_contrast)}};
+             std::vector<size_t>{static_cast<size_t>(ni_agd_contrast)},
+             std::vector<size_t>{static_cast<size_t>(f_class_1dim__)}};
       dimss__.reserve(dimss__.size() + temp.size());
       dimss__.insert(dimss__.end(), temp.begin(), temp.end());
     }
@@ -8237,6 +9406,18 @@ public:
     }
     for (int sym1__ = 1; sym1__ <= tau_1dim__; ++sym1__) {
       param_names__.emplace_back(std::string() + "tau" + '.' +
+        std::to_string(sym1__));
+    }
+    for (int sym1__ = 1; sym1__ <= class_mean_1dim__; ++sym1__) {
+      param_names__.emplace_back(std::string() + "class_mean" + '.' +
+        std::to_string(sym1__));
+    }
+    for (int sym1__ = 1; sym1__ <= class_sd_1dim__; ++sym1__) {
+      param_names__.emplace_back(std::string() + "class_sd" + '.' +
+        std::to_string(sym1__));
+    }
+    for (int sym1__ = 1; sym1__ <= z_class_1dim__; ++sym1__) {
+      param_names__.emplace_back(std::string() + "z_class" + '.' +
         std::to_string(sym1__));
     }
     for (int sym1__ = 1; sym1__ <= n_aux; ++sym1__) {
@@ -8297,6 +9478,10 @@ public:
       for (int sym1__ = 1; sym1__ <= ni_agd_contrast; ++sym1__) {
         param_names__.emplace_back(std::string() + "eta_agd_contrast_bar" +
           '.' + std::to_string(sym1__));
+      }
+      for (int sym1__ = 1; sym1__ <= f_class_1dim__; ++sym1__) {
+        param_names__.emplace_back(std::string() + "f_class" + '.' +
+          std::to_string(sym1__));
       }
     }
     if (emit_generated_quantities__) {
@@ -8361,6 +9546,18 @@ public:
       param_names__.emplace_back(std::string() + "tau" + '.' +
         std::to_string(sym1__));
     }
+    for (int sym1__ = 1; sym1__ <= class_mean_1dim__; ++sym1__) {
+      param_names__.emplace_back(std::string() + "class_mean" + '.' +
+        std::to_string(sym1__));
+    }
+    for (int sym1__ = 1; sym1__ <= class_sd_1dim__; ++sym1__) {
+      param_names__.emplace_back(std::string() + "class_sd" + '.' +
+        std::to_string(sym1__));
+    }
+    for (int sym1__ = 1; sym1__ <= z_class_1dim__; ++sym1__) {
+      param_names__.emplace_back(std::string() + "z_class" + '.' +
+        std::to_string(sym1__));
+    }
     for (int sym1__ = 1; sym1__ <= n_aux; ++sym1__) {
       param_names__.emplace_back(std::string() + "aux" + '.' +
         std::to_string(sym1__));
@@ -8420,6 +9617,10 @@ public:
         param_names__.emplace_back(std::string() + "eta_agd_contrast_bar" +
           '.' + std::to_string(sym1__));
       }
+      for (int sym1__ = 1; sym1__ <= f_class_1dim__; ++sym1__) {
+        param_names__.emplace_back(std::string() + "f_class" + '.' +
+          std::to_string(sym1__));
+      }
     }
     if (emit_generated_quantities__) {
       for (int sym1__ = 1; sym1__ <= shape_1dim__; ++sym1__) {
@@ -8468,10 +9669,10 @@ public:
     }
   }
   inline std::string get_constrained_sizedtypes() const {
-    return std::string("[{\"name\":\"beta_tilde\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(nX) + "},\"block\":\"parameters\"},{\"name\":\"u_delta\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(n_delta) + "},\"block\":\"parameters\"},{\"name\":\"tau\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(tau_1dim__) + "},\"block\":\"parameters\"},{\"name\":\"aux\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(n_aux) + "},\"block\":\"parameters\"},{\"name\":\"aux2\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(aux2_1dim__) + "},\"block\":\"parameters\"},{\"name\":\"beta_aux\",\"type\":{\"name\":\"matrix\",\"rows\":" + std::to_string(beta_aux_1dim__) + ",\"cols\":" + std::to_string(beta_aux_2dim__) + "},\"block\":\"parameters\"},{\"name\":\"log_L_ipd\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(ni_ipd) + "},\"block\":\"transformed_parameters\"},{\"name\":\"log_L_agd_arm\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(ni_agd_arm) + "},\"block\":\"transformed_parameters\"},{\"name\":\"eta_ipd\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(ni_ipd) + "},\"block\":\"transformed_parameters\"},{\"name\":\"f_delta\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(n_delta) + "},\"block\":\"transformed_parameters\"},{\"name\":\"allbeta\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(nX) + "},\"block\":\"transformed_parameters\"},{\"name\":\"mu\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(totns) + "},\"block\":\"transformed_parameters\"},{\"name\":\"d\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(d_1dim__) + "},\"block\":\"transformed_parameters\"},{\"name\":\"omega\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(nodesplit) + "},\"block\":\"transformed_parameters\"},{\"name\":\"beta\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(beta_1dim__) + "},\"block\":\"transformed_parameters\"},{\"name\":\"eta_agd_contrast_ii\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(eta_agd_contrast_ii_1dim__) + "},\"block\":\"transformed_parameters\"},{\"name\":\"eta_agd_contrast_bar\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(ni_agd_contrast) + "},\"block\":\"transformed_parameters\"},{\"name\":\"shape\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(shape_1dim__) + "},\"block\":\"generated_quantities\"},{\"name\":\"sdlog\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(sdlog_1dim__) + "},\"block\":\"generated_quantities\"},{\"name\":\"sigma\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(sigma_1dim__) + "},\"block\":\"generated_quantities\"},{\"name\":\"k\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(k_1dim__) + "},\"block\":\"generated_quantities\"},{\"name\":\"d_aux\",\"type\":{\"name\":\"matrix\",\"rows\":" + std::to_string(d_aux_1dim__) + ",\"cols\":" + std::to_string(d_aux_2dim__) + "},\"block\":\"generated_quantities\"},{\"name\":\"log_lik\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(log_lik_1dim__) + "},\"block\":\"generated_quantities\"},{\"name\":\"resdev\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(resdev_1dim__) + "},\"block\":\"generated_quantities\"},{\"name\":\"fitted_agd_contrast\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(ni_agd_contrast) + "},\"block\":\"generated_quantities\"},{\"name\":\"theta_bar_cum_agd_contrast\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(theta_bar_cum_agd_contrast_1dim__) + "},\"block\":\"generated_quantities\"},{\"name\":\"delta\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(n_delta) + "},\"block\":\"generated_quantities\"}]");
+    return std::string("[{\"name\":\"beta_tilde\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(nX) + "},\"block\":\"parameters\"},{\"name\":\"u_delta\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(n_delta) + "},\"block\":\"parameters\"},{\"name\":\"tau\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(tau_1dim__) + "},\"block\":\"parameters\"},{\"name\":\"class_mean\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(class_mean_1dim__) + "},\"block\":\"parameters\"},{\"name\":\"class_sd\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(class_sd_1dim__) + "},\"block\":\"parameters\"},{\"name\":\"z_class\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(z_class_1dim__) + "},\"block\":\"parameters\"},{\"name\":\"aux\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(n_aux) + "},\"block\":\"parameters\"},{\"name\":\"aux2\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(aux2_1dim__) + "},\"block\":\"parameters\"},{\"name\":\"beta_aux\",\"type\":{\"name\":\"matrix\",\"rows\":" + std::to_string(beta_aux_1dim__) + ",\"cols\":" + std::to_string(beta_aux_2dim__) + "},\"block\":\"parameters\"},{\"name\":\"log_L_ipd\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(ni_ipd) + "},\"block\":\"transformed_parameters\"},{\"name\":\"log_L_agd_arm\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(ni_agd_arm) + "},\"block\":\"transformed_parameters\"},{\"name\":\"eta_ipd\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(ni_ipd) + "},\"block\":\"transformed_parameters\"},{\"name\":\"f_delta\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(n_delta) + "},\"block\":\"transformed_parameters\"},{\"name\":\"allbeta\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(nX) + "},\"block\":\"transformed_parameters\"},{\"name\":\"mu\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(totns) + "},\"block\":\"transformed_parameters\"},{\"name\":\"d\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(d_1dim__) + "},\"block\":\"transformed_parameters\"},{\"name\":\"omega\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(nodesplit) + "},\"block\":\"transformed_parameters\"},{\"name\":\"beta\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(beta_1dim__) + "},\"block\":\"transformed_parameters\"},{\"name\":\"eta_agd_contrast_ii\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(eta_agd_contrast_ii_1dim__) + "},\"block\":\"transformed_parameters\"},{\"name\":\"eta_agd_contrast_bar\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(ni_agd_contrast) + "},\"block\":\"transformed_parameters\"},{\"name\":\"f_class\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(f_class_1dim__) + "},\"block\":\"transformed_parameters\"},{\"name\":\"shape\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(shape_1dim__) + "},\"block\":\"generated_quantities\"},{\"name\":\"sdlog\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(sdlog_1dim__) + "},\"block\":\"generated_quantities\"},{\"name\":\"sigma\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(sigma_1dim__) + "},\"block\":\"generated_quantities\"},{\"name\":\"k\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(k_1dim__) + "},\"block\":\"generated_quantities\"},{\"name\":\"d_aux\",\"type\":{\"name\":\"matrix\",\"rows\":" + std::to_string(d_aux_1dim__) + ",\"cols\":" + std::to_string(d_aux_2dim__) + "},\"block\":\"generated_quantities\"},{\"name\":\"log_lik\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(log_lik_1dim__) + "},\"block\":\"generated_quantities\"},{\"name\":\"resdev\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(resdev_1dim__) + "},\"block\":\"generated_quantities\"},{\"name\":\"fitted_agd_contrast\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(ni_agd_contrast) + "},\"block\":\"generated_quantities\"},{\"name\":\"theta_bar_cum_agd_contrast\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(theta_bar_cum_agd_contrast_1dim__) + "},\"block\":\"generated_quantities\"},{\"name\":\"delta\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(n_delta) + "},\"block\":\"generated_quantities\"}]");
   }
   inline std::string get_unconstrained_sizedtypes() const {
-    return std::string("[{\"name\":\"beta_tilde\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(nX) + "},\"block\":\"parameters\"},{\"name\":\"u_delta\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(n_delta) + "},\"block\":\"parameters\"},{\"name\":\"tau\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(tau_1dim__) + "},\"block\":\"parameters\"},{\"name\":\"aux\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(n_aux) + "},\"block\":\"parameters\"},{\"name\":\"aux2\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(aux2_1dim__) + "},\"block\":\"parameters\"},{\"name\":\"beta_aux\",\"type\":{\"name\":\"matrix\",\"rows\":" + std::to_string(beta_aux_1dim__) + ",\"cols\":" + std::to_string(beta_aux_2dim__) + "},\"block\":\"parameters\"},{\"name\":\"log_L_ipd\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(ni_ipd) + "},\"block\":\"transformed_parameters\"},{\"name\":\"log_L_agd_arm\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(ni_agd_arm) + "},\"block\":\"transformed_parameters\"},{\"name\":\"eta_ipd\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(ni_ipd) + "},\"block\":\"transformed_parameters\"},{\"name\":\"f_delta\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(n_delta) + "},\"block\":\"transformed_parameters\"},{\"name\":\"allbeta\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(nX) + "},\"block\":\"transformed_parameters\"},{\"name\":\"mu\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(totns) + "},\"block\":\"transformed_parameters\"},{\"name\":\"d\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(d_1dim__) + "},\"block\":\"transformed_parameters\"},{\"name\":\"omega\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(nodesplit) + "},\"block\":\"transformed_parameters\"},{\"name\":\"beta\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(beta_1dim__) + "},\"block\":\"transformed_parameters\"},{\"name\":\"eta_agd_contrast_ii\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(eta_agd_contrast_ii_1dim__) + "},\"block\":\"transformed_parameters\"},{\"name\":\"eta_agd_contrast_bar\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(ni_agd_contrast) + "},\"block\":\"transformed_parameters\"},{\"name\":\"shape\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(shape_1dim__) + "},\"block\":\"generated_quantities\"},{\"name\":\"sdlog\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(sdlog_1dim__) + "},\"block\":\"generated_quantities\"},{\"name\":\"sigma\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(sigma_1dim__) + "},\"block\":\"generated_quantities\"},{\"name\":\"k\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(k_1dim__) + "},\"block\":\"generated_quantities\"},{\"name\":\"d_aux\",\"type\":{\"name\":\"matrix\",\"rows\":" + std::to_string(d_aux_1dim__) + ",\"cols\":" + std::to_string(d_aux_2dim__) + "},\"block\":\"generated_quantities\"},{\"name\":\"log_lik\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(log_lik_1dim__) + "},\"block\":\"generated_quantities\"},{\"name\":\"resdev\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(resdev_1dim__) + "},\"block\":\"generated_quantities\"},{\"name\":\"fitted_agd_contrast\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(ni_agd_contrast) + "},\"block\":\"generated_quantities\"},{\"name\":\"theta_bar_cum_agd_contrast\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(theta_bar_cum_agd_contrast_1dim__) + "},\"block\":\"generated_quantities\"},{\"name\":\"delta\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(n_delta) + "},\"block\":\"generated_quantities\"}]");
+    return std::string("[{\"name\":\"beta_tilde\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(nX) + "},\"block\":\"parameters\"},{\"name\":\"u_delta\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(n_delta) + "},\"block\":\"parameters\"},{\"name\":\"tau\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(tau_1dim__) + "},\"block\":\"parameters\"},{\"name\":\"class_mean\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(class_mean_1dim__) + "},\"block\":\"parameters\"},{\"name\":\"class_sd\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(class_sd_1dim__) + "},\"block\":\"parameters\"},{\"name\":\"z_class\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(z_class_1dim__) + "},\"block\":\"parameters\"},{\"name\":\"aux\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(n_aux) + "},\"block\":\"parameters\"},{\"name\":\"aux2\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(aux2_1dim__) + "},\"block\":\"parameters\"},{\"name\":\"beta_aux\",\"type\":{\"name\":\"matrix\",\"rows\":" + std::to_string(beta_aux_1dim__) + ",\"cols\":" + std::to_string(beta_aux_2dim__) + "},\"block\":\"parameters\"},{\"name\":\"log_L_ipd\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(ni_ipd) + "},\"block\":\"transformed_parameters\"},{\"name\":\"log_L_agd_arm\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(ni_agd_arm) + "},\"block\":\"transformed_parameters\"},{\"name\":\"eta_ipd\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(ni_ipd) + "},\"block\":\"transformed_parameters\"},{\"name\":\"f_delta\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(n_delta) + "},\"block\":\"transformed_parameters\"},{\"name\":\"allbeta\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(nX) + "},\"block\":\"transformed_parameters\"},{\"name\":\"mu\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(totns) + "},\"block\":\"transformed_parameters\"},{\"name\":\"d\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(d_1dim__) + "},\"block\":\"transformed_parameters\"},{\"name\":\"omega\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(nodesplit) + "},\"block\":\"transformed_parameters\"},{\"name\":\"beta\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(beta_1dim__) + "},\"block\":\"transformed_parameters\"},{\"name\":\"eta_agd_contrast_ii\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(eta_agd_contrast_ii_1dim__) + "},\"block\":\"transformed_parameters\"},{\"name\":\"eta_agd_contrast_bar\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(ni_agd_contrast) + "},\"block\":\"transformed_parameters\"},{\"name\":\"f_class\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(f_class_1dim__) + "},\"block\":\"transformed_parameters\"},{\"name\":\"shape\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(shape_1dim__) + "},\"block\":\"generated_quantities\"},{\"name\":\"sdlog\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(sdlog_1dim__) + "},\"block\":\"generated_quantities\"},{\"name\":\"sigma\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(sigma_1dim__) + "},\"block\":\"generated_quantities\"},{\"name\":\"k\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(k_1dim__) + "},\"block\":\"generated_quantities\"},{\"name\":\"d_aux\",\"type\":{\"name\":\"matrix\",\"rows\":" + std::to_string(d_aux_1dim__) + ",\"cols\":" + std::to_string(d_aux_2dim__) + "},\"block\":\"generated_quantities\"},{\"name\":\"log_lik\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(log_lik_1dim__) + "},\"block\":\"generated_quantities\"},{\"name\":\"resdev\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(resdev_1dim__) + "},\"block\":\"generated_quantities\"},{\"name\":\"fitted_agd_contrast\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(ni_agd_contrast) + "},\"block\":\"generated_quantities\"},{\"name\":\"theta_bar_cum_agd_contrast\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(theta_bar_cum_agd_contrast_1dim__) + "},\"block\":\"generated_quantities\"},{\"name\":\"delta\",\"type\":{\"name\":\"vector\",\"length\":" + std::to_string(n_delta) + "},\"block\":\"generated_quantities\"}]");
   }
   // Begin method overload boilerplate
   template <typename RNG> inline void
@@ -8480,12 +9681,13 @@ public:
               emit_transformed_parameters = true, const bool
               emit_generated_quantities = true, std::ostream*
               pstream = nullptr) const {
-    const size_t num_params__ = (((((nX + n_delta) + tau_1dim__) + n_aux) +
+    const size_t num_params__ = ((((((((nX + n_delta) + tau_1dim__) +
+      class_mean_1dim__) + class_sd_1dim__) + z_class_1dim__) + n_aux) +
       aux2_1dim__) + (beta_aux_1dim__ * beta_aux_2dim__));
     const size_t num_transformed = emit_transformed_parameters *
-      (((((((((((ni_ipd + ni_agd_arm) + ni_ipd) + n_delta) + nX) + totns) +
+      ((((((((((((ni_ipd + ni_agd_arm) + ni_ipd) + n_delta) + nX) + totns) +
       d_1dim__) + nodesplit) + beta_1dim__) + eta_agd_contrast_ii_1dim__) +
-      ni_agd_contrast));
+      ni_agd_contrast) + f_class_1dim__));
     const size_t num_gen_quantities = emit_generated_quantities *
       ((((((((((shape_1dim__ + sdlog_1dim__) + sigma_1dim__) + k_1dim__) +
       (d_aux_1dim__ * d_aux_2dim__)) + log_lik_1dim__) + resdev_1dim__) +
@@ -8504,12 +9706,13 @@ public:
               emit_transformed_parameters = true, bool
               emit_generated_quantities = true, std::ostream*
               pstream = nullptr) const {
-    const size_t num_params__ = (((((nX + n_delta) + tau_1dim__) + n_aux) +
+    const size_t num_params__ = ((((((((nX + n_delta) + tau_1dim__) +
+      class_mean_1dim__) + class_sd_1dim__) + z_class_1dim__) + n_aux) +
       aux2_1dim__) + (beta_aux_1dim__ * beta_aux_2dim__));
     const size_t num_transformed = emit_transformed_parameters *
-      (((((((((((ni_ipd + ni_agd_arm) + ni_ipd) + n_delta) + nX) + totns) +
+      ((((((((((((ni_ipd + ni_agd_arm) + ni_ipd) + n_delta) + nX) + totns) +
       d_1dim__) + nodesplit) + beta_1dim__) + eta_agd_contrast_ii_1dim__) +
-      ni_agd_contrast));
+      ni_agd_contrast) + f_class_1dim__));
     const size_t num_gen_quantities = emit_generated_quantities *
       ((((((((((shape_1dim__ + sdlog_1dim__) + sigma_1dim__) + k_1dim__) +
       (d_aux_1dim__ * d_aux_2dim__)) + log_lik_1dim__) + resdev_1dim__) +
